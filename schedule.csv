@@ -1,0 +1,16 @@
+﻿week,date,pres1,task,case_study,datacamp
+1,8/31/21,PS_01,TK_01,CS_01,
+2,9/7/21,PS_02,TK_02,CS_02,Introduction to R
+3,9/14/21,PS_03_Git,TK_03,CS_03,Introduction to Data Visualization with ggplot
+4,9/21/21,PS_04,TK_04,CS_04,Introduction to the Tidyverse
+5,9/28/21,PS_05,TK_05,CS_05,Communicating with Data in the Tidyverse
+6,10/5/21,PS_06_raster,TK_06,CS_06,Visualizing Geospatial Data in R
+7,10/12/21,PS_07_help,TK_07,CS_07,Spatial Analysis in R with sf and raster
+8,10/19/21,PS_08_repro,TK_08,CS_08,Interactive maps with leaflet in R
+9,10/26/21,PS_09_weather,TK_09,CS_09,Intermediate Data Visualization with ggplot2
+10,11/2/21,PS_10_RS,TK_10,CS_10,Exploratory Data Analysis in R: Case Study
+11,11/9/21,PS_11_ParallelProcessing,TK_11,CS_11,
+12,11/16/21,PS_12,TK_12,CS_12,
+13,11/23/21,,TK_13,,
+14,11/30/21,PS_13,TK_14,,
+15,12/7/21,,TK_15,TK_15,

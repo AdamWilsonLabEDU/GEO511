@@ -1,0 +1,23 @@
+---
+title: Spatial Vector Data
+week: 5
+type: Task
+subtitle: Vector data processing. Integrating ‘traditional GIS’ analyses with statistical modelling.  Data intersection, overlays, zonal statistics
+reading:
+  - Chapters [1-2 in GCR](https://geocompr.robinlovelace.net/) 
+tasks:
+  - Keep thinking about your projects!
+---
+
+# Reading
+
+```{r reading,results='asis',echo=F}
+md_bullet(rmarkdown::metadata$reading)
+```
+
+
+# Tasks
+
+```{r tasks,results='asis',echo=F}
+md_bullet(rmarkdown::metadata$tasks)
+```

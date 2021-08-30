@@ -1,0 +1,26 @@
+---
+title: Data Wrangling 2 
+week: 4
+type: Task
+subtitle: Joining data
+presentation: PS_04_join.html
+reading:
+  - Chapters [11-13 in R4DS](http://r4ds.had.co.nz)
+tasks:
+  - Confirm that all tasks and case studies you have completed have been committed in your course repository and pushed to Github. 
+  - Look ahead at Task 6 (Project Proposal) and start thinking about possibilities
+  - Post at least one rough project idea (with links, etc.) to Slack in the Projects Channel.
+---
+
+# Reading
+
+```{r reading,results='asis',echo=F}
+md_bullet(rmarkdown::metadata$reading)
+```
+
+
+# Tasks
+
+```{r tasks,results='asis',echo=F}
+md_bullet(rmarkdown::metadata$tasks)
+```

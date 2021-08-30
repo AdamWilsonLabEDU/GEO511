@@ -1,0 +1,29 @@
+---
+title:  Project Workshop
+subtitle:  
+week: 14
+type: Task
+reading:
+  - 
+tasks:
+   - Continue working on final project
+   - Come to class with any questions
+---
+
+
+This week we will focus on the development of your final projects.
+
+
+
+```{r, echo=FALSE, message=FALSE, results='hide', purl=FALSE}
+source("functions.R")
+source("knitr_header.R")
+```
+
+# Tasks
+
+```{r reading,results='asis',echo=F}
+md_bullet(rmarkdown::metadata$tasks)
+```
+
+

@@ -1,0 +1,148 @@
+---
+title: "Course Schedule"
+output:
+  html_document:
+    toc: true
+    toc_depth: 1
+---
+
+```{r, echo=FALSE, message=FALSE, results='hide', purl=FALSE}
+library(tidyverse) 
+source("functions.R")
+
+yamls=append(
+  yaml_dir(),
+  yaml_dir(dir="pres",recursive=T))
+
+names=sapply(yamls,function(x) x$name)
+
+#weeks=read_csv("schedule.csv")
+
+sched=read_csv("schedule.csv")
+
+```
+
+Course content is designed to be flexible to accommodate student interest and abilities.  The order and timing of course topics may change as the semester progresses.  
+
+**Readings**
+
+We will refer to the following texts (all available online):
+
+* R4DS [_R for Data Science_ by Garrett Grolemund and Hadley Wickham](http://r4ds.had.co.nz)
+* GCR  [_Geocomputation with R_ by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow (CRC Press, 2018)](https://geocompr.robinlovelace.net/)
+* HG [Happy Git with R](https://happygitwithr.com/)
+
+
+## Schedule
+
+```{r table1,results='asis',echo=F}
+cat("| Week | Date | Presentation | Tasks  |  Case Study | [DataCamp](https://www.datacamp.com/enterprise/geo511-fall-2020) | \n")
+cat("|:-|:-|:-:|:---:|:---:|:---:|\n") 
+
+not_na_exists<-function(x){
+  if(is.na(x)) return("")
+  if(!file.exists(x)) return("")
+  else 
+    return(x)
+}
+
+# link yamls to sched table by file name
+yamlname=sapply(yamls,function(x) x$name)
+sched$task_yaml=match(sched$task,yamlname)
+sched$case_yaml=match(sched$case_study,yamlname)
+sched$pres1_yaml=match(sched$pres1,yamlname)
+
+for(i in sched$week){
+  # task=ifelse(!is.na(sched$task[i]),paste0(sched$task[i],".Rmd"),NA)%>%
+  #   not_na_exists()
+  # case=ifelse(!is.na(sched$case_study[i]),
+  #             paste0(sched$case_study[i],".Rmd"),NA)%>%
+  #   not_na_exists()
+  # pres1=ifelse(!is.na(sched$pres1[i]),
+  #              paste0("pres/",sched$pres1[i],".html"),NA)%>%
+  #   not_na_exists()
+  # pres2=ifelse(!is.na(sched$pres1[i]),
+  #              paste0("pres/",sched$pres2[i],".html"),NA)%>%
+  #   not_na_exists()
+  
+  
+  # ttask=ifelse(!is.na(task),yaml_extract(task),"")
+  # tcase=ifelse(!is.na(case),yaml_extract(case),"")
+
+  pres1=ifelse(
+    grepl("http",sched$pres1[i]),
+    sched$pres1[i],
+    ifelse(
+      is.null(yamls[[sched$pres1_yaml[i]]]$url),
+      NA,
+      yamls[[sched$pres1_yaml[i]]]$url))
+ 
+  tpres_tb=ifelse(!is.na(pres1),
+                   paste0( "[<i class='fas fa-desktop'>   </i>](",
+                   pres1,"){target='_blank'}"),"")
+ 
+  ttask_tb=paste0("[",yamls[[sched$task_yaml[i]]]$title,"](",
+                  yamls[[sched$task_yaml[i]]]$url,")")
+ 
+  tcase_tb=paste0("[",yamls[[sched$case_yaml[i]]]$title,"](",
+                  yamls[[sched$case_yaml[i]]]$url,")")
+  
+  
+  cat(paste(
+    "| ",sched$week[i],
+    "| ",sched$date[i],
+    "| ",tpres_tb,
+    "| ",ttask_tb,
+    "| ",tcase_tb,
+    "| ",ifelse(!is.na(sched$datacamp[i]),sched$datacamp[i],""),
+    "|\n "
+    ))
+}
+```
+
+```{r table,results='asis',echo=F,eval=F}
+# This chunk prints an index of all the task titles along with a preview of the sub-tasks 
+cat("| Week | Date | Presentation | Tasks  |  Case Study | [Package Present](PackageIntro.html) |\n")
+cat("|:--|:--|:-:|:-:|:-:|:---|:-:|\n") 
+for(i in weeks$week){
+  #print(i)
+  # Find items for that week
+yamlweeks=sapply(yamls,function(x) x$week)
+yamltype=sapply(yamls,function(x) x$type)
+
+wtasks=yamls[yamlweeks==i & yamltype=="Task"]
+wcs=yamls[yamlweeks==i & yamltype=="Case Study"]
+wpres=yamls[yamlweeks==i & yamltype=="Presentation"]
+
+wtasks2=ifelse(length(wtasks)==1, 
+               paste0("[",wtasks[[1]]$title,"](",wtasks[[1]]$url,")"), 
+               " - ")
+
+wcs2=ifelse(length(wcs)==1, 
+               paste0("[",wcs[[1]]$title,"](",wcs[[1]]$url,")"), 
+               " - ")
+wpres2=ifelse(length(wpres)==1, 
+               paste0( "[<i class='fas fa-desktop'>    </i>](",
+                       wpres[[1]]$url,"){target='_blank'}"), 
+               " - ")
+
+  cat(paste(
+    "| ",weeks$week[i],
+    "| ",weeks$date[i],
+#    wreadings,
+    "| ",wpres2,
+    "| ",wtasks2,
+    "| ",wcs2,
+    "| ",ifelse(is.na(weeks$package[i]),"",weeks$package[i]),
+    "|\n "
+    ))
+}
+```
+
+## Student Leadership and Presentations
+
+[Click here to edit the table below](https://docs.google.com/spreadsheets/d/1hH61DFHifYLdrbH3RQTIkR3zmo0ImpUg0tdHdBQF3Vw/edit?usp=sharing)
+
+
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vSm_SdDqTPR5j7dXg_VeaUaKSxCVevvytsWQYKcT_kBCgOkKMsouHfafZ6wtbVjXaUSYxODReZgxAC3/pubhtml?gid=868447735&amp;single=true&amp;widget=true&amp;headers=false" style="height: 1000px; width: 100%;"></iframe>
+

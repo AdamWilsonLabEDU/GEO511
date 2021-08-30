@@ -1,0 +1,24 @@
+---
+title:  Spatial Raster Data
+week: 6
+type: Task
+subtitle: Gridded spatial data
+presentation: PS_06_raster.html
+reading:
+  - Chapters [3-4 in GCR](https://geocompr.robinlovelace.net/) 
+tasks:
+  - Take 10 deep breaths.  You are doing ok!
+---
+
+# Reading
+
+```{r reading,results='asis',echo=F}
+md_bullet(rmarkdown::metadata$reading)
+```
+
+
+# Tasks
+
+```{r tasks,results='asis',echo=F}
+md_bullet(rmarkdown::metadata$tasks)
+```
