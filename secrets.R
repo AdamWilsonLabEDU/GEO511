@@ -1,2 +1,2 @@
-twitter api key
+#twitter api key
 sys.Setenv(TWITTERKEY="jfjkdal;fjkdl;afjdksa")

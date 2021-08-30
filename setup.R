@@ -2,7 +2,7 @@
 pres=list.files("pres",full=T,pattern="Rmd",recursive=T)
 lapply(pres,function(x) rmarkdown::render(x))
 
-lapply(pres[3],function(x) rmarkdown::render(x), params = yaml::read_yaml("pres/_site.yml"))
+#lapply(pres[3],function(x) rmarkdown::render(x), params = yaml::read_yaml("pres/_site.yml"))
 
 if(F){
 system("cp -R pres/ docs/pres/")

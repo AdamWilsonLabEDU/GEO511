@@ -1,0 +1,6 @@
+## Course Schedule
+<iframe
+  src="http://wilsonlab.io/GEO511/Schedule.html"
+  width="100%" height="800">
+</iframe>
+[source](http://wilsonlab.io/GEO511/Schedule.html)
