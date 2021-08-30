@@ -19,7 +19,6 @@
 #' 
 
 #' 
-#' ```
 #' # Reading
 ## ----reading,results='asis',echo=F--------------------------------------------
 md_bullet(rmarkdown::metadata$reading)

@@ -25,7 +25,6 @@ source("functions.R")
 source("knitr_header.R")
 ```
 
-```
 # Reading
 ```{r reading,results='asis',echo=F}
 md_bullet(rmarkdown::metadata$reading)
