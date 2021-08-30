@@ -6,7 +6,7 @@ title: Syllabus
 This course introduces students to the fundamentals of spatial data science. The first part of the course introduces students to a high-level programming language (currently R).  The second part covers methods to incorporate spatial data into data science workflows. The third part addresses the generation of dynamic, reproducible research output including figures, maps, manuscripts, and websites. The course includes a project for students to conduct spatial analysis related to their research. Familiarity with basic GIS concepts (raster, vector, geographic projection, etc.) will be assumed, but no prior coding experience is required.  
 
 # Logistics
-Professor Adam M. Wilson ([wilsonlab.io](wilsonlab.io))
+Professor Adam M. Wilson ([http://wilsonlab.io](wilsonlab.io))
 
 Office Hours: Thursdays 3:30-4:30pm
 
@@ -17,7 +17,7 @@ Tuesdays/Thursdays 9:35-10:55am.
 The course will focus on programming in the R language. Typical class sessions will consist of a short (<30 minute) lecture followed by interactive exercises and activities.   All class activities will use [RStudio](rstudio.com). 
 
 ## Course Communication (UBLearns & Slack)
-Course announcements and other materials will be distributed through [UBLearns](https://ublearns.buffalo.edu) and/or our [Slack Channel](http://ubspatialdatascience.slack.com).  Please check the sites regularly (or enable notifications).  
+Course announcements and other materials will be distributed through [UBLearns](https://ublearns.buffalo.edu) and/or our [Slack Channel](https://join.slack.com/t/2021spatialda-dba8777/shared_invite/zt-uyw8rbz8-jxlKule2U6ChR3JRmK8a_A).  Please check the sites regularly (or enable notifications).  
 
 ## Computer requirements
 During the course we will complete class exercises on your personal laptop (under any Mac, Linux, or Windows). If you do not have access to a laptop, please let the professor know as soon as possible.  
@@ -101,7 +101,7 @@ glevel <- tibble(Grade = c("A", "A-", "B+", "B", "B-", "C", "C-", "D"),
        `Class Tasks` = c(12, 11, 10, 9, 8, 7, 6, 5),
        `Case Studies` = c(11, 10, 9, 8, 7, 6, 5, 4),
        `Team Leader` = c(3, 3, 2, 2, 1, 0, 0, 0),
-       `Data Camp` = c(10, 10, 9, 9, 8, 7, 6, 5),
+       `Data Camp` = c(9, 9, 8, 8, 7, 7, 6, 5),
        `Resource Presentation` = c("yes", "yes", "yes", "no", "no", 
                                    "no", "no", "no"),
        `Semester Project` = c("yes", "yes", "yes", "no", "no", 
@@ -153,7 +153,7 @@ We will read parts of [_R for Data Science_](http://r4ds.had.co.nz/) and [_Geoco
 There is not a strict definition of _on-time_ in this course.  In general, on-time means that you have come to class with the reading and tasks complete so that you can actively participate in the conversation. You have to define **prepared** for class.  You should note that the workload in this course does not allow you to fall behind.  If you blow off a week, it will be challenging to catch back up.
 
 ## Attendance Policy
-This class will include ample opportunities for in-class discussion and you are expected to attend every class session unless you have a valid excuse (as defined by the [University at Buffalo’s class attendance policy](http://undergrad-catalog.buffalo.edu/policies/course/attendance.html):
+This class will include ample opportunities for in-class discussion and you should attend every class session unless you have a valid excuse (as defined by the [University at Buffalo’s class attendance policy](http://undergrad-catalog.buffalo.edu/policies/course/attendance.html):
 
 > Students may be justifiably absent from classes due to religious observances, illness documented by a physician or other appropriate health care professional, conflicts with university-sanctioned activities documented by an appropriate university administrator, public emergencies, and documented personal or family emergencies. The student is responsible for notifying the instructor in writing with as much advance notice as possible. 
 

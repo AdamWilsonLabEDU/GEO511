@@ -1,3 +1,5 @@
+library(knitr); library(rmarkdown)
+
 knitr::opts_chunk$set(cache=T,
                       fig.width=7,
                       fig.height=4,

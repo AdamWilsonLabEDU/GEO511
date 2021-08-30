@@ -13,7 +13,7 @@
 
 <title>Tasklist</title>
 
-<script src="site_libs/header-attrs-2.9/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -372,7 +372,7 @@ div.tocify {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="https://github.com/adammwilson/RDataScience">
+  <a href="https://github.com/AdamWilsonLabEDU/GEO511">
     <span class="fa fa-github fa-lg"></span>
      
   </a>
@@ -393,18 +393,46 @@ div.tocify {
 
 <p>Below are a set of tasks that we will work on in class (either alone or in small groups).</p>
 <hr />
-<div id="tk_01-getting-started" class="section level2">
-<h2><a href="./TK_01.html">TK_01 : Getting Started</a></h2>
-<a class="btn btn-link" href="./TK_01.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i1">Preview Readings &amp; Tasks </button>
+<div id="cs_01-your-first-script" class="section level2">
+<h2><a href="./CS_01.html">CS_01 : Your first script</a></h2>
+<p>Write a script that reads in data, calculates a statistic, and makes a plot.</p>
+<a class="btn btn-link" href="./CS_01.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i1">Preview Readings &amp; Tasks </button>
 </div>
 <div id="i1" class="collapse">
 <div id="readings" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">1-2 in R4DS</a></li>
+<li>Datacamp’s <a href="https://www.datacamp.com/community/tutorials/make-histogram-basic-r"><em>How to Make a Histogram with Basic R</em></a></li>
+<li>Datacamp’s <a href="https://www.datacamp.com/community/tutorials/make-histogram-ggplot2"><em>How to Make a Histogram with ggplot</em></a></li>
 </ul>
 </div>
 <div id="tasks" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Create a new R script in RStudio (File-&gt;New File-&gt;R Script)</li>
+<li>Save this file somewhere you will find it later</li>
+<li>In your new script, load the iris dataset with <code>data(iris)</code></li>
+<li>Read the help file for the function that calculates the mean (you can run <code>?mean</code> or use the GUI).</li>
+<li>Calculate the mean of the <code>Petal.Length</code> field and save it as an object named <code>petal_length_mean</code></li>
+<li>Plot the distribution of the <code>Petal.Length</code> column as a histogram (<code>?hist</code>)</li>
+<li>Save the script</li>
+<li>Click ‘Source’ in RStudio to run your script from beginning to end</li>
+</ul>
+</div>
+</div>
+<hr />
+<div id="tk_01-getting-started" class="section level2">
+<h2><a href="./TK_01.html">TK_01 : Getting Started</a></h2>
+<a class="btn btn-link" href="./TK_01.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i2">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i2" class="collapse">
+<div id="readings-1" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">1-2 in R4DS</a></li>
+</ul>
+</div>
+<div id="tasks-1" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Read the <a href="Syllabus.html">course syllabus</a> and make sure you understand our class routine and grading</li>
@@ -417,19 +445,47 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_02-my-grandfather-says-climate-is-cooling" class="section level2">
+<h2><a href="./CS_02.html">CS_02 : My grandfather says climate is cooling</a></h2>
+<p>Import data and plot a timeseries</p>
+<a class="btn btn-link" href="./CS_02.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i3">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i3" class="collapse">
+<div id="readings-2" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>The <a href="https://ggplot2.tidyverse.org/">ggplot2 vignette</a></li>
+</ul>
+</div>
+<div id="tasks-2" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Create a new R script in RStudio</li>
+<li>Load data from a comma-separated-values formatted text file hosted on a website</li>
+<li>Graph the annual mean temperature in June, July and August (<code>JJA</code>) using ggplot</li>
+<li>Add a smooth line with <code>geom_smooth()</code></li>
+<li>Add informative axis labels using <code>xlab()</code> and <code>ylab()</code> including <a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show.cgi?id=425003010120&amp;dt=1&amp;ds=5">units</a></li>
+<li>Add a graph title with <code>ggtitle()</code></li>
+<li>Save a graphic to a png file using <code>png()</code> and <code>dev.off()</code> OR <a href="https://ggplot2.tidyverse.org/reference/ggsave.html"><code>ggsave</code></a></li>
+<li>Save the script</li>
+<li>Click ‘Source’ in RStudio to run the script from beginning to end to re-run the entire process</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_02-graphics-background-and-getting-started-with-rstudio" class="section level2">
 <h2><a href="./TK_02.html">TK_02 : Graphics Background and Getting started with RStudio</a></h2>
-<a class="btn btn-link" href="./TK_02.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i2">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_02.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i4">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i2" class="collapse">
-<div id="readings-1" class="section level2">
+<div id="i4" class="collapse">
+<div id="readings-3" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="http://r4ds.had.co.nz">3 in R4DS</a></li>
 <li>Chapter <a href="http://r4ds.had.co.nz/workflow-projects.html" target="blank">8 R for Data Science - Projects</a></li>
 </ul>
 </div>
-<div id="tasks-1" class="section level2">
+<div id="tasks-3" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Watch <a href="https://youtu.be/fSgEeI2Xpdc" target="blank">John Rauser Talk</a></li>
@@ -439,13 +495,38 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_03-wealth-over-time" class="section level2">
+<h2><a href="./CS_03.html">CS_03 : Wealth over time</a></h2>
+<p>Data wrangling plus more advanced ggplot</p>
+<a class="btn btn-link" href="./CS_03.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i5">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i5" class="collapse">
+<div id="readings-4" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>The <a href="https://ggplot2.tidyverse.org/" target="blank">ggplot2 vignette</a></li>
+<li>R4DS <a href="http://r4ds.had.co.nz/data-visualisation.html" target="blank">Chapter 3 - Data visualization</a></li>
+<li>The <a href="https://youtu.be/OwII-dwh-bk" target="blank">Hans Rosling The River of Myths</a></li>
+<li>Watch the <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen" target="blank">Hons Rosling video</a></li>
+</ul>
+</div>
+<div id="tasks-4" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Recreate layered graphics with ggplot including raw and transformed data</li>
+<li>Save graphical output as a .png file</li>
+<li>Save your script as a .R or .Rmd in your course repository</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_03-git-repository" class="section level2">
 <h2><a href="./TK_03.html">TK_03 : Git Repository</a></h2>
 <p>Start using Github to manage course materials</p>
-<a class="btn btn-link" href="./TK_03.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i3">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_03.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i6">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i3" class="collapse">
-<div id="readings-2" class="section level2">
+<div id="i6" class="collapse">
+<div id="readings-5" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="http://r4ds.had.co.nz" target="blank">4-5 in R4DS</a></li>
@@ -453,7 +534,7 @@ div.tocify {
 <li>Chapters <a href="http://happygitwithr.com" target="blank">13-15 in Happy Git and Github for the useR - Installation</a></li>
 </ul>
 </div>
-<div id="tasks-2" class="section level2">
+<div id="tasks-5" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>RStudio and <a href="https://www.youtube.com/watch?v=E2d91v1Twcc" target="blank">the Git GUI</a></li>
@@ -472,19 +553,41 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_04-farthest-airport-from-new-york-city" class="section level2">
+<h2><a href="./CS_04.html">CS_04 : Farthest airport from New York City</a></h2>
+<p>Joining Relational Data</p>
+<a class="btn btn-link" href="./CS_04.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i7">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i7" class="collapse">
+<div id="readings-6" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>R4DS <a href="http://r4ds.had.co.nz/relational-data.html" target="blank">Chapter 13 - Relational Data</a></li>
+</ul>
+</div>
+<div id="tasks-6" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Join two datasets using a common column</li>
+<li>Answer a question that requires understanding how multiple tables are related</li>
+<li>Save your script as a .R or .Rmd in your course repository</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_04-data-wrangling-2" class="section level2">
 <h2><a href="./TK_04.html">TK_04 : Data Wrangling 2</a></h2>
 <p>Joining data</p>
-<a class="btn btn-link" href="./TK_04.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i4">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_04.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i8">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i4" class="collapse">
-<div id="readings-3" class="section level2">
+<div id="i8" class="collapse">
+<div id="readings-7" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="http://r4ds.had.co.nz">11-13 in R4DS</a></li>
 </ul>
 </div>
-<div id="tasks-3" class="section level2">
+<div id="tasks-7" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Confirm that all tasks and case studies you have completed have been committed in your course repository and pushed to Github.</li>
@@ -494,19 +597,42 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_05-beware-the-canadians" class="section level2">
+<h2><a href="./CS_05.html">CS_05 : Beware the Canadians!</a></h2>
+<p>Working with Spatial Data and the sf package</p>
+<a class="btn btn-link" href="./CS_05.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i9">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i9" class="collapse">
+<div id="readings-8" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>The <a href="https://r-spatial.github.io/sf/" target="blank">Spatial Features Package (sf)</a></li>
+</ul>
+</div>
+<div id="tasks-8" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Reproject spatial data using <code>st_transform()</code></li>
+<li>Perform spatial operations on spatial data (e.g. intersection and buffering)</li>
+<li>Generate a polygon that includes all land in NY that is within 10km of the Canadian border and calculate the area</li>
+<li>Save your script as a .R or .Rmd in your course repository</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_05-spatial-vector-data" class="section level2">
 <h2><a href="./TK_05.html">TK_05 : Spatial Vector Data</a></h2>
 <p>Vector data processing. Integrating ‘traditional GIS’ analyses with statistical modelling. Data intersection, overlays, zonal statistics</p>
-<a class="btn btn-link" href="./TK_05.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i5">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_05.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i10">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i5" class="collapse">
-<div id="readings-4" class="section level2">
+<div id="i10" class="collapse">
+<div id="readings-9" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="https://geocompr.robinlovelace.net/">1-2 in GCR</a></li>
 </ul>
 </div>
-<div id="tasks-4" class="section level2">
+<div id="tasks-9" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Keep thinking about your projects!</li>
@@ -514,19 +640,43 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_06-find-hottest-country-on-each-continent" class="section level2">
+<h2><a href="./CS_06.html">CS_06 : Find hottest country on each continent</a></h2>
+<p>Use sf and raster to quantify maximum temperature for each country and then identify the hottest one on each continent.</p>
+<a class="btn btn-link" href="./CS_06.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i11">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i11" class="collapse">
+<div id="readings-10" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>Raster Vector Interactions <a href="https://geocompr.robinlovelace.net/geometric-operations.html#raster-vector" target="blank">GCR</a></li>
+</ul>
+</div>
+<div id="tasks-10" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Calculate annual maximum temperatures from a monthly spatio-temporal dataset</li>
+<li>Remove Antarctica from the <code>world</code> dataset</li>
+<li>Summarize raster values within polygons</li>
+<li>Generate a summary figure and table.</li>
+<li>Save your script as a .R or .Rmd in your course repository</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_06-spatial-raster-data" class="section level2">
 <h2><a href="./TK_06.html">TK_06 : Spatial Raster Data</a></h2>
 <p>Gridded spatial data</p>
-<a class="btn btn-link" href="./TK_06.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i6">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_06.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i12">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i6" class="collapse">
-<div id="readings-5" class="section level2">
+<div id="i12" class="collapse">
+<div id="readings-11" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="https://geocompr.robinlovelace.net/">3-4 in GCR</a></li>
 </ul>
 </div>
-<div id="tasks-5" class="section level2">
+<div id="tasks-11" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Take 10 deep breaths. You are doing ok!</li>
@@ -534,18 +684,43 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_07-getting-help" class="section level2">
+<h2><a href="./CS_07.html">CS_07 : Getting Help!</a></h2>
+<p>Learning more about finding help</p>
+<a class="btn btn-link" href="./CS_07.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i13">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i13" class="collapse">
+<div id="readings-12" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>How to <a href="http://adv-r.had.co.nz/Reproducibility.html">write a reproducible example</a></li>
+<li>Using <a href="https://reprex.tidyverse.org/">Reprex package</a></li>
+</ul>
+</div>
+<div id="tasks-12" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Learn how to read R help files effectively</li>
+<li>Learn how to search for help</li>
+<li>Learn how to create a Minimum Working Example (MWE)</li>
+<li>Debug existing code</li>
+<li>Save your reprex to your course repository as an html file using Export -&gt; “Save As Webpage” in the RStudio “Viewer” Tab.</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_07-project-proposal" class="section level2">
 <h2><a href="./TK_07.html">TK_07 : Project Proposal</a></h2>
-<a class="btn btn-link" href="./TK_07.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i7">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_07.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i14">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i7" class="collapse">
-<div id="readings-6" class="section level2">
+<div id="i14" class="collapse">
+<div id="readings-13" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="https://geocompr.robinlovelace.net/">3-4 in GCR</a></li>
 </ul>
 </div>
-<div id="tasks-6" class="section level2">
+<div id="tasks-13" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Complete project proposal and upload .Rmd and .md to Github</li>
@@ -554,13 +729,34 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_08-one-script-many-products" class="section level2">
+<h2><a href="./CS_08.html">CS_08 : One Script, Many Products</a></h2>
+<p>RMarkdown to create dynamic research outputs. Publishing to github/word/html/etc</p>
+<a class="btn btn-link" href="./CS_08.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i15">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i15" class="collapse">
+<div id="readings-14" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>Browse website about <a href="https://rmarkdown.rstudio.com/index.html">RMarkdown</a></li>
+<li>Browse <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown, the Definitive Guide</a></li>
+</ul>
+</div>
+<div id="tasks-14" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Build a RMarkdown document that downloads a dataset, produces one graph and one table, and exports to four different formats (HTML, GitHub Markdown, Word, Powerpoint).</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_08-create-final-project-webpage" class="section level2">
 <h2><a href="./TK_08.html">TK_08 : Create Final Project Webpage</a></h2>
 <p>Data I/O. RMarkdown to create dynamic research outputs. Publishing to github/word/html/etc</p>
-<a class="btn btn-link" href="./TK_08.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i8">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_08.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i16">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i8" class="collapse">
-<div id="readings-7" class="section level2">
+<div id="i16" class="collapse">
+<div id="readings-15" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="http://r4ds.had.co.nz">11, 26-30 in R4DS</a></li>
@@ -568,7 +764,7 @@ div.tocify {
 <li>Browse details about creating <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown Websites</a></li>
 </ul>
 </div>
-<div id="tasks-7" class="section level2">
+<div id="tasks-15" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Create repository for final project</li>
@@ -579,13 +775,36 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_09-tracking-hurricanes" class="section level2">
+<h2><a href="./CS_09.html">CS_09 : Tracking Hurricanes!</a></h2>
+<p>Analyze historical storm data from the NOAA API</p>
+<a class="btn btn-link" href="./CS_09.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i17">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i17" class="collapse">
+<div id="readings-16" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>Overview of the <a href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data-access">International Best Track Archive for Climate Stewardship (IBTrACS)</a></li>
+<li>Performing <a href="https://r-spatial.github.io/sf/reference/st_join.html">Spatial Joins with sf</a></li>
+</ul>
+</div>
+<div id="tasks-16" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Write a .Rmd script to perform the following tasks</li>
+<li>Use an API to access NOAA Storm data over the web</li>
+<li>Intersect the storms with US states to quantify how many storms in the database have hit each state.</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_09-apis-time-series-and-weather-data" class="section level2">
 <h2><a href="./TK_09.html">TK_09 : APIs, time-series, and weather Data</a></h2>
 <p>Processing daily weather data from NOAA</p>
-<a class="btn btn-link" href="./TK_09.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i9">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_09.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i18">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i9" class="collapse">
-<div id="readings-8" class="section level2">
+<div id="i18" class="collapse">
+<div id="readings-17" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Overview of the <a href="https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn">GHCN Dataset</a></li>
@@ -593,7 +812,7 @@ div.tocify {
 <li>Optional DataCamp course <a href="https://www.datacamp.com/courses/working-with-web-data-in-r">Working with Web Data in R</a></li>
 </ul>
 </div>
-<div id="tasks-8" class="section level2">
+<div id="tasks-17" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Complete the Case Study for this week.</li>
@@ -601,19 +820,38 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_10-satellite-remote-sensing" class="section level2">
+<h2><a href="./CS_10.html">CS_10 : Satellite Remote Sensing</a></h2>
+<p>Analyze Satellite Data</p>
+<a class="btn btn-link" href="./CS_10.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i19">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i19" class="collapse">
+<div id="readings-18" class="section level2">
+<h2>## Readings</h2>
+</div>
+<div id="tasks-18" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Extract a timeseries from a single location in a netcdf file (part 1)</li>
+<li>Calculate a monthly climatology from a weekely timeseries (part 2)</li>
+<li>Summarize Land Surface Temperature by Land Cover (part 3)</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_10-remote-sensing" class="section level2">
 <h2><a href="./TK_10.html">TK_10 : Remote Sensing</a></h2>
 <p>Processing MODIS data from NASA</p>
-<a class="btn btn-link" href="./TK_10.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i10">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_10.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i20">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i10" class="collapse">
-<div id="readings-9" class="section level2">
+<div id="i20" class="collapse">
+<div id="readings-19" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>NULL</li>
 </ul>
 </div>
-<div id="tasks-9" class="section level2">
+<div id="tasks-19" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Look through this week’s case study <a href="CS_10.html">processing MODIS RS data</a></li>
@@ -623,19 +861,43 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_11-parallel-computing-with-r" class="section level2">
+<h2><a href="./CS_11.html">CS_11 : Parallel Computing with R</a></h2>
+<p>Write a parallel for loop</p>
+<a class="btn btn-link" href="./CS_11.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i21">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i21" class="collapse">
+<div id="readings-20" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>Parallel <a href="https://link.springer.com/chapter/10.1007/978-3-642-13872-0_64">Computing with the R Language in a Supercomputing Environment</a></li>
+<li>CRAN Task View <a href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">High Performance and Parallel Computing with R</a></li>
+</ul>
+</div>
+<div id="tasks-20" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Download spatial data from the U.S. Census</li>
+<li>Write a parallel <code>foreach()</code> loop to generate a point representing each person in each census polygon (block/tract)</li>
+<li>Set the output of the <code>foreach()</code> funtion to return a spatial (<code>sf</code>) object</li>
+<li>Make a ‘dot map’ of the racial distribution in Buffalo, NY.</li>
+</ul>
+</div>
+</div>
+<hr />
 <div id="tk_11-project-first-draft" class="section level2">
 <h2><a href="./TK_11.html">TK_11 : Project First Draft</a></h2>
 <p>Submit the first draft of your project for peer review</p>
-<a class="btn btn-link" href="./TK_11.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i11">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_11.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i22">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i11" class="collapse">
-<div id="readings-10" class="section level2">
+<div id="i22" class="collapse">
+<div id="readings-21" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Documentation for <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown Websites</a></li>
 </ul>
 </div>
-<div id="tasks-10" class="section level2">
+<div id="tasks-21" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Commit your first draft of your project to GitHub</li>
@@ -643,19 +905,55 @@ div.tocify {
 </div>
 </div>
 <hr />
+<div id="cs_12-dynamic-html-graph-of-daily-temperatures" class="section level2">
+<h2><a href="./CS_12.html">CS_12 : Dynamic HTML graph of Daily Temperatures</a></h2>
+<p>Using DyGraph library.</p>
+<a class="btn btn-link" href="./CS_12.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i23">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i23" class="collapse">
+<div id="readings-22" class="section level2">
+<h2>Readings</h2>
+<ul>
+<li>Browse the <a href="http://gallery.htmlwidgets.org/">HTML Widgets page</a> for many more examples. Take notes in your readme.md about potential uses in your project.</li>
+<li>Explore the <a href="http://rstudio.github.io/dygraphs/">DyGraphs webpage</a></li>
+</ul>
+</div>
+<div id="tasks-22" class="section level2">
+<h2>Tasks</h2>
+<ul>
+<li>Download daily weather data for Buffalo, NY using an API</li>
+<li>Generate a dynamic html visualization of the timeseries.</li>
+<li>Save the graph to your project folder using Export-&gt;Save as Webpage</li>
+</ul>
+</div>
+</div>
+<hr />
+<div id="cs_15-final-challenge" class="section level2">
+<h2><a href="./CS_15.html">CS_15 : Final Challenge</a></h2>
+<a class="btn btn-link" href="./CS_15.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i24">Preview Readings &amp; Tasks </button>
+</div>
+<div id="i24" class="collapse">
+<div id="readings-23" class="section level2">
+<h2>## Readings</h2>
+</div>
+<div id="tasks-23" class="section level2">
+<h2>## Tasks</h2>
+</div>
+</div>
+<hr />
 <div id="tk_12-project-peer-review" class="section level2">
 <h2><a href="./TK_12.html">TK_12 : Project Peer Review</a></h2>
-<a class="btn btn-link" href="./TK_12.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i12">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_12.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i25">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i12" class="collapse">
-<div id="readings-11" class="section level2">
+<div id="i25" class="collapse">
+<div id="readings-24" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>GitHub <a href="https://help.github.com/articles/about-pull-requests/">Pull Requests</a></li>
 <li>Chapter <a href="http://r4ds.had.co.nz">28 in R4DS</a></li>
 </ul>
 </div>
-<div id="tasks-11" class="section level2">
+<div id="tasks-24" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Review at least two other students’ projects and make comments via a <em>pull request</em> in GitHub.</li>
@@ -665,16 +963,16 @@ div.tocify {
 <hr />
 <div id="tk_13-thanksgiving-week-tuesday-class-optional" class="section level2">
 <h2><a href="./TK_13.html">TK_13 : Thanksgiving Week (Tuesday Class Optional)</a></h2>
-<a class="btn btn-link" href="./TK_13.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i13">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_13.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i26">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i13" class="collapse">
-<div id="readings-12" class="section level2">
+<div id="i26" class="collapse">
+<div id="readings-25" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapter <a href="http://r4ds.had.co.nz">23-25 in R4DS</a></li>
 </ul>
 </div>
-<div id="tasks-12" class="section level2">
+<div id="tasks-25" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Bring any questions to class on Tuesday.</li>
@@ -684,16 +982,16 @@ div.tocify {
 <hr />
 <div id="tk_14-project-workshop" class="section level2">
 <h2><a href="./TK_14.html">TK_14 : Project Workshop</a></h2>
-<a class="btn btn-link" href="./TK_14.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i14">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_14.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i27">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i14" class="collapse">
-<div id="readings-13" class="section level2">
+<div id="i27" class="collapse">
+<div id="readings-26" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>NULL</li>
 </ul>
 </div>
-<div id="tasks-13" class="section level2">
+<div id="tasks-26" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Continue working on final project</li>
@@ -705,17 +1003,17 @@ div.tocify {
 <div id="tk_15-final-presentation" class="section level2">
 <h2><a href="./TK_15.html">TK_15 : Final Presentation</a></h2>
 <p>Present your project to the class</p>
-<a class="btn btn-link" href="./TK_15.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i15">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_15.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i28">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i15" class="collapse">
-<div id="readings-14" class="section level2">
+<div id="i28" class="collapse">
+<div id="readings-27" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Wikipedia pages about <a href="http://en.wikipedia.org/wiki/Lightning_Talk">Lightning talks</a></li>
 <li>Wikipedia pages about <a href="http://en.wikipedia.org/wiki/Ignite_(event)">Ignite Sessions</a></li>
 </ul>
 </div>
-<div id="tasks-14" class="section level2">
+<div id="tasks-27" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Commit second (or final) version of final project to GitHub</li>
@@ -730,13 +1028,13 @@ div.tocify {
 <div id="tk_16-publish-final-project" class="section level2">
 <h2><a href="./TK_16.html">TK_16 : Publish Final Project</a></h2>
 <p>Commit the final version of your project</p>
-<a class="btn btn-link" href="./TK_16.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i16">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_16.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i29">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i16" class="collapse">
-<div id="readings-15" class="section level2">
+<div id="i29" class="collapse">
+<div id="readings-28" class="section level2">
 <h2>## Readings</h2>
 </div>
-<div id="tasks-15" class="section level2">
+<div id="tasks-28" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Finalize your project and commit to GitHub</li>
@@ -748,13 +1046,13 @@ div.tocify {
 <div id="tk_17-publish-final-project" class="section level2">
 <h2><a href="./TK_17.html">TK_17 : Publish Final Project</a></h2>
 <p>Commit the final version of your project</p>
-<a class="btn btn-link" href="./TK_17.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i17">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_17.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i30">Preview Readings &amp; Tasks </button>
 </div>
-<div id="i17" class="collapse">
-<div id="readings-16" class="section level2">
+<div id="i30" class="collapse">
+<div id="readings-29" class="section level2">
 <h2>## Readings</h2>
 </div>
-<div id="tasks-16" class="section level2">
+<div id="tasks-29" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Finalize your project and commit to GitHub</li>
@@ -773,30 +1071,6 @@ div.tocify {
   ga('send', 'pageview');
 </script>
 
-<!-- disqus -->
-<div id="disqus_thread" class="standardPadding"></div>
-<script type="text/javascript" src="js/disqus.js"></script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-
-
-
-<!-- disqus 
-<div id="disqus_thread" style="margin-top: 45px;"></div>
-<script type="text/javascript">
-        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-        var disqus_shortname = 'rdataanalysis'; // required: replace example with your forum shortname
-        var disqus_identifier = "{{ page.url }}";
-        /* * * DON'T EDIT BELOW THIS LINE * * */
-        (function() {
-            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq         );
-        })();
-</script>
-<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">
-              comments powered by Disqus.</a>
-</noscript>
--->
 
 <!-- give the footer some space -->
 <br/>

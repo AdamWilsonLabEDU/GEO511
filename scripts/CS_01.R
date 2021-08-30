@@ -1,0 +1,49 @@
+#' ---
+#' title: Your first script
+#' week: 1 
+#' subtitle: Write a script that reads in data, calculates a statistic, and makes a plot.
+#' type: Case Study
+#' reading:
+#'   - Datacamp's [_How to Make a Histogram with Basic R_](https://www.datacamp.com/community/tutorials/make-histogram-basic-r)
+#'   - Datacamp's [_How to Make a Histogram with ggplot_](https://www.datacamp.com/community/tutorials/make-histogram-ggplot2)
+#' tasks:
+#'   - Create a new R script in RStudio (File->New File->R Script)
+#'   - Save this file somewhere you will find it later
+#'   - In your new script, load the iris dataset with `data(iris)`
+#'   - Read the help file for the function that calculates the mean (you can run `?mean` or use the GUI).
+#'   - Calculate the mean of the `Petal.Length` field and save it as an object named `petal_length_mean`
+#'   - Plot the distribution of the `Petal.Length` column as a histogram (`?hist`)
+#'   - Save the script
+#'   - Click 'Source' in RStudio to run your script from beginning to end
+#' ---
+#' 
+
+#' 
+#' ```
+#' # Reading
+## ----reading,results='asis',echo=F--------------------------------------------
+md_bullet(rmarkdown::metadata$reading)
+
+#' 
+#' # Background
+#' You are working on a new project and your colleague has asked you to calculate the mean Petal Length in the dataset she collected in the field.  
+#' 
+#' It looks like this:
+#' 
+## ---- echo=F------------------------------------------------------------------
+data(iris)
+kable(iris) %>%
+  kable_styling() %>%
+  scroll_box(width = "100%", height = "200px")
+
+#' 
+#' To work with only one column in the `iris` dataset, try typing `iris$Sepal.Length`.  What does the `$` do?  
+#' 
+#' For the histogram, you can either use the basic `hist()` function (easier but less powerful) or try to use the `geom_hist()` function in ggplot (more complicated but much more powerful).  See the reading list for hints on these two functions.
+#' 
+#' When you complete this task, you will have done some 'reproducible research' resulting in a script that calculates a statistic and makes a graph.  In future lessons we'll cover how to save the graphic to your hardrive (if you are curious, check out the examples in `?png`)
+#' 
+#' # Tasks
+## ----tasks,results='asis',echo=F----------------------------------------------
+md_bullet(rmarkdown::metadata$tasks)
+
