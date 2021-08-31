@@ -1,6 +1,6 @@
 ---
 title: Spatial Data Science (GEO511)
-subtitle: '[wilsonlab.io/GEO511](http://wilsonlab.io/GEO511)'
+subtitle: '[geo511.wilsonlab.io](http://geo511.wilsonlab.io)'
 type: Presentation
 week: 1
 ---
@@ -44,7 +44,7 @@ Recommended Deadlines
   src="http://geo511.wilsonlab.io/PackageIntro.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/PackageIntro.html)
+[source](http://geo511.wilsonlab.io/PackageIntro.html)
 
 # Case Study Presentations
 
@@ -69,8 +69,8 @@ Recommended Deadlines
 
 
 <iframe
-  src="http://wilsonlab.io/GEO511/CS_02.html"
+  src="http://geo511.wilsonlab.io/CS_02.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/CS_02.html)
+[source](http://geo511.wilsonlab.io/CS_02.html)
 

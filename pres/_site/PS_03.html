@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="generator" content="pandoc">
-  <title>Spatial Data Science (GEO511)</title>
+  <title>Version Control</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -452,104 +452,35 @@ document.getElementsByTagName('head')[0].appendChild(style);
     <div class="slides">
 
 <section>
-    <h1 class="title">Spatial Data Science (GEO511)</h1>
-  <h1 class="subtitle"><a href="http://wilsonlab.io/GEO511">wilsonlab.io/GEO511</a></h1>
+    <h1 class="title">Version Control</h1>
 </section>
 
-<section id="todays-plan" class="slide level2">
-<h2>Today’s plan</h2>
+<section id="todays-agenda" class="slide level2">
+<h2>Today’s agenda</h2>
 <ol type="1">
-<li>Who am I?</li>
-<li>Who are You?</li>
-<li>Course Overview</li>
-<li>What is R?</li>
-<li>Who uses R?</li>
+<li>Q&amp;A
+<ul>
+<li>Datacamp - Late doesn’t matter, you still must complete them</li>
+</ul></li>
+<li>Project Overview</li>
+<li>Resource Presentation</li>
+<li>Case Study Presentations</li>
+<li>Case Study Introduction</li>
+<li>Git Overview</li>
 </ol>
 </section>
-<section>
-<section id="introductions" class="title-slide slide level1">
-<h1>Introductions</h1>
-
+<section id="github--who-are-you" class="slide level2">
+<h2>Github- “Who are you?”</h2>
+<p>“Please tell me who you are”.</p>
+<pre><code>## install if needed (do this exactly once):
+## install.packages(&quot;usethis&quot;)
+library(usethis)
+use_git_config(
+    user.name = &quot;Jane Doe&quot;,
+    user.email = &quot;jane@example.org&quot;)</code></pre>
 </section>
-<section id="adam-m.-wilson" class="slide level2">
-<h2>Adam M. Wilson</h2>
-<div class="columns-2">
-<p>Associate Professor of Global Environmental Change<br> Geography Department</p>
-<p>I Use R:</p>
-<ul>
-<li>GIS (with a little GRASS)</li>
-<li>Statistics</li>
-<li>Visualizations</li>
-<li>HTML/Websites (including this one!)</li>
-</ul>
-</div>
-</section>
-<section id="who-are-you" class="slide level2">
-<h2>Who are you?</h2>
-<ul>
-<li>Name</li>
-<li>Degree and Department
-<ul>
-<li><em>e.g. Masters in GIS in Geography</em></li>
-</ul></li>
-<li>Something about you (&lt; 1 minute, please)
-<ul>
-<li>Maybe:
-<ul>
-<li>Why you are taking this class</li>
-<li>Something you want to learn / do</li>
-<li>What you did over the summer</li>
-</ul></li>
-</ul></li>
-</ul>
-</section></section>
-<section>
-<section id="course-overview" class="title-slide slide level1">
-<h1>Course Overview</h1>
-
-</section>
-<section id="spatial-data-science" class="slide level2">
-<h2>Spatial Data Science</h2>
-<p><img src="ps01_img/data-science.png" width=100%></img> –Grolemund &amp; Wickham, R for Data Science, O’Reilly 2016</p>
-</section>
-<section id="course-learning-objectives" class="slide level2">
-<h2>Course Learning Objectives</h2>
-<ol type="1">
-<li>Convert data from varied formats/structures to desired format for analysis and visualization</li>
-<li>Clean, transform, and merge data attributes/variables appropriately</li>
-<li>Effectively display and communicate meaning from spatial, temporal, and textual data</li>
-<li>Use current analysis, presentation, and collaboration tools in the spatial data science field.</li>
-</ol>
-<p>This course is NOT a statistics course (see GEO 505, etc.).</p>
-</section>
-<section id="in-other-words-become-an-r-wizard" class="slide level2">
-<h2>In other words: <br> become an R wizard!</h2>
-</section>
-<section id="tools" class="slide level2">
-<h2>Tools</h2>
-<ul>
-<li>R</li>
-<li>RStudio</li>
-<li>Slack</li>
-<li>DataCamp</li>
-<li>Git (Version Control)</li>
-</ul>
-</section>
-<section id="course-structure" class="slide level2">
-<h2>Course Structure</h2>
-<iframe src="http://wilsonlab.io/GEO511" width="100%" height="800">
-</iframe>
-<p><a href="http://wilsonlab.io/GEO511">source</a></p>
-</section>
-<section id="time-committment" class="slide level2">
-<h2>Time committment</h2>
-<p>Plan to spend approximately 5-11 hours each week:</p>
-<ul>
-<li>DataCamp courses: 3-5</li>
-<li>Weekly Tasks: 1</li>
-<li>Case Studies: 1-5</li>
-<li>Project will require more time near end of semester.</li>
-</ul>
+<section id="other-questions" class="slide level2">
+<h2>Other Questions?</h2>
 </section>
 <section id="course-schedule" class="slide level2">
 <h2>Course Schedule</h2>
@@ -557,238 +488,279 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </iframe>
 <p><a href="http://wilsonlab.io/GEO511/Schedule.html">source</a></p>
 </section>
-<section id="weekly-rhythm" class="slide level2">
-<h2>Weekly Rhythm</h2>
-<ol type="1">
-<li><strong>Preparation</strong>
-<ol type="a">
-<li>Read Assigned Material<br />
-</li>
-<li>Work on class tasks and DataCamp assignments</li>
-<li>Submit questions for class discussion on Slack</li>
-</ol></li>
-<li><strong>Class Time Tuesday</strong>
-<ol type="a">
-<li>Case Study Team Meetings via Zoom (if desired)</li>
-</ol></li>
-<li><strong>Continue Preparation</strong>
-<ol type="a">
-<li>Finish case studies and prepare to present</li>
-<li>Prepare Resource Presentation (once / semester)</li>
-</ol></li>
-<li><strong>Class Time Thursday</strong>
-<ol type="a">
-<li>Updates &amp; Questions from reading and daily class tasks [~10 minutes]<br />
-</li>
-<li>Student Resource Presentation(s) [20 minutes]<br />
-</li>
-<li>Case Study Presentation [30 minutes]
-<ul>
-<li>One group [randomly] selected to share solution</li>
-<li>Other groups share other approaches / solutions</li>
-</ul></li>
-<li>Case Study Introduction (for following week) [20 minutes]</li>
-</ol></li>
-<li><strong>Rinse and Repeat</strong></li>
-</ol>
+<section>
+<section id="project-overview" class="title-slide slide level1">
+<h1>Project Overview</h1>
+
 </section>
-<section id="tasks-for-this-week" class="slide level2">
-<h2>Tasks for this week</h2>
-<iframe src="http://wilsonlab.io/GEO511/TK_01.html" width="100%" height="800">
+<section id="project-timeline" class="slide level2">
+<h2>Project Timeline</h2>
+<p>Infographic/Poster</p>
+<ul>
+<li>Week 4 (9/21) Rough Project Idea to Slack</li>
+<li>Week 7 (10/12) Project proposal due</li>
+<li>Week 8 (10/19) Set up Project Website</li>
+<li>Week 11 (11/9) First Draft</li>
+<li>Week 12 (11/16) Peer review of final projects</li>
+<li>Week 15 (12/7) Final Presentations</li>
+</ul>
+</section>
+<section id="project-requirements" class="slide level2">
+<h2>Project Requirements</h2>
+<ul>
+<li>Fairly Open / Flexible</li>
+<li>Data: * 2+ sources * 3+ dimensions (e.g. latitude, longitude, time, and maybe more) * Publically available downloaded within the R/Rmd script Question / Problem: Analysis centered on a single question/topic/problem</li>
+</ul>
+<p>Common mistake: taking on too much - small and beautiful better than large and gangling.</p>
+</section>
+<section id="project-structure" class="slide level2">
+<h2>Project Structure</h2>
+<ul>
+<li>Title [&lt;25 words]</li>
+<li>Introduction [~ 150 words]</li>
+<li>Materials and methods [~ 150 words]</li>
+<li>Results [~200 words]</li>
+<li>Conclusions [~200 words]</li>
+<li>References</li>
+</ul>
+<p>Total [~1.5 pages of text] And all code to reproduce the analysis [1-5 pages of code]!!</p>
+</section>
+<section id="browse-previous-projects" class="slide level2">
+<h2>Browse previous projects</h2>
+<iframe src="http://wilsonlab.io/GEO511/Student_projects.html" width="100%" height="800">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/TK_01.html">source</a></p>
+<p><a href="http://wilsonlab.io/GEO511/Student_projects.html">source</a></p>
 </section>
 <section id="resource-presentations" class="slide level2">
 <h2>Resource Presentations</h2>
-<iframe src="http://wilsonlab.io/GEO511/PackageIntro.html" width="100%" height="800">
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/PackageIntro.html">source</a></p>
+<p><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
 </section>
-<section id="st-case-study-due-next-week" class="slide level2">
-<h2>1st Case Study (“due” next week)</h2>
-<iframe src="http://wilsonlab.io/GEO511/CS_01.html" width="100%" height="700">
+<section id="case-study-presentations---lets-pick-a-winner" class="slide level2">
+<h2>Case Study Presentations - Let’s pick a winner!</h2>
+<iframe src="https://wheelofnames.com/bw4-gdt" width="100%" height="500">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/CS_01.html">source</a></p>
-</section>
-<section id="groups-in-this-course" class="slide level2">
-<h2>Groups in this course</h2>
-<ul>
-<li>5 groups of ~3-4 students</li>
-<li>Slack for communication (or UBlearns, etc. Zoom chat <em>not</em> saved.)</li>
-<li>Objectives:
-<ul>
-<li>build community</li>
-<li>work as a team on case studies</li>
-</ul></li>
-</ul>
-</section>
-<section id="meet-your-group" class="slide level2">
-<h2>Meet your group</h2>
-<ul>
-<li>10 minute breakout session</li>
-<li>Topics
-<ul>
-<li>Introduce again</li>
-<li>Do you have any experience writing code? (if so, which languages, etc.)?</li>
-<li>What do you hope to learn from this course?</li>
-<li>Identify leader for next week (who will be prepared to explain Case Study 1)</li>
-</ul></li>
-<li>After ~10 minutes, we’ll return to single group to summarize</li>
-</ul>
-</section>
-<section id="selecting-the-case-study-presentation" class="slide level2">
-<h2>Selecting the Case Study Presentation</h2>
-<iframe src="https://wheelofnames.com/bw4-gdt" width="100%" height="800">
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" style="height: 800px; width: 100%;">
 </iframe>
 </section></section>
+<section id="next-weeks-case-study" class="title-slide slide level1">
+<h1>Next Week’s Case Study</h1>
+<iframe src="http://wilsonlab.io/GEO511/CS_03.html" width="100%" height="800">
+</iframe>
+<p><a href="http://wilsonlab.io/GEO511/CS_03.html">source</a></p>
+</section>
+
 <section>
-<section id="what-is-r-and-who-uses-it" class="title-slide slide level1">
-<h1>What is R and who uses it?</h1>
+<section id="version-control" class="title-slide slide level1">
+<h1>Version Control</h1>
 
 </section>
-<section id="r-project-for-statistical-computing" class="slide level2">
-<h2>R Project for Statistical Computing</h2>
+<section id="version-control-with-file-names" class="slide level2">
+<h2>Version control with file names</h2>
 <ul>
-<li>Free and Open source</li>
-<li>Data manipulation</li>
-<li>Data analysis tools</li>
-<li>Great graphics</li>
-<li>Programming language</li>
-<li>6,000+ free, community-contributed packages</li>
-<li>A supportive and increasing user community</li>
-</ul>
-<p>R is a dialect of the S language developed at Bell Laboratories (formerly AT&amp;T) by John Chambers et. al. (same group developed C and UNIX©)</p>
-</section>
-<section id="what-is-the-r-environment" class="slide level2">
-<h2>What is the R environment?</h2>
-<ul>
-<li>effective data handling and storage facility</li>
-<li>suite of operators for (vectorized) calculations</li>
-<li>large, coherent, integrated collection of tools for data analysis</li>
-<li>graphical capabilities (screen or hardcopy)</li>
-<li>well-developed, simple, and effective programming language which includes:
-<ul>
-<li>conditionals</li>
-<li>loops</li>
-<li>user defined functions</li>
-<li>input and output facilities</li>
-</ul></li>
+<li class="fragment"><code>FirstDraft.docx</code></li>
+<li class="fragment"><code>SecondDraft.docx</code></li>
+<li class="fragment"><code>SecondDraft_advisor_comments.docx</code></li>
+<li class="fragment"><code>FinalDraft.docx</code></li>
+<li class="fragment"><code>FinalDraft_advisor_comments.docx</code></li>
+<li class="fragment"><code>FinalDraft_advisor_comments_revised.docx</code></li>
+<li class="fragment"><code>FinalDraft_advisor_comments_916.docx</code></li>
+<li class="fragment"><code>FinalDraft_advisor_comments_Oct10.docx</code></li>
+<li class="fragment"><code>FinalDraft_Nov2_add_figure.docx</code></li>
+<li class="fragment"><code>FinalDraft_advisor_comments_Nov 13.docx</code></li>
+<li class="fragment"><code>Final_final.docx</code></li>
+<li class="fragment"><code>Final_final_revised.docx</code></li>
+<li class="fragment"><code>Final_final_final.docx</code></li>
+<li class="fragment"><code>Final_final_final_final.docx</code></li>
+<li class="fragment"><code>Final_final_why_the_$*&amp;@_did_I_come_to_grad_school.docx</code></li>
 </ul>
 </section>
-<section id="custom-visualizations" class="slide level2">
-<h2>Custom Visualizations</h2>
-<iframe src="https://www.r-graph-gallery.com/" width="100%" height="800">
-</iframe>
-<p><a href="https://www.r-graph-gallery.com/">source</a></p>
-</section>
-<section id="spatial-visualizations" class="slide level2">
-<h2>Spatial Visualizations</h2>
-<iframe src="https://www.r-graph-gallery.com/connection-map.html" width="100%" height="800">
-</iframe>
-<p><a href="https://www.r-graph-gallery.com/connection-map.html">source</a></p>
-</section>
-<section id="spatial-data-processing-in-r" class="slide level2">
-<h2>Spatial Data Processing in R</h2>
-<p>Packages: <code>sf, sp, maptools, rgeos, raster, ggmap</code></p>
-<p>R can perform many GIS functions and workflows (often better than a GIS!).</p>
-</section>
-<section id="strengths-limitations" class="slide level2">
-<h2>Strengths &amp; Limitations</h2>
+<section id="there-must-be-a-better-way-to-keep-track-of-changes" class="slide level2">
+<h2>There must be a better way to keep track of changes!</h2>
 <ul>
-<li>Just-in-time compilation
-<ul>
-<li>Slower than compiled languages (C+, etc.) <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></li>
-<li>Faster to compose <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
-</ul></li>
-<li>Many available packages <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
-<li>Most operations conducted in RAM
-<ul>
-<li>RAM can be limiting and/or expensive <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></li>
-<li><code>Error: cannot allocate vector of size X Mb</code></li>
-<li>Various packages and clever programming can overcome this… <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
-</ul></li>
-<li>Free like beer <strong>AND</strong> speech! <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+<li>Microsoft / Google Docs “Track Changes” (kind of)</li>
+<li><a href="https://subversion.apache.org/">SVN</a> * Centralized (must ‘check out’ to make changes)</li>
+<li><a href="https://git-scm.com/">Git</a> * Decentralized (everyone has an independent copy)</li>
 </ul>
 </section>
-<section id="r-interface" class="slide level2">
-<h2>R Interface</h2>
-<p><img src="img//01_terminal.png" width=100%></img></p>
-<p>But there are other options…</p>
-</section>
-<section id="rstudio" class="slide level2">
-<h2>RStudio</h2>
-<p><img src="img/rstudio.png" width=100%></img></p>
-<p>Mac, Windows, Linux, and over the web…</p>
+<section id="tracking-changes-with-version-control" class="slide level2">
+<h2>Tracking changes with version control</h2>
+<p><strong>Payoffs</strong></p>
+<ul>
+<li>Eases collaboration</li>
+<li>Can track changes in any file type (plain text)</li>
+<li>Can revert file to any point in its tracked history</li>
+</ul>
+<p><strong>Costs</strong></p>
+<ul>
+<li>Learning curve</li>
+</ul>
 </section></section>
 <section>
-<section id="who-uses-r" class="title-slide slide level1">
-<h1>Who uses R</h1>
+<section id="git" class="title-slide slide level1">
+<h1>Git</h1>
 
 </section>
-<section id="popularity-of-data-science-software" class="slide level2">
-<h2>Popularity of Data Science Software</h2>
-<iframe src="http://r4stats.com/articles/popularity" width="100%" height="800">
-</iframe>
-<p><a href="http://r4stats.com/articles/popularity">source</a></p>
+<section id="section" class="slide level2">
+<h2><img src="ps03_img/git.png" alt="alt text" width="30%"></h2>
+<ul>
+<li><strong>Strong support for non-linear development:</strong> Rapid branching and merging, specific tools for visualizing and navigating a non-linear development history.</li>
+<li><strong>Distributed development:</strong> No central server needed, each user has a full copy</li>
+<li><strong>Efficient handling of large projects:</strong> Designed to manage the Linux OS</li>
+<li><strong>Cryptographic authentication of history:</strong> The ID of a particular version depends uponthe complete history. Once published, it is not possible to change the old versions without it being noticed.</li>
+</ul>
 </section>
-<section id="scholarly-articles" class="slide level2">
-<h2>Scholarly Articles</h2>
-<p><img data-src="https://i1.wp.com/r4stats.com/wp-content/uploads/2019/03/Fig_2a_ScholarlyImpact2018-1.png?w=650" /></p>
-<p>Number of scholarly articles found in the most recent complete year (2018) for the more popular data science software. To be included, software must be used in at least 750 scholarly articles.</p>
-</section>
-<section id="interface-to-r" class="slide level2">
-<h2>Interface to R</h2>
-<p><img data-src="img/rexer_interface.png" /></p>
-</section>
-<section id="r-vs-python" class="slide level2">
-<h2>R vs Python</h2>
-<iframe src="https://s3.amazonaws.com/assets.datacamp.com/email/other/Python+vs+R+(1).png" width="100%" height="800">
-</iframe>
-<p><a href="https://s3.amazonaws.com/assets.datacamp.com/email/other/Python+vs+R+(1).png">source</a></p>
-</section>
-<section id="many-cheatsheets-available" class="slide level2">
-<h2>Many ‘Cheatsheets’ available</h2>
-<iframe src="https://www.rstudio.com/resources/cheatsheets/" width="100%" height="800">
-</iframe>
-<p><a href="https://www.rstudio.com/resources/cheatsheets/">source</a></p>
-</section></section>
-<section>
-<section id="why-code-at-all" class="title-slide slide level1">
-<h1>Why code at all?</h1>
-
-</section>
-<section id="why-write-code-when-you-can-click" class="slide level2">
-<h2>Why write code when you can click?</h2>
-<p><img src="img/arcgis.jpg" width=50%></img></p>
-<p>Graphical User Interfaces are useful, especially when you are learning…</p>
-</section>
-<section id="typical-gui-workflow" class="slide level2">
-<h2>Typical GUI Workflow</h2>
-<p><img src="img/workflow1.png" width=100%></img></p>
-</section>
-<section id="organized-and-repeatable-workflow" class="slide level2">
-<h2>Organized and repeatable workflow</h2>
-<p><img src="img/workflow2.png" width=100%></img></p>
-</section>
-<section id="learning-a-programming-language-can-help-you-learn-how-to-think-logically." class="slide level2">
-<h2>Learning a programming language can help you learn how to think logically.</h2>
+<section id="git-has-integrity" class="slide level2">
+<h2>Git Has Integrity</h2>
+<p>Everything <em>checksummed</em> before storage and then referred by <em>checksum</em>.</p>
 <blockquote>
-A man who does not know foreign language is ignorant of his own. <br> – Johann Wolfgang von Goethe (1749 - 1832)
+<p>It’s impossible to change the contents of any file or directory without Git knowing. You can’t lose information in transit or get file corruption without Git being able to detect it.</p>
 </blockquote>
 </section>
-<section id="programming-gives-you-access-to-more-computer-power." class="slide level2">
-<h2>Programming gives you access to more computer power.</h2>
-<blockquote>
-The computer is incredibly fast, accurate, and stupid. Man is unbelievably slow, inaccurate, and brilliant. The marriage of the two is a force beyond calculation. <br> – Leo Cherne
-</blockquote>
+<section id="checksum" class="slide level2">
+<h2>Checksum</h2>
+<p>A way of reducing digital information to a unique ID:</p>
+<p><img src="ps03_img/checksum.jpg" alt="alt text" width="50%"></p>
+<p>A 40-character hexadecimal SHA-1 hash: <code>24b9da6552252987aa493b52f8696cd6d3b00373</code></p>
+<p>Git doesn’t care about filenames, extensions, etc. It’s the information that matters…</p>
 </section>
-<section id="from-graphical-user-interface-gui-to-scripting" class="slide level2">
-<h2>From Graphical User Interface (GUI) to Scripting</h2>
-<p><img src="img/08_productivity.png" width=100%></img></p>
+<section id="the-3-states-of-files" class="slide level2">
+<h2>The 3 states of files</h2>
+<h3 id="staged-modified-committed">staged, modified, committed</h3>
+<p><img src="ps03_img/staging.png" alt="alt text" width="75%"></p>
+<p>The important stuff is hidden in the <code>.git</code> folder.</p>
+</section></section>
+<section>
+<section id="github" class="title-slide slide level1">
+<h1>Github</h1>
+
 </section>
-<section id="parallel-processing" class="slide level2">
-<h2>Parallel Processing</h2>
-<p>For BIG jobs: multi-core processors / high performance computing with foreach. <img src="img//05_parallel.png" width=100%></img></p>
+<section id="think-of-github-as-a" class="slide level2">
+<h2>Think of Github as a…</h2>
+<ul>
+<li>Server to back up your files</li>
+<li>Website to share your files</li>
+<li>Method to track changes to your files</li>
+<li>Platform to collaboratively develop code</li>
+<li>Social media to show off your coding wizardry</li>
+</ul>
+</section>
+<section id="github-alternatives" class="slide level2">
+<h2>Github Alternatives</h2>
+<p>Host your own server or use another private company, such as BitBucket.</p>
+</section>
+<section id="function-of-gitgithub-repository-for-this-course" class="slide level2">
+<h2>Function of Git/GitHub Repository for this course</h2>
+<ol type="1">
+<li>Force you to learn git (a little)</li>
+<li>Force you to organize</li>
+<li>Prepare you for collaborative coding</li>
+<li>Allow me to see your in-class <em>participation</em></li>
+</ol>
+</section>
+<section id="git-use-in-this-course" class="slide level2">
+<h2>Git use in this course</h2>
+<ol type="1">
+<li>Set up class repository</li>
+<li>Make changes (edit the code)</li>
+<li>Save those changes as you go (ctrl-S)</li>
+<li>Stage changes (get ready to commit them)</li>
+<li>Commit changes at various milestones (like the end of the day or when you finish something)</li>
+<li>Push those changes to github (back them up)</li>
+<li>repeat</li>
+</ol>
+<p>Typically steps 4,5, and 6 are done at the same time.</p>
+<p>See Tasks <a href="Tk_03.html">1</a> and <a href="Tk_04.html">2</a>.</p>
+</section>
+<section id="commit-to-github-from-within-rstudio" class="slide level2">
+<h2>Commit to GitHub from within RStudio</h2>
+</section>
+<section id="basic-steps" class="slide level2">
+<h2>Basic Steps</h2>
+<ol type="1">
+<li>Edit: make changes to a file in the repository you cloned above</li>
+<li>Stage/Commit/Push: tell git which changes you want to commit, commit them, and Push to Github</li>
+</ol>
+</section>
+<section id="edit" class="slide level2">
+<h2>Edit</h2>
+<p>Git tracks <em>all</em> changes to files inside a repository.</p>
+</section>
+<section id="stage" class="slide level2">
+<h2>Stage</h2>
+<p><img src="ps03_img/Stage.png" alt="alt text" width="75%"></p>
+<p>Select which changed files (added, deleted, or edited) you want to commit.</p>
+</section>
+<section id="commit" class="slide level2">
+<h2>Commit</h2>
+<p><img src="ps03_img/Commit.png" alt="alt text" width="100%"></p>
+<p>Add a <em>commit message</em> and click commit.</p>
+</section>
+<section id="sync-push" class="slide level2">
+<h2>Sync (<code>push</code>)</h2>
+<p><img src="ps03_img/Push.png" alt="alt text" width="100%"></p>
+<p>Click the green arrow to sync with GitHub.</p>
+</section>
+<section id="dos-and-donts" class="slide level2">
+<h2>Do’s and don’ts</h2>
+<ul>
+<li><strong>DO</strong> only commit text files (like <code>*.R</code> scripts) and possibly very small datasets</li>
+<li><strong>DO NOT</strong> commit large or non-text files (like <code>*.ppt</code>) especially if they will change often (git has 100MB maximum)</li>
+<li><strong>DO</strong> use <code>.gitignore</code> to ignore certain files and filetypes</li>
+<li><strong>DO NOT</strong> move files around after starting the course repository</li>
+<li><strong>DO NOT</strong> edit/move the <code>.git</code> or <code>tests</code> folder</li>
+</ul>
+</section>
+<section id="and-much-more" class="slide level2">
+<h2>And much more!</h2>
+<p>Git has many, many more features…</p>
+<p>RStudio GUI has limited functionality.</p>
+<p><img src="ps03_img/CommandLine.png" alt="alt text" width="75%"></p>
+</section>
+<section id="git-help" class="slide level2">
+<h2>Git help</h2>
+<pre><code>$ git help &lt;verb&gt;
+$ git &lt;verb&gt; --help
+$ man git-&lt;verb&gt;</code></pre>
+<p>For example, you can get the manpage help for the config command by running <code>git help config</code></p>
+</section>
+<section id="git-status" class="slide level2">
+<h2>Git status</h2>
+<p><img src="ps03_img/GitCL.png" alt="alt text" width="75%"></p>
+<p>Similar to info in git tab in RStudio</p>
+</section>
+<section id="git-config" class="slide level2">
+<h2>Git config</h2>
+<p><code>git config</code> shows you all the git configuration settings:</p>
+<ul>
+<li><code>user.email</code></li>
+<li><code>remote.origin.url</code> (e.g. to connect to GitHub)</li>
+</ul>
+</section>
+<section id="branching" class="slide level2">
+<h2>Branching</h2>
+<p>Branches used to develop features isolated from each other. <img src="ps03_img/Merge.png" alt="alt text" width="100%"></p>
+<p>Default: <em>master</em> branch. Use other branches for development/collaboration and merge them back upon completion.</p>
+</section>
+<section id="basic-branching" class="slide level2">
+<h2>Basic Branching</h2>
+<pre><code>$ git checkout -b devel   # create new branch and switch to it
+
+
+$ git checkout master  #switch back to master
+$ git merge devel  #merge in changes from devel branch</code></pre>
+<p>But we won’t do much with branching in this course…</p>
+</section>
+<section id="git-can-do-far-more" class="slide level2">
+<h2>Git can do far more!</h2>
+<p>Check out the (free) book <a href="https://git-scm.com/book/en/v2">ProGIT</a></p>
+<p><img src="ps03_img/progit2.png" alt="alt text" width="30%"></p>
+<p>Or the <a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">cheatsheet</a>.</p>
+</section>
+<section id="colophon" class="slide level2">
+<h2>Colophon</h2>
+<p><small> Slides adapted from Dr. Çetinkaya-Rundel and <a href="https://github.com/benmarwick/CSSS-Primer-Reproducible-Research">Ben Marwick’s presentation to the UW Center for Statistics and Social Sciences (12 March 2014)</a> (<a href="http://orcid.org/0000-0001-7879-4531">OrcID</a>) </small></p>
 </section></section>
     </div>
   </div>
