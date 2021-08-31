@@ -1,6 +1,6 @@
 ---
 title: Spatial Data Science (GEO511)
-subtitle: '[wilsonlab.io/GEO511](http://wilsonlab.io/GEO511)'
+subtitle: '[geo511.wilsonlab.io](http://geo511.wilsonlab.io)'
 type: Presentation
 week: 1
 ---
