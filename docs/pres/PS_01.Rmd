@@ -73,7 +73,7 @@ This course is NOT a statistics course (see GEO 505, etc.).
 ## Course Structure
 
 <iframe
-  src="http://geo511.wilsonlab.io"
+  src="https://geo511.wilsonlab.io"
   width="100%" height="800">
 </iframe>
 [source](http://geo511.wilsonlab.io)
@@ -328,5 +328,5 @@ The computer is incredibly fast, accurate, and stupid. Man is unbelievably slow,
 ## Parallel Processing
 For BIG jobs:
 multi-core processors / high performance computing with foreach.
-<img src="img//05_parallel.png" width=100%></img>
+<img src="PS_01_img/05_parallel.png" width=100%></img>
 

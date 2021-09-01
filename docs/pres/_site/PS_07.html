@@ -520,9 +520,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section id="course-schedule" class="slide level2">
 <h2>Course Schedule</h2>
-<iframe src="http://wilsonlab.io/GEO511/Schedule.html" width="100%" height="800">
+<iframe src="http://geo511.wilsonlab.io/Schedule.html" width="100%" height="800">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/Schedule.html">source</a></p>
+<p><a href="http://geo511.wilsonlab.io/Schedule.html">source</a></p>
 </section>
 <section id="resource-presentations" class="slide level2">
 <h2>Resource Presentations</h2>
@@ -743,11 +743,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># change values!=20 to NA</span></span>
 <span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>elev<span class="ot">=</span><span class="fu">mask</span>(elev,<span class="at">mask =</span> elev<span class="sc">==</span><span class="dv">20</span>, <span class="at">maskvalue=</span><span class="dv">0</span>) </span>
 <span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">gplot</span>(elev)<span class="sc">+</span><span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill=</span>value))</span></code></pre></div>
-<p><img data-src="ps07_files/figure-revealjs/unnamed-chunk-11-1.png" /></p>
+<p><img data-src="PS_07_files/figure-revealjs/unnamed-chunk-11-1.png" /></p>
 <div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>distance_to_20<span class="ot">=</span><span class="fu">distance</span>(elev)  <span class="co">#works fine</span></span>
 <span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(elev)</span>
 <span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="fu">gplot</span>(distance_to_20)<span class="sc">+</span> <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill=</span>value))</span></code></pre></div>
-<p><img data-src="ps07_files/figure-revealjs/unnamed-chunk-11-2.png" /></p>
+<p><img data-src="PS_07_files/figure-revealjs/unnamed-chunk-11-2.png" /></p>
 <div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>distance_to_20<span class="ot">=</span><span class="fu">distance</span>(elev) <span class="co">#returns an error:</span></span>
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>Error <span class="cf">in</span> <span class="fu">.local</span>(x, y, ...) <span class="sc">:</span> </span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>RasterLayer has no <span class="cn">NA</span> <span class="fu">cells</span> (<span class="cf">for</span> which to compute a distance)</span></code></pre></div>
