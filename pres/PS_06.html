@@ -520,9 +520,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section id="course-schedule" class="slide level2">
 <h2>Course Schedule</h2>
-<iframe src="http://wilsonlab.io/GEO511/Schedule.html" width="100%" height="800">
+<iframe src="http://geo511.wilsonlab.io/Schedule.html" width="100%" height="800">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/Schedule.html">source</a></p>
+<p><a href="http://geo511.wilsonlab.io/Schedule.html">source</a></p>
 </section>
 <section id="readings" class="slide level2">
 <h2>Readings</h2>
@@ -560,7 +560,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="what-about-grids" class="slide level2">
 <h2>What about grids?</h2>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-4-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-4-1.png" /></p>
 </section>
 <section>
 <section id="raster-data" class="title-slide slide level1">
@@ -597,7 +597,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spData)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(elev) <span class="co">#load fake data from spData package</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev) <span class="co">#load fake data from spData package</span></span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-5-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-5-1.png" /></p>
 </section>
 <section id="raster-data-structure" class="slide level2">
 <h2>Raster Data Structure</h2>
@@ -704,14 +704,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <p>Convert feet to meters</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>elev_m <span class="ot">&lt;-</span> elev<span class="sc">*</span><span class="fl">0.3048</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev_m)</span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-11-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-11-1.png" /></p>
 </section>
 <section class="slide level2">
 
 <h3 id="simple-filter">Simple Filter</h3>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>high_ground <span class="ot">&lt;-</span> elev_m<span class="sc">&gt;</span><span class="dv">8</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(high_ground)</span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-12-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-12-1.png" /></p>
 </section>
 <section class="slide level2">
 
@@ -729,20 +729,20 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev_m)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev_smooth)</span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-14-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-14-1.png" /></p>
 </section>
 <section id="arbitrary-functions" class="slide level2">
 <h2>Arbitrary functions</h2>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>NA16<span class="ot">=</span><span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">==</span> <span class="dv">16</span>,<span class="dv">1</span>,<span class="cn">NA</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>one_cell <span class="ot">&lt;-</span> <span class="fu">calc</span>(elev,<span class="at">fun =</span> NA16)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(one_cell)</span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-15-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-15-1.png" /></p>
 </section>
 <section id="distances-to-non-na-cells" class="slide level2">
 <h2>Distances to non-NA cells</h2>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distance</span>(one_cell)<span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-16-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-16-1.png" /></p>
 <p>Distance unit is meters if RasterLayer is <code>+proj=longlat</code>, map units (typically also meters) otherwise.</p>
 </section>
 <section id="and-much-more" class="slide level2">
@@ -767,7 +767,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rasterVis)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gplot</span>(elev)<span class="sc">+</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill=</span>value))</span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-17-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-17-1.png" /></p>
 </section>
 <section class="slide level2">
 
@@ -776,7 +776,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill=</span>value))<span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()<span class="sc">+</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code></pre></div>
-<p><img data-src="ps06_files/figure-revealjs/unnamed-chunk-18-1.png" /></p>
+<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-18-1.png" /></p>
 </section></section>
     </div>
   </div>
