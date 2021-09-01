@@ -1,5 +1,5 @@
 # Compile all presentations in the "presentations" folder
-pres=list.files("pres",full=T,pattern="Rmd",recursive=T)
+pres=list.files("pres",full=T,pattern="Rmd",recursive=F)
 lapply(pres,function(x) rmarkdown::render(x))
 
 #lapply(pres[3],function(x) rmarkdown::render(x), params = yaml::read_yaml("pres/_site.yml"))
