@@ -328,3 +328,30 @@ For BIG jobs:
 multi-core processors / high performance computing with foreach.
 <img src="PS_01_img/05_parallel.png" width=100%></img>
 
+
+# Case Study 1
+
+## Case Study Motivations
+
+1. Best way to learn something is to (prepare to) teach it
+2. Develop confidence presenting your method/solution/approach
+3. Learn tools for transparent collaboration
+
+## The first 'Case Study'
+
+* _Formative_ assessments - not tests
+* Work with group mates but submit alone
+* No _stupid_ questions!
+* If you finish early - 
+  * Ask about anything (related to the course)!
+  * Start thinking about project?!?
+
+## Do's and Don'ts
+
+1. Don't be scared - this is a supportive environment.
+2. Do share stories about _how_ you figured it out:
+   * other things you tried
+   * things that didn't work
+3. Do mention your group mates and any contributions they made (if they did)
+
+
