@@ -2,7 +2,7 @@ md_bullet(rmarkdown::metadata$reading)
 
 library(tidyverse)
 
-# define the link to the data - you can try this in your browser too.  Note that the URL ends in .csv.
+# define the link to the data - you can try this in your browser too.  Note that the URL ends in .txt.
 dataurl="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt"
 
 temp=read_table(dataurl,

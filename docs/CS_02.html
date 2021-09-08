@@ -410,7 +410,7 @@ div.tocify {
 <p>If you explore the <a href="https://www.giss.nasa.gov/">NASA GISS website</a> for a station (<a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">Buffalo, NY website</a>), you’ll find they provide a link to download the data directly as a comma-separated-values (CSV) file. CSV files are simple text files with commas in between the values. They are a common format for storing and sharing relatively small tabular datasets because they are so simple that many different software can open them, from Excel to ArcGIS.</p>
 <pre class="r"><code>library(tidyverse)
 
-# define the link to the data - you can try this in your browser too.  Note that the URL ends in .csv.
+# define the link to the data - you can try this in your browser too.  Note that the URL ends in .txt.
 dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt&quot;</code></pre>
 <p>This url points to a CSV file with monthly mean temperatures from the GISS dataset. You can <a href="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt">check out the file here</a>. Now use <code>read_table()</code> to download and import the table directly from the website (cool, huh!?).</p>
 <pre class="r"><code>temp=read_table(dataurl,
