@@ -1,5 +1,5 @@
 ---
-title: My grandfather says climate is cooling
+title: My grandfather says summers are getting hotter
 week: 2 
 type: Case Study
 subtitle: Import data and plot a timeseries
@@ -10,7 +10,7 @@ tasks:
   - Load data from a comma-separated-values formatted text file hosted on a website
   - Graph the annual mean temperature in June, July and August (`JJA`) using ggplot
   - Add a smooth line with `geom_smooth()`
-  - Add informative axis labels using `xlab()` and `ylab()` including [units](https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show.cgi?id=425003010120&dt=1&ds=5)
+  - Add informative axis labels using `xlab()` and `ylab()` including [units](https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&ds=14&dt=1)
   - Add a graph title with `ggtitle()`
   - Save a graphic to a png file using `png()` and `dev.off()` OR [`ggsave`](https://ggplot2.tidyverse.org/reference/ggsave.html)
   - Save the script
@@ -31,7 +31,7 @@ md_bullet(rmarkdown::metadata$reading)
 
 # Background
 
-You are at a family gathering at Niagara Falls and your grandfather, who lives nearby, claims that summer temperatures are colder now than they were when he was a kid in the 1920s.  Your inner data scientist thinks this is unlikely but you decide to look into it.
+You are at a family gathering at Niagara Falls and your grandfather claims that summer temperatures are hotter now than they were when he was a kid in the 1920s.  His brother disagrees - he remembers summers being just as hot as they are now.   Your inner data scientist thinks this is an empirical question that you can answer with data.
 
 You will use the NASA GISS temperature record for the Buffalo Niagara Airport available [from this website](https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&ds=14&dt=1).  Later we'll learn how to use APIs to interact with online databases, but for now we'll work with a simple csv file.
 
@@ -39,7 +39,7 @@ You will use the NASA GISS temperature record for the Buffalo Niagara Airport av
 
 ## Download the temperature data
 
-If you explore the NASA GISS website for a station ([Buffalo, NY website](https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&ds=14&dt=1)), you'll find they provide a link to download the data directly as a comma-separated-values (CSV) file.  CSV files are simple text files with commas in between the values.  They are a common format for storing and sharing relatively small tabular datasets because they are so simple that many different software can open them, from Excel to ArcGIS.
+If you explore the [NASA GISS website](https://www.giss.nasa.gov/) for a station ([Buffalo, NY website](https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&ds=14&dt=1)), you'll find they provide a link to download the data directly as a comma-separated-values (CSV) file.  CSV files are simple text files with commas in between the values.  They are a common format for storing and sharing relatively small tabular datasets because they are so simple that many different software can open them, from Excel to ArcGIS.
 
 ```{r, message=F}
 library(tidyverse)
@@ -49,7 +49,7 @@ dataurl="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/
 ```
 
 
-This url points to a CSV file with monthly mean temperatures from the GISS dataset.  You can [check out the file here](`r dataurl`).  Now use `read_csv()` to download and import the CSV file directly from the website (cool, huh!?).
+This url points to a CSV file with monthly mean temperatures from the GISS dataset.  You can [check out the file here](`r dataurl`).  Now use `read_table()` to download and import the table directly from the website (cool, huh!?).
 
 ```{r, message=F, eval=T}
 temp=read_table(dataurl,
@@ -72,7 +72,7 @@ Now use your tools to explore the dataset.  You can try `View(temp)` to open the
 
 ## Develop the graphic
 
-You want to make a nice graphic to show your grandfather at your next family gathering.  Be sure to include informative axis labels, a graph title, a graph subtitle describing the source of the data, the raw data, and a smoothed line showing the overal trend through time.  
+You want to make a nice graphic to show your grandfather at your next family gathering.  Be sure to include informative axis labels, a graph title, a graph subtitle describing the source of the data, the raw data, and a smoothed line showing the overall trend through time.  
 
 It should look something like this:
 
@@ -99,7 +99,7 @@ dev.off()
 md_bullet(rmarkdown::metadata$tasks)
 ```
 
-What do you tell your grandfather?
+What do you tell your grandfather and his brother?  What additional tests / visualizations could you do?
 
 # Extra time?
 

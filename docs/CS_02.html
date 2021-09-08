@@ -11,7 +11,7 @@
 
 
 
-<title>My grandfather says climate is cooling</title>
+<title>My grandfather says summers are getting hotter</title>
 
 <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
 <script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
@@ -386,7 +386,7 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">My grandfather says climate is cooling</h1>
+<h1 class="title toc-ignore">My grandfather says summers are getting hotter</h1>
 <h3 class="subtitle">Import data and plot a timeseries</h3>
 
 </div>
@@ -400,19 +400,19 @@ div.tocify {
 </div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>You are at a family gathering at Niagara Falls and your grandfather, who lives nearby, claims that summer temperatures are colder now than they were when he was a kid in the 1920s. Your inner data scientist thinks this is unlikely but you decide to look into it.</p>
+<p>You are at a family gathering at Niagara Falls and your grandfather claims that summer temperatures are hotter now than they were when he was a kid in the 1920s. His brother disagrees - he remembers summers being just as hot as they are now. Your inner data scientist thinks this is an empirical question that you can answer with data.</p>
 <p>You will use the NASA GISS temperature record for the Buffalo Niagara Airport available <a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">from this website</a>. Later we’ll learn how to use APIs to interact with online databases, but for now we’ll work with a simple csv file.</p>
 </div>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>
 <div id="download-the-temperature-data" class="section level2">
 <h2>Download the temperature data</h2>
-<p>If you explore the NASA GISS website for a station (<a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">Buffalo, NY website</a>), you’ll find they provide a link to download the data directly as a comma-separated-values (CSV) file. CSV files are simple text files with commas in between the values. They are a common format for storing and sharing relatively small tabular datasets because they are so simple that many different software can open them, from Excel to ArcGIS.</p>
+<p>If you explore the <a href="https://www.giss.nasa.gov/">NASA GISS website</a> for a station (<a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">Buffalo, NY website</a>), you’ll find they provide a link to download the data directly as a comma-separated-values (CSV) file. CSV files are simple text files with commas in between the values. They are a common format for storing and sharing relatively small tabular datasets because they are so simple that many different software can open them, from Excel to ArcGIS.</p>
 <pre class="r"><code>library(tidyverse)
 
 # define the link to the data - you can try this in your browser too.  Note that the URL ends in .csv.
 dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt&quot;</code></pre>
-<p>This url points to a CSV file with monthly mean temperatures from the GISS dataset. You can <a href="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt">check out the file here</a>. Now use <code>read_csv()</code> to download and import the CSV file directly from the website (cool, huh!?).</p>
+<p>This url points to a CSV file with monthly mean temperatures from the GISS dataset. You can <a href="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt">check out the file here</a>. Now use <code>read_table()</code> to download and import the table directly from the website (cool, huh!?).</p>
 <pre class="r"><code>temp=read_table(dataurl,
               skip=3, #skip the first line which has column names
               na=&quot;999.90&quot;, # tell R that 999.90 means missing in this dataset
@@ -431,7 +431,7 @@ dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14
 </div>
 <div id="develop-the-graphic" class="section level2">
 <h2>Develop the graphic</h2>
-<p>You want to make a nice graphic to show your grandfather at your next family gathering. Be sure to include informative axis labels, a graph title, a graph subtitle describing the source of the data, the raw data, and a smoothed line showing the overal trend through time.</p>
+<p>You want to make a nice graphic to show your grandfather at your next family gathering. Be sure to include informative axis labels, a graph title, a graph subtitle describing the source of the data, the raw data, and a smoothed line showing the overall trend through time.</p>
 <p>It should look something like this:</p>
 <p><img src="CS_02_files/figure-html/unnamed-chunk-3-1.png" width="2100" /></p>
 </div>
@@ -449,7 +449,7 @@ dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14
 <li>Save the script</li>
 <li>Click ‘Source’ in RStudio to run the script from beginning to end to re-run the entire process</li>
 </ul>
-<p>What do you tell your grandfather?</p>
+<p>What do you tell your grandfather and his brother? What additional tests / visualizations could you do?</p>
 </div>
 <div id="extra-time" class="section level1">
 <h1>Extra time?</h1>

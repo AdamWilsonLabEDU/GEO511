@@ -29,14 +29,14 @@ knitr::opts_chunk$set(echo = TRUE)
 ## Getting ahead
 
 * Datacamp - Go as far as you want!
-* Case studies & tasks - Stay on schedule!
+* Case studies & tasks - Stay on schedule (sometimes I change them!)
 
 ```{r child = "course_schedule.Rmd"}
 ```
 
 ## Datacamp
 Recommended Deadlines
-![](https://i.snipboard.io/AuWcXR.jpg)
+![](https://snipboard.io/pP9btu.jpg)
 
 ## Resource Presentations
 
@@ -64,6 +64,7 @@ Recommended Deadlines
 
 ```{r child = "resource_case_study.Rmd"}
 ```
+
 
 ## Next Week's Case Study
 
