@@ -2,14 +2,6 @@
 title: "ggrepel"
 author: "Adam M. Wilson"
 css: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css
-output: 
-  revealjs::revealjs_presentation:
-      lib_dir: externals
-      keep_md: true
-      theme: black
-      highlight: tango
-      self_contained: false
-      transition: zoom
 ---
 
 ## Lead Author: Kamil Slowikowski 
@@ -47,9 +39,13 @@ Two main functions:
 p <- ggplot(dat, aes(wt, mpg, label = car)) +
   geom_point(color = "red")
 
-p1 <- p + geom_text() + labs(title = "geom_text()")
+p1 <- p + 
+  geom_text() + 
+  labs(title = "geom_text()")
 
-p2 <- p + geom_text_repel() + labs(title = "geom_text_repel()")
+p2 <- p + 
+  geom_text_repel() + 
+  labs(title = "geom_text_repel()")
 
 gridExtra::grid.arrange(p1, p2, ncol = 2)
 ```
@@ -76,10 +72,5 @@ ggrepel provides additional options for `geom_text_repel` and `geom_label_repel`
 |`arrow`         |  render line segment as an arrow with `grid::arrow()`
 
 ## Another example
-
-
-```
-## Warning: ggrepel: 3 unlabeled data points (too many overlaps). Consider increasing max.overlaps
-```
 
 ![](PackagePresentation_files/figure-revealjs/unnamed-chunk-2-1.png)
