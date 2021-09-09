@@ -2,14 +2,6 @@
 title: "ggrepel"
 author: "Adam M. Wilson"
 css: https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css
-output: 
-  revealjs::revealjs_presentation:
-      lib_dir: externals
-      keep_md: true
-      theme: black
-      highlight: tango
-      self_contained: false
-      transition: zoom
 ---
 
 ## Lead Author: Kamil Slowikowski 
@@ -51,9 +43,13 @@ dat$car <- rownames(dat)
 p <- ggplot(dat, aes(wt, mpg, label = car)) +
   geom_point(color = "red")
 
-p1 <- p + geom_text() + labs(title = "geom_text()")
+p1 <- p + 
+  geom_text() + 
+  labs(title = "geom_text()")
 
-p2 <- p + geom_text_repel() + labs(title = "geom_text_repel()")
+p2 <- p + 
+  geom_text_repel() + 
+  labs(title = "geom_text_repel()")
 
 gridExtra::grid.arrange(p1, p2, ncol = 2)
 ```
@@ -103,6 +99,6 @@ dat3 <- rbind(
 
 ggplot(dat3, aes(wt, mpg, label = car)) +
   geom_point(data = dat3[dat3$car == "",], color = "grey50") +
-  geom_text_repel(box.padding = 0.5) +
+  geom_text_repel(data = dat3[dat3$car != "",],box.padding = 0.5) +
   geom_point(data = dat3[dat3$car != "",], color = "red")
 ```
