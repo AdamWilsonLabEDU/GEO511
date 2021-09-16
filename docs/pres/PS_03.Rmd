@@ -7,7 +7,6 @@ week: 2
 ## Today's agenda
 
 1. Q&A
-    * Datacamp - Late doesn't matter, you still must complete them
 2. Project Overview
 3. Resource Presentation
 4. Case Study Presentations
@@ -39,20 +38,20 @@ use_git_config(
 
 Infographic/Poster
 
-* Week 4 (9/21) Rough Project Idea to Slack
-* Week 7 (10/12)  Project proposal due
-* Week 8 (10/19) Set up Project Website
-* Week 11 (11/9) First Draft
-* Week 12 (11/16) Peer review of final projects
-* Week 15 (12/7) Final Presentations
+* Week 4 (9/23) Rough Project Idea to Slack
+* Week 7 (10/14)  Project proposal due
+* Week 8 (10/21) Set up Project Website
+* Week 11 (11/11) First Draft
+* Week 12 (11/18) Peer review of final projects
+* Week 15 (12/9) Final Presentations
 
 ## Project Requirements
 
 * Fairly Open / Flexible
 * Data:
       * 2+ sources
-      * 3+ dimensions (e.g. latitude, longitude, time, and maybe more) 
-      * Publically available downloaded within the R/Rmd script
+      * ideally 3+ dimensions (e.g. latitude, longitude, time, and maybe more) 
+      * Publicly available downloaded within the R/Rmd script
 Question / Problem: Analysis centered on a single question/topic/problem
 
 
@@ -73,10 +72,10 @@ And all code to reproduce the analysis [1-5 pages of code]!!
 ## Browse previous projects
 
 <iframe
-  src="http://wilsonlab.io/GEO511/Student_projects.html"
+  src="http://geo511.wilsonlab.io/Student_projects.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/Student_projects.html)
+[source](http://geo511.wilsonlab.io/Student_projects.html)
 
 ```{r child = "resource_case_study.Rmd"}
 ```
@@ -84,10 +83,10 @@ And all code to reproduce the analysis [1-5 pages of code]!!
 # Next Week's Case Study
 
 <iframe
-  src="http://wilsonlab.io/GEO511/CS_03.html"
+  src="http://geo511.wilsonlab.io/CS_03.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/CS_03.html)
+[source](http://geo511.wilsonlab.io/CS_03.html)
 
 
 # Version Control
@@ -147,7 +146,7 @@ Everything _checksummed_ before storage and then referred by _checksum_.
 ## Checksum
 A way of reducing digital information to a unique ID:
 
-<img src="ps03_img/checksum.jpg" alt="alt text" width="50%">
+<img src="PS_03_img/checksum.jpg" alt="alt text" width="50%">
 
 A 40-character hexadecimal SHA-1 hash: `24b9da6552252987aa493b52f8696cd6d3b00373`
 
@@ -156,7 +155,7 @@ Git doesn't care about filenames, extensions, etc.  It's the information that ma
 ## The 3 states of files
 
 ### staged, modified, committed
-<img src="ps03_img/staging.png" alt="alt text" width="75%">
+<img src="PS_03_img/staging.png" alt="alt text" width="75%">
 
 The important stuff is hidden in the `.git` folder.
 
@@ -207,17 +206,17 @@ See Tasks [1](Tk_03.html) and [2](Tk_04.html).
 Git tracks _all_ changes to files inside a repository.
 
 ## Stage
-<img src="ps03_img/Stage.png" alt="alt text" width="75%">
+<img src="PS_03_img/Stage.png" alt="alt text" width="75%">
 
 Select which changed  files (added, deleted, or edited) you want to commit.
 
 ## Commit
-<img src="ps03_img/Commit.png" alt="alt text" width="100%">
+<img src="PS_03_img/Commit.png" alt="alt text" width="100%">
 
 Add a _commit message_ and click commit.
 
 ## Sync (`push`)
-<img src="ps03_img/Push.png" alt="alt text" width="100%">
+<img src="PS_03_img/Push.png" alt="alt text" width="100%">
 
 Click the green arrow to sync with GitHub.
 
@@ -235,7 +234,7 @@ Git has many, many more features...
 
 RStudio GUI has limited functionality.  
 
-<img src="ps03_img/CommandLine.png" alt="alt text" width="75%">
+<img src="PS_03_img/CommandLine.png" alt="alt text" width="75%">
 
 
 ## Git help
@@ -248,7 +247,7 @@ $ man git-<verb>
 For example, you can get the manpage help for the config command by running `git help config`
 
 ## Git status
-<img src="ps03_img/GitCL.png" alt="alt text" width="75%">
+<img src="PS_03_img/GitCL.png" alt="alt text" width="75%">
 
 Similar to info in git tab in RStudio
 
@@ -260,7 +259,7 @@ Similar to info in git tab in RStudio
 
 ## Branching
 Branches used to develop features isolated from each other. 
-<img src="ps03_img/merge.png" alt="alt text" width="100%">
+<img src="PS_03_img/merge.png" alt="alt text" width="100%">
 
 Default: _master_ branch. Use other branches for development/collaboration and merge them back upon completion.
 
@@ -279,7 +278,7 @@ But we won't do much with branching in this course...
 
 Check out the (free) book [ProGIT](https://git-scm.com/book/en/v2)
 
-<img src="ps03_img/progit2.png" alt="alt text" width="30%">
+<img src="PS_03_img/progit2.png" alt="alt text" width="30%">
 
 
 Or the [cheatsheet](https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf).

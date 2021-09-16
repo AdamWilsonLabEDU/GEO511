@@ -7,11 +7,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 
-<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -443,9 +443,9 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="externals/header-attrs/header-attrs.js"></script>
-    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -458,10 +458,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="todays-agenda" class="slide level2">
 <h2>Today’s agenda</h2>
 <ol type="1">
-<li>Q&amp;A
-<ul>
-<li>Datacamp - Late doesn’t matter, you still must complete them</li>
-</ul></li>
+<li>Q&amp;A</li>
 <li>Project Overview</li>
 <li>Resource Presentation</li>
 <li>Case Study Presentations</li>
@@ -484,9 +481,9 @@ use_git_config(
 </section>
 <section id="course-schedule" class="slide level2">
 <h2>Course Schedule</h2>
-<iframe src="http://geo511.wilsonlab.io/Schedule.html" width="100%" height="800">
+<iframe src="https://geo511.wilsonlab.io/Schedule.html" width="100%" height="800">
 </iframe>
-<p><a href="http://geo511.wilsonlab.io/Schedule.html">source</a></p>
+<p><a href="https://geo511.wilsonlab.io/Schedule.html">source</a></p>
 </section>
 <section>
 <section id="project-overview" class="title-slide slide level1">
@@ -497,19 +494,19 @@ use_git_config(
 <h2>Project Timeline</h2>
 <p>Infographic/Poster</p>
 <ul>
-<li>Week 4 (9/21) Rough Project Idea to Slack</li>
-<li>Week 7 (10/12) Project proposal due</li>
-<li>Week 8 (10/19) Set up Project Website</li>
-<li>Week 11 (11/9) First Draft</li>
-<li>Week 12 (11/16) Peer review of final projects</li>
-<li>Week 15 (12/7) Final Presentations</li>
+<li>Week 4 (9/23) Rough Project Idea to Slack</li>
+<li>Week 7 (10/14) Project proposal due</li>
+<li>Week 8 (10/21) Set up Project Website</li>
+<li>Week 11 (11/11) First Draft</li>
+<li>Week 12 (11/18) Peer review of final projects</li>
+<li>Week 15 (12/9) Final Presentations</li>
 </ul>
 </section>
 <section id="project-requirements" class="slide level2">
 <h2>Project Requirements</h2>
 <ul>
 <li>Fairly Open / Flexible</li>
-<li>Data: * 2+ sources * 3+ dimensions (e.g. latitude, longitude, time, and maybe more) * Publically available downloaded within the R/Rmd script Question / Problem: Analysis centered on a single question/topic/problem</li>
+<li>Data: * 2+ sources * ideally 3+ dimensions (e.g. latitude, longitude, time, and maybe more) * Publicly available downloaded within the R/Rmd script Question / Problem: Analysis centered on a single question/topic/problem</li>
 </ul>
 <p>Common mistake: taking on too much - small and beautiful better than large and gangling.</p>
 </section>
@@ -527,9 +524,9 @@ use_git_config(
 </section>
 <section id="browse-previous-projects" class="slide level2">
 <h2>Browse previous projects</h2>
-<iframe src="http://wilsonlab.io/GEO511/Student_projects.html" width="100%" height="800">
+<iframe src="http://geo511.wilsonlab.io/Student_projects.html" width="100%" height="800">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/Student_projects.html">source</a></p>
+<p><a href="http://geo511.wilsonlab.io/Student_projects.html">source</a></p>
 </section>
 <section id="resource-presentations" class="slide level2">
 <h2>Resource Presentations</h2>
@@ -546,9 +543,9 @@ use_git_config(
 </section></section>
 <section id="next-weeks-case-study" class="title-slide slide level1">
 <h1>Next Week’s Case Study</h1>
-<iframe src="http://wilsonlab.io/GEO511/CS_03.html" width="100%" height="800">
+<iframe src="http://geo511.wilsonlab.io/CS_03.html" width="100%" height="800">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/CS_03.html">source</a></p>
+<p><a href="http://geo511.wilsonlab.io/CS_03.html">source</a></p>
 </section>
 
 <section>
@@ -621,14 +618,14 @@ use_git_config(
 <section id="checksum" class="slide level2">
 <h2>Checksum</h2>
 <p>A way of reducing digital information to a unique ID:</p>
-<p><img src="ps03_img/checksum.jpg" alt="alt text" width="50%"></p>
+<p><img src="PS_03_img/checksum.jpg" alt="alt text" width="50%"></p>
 <p>A 40-character hexadecimal SHA-1 hash: <code>24b9da6552252987aa493b52f8696cd6d3b00373</code></p>
 <p>Git doesn’t care about filenames, extensions, etc. It’s the information that matters…</p>
 </section>
 <section id="the-3-states-of-files" class="slide level2">
 <h2>The 3 states of files</h2>
 <h3 id="staged-modified-committed">staged, modified, committed</h3>
-<p><img src="ps03_img/staging.png" alt="alt text" width="75%"></p>
+<p><img src="PS_03_img/staging.png" alt="alt text" width="75%"></p>
 <p>The important stuff is hidden in the <code>.git</code> folder.</p>
 </section></section>
 <section>
@@ -689,17 +686,17 @@ use_git_config(
 </section>
 <section id="stage" class="slide level2">
 <h2>Stage</h2>
-<p><img src="ps03_img/Stage.png" alt="alt text" width="75%"></p>
+<p><img src="PS_03_img/Stage.png" alt="alt text" width="75%"></p>
 <p>Select which changed files (added, deleted, or edited) you want to commit.</p>
 </section>
 <section id="commit" class="slide level2">
 <h2>Commit</h2>
-<p><img src="ps03_img/Commit.png" alt="alt text" width="100%"></p>
+<p><img src="PS_03_img/Commit.png" alt="alt text" width="100%"></p>
 <p>Add a <em>commit message</em> and click commit.</p>
 </section>
 <section id="sync-push" class="slide level2">
 <h2>Sync (<code>push</code>)</h2>
-<p><img src="ps03_img/Push.png" alt="alt text" width="100%"></p>
+<p><img src="PS_03_img/Push.png" alt="alt text" width="100%"></p>
 <p>Click the green arrow to sync with GitHub.</p>
 </section>
 <section id="dos-and-donts" class="slide level2">
@@ -716,7 +713,7 @@ use_git_config(
 <h2>And much more!</h2>
 <p>Git has many, many more features…</p>
 <p>RStudio GUI has limited functionality.</p>
-<p><img src="ps03_img/CommandLine.png" alt="alt text" width="75%"></p>
+<p><img src="PS_03_img/CommandLine.png" alt="alt text" width="75%"></p>
 </section>
 <section id="git-help" class="slide level2">
 <h2>Git help</h2>
@@ -727,7 +724,7 @@ $ man git-&lt;verb&gt;</code></pre>
 </section>
 <section id="git-status" class="slide level2">
 <h2>Git status</h2>
-<p><img src="ps03_img/GitCL.png" alt="alt text" width="75%"></p>
+<p><img src="PS_03_img/GitCL.png" alt="alt text" width="75%"></p>
 <p>Similar to info in git tab in RStudio</p>
 </section>
 <section id="git-config" class="slide level2">
@@ -740,7 +737,7 @@ $ man git-&lt;verb&gt;</code></pre>
 </section>
 <section id="branching" class="slide level2">
 <h2>Branching</h2>
-<p>Branches used to develop features isolated from each other. <img src="ps03_img/merge.png" alt="alt text" width="100%"></p>
+<p>Branches used to develop features isolated from each other. <img src="PS_03_img/Merge.png" alt="alt text" width="100%"></p>
 <p>Default: <em>master</em> branch. Use other branches for development/collaboration and merge them back upon completion.</p>
 </section>
 <section id="basic-branching" class="slide level2">
@@ -755,7 +752,7 @@ $ git merge devel  #merge in changes from devel branch</code></pre>
 <section id="git-can-do-far-more" class="slide level2">
 <h2>Git can do far more!</h2>
 <p>Check out the (free) book <a href="https://git-scm.com/book/en/v2">ProGIT</a></p>
-<p><img src="ps03_img/progit2.png" alt="alt text" width="30%"></p>
+<p><img src="PS_03_img/progit2.png" alt="alt text" width="30%"></p>
 <p>Or the <a href="https://training.github.com/kit/downloads/github-git-cheat-sheet.pdf">cheatsheet</a>.</p>
 </section>
 <section id="colophon" class="slide level2">
@@ -765,8 +762,8 @@ $ git merge devel  #merge in changes from devel branch</code></pre>
     </div>
   </div>
 
-  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
@@ -813,8 +810,8 @@ $ git merge devel  #merge in changes from devel branch</code></pre>
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>
