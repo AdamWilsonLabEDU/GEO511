@@ -506,8 +506,14 @@ use_git_config(
 <h2>Project Requirements</h2>
 <ul>
 <li>Fairly Open / Flexible</li>
-<li>Data: * 2+ sources * ideally 3+ dimensions (e.g. latitude, longitude, time, and maybe more) * Publicly available downloaded within the R/Rmd script Question / Problem: Analysis centered on a single question/topic/problem</li>
+<li>Data:
+<ul>
+<li>2+ sources</li>
+<li>ideally 3+ dimensions (e.g. latitude, longitude, time, and maybe more)</li>
+<li>Publicly available downloaded within the R/Rmd script</li>
+</ul></li>
 </ul>
+<p>Question / Problem: Analysis centered on a single question/topic/problem</p>
 <p>Common mistake: taking on too much - small and beautiful better than large and gangling.</p>
 </section>
 <section id="project-structure" class="slide level2">
@@ -520,13 +526,14 @@ use_git_config(
 <li>Conclusions [~200 words]</li>
 <li>References</li>
 </ul>
-<p>Total [~1.5 pages of text] And all code to reproduce the analysis [1-5 pages of code]!!</p>
+<p>Total [~1.5 pages of text]</p>
+<p>And all code to reproduce the analysis [1-5 pages of code]!!</p>
 </section>
 <section id="browse-previous-projects" class="slide level2">
 <h2>Browse previous projects</h2>
-<iframe src="http://geo511.wilsonlab.io/Student_projects.html" width="100%" height="800">
+<iframe src="https://geo511.wilsonlab.io/Student_projects.html" width="100%" height="800">
 </iframe>
-<p><a href="http://geo511.wilsonlab.io/Student_projects.html">source</a></p>
+<p><a href="https://geo511.wilsonlab.io/Student_projects.html">source</a></p>
 </section>
 <section id="resource-presentations" class="slide level2">
 <h2>Resource Presentations</h2>
@@ -536,16 +543,16 @@ use_git_config(
 </section>
 <section id="case-study-presentations---lets-pick-a-winner" class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
-<iframe src="https://wheelofnames.com/bw4-gdt" width="100%" height="500">
+<iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
 </iframe>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" style="height: 800px; width: 100%;">
 </iframe>
 </section></section>
 <section id="next-weeks-case-study" class="title-slide slide level1">
 <h1>Next Week’s Case Study</h1>
-<iframe src="http://geo511.wilsonlab.io/CS_03.html" width="100%" height="800">
+<iframe src="https://geo511.wilsonlab.io/CS_03.html" width="100%" height="800">
 </iframe>
-<p><a href="http://geo511.wilsonlab.io/CS_03.html">source</a></p>
+<p><a href="https://geo511.wilsonlab.io/CS_03.html">source</a></p>
 </section>
 
 <section>
@@ -577,8 +584,14 @@ use_git_config(
 <h2>There must be a better way to keep track of changes!</h2>
 <ul>
 <li>Microsoft / Google Docs “Track Changes” (kind of)</li>
-<li><a href="https://subversion.apache.org/">SVN</a> * Centralized (must ‘check out’ to make changes)</li>
-<li><a href="https://git-scm.com/">Git</a> * Decentralized (everyone has an independent copy)</li>
+<li><a href="https://subversion.apache.org/">SVN</a>
+<ul>
+<li>Centralized (must ‘check out’ to make changes)</li>
+</ul></li>
+<li><a href="https://git-scm.com/">Git</a>
+<ul>
+<li>Decentralized (everyone has an independent copy)</li>
+</ul></li>
 </ul>
 </section>
 <section id="tracking-changes-with-version-control" class="slide level2">
@@ -703,8 +716,8 @@ use_git_config(
 <h2>Do’s and don’ts</h2>
 <ul>
 <li><strong>DO</strong> only commit text files (like <code>*.R</code> scripts) and possibly very small datasets</li>
-<li><strong>DO NOT</strong> commit large or non-text files (like <code>*.ppt</code>) especially if they will change often (git has 100MB maximum)</li>
 <li><strong>DO</strong> use <code>.gitignore</code> to ignore certain files and filetypes</li>
+<li><strong>DO NOT</strong> commit large or non-text files (like <code>*.ppt</code>) especially if they will change often (git has 100MB maximum)</li>
 <li><strong>DO NOT</strong> move files around after starting the course repository</li>
 <li><strong>DO NOT</strong> edit/move the <code>.git</code> or <code>tests</code> folder</li>
 </ul>
