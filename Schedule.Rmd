@@ -136,7 +136,7 @@ wpres2=ifelse(length(wpres)==1,
     "| ",ifelse(is.na(weeks$package[i]),"",weeks$package[i]),
     "|\n "
     ))
-}
+} 
 ```
 
 ## Student Leadership and Presentations
