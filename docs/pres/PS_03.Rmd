@@ -13,18 +13,6 @@ week: 2
 5. Case Study Introduction
 6. Git Overview
 
-## Github- "Who are you?"
-"Please tell me who you are". 
-
-```
-## install if needed (do this exactly once):
-## install.packages("usethis")
-library(usethis)
-use_git_config(
-    user.name = "Jane Doe",
-    user.email = "jane@example.org")
-```
-
 ## Other Questions?
 
 
@@ -194,6 +182,19 @@ Host your own server or use another private company, such as BitBucket.
 Typically steps 4,5, and 6 are done at the same time.
 
 See Tasks [1](Tk_03.html) and [2](Tk_04.html).
+
+## Github- "Who are you?"
+"Please tell me who you are". 
+
+```
+## install if needed (do this exactly once):
+## install.packages("usethis")
+library(usethis)
+use_git_config(
+    user.name = "Jane Doe",
+    user.email = "jane@example.org")
+```
+
 
 ## Commit to GitHub from within RStudio
 
