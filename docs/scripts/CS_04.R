@@ -25,6 +25,8 @@
 #' # Objective
 #' > What is the full name (not the three letter code) of the destination airport farthest from any of the NYC airports in the `flights` table?
 #' 
+#' Save the name as a character value `farthest_airport`.
+#' 
 #' # Tasks
 #' 
 
