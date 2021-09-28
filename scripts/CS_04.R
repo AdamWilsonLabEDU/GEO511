@@ -48,6 +48,8 @@ library(nycflights13)
 #' 2. In the table with distances, find the airport code that is farthest from the New York Airports (perhaps using `arrange()` and `slice()`)
 #' 3. Join this table with the one that has the full airport names.  You will either need to rename the columns so they match the other table or use the `by` parameter in the join.  e.g. check out `?left_join()`
 #' 4. `select()` only the `destName` column
+#' 5. Convert the data.frame to a single character value with `as.character()`. This converts the data.frame object into a single value. 
+#' 5. Save the resulting airport name as an object called `farthest_airport`
 #' </div>
 #' </div>
 #' 

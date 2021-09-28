@@ -56,16 +56,20 @@ The details below describe one possible approach.
 2. In the table with distances, find the airport code that is farthest from the New York Airports (perhaps using `arrange()` and `slice()`)
 3. Join this table with the one that has the full airport names.  You will either need to rename the columns so they match the other table or use the `by` parameter in the join.  e.g. check out `?left_join()`
 4. `select()` only the `destName` column
+5. Convert the data.frame to a single character value with `as.character()`. This converts the data.frame object into a single value. 
+5. Save the resulting airport name as an object called `farthest_airport`
 </div>
 </div>
 
 ```{r purl=F, echo=F, results='hide',message=FALSE, eval=F}
-flights%>%
+farthest_airport <- flights%>%
   select(distance,dest)%>%
   arrange(desc(distance))%>%
   slice(1)%>%
   left_join(airports,by=c("dest"="faa"))%>%
-  select(name)
+  select(name) %>% 
+  as.character()
+
 
 #OR
 
@@ -75,7 +79,8 @@ select(airports,
   right_join(flights)%>% 
   arrange(desc(distance)) %>% 
   slice(1) %>% 
-  select(destName)
+  select(destName) %>% 
+  as.character()
 ```
 
 
