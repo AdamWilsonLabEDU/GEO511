@@ -23,10 +23,10 @@ library(sf)
 ## Next Week's Case Study
 
 <iframe
-  src="http://wilsonlab.io/GEO511/CS_05.html"
+  src="http://geo511.wilsonlab.io/CS_05.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/CS_05.html)
+[source](http://geo511.wilsonlab.io/CS_05.html)
 
 
 ---
@@ -155,11 +155,14 @@ Overview of [projection systems](https://www.e-education.psu.edu/natureofgeoinfo
 ```{r, warning=F}
 data(world) # from spData package
 st_crs(world)
+```
 
+## Reproject to ["Goode Homolosine" projection](https://proj.org/operations/projections/goode.html)
+```{r}
 world_homolosine=world %>% 
   st_transform(crs = "+proj=goode")
 
-p1 <- ggplot(world,aes(fill=gdpPercap))+
+p1 <- ggplot(world,aes(fill=gdpPercap),color=NA)+
   geom_sf()
 p2 <- ggplot(world_homolosine,aes(fill=gdpPercap))+
   geom_sf()
@@ -167,8 +170,21 @@ p2 <- ggplot(world_homolosine,aes(fill=gdpPercap))+
 
 ## 
 ```{r}
-ggarrange(p1,p2,common.legend = T)
+ggarrange(p1,p2,common.legend = T,legend = "right")
 ```
+
+## Reproject to ["Goode Homolosine" projection](https://proj.org/operations/projections/goode.html)
+```{r}
+p1 <- ggplot(world,aes(fill=gdpPercap),color=NA)+
+  geom_sf()
+p2 <- p1+coord_sf(crs="+proj=goode")
+```
+
+## 
+```{r}
+ggarrange(p1,p2,common.legend = T,legend = "right")
+```
+
 
 ## Defining a projection
 
@@ -177,16 +193,19 @@ ggarrange(p1,p2,common.legend = T)
 * Proj4 String
    * `+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs` 
 * WKT (well known text) string
-   * `GEOGCS["WGS 84",
-    DATUM["WGS_1984",
+
+```
+GEOGCS["WGS 84", 
+    DATUM["WGS_1984", 
         SPHEROID["WGS 84",6378137,298.257223563,
-            AUTHORITY["EPSG","7030"]],
-        AUTHORITY["EPSG","6326"]],
-    PRIMEM["Greenwich",0,
-        AUTHORITY["EPSG","8901"]],
-    UNIT["degree",0.01745329251994328,
-        AUTHORITY["EPSG","9122"]],
-    AUTHORITY["EPSG","4326"]]`
+            AUTHORITY["EPSG","7030"]],  
+        AUTHORITY["EPSG","6326"]],  
+    PRIMEM["Greenwich",0,  
+        AUTHORITY["EPSG","8901"]],  
+    UNIT["degree",0.01745329251994328,  
+        AUTHORITY["EPSG","9122"]],  
+    AUTHORITY["EPSG","4326"]]
+```
 
 [spatialreference.org](https://spatialreference.org/ref/epsg/wgs-84/prettywkt/)
 [proj.org](https://proj.org/operations/projections/index.html)
@@ -223,9 +242,11 @@ glimpse(world)
 
 If you work with PostGis or GeoJSON you may have come across the [WKT (well-known text)](https://en.wikipedia.org/wiki/Well-known_text) format, for example like these: 
 
-    `POINT (30 10)
-    LINESTRING (30 10, 10 30, 40 40)
-    POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))`
+```
+POINT (30 10)
+LINESTRING (30 10, 10 30, 40 40)
+POLYGON ((30 10, 40 40, 20 40, 10 20, 30 10))
+```
 
 `sf` implements this standard natively in R. Data are structured and conceptualized very differently from the `sp` approach.
 
@@ -342,17 +363,19 @@ world %>%
 
 ---
 
-## Non-spatial operations
+## Summarize/Aggregate using column
 
 ```{r}
+world
 world_cont = world %>% 
         group_by(continent) %>% 
         summarize(pop_sum = sum(pop, na.rm = TRUE))
+world_cont
 ```
 
-```{r, echo=FALSE}
-print(world_cont, n = 1)
+---
 
+```{r}
 ggplot(world_cont,aes(fill=pop_sum))+
   geom_sf()
 ```
