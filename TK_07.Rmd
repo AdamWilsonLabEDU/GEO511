@@ -7,7 +7,9 @@ presentation: PS_07_help.html
 reading:
   - Chapters [3-4 in GCR](https://geocompr.robinlovelace.net/) 
 tasks:
-  - Complete project proposal and upload .Rmd and .md to Github
+  - Write your project proposal in a .Rmd file
+  - Compile the .Rmd to .md using the "Knit" button
+  - Push both the .Rmd and .md to Github
   - Post links to your project proposal .md file in the Projects Channel on Slack.
 ---
 
@@ -41,7 +43,7 @@ Finding good data takes time, and can take longer than the time to tidy your dat
 file.copy("Project_ProposalTemplate.Rmd","scripts/Project_ProposalTemplate.Rmd")
 ```
 
-Use [this template (which is an R Markdown File) for your project proposal](scripts/Project_ProposalTemplate.Rmd).  You can view this file on [github here](https://github.com/AdamWilsonLab/GEO511/blob/master/Project_ProposalTemplate.Rmd) and see what this file looks like 'after rendering' [here](Project_ProposalTemplate.html).
+Use [this template (which is an R Markdown File) for your project proposal](scripts/Project_ProposalTemplate.Rmd).  You can view this file on [github here](https://github.com/AdamWilsonLabEDU/GEO511/blob/main/Project_ProposalTemplate.Rmd) and see what this file looks like 'after rendering' [here](Project_ProposalTemplate.html).
 
 In particular, notice the the YAML header of the .Rmd file:
 ```
