@@ -459,8 +459,8 @@ tmean=raster(&quot;crudata.nc&quot;)</code></pre>
 <li>Prepare Climate Data
 <ol style="list-style-type: decimal">
 <li>Download and load the WorldClim maximum temperature dataset at the lowest resolution (10 degrees) using the code above (<code>tmax_monthly=getData(...)</code>).</li>
-<li>Inspect the new <code>tmax_monthly</code> object (you can start by just typing it’s name <code>tmax_monthly</code>, then perhaps making a <code>plot()</code>). How many layers does it have? What do these represent? What are the units? You can read more about the data <a href="http://worldclim.org/formats1">here</a></li>
-<li>Set the appropriate <code>gain()</code> to convert to Degrees C. You can figure this out using information found <a href="http://worldclim.org/formats1">here</a> and <code>?gain()</code>. What value do you need to multiply with the data to get degrees C?</li>
+<li>Inspect the new <code>tmax_monthly</code> object (you can start by just typing it’s name <code>tmax_monthly</code>, then perhaps making a <code>plot()</code>). How many layers does it have? What do these represent? You can read more about the data <a href="https://www.worldclim.org/data/worldclim21.html">here</a></li>
+<li>The WorldClim data are stored as hundreths of degrees C. So a real value of 15.5 C would be stored as 155. This saves disk space because they can be stored as integers instead of floating point numbers. This means each value needs to be multiplied by 0.1 to convert back to degrees C. You can do this with <code>gain()</code>.</li>
 <li>Create a new object called <code>tmax_annual</code> that is the annual maximum temperature in each pixel of the raster stack using <code>max()</code>. This will find the maximum temperature in each location across all months.</li>
 <li>Use <code>names(tmax_annual) &lt;- "tmax"</code> to change the name of the layer in the new <code>tmax_annual</code> object to <code>tmax</code>. This makes the later code more intuitive than keeping the default name <code>layer</code>.</li>
 </ol></li>
@@ -468,11 +468,12 @@ tmean=raster(&quot;crudata.nc&quot;)</code></pre>
 <ol style="list-style-type: decimal">
 <li>use <code>raster::extract()</code> to identify the maximum temperature observed in each country (<code>fun=max</code>). Also set <code>na.rm=T, small=T, sp=T</code> to 1) handle missing data along coastlines, 2) account for small countries that may not have a full 0.5 degree pixel in them, and 3) return a spatial polygon object instead of just a vector of values.</li>
 <li>convert the results of the previous step to <code>sf</code> format with <code>st_as_sf()</code>. Now you have an updated polygon object with a new column of maximium temperature. Cool!</li>
+<li>save this spatial feature as <code>tmax_country</code>.</li>
 </ol></li>
 <li>Communicate your results
 <ol style="list-style-type: decimal">
 <li>use <code>ggplot()</code> and <code>geom_sf()</code> to plot the maximum temperature in each country polygon (not the original raster layer). To recreate the image below, you will also need <code>+scale_fill_viridis_c(name="Annual\nMaximum\nTemperature (C)")</code>. Note the use of <code>\n</code> to insert a line break in the text string. You can move the legend around with <code>+theme(legend.position = 'bottom')</code>.</li>
-<li>use <code>dplyr</code> tools to find the hottest country in each continent. You may need <code>group_by()</code> and <code>top_n</code>. To create a nice looking table, you may also want to use <code>select()</code> to keep only the desired columns, <code>arrange()</code> to sort them, <code>st_set_geometry(NULL)</code> to drop the geometry column (if desired).</li>
+<li>use <code>dplyr</code> tools to find the hottest country in each continent. You may need <code>group_by()</code> and <code>top_n</code>. To create a nice looking table, you may also want to use <code>select()</code> to keep only the desired columns, <code>arrange()</code> to sort them, <code>st_set_geometry(NULL)</code> to drop the geometry column (if desired). Save this table as <code>hottest_continents</code>.</li>
 </ol></li>
 </ol>
 </div>

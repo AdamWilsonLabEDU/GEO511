@@ -84,16 +84,17 @@ Note:  If you use the CRU data instead of the WorldClim data, you will have to e
     2. Convert the `world` object to `sp` format (the 'old' format) because the `raster` package doesn't accept `sf` objects.  you can do this with `as(world,"Spatial")`.
 2. Prepare Climate Data 
     1. Download and load the WorldClim maximum temperature dataset at the lowest resolution (10 degrees) using the code above (`tmax_monthly=getData(...)`).
-    2. Inspect the new `tmax_monthly` object (you can start by just typing it's name `tmax_monthly`, then perhaps making a `plot()`).  How many layers does it have?  What do these represent?  What are the units?  You can read more about the data [here](http://worldclim.org/formats1)
-    3. Set the appropriate `gain()` to convert to Degrees C.  You can figure this out using information found [here](http://worldclim.org/formats1) and `?gain()`.  What value do you need to multiply with the data to get degrees C?
+    2. Inspect the new `tmax_monthly` object (you can start by just typing it's name `tmax_monthly`, then perhaps making a `plot()`).  How many layers does it have?  What do these represent?  You can read more about the data [here](https://www.worldclim.org/data/worldclim21.html)
+    3. The WorldClim data are stored as hundreths of degrees C.  So a real value of 15.5 C would be stored as 155.  This saves disk space because they can be stored as integers instead of floating point numbers.  This means each value needs to be multiplied by 0.1 to convert back to degrees C.  You can do this with `gain()`.
     3. Create a new object called `tmax_annual` that is the annual maximum temperature in each pixel of the raster stack using `max()`.  This will find the maximum temperature in each location across all months.
     4. Use `names(tmax_annual) <- "tmax"` to change the name of the layer in the new `tmax_annual` object to `tmax`. This makes the later code more intuitive than keeping the default name `layer`.
 2. Calculate the maximum temperature observed in each country.
     1. use `raster::extract()` to identify the maximum temperature observed in each country (`fun=max`). Also set `na.rm=T, small=T, sp=T` to 1) handle missing data along coastlines, 2) account for small countries that may not have a full 0.5 degree pixel in them, and 3) return a spatial polygon object instead of just a vector of values.
     2. convert the results of the previous step to `sf` format with `st_as_sf()`.  Now you have an updated polygon object with a new column of maximium temperature.  Cool!
+    3. save this spatial feature as `tmax_country`.
 3. Communicate your results
     1. use `ggplot()` and `geom_sf()` to plot the maximum temperature in each country polygon (not the original raster layer).  To recreate the image below, you will also need `+scale_fill_viridis_c(name="Annual\nMaximum\nTemperature (C)")`.  Note the use of `\n` to insert a line break in the text string. You can move the legend around with `+theme(legend.position = 'bottom')`.
-    2. use `dplyr` tools to find the hottest country in each continent. You may need `group_by()` and `top_n`.  To create a nice looking table, you may also want to use `select()` to keep only the desired columns, `arrange()` to sort them, `st_set_geometry(NULL)` to drop the geometry column (if desired).
+    2. use `dplyr` tools to find the hottest country in each continent. You may need `group_by()` and `top_n`.  To create a nice looking table, you may also want to use `select()` to keep only the desired columns, `arrange()` to sort them, `st_set_geometry(NULL)` to drop the geometry column (if desired).  Save this table as `hottest_continents`.
 </div>
 </div>
 
