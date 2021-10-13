@@ -21,16 +21,14 @@ library(tidyverse)
 
 [Example 2: Erik](https://github.com/geo511-2020/geo511-2020-tasks-erikwoyc/blob/master/week_07/Project_Proposal.md)
 
-```{r child = "resource_case_study.Rmd"}
-```
 
 ## Next Week's Case Study
 
 <iframe
-  src="http://wilsonlab.io/GEO511/CS_07.html"
+  src="https://geo511.wilsonlab.io/CS_07.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/CS_07.html)
+[source](https://geo511.wilsonlab.io/CS_07.html)
 
 ## Got Problems?
 
@@ -317,3 +315,9 @@ Github "Issues"
   width="100%" height="800">
 </iframe>
 [source](https://github.com/tidyverse/tidyr/issues)
+
+## Next week
+
+**Bring Project-related questions**
+
+Case study is an easy one and there will be extra time!
