@@ -11,7 +11,8 @@ tasks:
    - Learn how to search for help
    - Learn how to create a Minimum Working Example (MWE)
    - Debug existing code
-   - Save your reprex to your course repository as an html file using Export -> "Save As Webpage" in the RStudio "Viewer" Tab.
+   - Post your reprex as an ‘issue’ in github
+   - Post your repex to slack
 ---
 
 ```{r, echo=FALSE, message=FALSE, results='hide', purl=FALSE}
