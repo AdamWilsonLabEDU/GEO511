@@ -19,10 +19,10 @@ week: 8
 ## Next Week's Case Study
 
 <iframe
-  src="http://wilsonlab.io/GEO511/CS_08.html"
+  src="http://geo511.wilsonlab.io/CS_08.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/CS_08.html)
+[source](http://geo511.wilsonlab.io/CS_08.html)
 
 ## Final Projects
 
@@ -64,14 +64,14 @@ Remember, the data and code are _real_, the products (tables, figures) are ephem
 
 
 ## Our work exists on a spectrum of reproducibility
-<img src="img_12/peng-spectrum.jpg" alt="alt text" width="800">
+<img src="PS_12_img/peng-spectrum.jpg" alt="alt text" width="800">
 
 <small>Peng 2011, Science 334(6060) pp. 1226-1227</small>
 
 
 ## Goal: expose more of the research workflow
 
-<img src="img_12/peng-pipeline.jpg" alt="alt text" width="600">
+<img src="PS_12_img/peng-pipeline.jpg" alt="alt text" width="600">
 
 <small><small>http://www.stodden.net/AMP2011/slides/pengslides.pdf</small></small>
 
@@ -86,11 +86,11 @@ Remember, the data and code are _real_, the products (tables, figures) are ephem
 
 ---
 
-<img src="img_12/phd-comic-vcs.gif" alt="alt text" width="400">
+<img src="PS_12_img/phd-comic-vcs.gif" alt="alt text" width="400">
 
 ---
 
-<small>![alt text](img_12/lemon.png)</small>
+<small>![alt text](PS_12_img/lemon.png)</small>
 
 ---
 
@@ -111,11 +111,11 @@ Remember, the data and code are _real_, the products (tables, figures) are ephem
 
 ---
 
-<img src="img_12/reinhart_rogoff_coding_error_0.png" alt="alt text" width="400">
+<img src="PS_12_img/reinhart_rogoff_coding_error_0.png" alt="alt text" width="400">
 
 ---
 
-<img src="img_12/reinhart_rogoff_econ_mag.png" alt="alt text" width="500">
+<img src="PS_12_img/reinhart_rogoff_econ_mag.png" alt="alt text" width="500">
 
 Excel coding error sliced several countries out of the data set....
 [The Economist](http://www.economist.com/news/finance-and-economics/21576362-seminal-analysis-relationship-between-debt-and-growth-comes-under)
@@ -144,7 +144,7 @@ Authors informed the journal that the merge of lab results and other survey data
 
 ## Open scripted analyses provide a solution  {.columns-2}
 
-  <img src="img_12/open-science.png" alt="alt text" width="200px">
+  <img src="PS_12_img/open-science.png" alt="alt text" width="200px">
 
 
   - Plain text files readable for a _long_ time
@@ -169,7 +169,7 @@ The text and R code are interwoven in the output.  The products are ephemeral - 
 
 Of course `2+2` is trivial, but what if I said:
 
-<img src="img_12/model.png" alt="alt text" width="800">
+<img src="PS_12_img/model.png" alt="alt text" width="800">
 
 
 ## Literate programming: pros and cons   {.columns-2}
@@ -188,7 +188,7 @@ Of course `2+2` is trivial, but what if I said:
 
 ## Markdown formatting language  {.columns-2}
 
-<img src="img_12/markdown.png" alt="alt text" width="100">
+<img src="PS_12_img/markdown.png" alt="alt text" width="100">
 
 Markdown: lightweight document formatting syntax. Easy to write, read and publish as-is.
 
@@ -205,7 +205,7 @@ The human-readable part:
 
 Engine for dynamic report generation in R
 
-<img src="img_12/knitr.png" alt="alt text" width="200">
+<img src="PS_12_img/knitr.png" alt="alt text" width="200">
 
 - Narrative and code in the same file or explicitly linked
 - When data or narrative are updated, the document is automatically updated
@@ -214,7 +214,7 @@ Engine for dynamic report generation in R
 
 ## Pandoc: document converter  {.columns-2}
 
-<img src="img_12/pandoc-workflow-rmd-md.png" alt="alt text" height="500px">
+<img src="PS_12_img/pandoc-workflow-rmd-md.png" alt="alt text" height="500px">
 <small><small><small>http://kieranhealy.org/blog/archives/2014/01/23/plain-text/ </small></small></small>
 
 ---

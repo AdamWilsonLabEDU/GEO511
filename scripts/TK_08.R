@@ -48,7 +48,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #' Steps:
 #' 
 #' 1. Click on [this link](https://classroom.github.com/a/ofNd8maP) to make a copy of the project template.  
-#' 2. Open your new repository in GitHub.  It will look something like [https://github.com/geo511-2020/2019_GEO_511_Project-adammwilson](https://github.com/geo511-2020/2019_GEO_511_Project-adammwilson)
+#' 2. Open your new repository in GitHub.  It will look something like [https://github.com/GEO511-2021/2021_project-adammwilson](https://github.com/GEO511-2021/2021_project-adammwilson)
 #' 3. Click the green button "Clone or Download" and copy the URL.
 #' 
 #' ## Clone the project template to your computer
@@ -81,7 +81,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #'    * Go back to the 'Code' tab for your project respository and find the line "No description, website, or topics provided" and click "Edit" on the right as shown in the following figure.
 #'    ![](assets/github_website.png)
 #'    * Paste the URL in the "Website" box. This will make it easier for others to find your website.
-#' 4. Go to your new project webpage.
+#' 4. Go to your new project webpage. It can take ~5 minutes to appear after enabling.
 #' 5.  Now you can `commit` and then `push` your updates from RStudio and your website will be updated.  If you get tired of entering your username and password every time, check out the instructions [here](GitSSHNotes.html).  
 #' 
 #' ## GitHub actions
