@@ -85,7 +85,7 @@ The document should:
    * check out `tidyverse::read_table()` or similar to import the dataset into R directly from the URL (ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt)
    * after you look at the format of the text file, you will want to check out the `skip` parameter of `read_table()`
 4. Use ggplot to plot a time series of CO2 levels through time
-5. Add an additional table below the graph and format it nicely with `knitr:kable()` or similar.  
+5. Add an additional table below the graph and format it nicely with `knitr::kable()` or similar.  
 6. Use `rmarkdown::render(file, output_format = "all")` to render all the outputs specified in the YAML.
 7. Consider changing the 'chunk' settings so that the underlying code (and any messages) are hidden in the output documents.  For example, consider `results='hide',message=FALSE, echo=F`.
 8. Tables can be a little tricky to embed in multiple formats.  One approach is to use `as_image()` in kableExtra package which generates a png file that is easy to embed.  You can use it like this:
