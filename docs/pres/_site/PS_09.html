@@ -7,7 +7,7 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 <style type="text/css">
@@ -74,7 +74,7 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -506,9 +506,9 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="externals/header-attrs/header-attrs.js"></script>
-    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+    <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -520,14 +520,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section id="course-schedule" class="slide level2">
 <h2>Course Schedule</h2>
-<iframe src="http://geo511.wilsonlab.io/Schedule.html" width="100%" height="800">
+<iframe src="https://geo511.wilsonlab.io/Schedule.html" width="100%" height="800">
 </iframe>
-<p><a href="http://geo511.wilsonlab.io/Schedule.html">source</a></p>
+<p><a href="https://geo511.wilsonlab.io/Schedule.html">source</a></p>
 </section>
 <section id="final-projects" class="slide level2">
 <h2>Final Projects</h2>
 <ul>
-<li>Only 8 folks have published their sites…</li>
+<li>Only 14 folks have published their sites…</li>
 <li>Start moving your project proposal content into your website
 <ul>
 <li>Title</li>
@@ -544,16 +544,16 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="case-study-presentations---lets-pick-a-winner" class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
-<iframe src="https://wheelofnames.com/bw4-gdt" width="100%" height="500">
+<iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
 </iframe>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" style="height: 800px; width: 100%;">
 </iframe>
 </section>
 <section id="next-weeks-case-study" class="slide level2">
 <h2>Next Week’s Case Study</h2>
-<iframe src="http://wilsonlab.io/GEO511/CS_09.html" width="100%" height="800">
+<iframe src="http://geo511.wilsonlab.io/CS_09.html" width="100%" height="800">
 </iframe>
-<p><a href="http://wilsonlab.io/GEO511/CS_09.html">source</a></p>
+<p><a href="http://geo511.wilsonlab.io/CS_09.html">source</a></p>
 </section>
 <section>
 <section id="api" class="title-slide slide level1">
@@ -591,7 +591,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>content<span class="ot">=</span><span class="fu">page_content</span>(</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">page_name =</span> <span class="st">&quot;Application_programming_interface&quot;</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">page_name =</span> <span class="st">&quot;API&quot;</span>,</span>
 <span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">project=</span><span class="st">&quot;Wikipedia&quot;</span>,</span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">language=</span><span class="st">&quot;en&quot;</span>,</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">as_wikitext=</span>T)</span></code></pre></div>
@@ -603,8 +603,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace_all</span>(<span class="st">&quot;&#39;&quot;</span>,<span class="st">&quot;&quot;</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace_all</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">[|</span><span class="sc">\\</span><span class="st">]&quot;</span>,<span class="st">&quot;&quot;</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># results:</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(c1[<span class="dv">3</span><span class="sc">:</span><span class="dv">4</span>])</span></code></pre></div>
-<pre><code>## NA NA</code></pre>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(c1[<span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>])</span></code></pre></div>
+<pre><code>## An application programming interface (API) is a connection between computers or between computer programs.  It is a type of software Interface (computing)|interface, offering a service to other pieces of software.&lt;ref&gt;{{cite book |last=Reddy |first=Martin |author-link= |date=2011 |title=API Design for C++ |url=https://www.google.com/books/edition/API_Design_for_C++/IY29LylT85wC |publisher=Elsevier Science |page=1 |isbn=9780123850041}}&lt;/ref&gt; A document or standard that describes how to build or use such a connection or interface is called an API specification.</code></pre>
 </section>
 <section id="many-data-providers-now-have-apis" class="slide level2">
 <h2>Many data providers now have APIs</h2>
@@ -691,11 +691,33 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="results" class="slide level2">
 <h2>Results</h2>
-<pre><code>## Warning: The `shift_geo` argument is deprecated and will be removed in a future release. We
-## recommend using `tigris::shift_geometry()` instead.</code></pre>
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;`
-## instead.</code></pre>
+<pre><code>## Warning: The `shift_geo` argument is deprecated and will be removed in a future
+## release. We recommend using `tigris::shift_geometry()` instead.</code></pre>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please
+## use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img data-src="PS_09_files/figure-revealjs/census-1.png" /></p>
+</section>
+<section id="agricultural-data" class="slide level2">
+<h2>Agricultural Data</h2>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnassqs)</span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#nassqs_auth(&quot;&lt;your api key&gt;&quot;)</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">nassqs_acres</span>(</span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">commodity_desc =</span> <span class="st">&quot;CORN&quot;</span>,</span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">year=</span><span class="dv">2000</span><span class="sc">:</span><span class="dv">2020</span>,</span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">county_name =</span> <span class="st">&quot;Erie&quot;</span>,</span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">agg_level_desc =</span> <span class="st">&quot;COUNTY&quot;</span>,</span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  <span class="at">state_alpha =</span> <span class="fu">c</span>(<span class="st">&quot;NY&quot;</span>),</span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>  <span class="at">statisticcat_desc =</span> <span class="st">&quot;AREA&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(short_desc<span class="sc">==</span><span class="st">&quot;CORN - ACRES PLANTED&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(year, Value) <span class="sc">%&gt;%</span></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">transmute</span>(</span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a>    year,</span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">value =</span> <span class="fu">as.numeric</span>(<span class="fu">gsub</span>(<span class="st">&quot;,&quot;</span>, <span class="st">&quot;&quot;</span>, Value)))</span></code></pre></div>
+</section>
+<section id="results-1" class="slide level2">
+<h2>Results</h2>
+<p><img data-src="PS_09_files/figure-revealjs/agriculture2-1.png" /></p>
 </section>
 <section id="feddata-package" class="slide level2">
 <h2><code>FedData</code> package</h2>
@@ -736,28 +758,28 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="libraries" class="slide level2">
 <h2>Libraries</h2>
-<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co"># New Packages</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnoaa)</span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(climdex.pcic)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sf)</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(broom)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggmap)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(scales)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a><span class="co"># New Packages</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rnoaa)</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(climdex.pcic)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(zoo)</span></code></pre></div>
 </section>
 <section id="station-locations" class="slide level2">
 <h2>Station locations</h2>
 <p>Download the GHCN station inventory with <code>ghcnd_stations()</code> and convert to <code>sf</code> object. The download can take a minute or two.</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">=</span> <span class="fu">ghcnd_stations</span>()<span class="sc">%&gt;%</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()<span class="sc">%&gt;%</span>  <span class="co"># remove records with missing values</span></span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords=</span><span class="fu">c</span>(<span class="st">&quot;longitude&quot;</span>,<span class="st">&quot;latitude&quot;</span>))<span class="sc">%&gt;%</span> <span class="co">#convert to sf</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="st">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">=</span> <span class="fu">ghcnd_stations</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()<span class="sc">%&gt;%</span>  <span class="co"># remove records with missing values</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords=</span><span class="fu">c</span>(<span class="st">&quot;longitude&quot;</span>,<span class="st">&quot;latitude&quot;</span>))<span class="sc">%&gt;%</span> <span class="co">#convert to sf</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="st">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</span>)</span></code></pre></div>
 <pre><code>## using cached file: ~/Library/Caches/R/noaa_ghcnd/ghcnd-stations.rds</code></pre>
 <pre><code>## date created (size, mb): 2021-08-29 22:53:46 (2.142)</code></pre>
 <pre><code>## using cached file: ~/Library/Caches/R/noaa_ghcnd/ghcnd-inventory.rds</code></pre>
 <pre><code>## date created (size, mb): 2021-08-29 22:54:22 (2.638)</code></pre>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(st)<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(st)<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -871,26 +893,26 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="filter-to-temperature-and-precipitation" class="slide level2">
 <h2><code>filter()</code> to temperature and precipitation</h2>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>st_filtered<span class="ot">=</span>dplyr<span class="sc">::</span><span class="fu">filter</span>(st,element<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;TMAX&quot;</span>,<span class="st">&quot;TMIN&quot;</span>,<span class="st">&quot;PRCP&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>st_filtered<span class="ot">=</span>dplyr<span class="sc">::</span><span class="fu">filter</span>(st,element<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;TMAX&quot;</span>,<span class="st">&quot;TMIN&quot;</span>,<span class="st">&quot;PRCP&quot;</span>))</span></code></pre></div>
 </section>
 <section id="map-ghcnd-stations" class="slide level2">
 <h2>Map GHCND stations</h2>
 <p>First, get a global country polygon</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spData)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(world)</span></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spData)</span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(world)</span></code></pre></div>
 </section>
 <section id="station-locations-1" class="slide level2">
 <h2>Station locations</h2>
-<div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>map1<span class="ot">=</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>world,<span class="at">inherit.aes =</span> F,<span class="at">size=</span>.<span class="dv">1</span>,<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>,<span class="at">colour=</span><span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>element)<span class="sc">+</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_bin2d</span>(<span class="at">data=</span>st_filtered,</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">y=</span><span class="fu">st_coordinates</span>(st_filtered)[,<span class="dv">2</span>],</span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">x=</span><span class="fu">st_coordinates</span>(st_filtered)[,<span class="dv">1</span>]),<span class="at">bins=</span><span class="dv">100</span>)<span class="sc">+</span></span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">&quot;YlOrRd&quot;</span>,<span class="at">trans=</span><span class="st">&quot;log&quot;</span>,<span class="at">direction=</span><span class="sc">-</span><span class="dv">1</span>,</span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">100</span>,<span class="dv">1000</span>))<span class="sc">+</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>()<span class="sc">+</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>,<span class="at">y=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>map1<span class="ot">=</span><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data=</span>world,<span class="at">inherit.aes =</span> F,<span class="at">size=</span>.<span class="dv">1</span>,<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>,<span class="at">colour=</span><span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>element)<span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_bin2d</span>(<span class="at">data=</span>st_filtered,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>             <span class="fu">aes</span>(<span class="at">y=</span><span class="fu">st_coordinates</span>(st_filtered)[,<span class="dv">2</span>],</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">x=</span><span class="fu">st_coordinates</span>(st_filtered)[,<span class="dv">1</span>]),<span class="at">bins=</span><span class="dv">100</span>)<span class="sc">+</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_distiller</span>(<span class="at">palette=</span><span class="st">&quot;YlOrRd&quot;</span>,<span class="at">trans=</span><span class="st">&quot;log&quot;</span>,<span class="at">direction=</span><span class="sc">-</span><span class="dv">1</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>                       <span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">10</span>,<span class="dv">100</span>,<span class="dv">1000</span>))<span class="sc">+</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_sf</span>()<span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">&quot;&quot;</span>,<span class="at">y=</span><span class="st">&quot;&quot;</span>)</span></code></pre></div>
 </section>
 <section class="slide level2">
 
@@ -903,8 +925,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="geocode-in-ggmap-package-useful-for-geocoding-place-names" class="slide level2">
 <h2><code>geocode</code> in ggmap package useful for geocoding place names</h2>
 <p>Geocodes a location (find latitude and longitude) using either (1) the Data Science Toolkit (<a href="http://www.datasciencetoolkit.org/about" class="uri">http://www.datasciencetoolkit.org/about</a>) or (2) Google Maps.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geocode</span>(<span class="st">&quot;University at Buffalo, NY&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 2
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geocode</span>(<span class="st">&quot;University at Buffalo, NY&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
 ##     lon   lat
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1 -78.8  43.0</code></pre>
@@ -912,13 +934,13 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section class="slide level2">
 
 <p>However, you have to be careful:</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geocode</span>(<span class="st">&quot;Washington&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 2
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geocode</span>(<span class="st">&quot;Washington&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
 ##     lon   lat
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1 -121.  47.8</code></pre>
-<div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geocode</span>(<span class="st">&quot;Washington D.C.&quot;</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 2
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geocode</span>(<span class="st">&quot;Washington D.C.&quot;</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
 ##     lon   lat
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1 -77.0  38.9</code></pre>
@@ -926,25 +948,25 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section class="slide level2">
 
 <p>But this is pretty safe for well known and well-defined places.</p>
-<div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>buffalo_c<span class="ot">=</span><span class="fu">geocode</span>(<span class="st">&quot;Buffalo International Airport, NY&quot;</span>)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>buffalo_c</span></code></pre></div>
-<pre><code>## # A tibble: 1 x 2
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>buffalo_c<span class="ot">=</span><span class="fu">geocode</span>(<span class="st">&quot;Buffalo International Airport, NY&quot;</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>buffalo_c</span></code></pre></div>
+<pre><code>## # A tibble: 1 × 2
 ##     lon   lat
 ##   &lt;dbl&gt; &lt;dbl&gt;
 ## 1 -78.7  42.9</code></pre>
-<div class="sourceCode" id="cb27"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>buffalo<span class="ot">=</span>buffalo_c<span class="sc">%&gt;%</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))<span class="sc">%&gt;%</span> <span class="co">#convert to sf</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="st">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>buffalo<span class="ot">=</span>buffalo_c<span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))<span class="sc">%&gt;%</span> <span class="co">#convert to sf</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="st">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</span>)</span></code></pre></div>
 </section>
 <section class="slide level2">
 
 <p>Now use that location to spatially filter stations.</p>
-<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>buffalo_b<span class="ot">=</span><span class="fu">st_buffer</span>(buffalo, <span class="fl">0.1</span>) <span class="co">#radius of buffer in decimal degrees</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>st1<span class="ot">=</span><span class="fu">st_within</span>(st_filtered,buffalo_b)<span class="sc">%&gt;%</span> <span class="co">#find stations in the buffered polygon</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(<span class="dv">1</span>, any) </span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(st1)</span></code></pre></div>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>buffalo_b<span class="ot">=</span><span class="fu">st_buffer</span>(buffalo, <span class="fl">0.1</span>) <span class="co">#radius of buffer in decimal degrees</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>st1<span class="ot">=</span><span class="fu">st_within</span>(st_filtered,buffalo_b)<span class="sc">%&gt;%</span> <span class="co">#find stations in the buffered polygon</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(<span class="dv">1</span>, any) </span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(st1)</span></code></pre></div>
 <pre><code>##  logi [1:196634] FALSE FALSE FALSE FALSE FALSE FALSE ...</code></pre>
-<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(st_filtered[st1,])</span></code></pre></div>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(st_filtered[st1,])</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -967,13 +989,13 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section class="slide level2">
 
 <p>With the station ID, we can download daily data from NOAA.</p>
-<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">=</span><span class="fu">meteo_pull_monitors</span>(<span class="at">monitors=</span><span class="fu">c</span>(<span class="st">&quot;USW00014733&quot;</span>),</span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">var =</span> <span class="fu">c</span>(<span class="st">&quot;TMAX&quot;</span>,<span class="st">&quot;TMIN&quot;</span>,<span class="st">&quot;PRCP&quot;</span>),</span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep_flags =</span> T)</span></code></pre></div>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>d<span class="ot">=</span><span class="fu">meteo_pull_monitors</span>(<span class="at">monitors=</span><span class="fu">c</span>(<span class="st">&quot;USW00014733&quot;</span>),</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">var =</span> <span class="fu">c</span>(<span class="st">&quot;TMAX&quot;</span>,<span class="st">&quot;TMIN&quot;</span>,<span class="st">&quot;PRCP&quot;</span>),</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep_flags =</span> T)</span></code></pre></div>
 <pre><code>## using cached file: ~/Library/Caches/R/noaa_ghcnd/USW00014733.dly</code></pre>
 <pre><code>## date created (size, mb): 2021-08-29 22:58:37 (8.5)</code></pre>
 <pre><code>## file min/max dates: 1938-05-01 / 2021-08-31</code></pre>
-<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <colgroup>
 <col style="width: 8%" />
@@ -1149,7 +1171,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="summarize-qc-flags" class="slide level2">
 <h2>Summarize QC flags</h2>
 <p>Summarize the QC flags. How many of which type are there? Should we be more conservative?</p>
-<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>qflag_tmin)  </span></code></pre></div>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>qflag_tmin)  </span></code></pre></div>
 <pre><code>## 
 ##           G     I     S 
 ## 30427     2     7     3</code></pre>
@@ -1162,30 +1184,30 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section class="slide level2">
 
 <h3 id="filter-with-qc-data-and-change-units">Filter with QC data and change units</h3>
-<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>d_filtered<span class="ot">=</span>d<span class="sc">%&gt;%</span></span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmax=</span><span class="fu">ifelse</span>(qflag_tmax<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>tmax<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(tmax)<span class="sc">/</span><span class="dv">10</span>))<span class="sc">%&gt;%</span>  <span class="co"># convert to degrees C</span></span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmin=</span><span class="fu">ifelse</span>(qflag_tmin<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>tmin<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(tmin)<span class="sc">/</span><span class="dv">10</span>))<span class="sc">%&gt;%</span>  <span class="co"># convert to degrees C</span></span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prcp=</span><span class="fu">ifelse</span>(qflag_prcp<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>prcp<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(prcp)))<span class="sc">%&gt;%</span> </span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date)</span></code></pre></div>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>d_filtered<span class="ot">=</span>d<span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmax=</span><span class="fu">ifelse</span>(qflag_tmax<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>tmax<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(tmax)<span class="sc">/</span><span class="dv">10</span>))<span class="sc">%&gt;%</span>  <span class="co"># convert to degrees C</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmin=</span><span class="fu">ifelse</span>(qflag_tmin<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>tmin<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(tmin)<span class="sc">/</span><span class="dv">10</span>))<span class="sc">%&gt;%</span>  <span class="co"># convert to degrees C</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">prcp=</span><span class="fu">ifelse</span>(qflag_prcp<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>prcp<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(prcp)))<span class="sc">%&gt;%</span> </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date)</span></code></pre></div>
 </section>
 <section class="slide level2">
 
 <p>Plot temperatures</p>
-<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d_filtered,</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y=</span>tmax,<span class="at">x=</span>date))<span class="sc">+</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>id)</span></code></pre></div>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d_filtered,</span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y=</span>tmax,<span class="at">x=</span>date))<span class="sc">+</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>id)</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-20-1.png" /></p>
 </section>
 <section class="slide level2">
 
 <p>Limit to a few years and plot the daily range and average temperatures.</p>
-<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>d_filtered_recent<span class="ot">=</span><span class="fu">filter</span>(d_filtered,date<span class="sc">&gt;</span><span class="fu">as.Date</span>(<span class="st">&quot;2017-01-01&quot;</span>))</span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(d_filtered_recent,</span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">aes</span>(<span class="at">ymax=</span>tmax,<span class="at">ymin=</span>tmin,<span class="at">x=</span>date))<span class="sc">+</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_ribbon</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>(tmax<span class="sc">+</span>tmin)<span class="sc">/</span><span class="dv">2</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>d_filtered_recent<span class="ot">=</span><span class="fu">filter</span>(d_filtered,date<span class="sc">&gt;</span><span class="fu">as.Date</span>(<span class="st">&quot;2017-01-01&quot;</span>))</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(d_filtered_recent,</span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">aes</span>(<span class="at">ymax=</span>tmax,<span class="at">ymin=</span>tmin,<span class="at">x=</span>date))<span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_ribbon</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>(tmax<span class="sc">+</span>tmin)<span class="sc">/</span><span class="dv">2</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 4 row(s) containing missing values (geom_path).</code></pre>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-21-1.png" /></p>
 </section>
@@ -1204,33 +1226,33 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>d_rollmean <span class="ot">=</span> d_filtered_recent <span class="sc">%&gt;%</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmax.60 =</span> <span class="fu">rollmean</span>(<span class="at">x =</span> tmax, <span class="dv">60</span>, <span class="at">align =</span> <span class="st">&quot;center&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>),</span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">tmax.b60 =</span> <span class="fu">rollmean</span>(<span class="at">x =</span> tmax, <span class="dv">60</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>d_rollmean <span class="ot">=</span> d_filtered_recent <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(date) <span class="sc">%&gt;%</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmax.60 =</span> <span class="fu">rollmean</span>(<span class="at">x =</span> tmax, <span class="dv">60</span>, <span class="at">align =</span> <span class="st">&quot;center&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>),</span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">tmax.b60 =</span> <span class="fu">rollmean</span>(<span class="at">x =</span> tmax, <span class="dv">60</span>, <span class="at">align =</span> <span class="st">&quot;right&quot;</span>, <span class="at">fill =</span> <span class="cn">NA</span>))</span></code></pre></div>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>d_rollmean<span class="sc">%&gt;%</span></span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">ymax=</span>tmax,<span class="at">ymin=</span>tmin,<span class="at">x=</span>date))<span class="sc">+</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_ribbon</span>(<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>(tmin<span class="sc">+</span>tmax)<span class="sc">/</span><span class="dv">2</span>),<span class="at">col=</span><span class="fu">grey</span>(<span class="fl">0.4</span>),<span class="at">size=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>tmax<span class="fl">.60</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>tmax.b60),<span class="at">col=</span><span class="st">&quot;darkred&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>d_rollmean<span class="sc">%&gt;%</span></span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">ymax=</span>tmax,<span class="at">ymin=</span>tmin,<span class="at">x=</span>date))<span class="sc">+</span></span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_ribbon</span>(<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>(tmin<span class="sc">+</span>tmax)<span class="sc">/</span><span class="dv">2</span>),<span class="at">col=</span><span class="fu">grey</span>(<span class="fl">0.4</span>),<span class="at">size=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>tmax<span class="fl">.60</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>tmax.b60),<span class="at">col=</span><span class="st">&quot;darkred&quot;</span>)</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-23-1.png" /></p>
 </section></section>
 <section>
 <section id="time-series-analysis" class="title-slide slide level1">
 <h1>Time Series analysis</h1>
 <p>Most timeseries functions use the time series class (<code>ts</code>)</p>
-<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>tmin.ts<span class="ot">=</span><span class="fu">ts</span>(d_filtered_recent<span class="sc">$</span>tmin,<span class="at">frequency =</span> <span class="dv">365</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>tmin.ts<span class="ot">=</span><span class="fu">ts</span>(d_filtered_recent<span class="sc">$</span>tmin,<span class="at">frequency =</span> <span class="dv">365</span>)</span></code></pre></div>
 </section>
 <section id="temporal-autocorrelation" class="slide level2">
 <h2>Temporal autocorrelation</h2>
 <p>Values are highly correlated!</p>
-<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d_filtered_recent,<span class="fu">aes</span>(<span class="at">y=</span>tmin,<span class="at">x=</span><span class="fu">lag</span>(tmin)))<span class="sc">+</span></span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>, <span class="at">slope=</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d_filtered_recent,<span class="fu">aes</span>(<span class="at">y=</span>tmin,<span class="at">x=</span><span class="fu">lag</span>(tmin)))<span class="sc">+</span></span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>, <span class="at">slope=</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-25-1.png" /></p>
 </section>
@@ -1243,13 +1265,13 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="autocorrelation" class="slide level2">
 <h2>Autocorrelation</h2>
-<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(tmin.ts,<span class="at">lag.max =</span> <span class="dv">365</span><span class="sc">*</span><span class="dv">3</span>,<span class="at">na.action =</span> na.exclude )</span></code></pre></div>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(tmin.ts,<span class="at">lag.max =</span> <span class="dv">365</span><span class="sc">*</span><span class="dv">3</span>,<span class="at">na.action =</span> na.exclude )</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-26-1.png" /></p>
 </section>
 <section class="slide level2">
 
 <h3 id="partial-autocorrelation">Partial Autocorrelation</h3>
-<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(tmin.ts,<span class="at">lag.max =</span> <span class="dv">365</span>,<span class="at">na.action =</span> na.exclude )</span></code></pre></div>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(tmin.ts,<span class="at">lag.max =</span> <span class="dv">365</span>,<span class="at">na.action =</span> na.exclude )</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-27-1.png" /></p>
 </section></section>
 <section>
@@ -1260,29 +1282,29 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="group-by-month-season-year-and-decade." class="slide level2">
 <h2>Group by month, season, year, and decade.</h2>
 <p>How to convert years into ‘decades’?</p>
-<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1938</span></span></code></pre></div>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1938</span></span></code></pre></div>
 <pre><code>## [1] 1938</code></pre>
-<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">1938</span>,<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="dv">1938</span>,<span class="sc">-</span><span class="dv">1</span>)</span></code></pre></div>
 <pre><code>## [1] 1940</code></pre>
-<div class="sourceCode" id="cb53"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="dv">1938</span><span class="sc">/</span><span class="dv">10</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="dv">1938</span><span class="sc">/</span><span class="dv">10</span>)</span></code></pre></div>
 <pre><code>## [1] 193</code></pre>
-<div class="sourceCode" id="cb55"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="dv">1938</span><span class="sc">/</span><span class="dv">10</span>)<span class="sc">*</span><span class="dv">10</span> </span></code></pre></div>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">floor</span>(<span class="dv">1938</span><span class="sc">/</span><span class="dv">10</span>)<span class="sc">*</span><span class="dv">10</span> </span></code></pre></div>
 <pre><code>## [1] 1930</code></pre>
 <p>Now we can make a ‘decade’ grouping variable.</p>
 </section>
 <section class="slide level2">
 
 <p>Calculate seasonal and decadal mean temperatures.</p>
-<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="ot">=</span>d_filtered<span class="sc">%&gt;%</span></span>
-<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month=</span><span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%m&quot;</span>)),</span>
-<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">year=</span><span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%Y&quot;</span>)),</span>
-<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">season=</span><span class="fu">case_when</span>(</span>
-<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">1</span>,<span class="dv">2</span>)<span class="sc">~</span><span class="st">&quot;Winter&quot;</span>,</span>
-<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)<span class="sc">~</span><span class="st">&quot;Spring&quot;</span>,</span>
-<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)<span class="sc">~</span><span class="st">&quot;Summer&quot;</span>,</span>
-<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>)<span class="sc">~</span><span class="st">&quot;Fall&quot;</span>),</span>
-<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">dec=</span>(<span class="fu">floor</span>(<span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%Y&quot;</span>))<span class="sc">/</span><span class="dv">10</span>)<span class="sc">*</span><span class="dv">10</span>))</span>
-<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span>dplyr<span class="sc">::</span><span class="fu">select</span>(date,month,year,season,dec,tmax)<span class="sc">%&gt;%</span><span class="fu">head</span>()<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="ot">=</span>d_filtered<span class="sc">%&gt;%</span></span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">month=</span><span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%m&quot;</span>)),</span>
+<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">year=</span><span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%Y&quot;</span>)),</span>
+<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">season=</span><span class="fu">case_when</span>(</span>
+<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">12</span>,<span class="dv">1</span>,<span class="dv">2</span>)<span class="sc">~</span><span class="st">&quot;Winter&quot;</span>,</span>
+<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">4</span>,<span class="dv">5</span>)<span class="sc">~</span><span class="st">&quot;Spring&quot;</span>,</span>
+<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">6</span>,<span class="dv">7</span>,<span class="dv">8</span>)<span class="sc">~</span><span class="st">&quot;Summer&quot;</span>,</span>
+<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>          month<span class="sc">%in%</span><span class="fu">c</span>(<span class="dv">9</span>,<span class="dv">10</span>,<span class="dv">11</span>)<span class="sc">~</span><span class="st">&quot;Fall&quot;</span>),</span>
+<span id="cb58-9"><a href="#cb58-9" aria-hidden="true" tabindex="-1"></a>        <span class="at">dec=</span>(<span class="fu">floor</span>(<span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%Y&quot;</span>))<span class="sc">/</span><span class="dv">10</span>)<span class="sc">*</span><span class="dv">10</span>))</span>
+<span id="cb58-10"><a href="#cb58-10" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span>dplyr<span class="sc">::</span><span class="fu">select</span>(date,month,year,season,dec,tmax)<span class="sc">%&gt;%</span><span class="fu">head</span>()<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1349,14 +1371,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="timeseries-models" class="slide level2">
 <h2>Timeseries models</h2>
 <p>How to assess change? Simple differences?</p>
-<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
-<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">period=</span><span class="fu">ifelse</span>(year<span class="sc">&lt;=</span><span class="dv">1976-01-01</span>,<span class="st">&quot;early&quot;</span>,<span class="st">&quot;late&quot;</span>))<span class="sc">%&gt;%</span> <span class="co">#create two time periods before and after 1976</span></span>
-<span id="cb58-3"><a href="#cb58-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(period)<span class="sc">%&gt;%</span>  <span class="co"># divide the data into the two groups</span></span>
-<span id="cb58-4"><a href="#cb58-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>(),    <span class="co"># calculate the means between the two periods</span></span>
-<span id="cb58-5"><a href="#cb58-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmin=</span><span class="fu">mean</span>(tmin,<span class="at">na.rm=</span>T),</span>
-<span id="cb58-6"><a href="#cb58-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmax=</span><span class="fu">mean</span>(tmax,<span class="at">na.rm=</span>T),</span>
-<span id="cb58-7"><a href="#cb58-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">prcp=</span><span class="fu">mean</span>(prcp,<span class="at">na.rm=</span>T))<span class="sc">%&gt;%</span></span>
-<span id="cb58-8"><a href="#cb58-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">period=</span><span class="fu">ifelse</span>(year<span class="sc">&lt;=</span><span class="dv">1976-01-01</span>,<span class="st">&quot;early&quot;</span>,<span class="st">&quot;late&quot;</span>))<span class="sc">%&gt;%</span> <span class="co">#create two time periods before and after 1976</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(period)<span class="sc">%&gt;%</span>  <span class="co"># divide the data into the two groups</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>(),    <span class="co"># calculate the means between the two periods</span></span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmin=</span><span class="fu">mean</span>(tmin,<span class="at">na.rm=</span>T),</span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmax=</span><span class="fu">mean</span>(tmax,<span class="at">na.rm=</span>T),</span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">prcp=</span><span class="fu">mean</span>(prcp,<span class="at">na.rm=</span>T))<span class="sc">%&gt;%</span></span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1388,21 +1410,21 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section class="slide level2">
 
 <p>But be careful, there were lots of missing data in the beginning of the record</p>
-<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
-<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>year,<span class="at">y=</span>n))<span class="sc">+</span></span>
-<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
+<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
+<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>year,<span class="at">y=</span>n))<span class="sc">+</span></span>
+<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-31-1.png" /></p>
 </section>
 <section class="slide level2">
 
-<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="co"># which years don&#39;t have complete data?</span></span>
-<span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
-<span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
-<span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&lt;</span><span class="dv">360</span>)</span></code></pre></div>
-<pre><code>## # A tibble: 2 x 2
+<div class="sourceCode" id="cb61"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="co"># which years don&#39;t have complete data?</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&lt;</span><span class="dv">360</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
 ##    year     n
 ##   &lt;dbl&gt; &lt;int&gt;
 ## 1  1938   245
@@ -1411,78 +1433,78 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section class="slide level2">
 
 <p>Plot 10-year means (excluding years without complete data):</p>
-<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
-<span id="cb62-2"><a href="#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">&gt;</span><span class="dv">1938</span>, year<span class="sc">&lt;</span><span class="dv">2021</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb62-3"><a href="#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dec)<span class="sc">%&gt;%</span></span>
-<span id="cb62-4"><a href="#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
-<span id="cb62-5"><a href="#cb62-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb62-6"><a href="#cb62-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmin=</span><span class="fu">mean</span>(tmin,<span class="at">na.rm=</span>T),</span>
-<span id="cb62-7"><a href="#cb62-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmax=</span><span class="fu">mean</span>(tmax,<span class="at">na.rm=</span>T),</span>
-<span id="cb62-8"><a href="#cb62-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">prcp=</span><span class="fu">mean</span>(prcp,<span class="at">na.rm=</span>T)</span>
-<span id="cb62-9"><a href="#cb62-9" aria-hidden="true" tabindex="-1"></a>            )<span class="sc">%&gt;%</span></span>
-<span id="cb62-10"><a href="#cb62-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dec,<span class="at">y=</span>tmax))<span class="sc">+</span></span>
-<span id="cb62-11"><a href="#cb62-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(year<span class="sc">&gt;</span><span class="dv">1938</span>, year<span class="sc">&lt;</span><span class="dv">2021</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(dec)<span class="sc">%&gt;%</span></span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(</span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmin=</span><span class="fu">mean</span>(tmin,<span class="at">na.rm=</span>T),</span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmax=</span><span class="fu">mean</span>(tmax,<span class="at">na.rm=</span>T),</span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>            <span class="at">prcp=</span><span class="fu">mean</span>(prcp,<span class="at">na.rm=</span>T)</span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>            )<span class="sc">%&gt;%</span></span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dec,<span class="at">y=</span>tmax))<span class="sc">+</span></span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-33-1.png" /></p>
 </section>
 <section id="look-for-specific-events-was-2020-unusually-hot-in-buffalo-ny" class="slide level2">
 <h2>Look for specific events: was 2020 unusually hot in Buffalo, NY?</h2>
 <p>Let’s compare 2020 with all the previous years in the dataset. First add ‘day of year’ to the data to facilitate showing all years on the same plot.</p>
-<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span>d_filtered2<span class="sc">%&gt;%</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">doy=</span><span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%j&quot;</span>)),</span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">doydate=</span><span class="fu">as.Date</span>(<span class="fu">paste</span>(<span class="st">&quot;2020-&quot;</span>,doy),<span class="at">format=</span><span class="st">&quot;%Y-%j&quot;</span>))</span></code></pre></div>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span>d_filtered2<span class="sc">%&gt;%</span></span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">doy=</span><span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%j&quot;</span>)),</span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">doydate=</span><span class="fu">as.Date</span>(<span class="fu">paste</span>(<span class="st">&quot;2020-&quot;</span>,doy),<span class="at">format=</span><span class="st">&quot;%Y-%j&quot;</span>))</span></code></pre></div>
 </section>
 <section class="slide level2">
 
 <p>Then plot all years (in grey) and add 2020 in red.</p>
-<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>doydate,<span class="at">y=</span>tmax,<span class="at">group=</span>year))<span class="sc">+</span></span>
-<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span> <span class="co"># plot each year in grey</span></span>
-<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="fu">aes</span>(<span class="at">group=</span><span class="dv">1</span>),<span class="at">col=</span><span class="st">&quot;black&quot;</span>)<span class="sc">+</span>   <span class="co"># Add a smooth GAM to estimate the long-term mean</span></span>
-<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span><span class="fu">filter</span>(df,year<span class="sc">==</span><span class="dv">2020</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span>  <span class="co"># add 2017 in red</span></span>
-<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%b&quot;</span>),<span class="at">date_breaks =</span> <span class="st">&quot;2 months&quot;</span>) <span class="sc">+</span> </span>
-<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Day of year&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb65"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>doydate,<span class="at">y=</span>tmax,<span class="at">group=</span>year))<span class="sc">+</span></span>
+<span id="cb65-2"><a href="#cb65-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span> <span class="co"># plot each year in grey</span></span>
+<span id="cb65-3"><a href="#cb65-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="fu">aes</span>(<span class="at">group=</span><span class="dv">1</span>),<span class="at">col=</span><span class="st">&quot;black&quot;</span>)<span class="sc">+</span>   <span class="co"># Add a smooth GAM to estimate the long-term mean</span></span>
+<span id="cb65-4"><a href="#cb65-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span><span class="fu">filter</span>(df,year<span class="sc">==</span><span class="dv">2020</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span>  <span class="co"># add 2017 in red</span></span>
+<span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%b&quot;</span>),<span class="at">date_breaks =</span> <span class="st">&quot;2 months&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Day of year&quot;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-35-1.png" /></p>
 </section>
 <section class="slide level2">
 
 <p>Then ‘zoom’ into just the past few months and add 2019 in red.</p>
-<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>doydate,<span class="at">y=</span>tmax,<span class="at">group=</span>year))<span class="sc">+</span></span>
-<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
-<span id="cb66-3"><a href="#cb66-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="fu">aes</span>(<span class="at">group=</span><span class="dv">1</span>),<span class="at">col=</span><span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
-<span id="cb66-4"><a href="#cb66-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span><span class="fu">filter</span>(df,year<span class="sc">==</span><span class="dv">2019</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
-<span id="cb66-5"><a href="#cb66-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%b&quot;</span>),<span class="at">date_breaks =</span> <span class="st">&quot;2 months&quot;</span>,</span>
-<span id="cb66-6"><a href="#cb66-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">lim=</span><span class="fu">c</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2019-08-01&quot;</span>),<span class="fu">as.Date</span>(<span class="st">&quot;2019-10-31&quot;</span>)))</span></code></pre></div>
+<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(df,<span class="fu">aes</span>(<span class="at">x=</span>doydate,<span class="at">y=</span>tmax,<span class="at">group=</span>year))<span class="sc">+</span></span>
+<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">alpha=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
+<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="fu">aes</span>(<span class="at">group=</span><span class="dv">1</span>),<span class="at">col=</span><span class="st">&quot;black&quot;</span>)<span class="sc">+</span></span>
+<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span><span class="fu">filter</span>(df,year<span class="sc">==</span><span class="dv">2019</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
+<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%b&quot;</span>),<span class="at">date_breaks =</span> <span class="st">&quot;2 months&quot;</span>,</span>
+<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">lim=</span><span class="fu">c</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2019-08-01&quot;</span>),<span class="fu">as.Date</span>(<span class="st">&quot;2019-10-31&quot;</span>)))</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-36-1.png" /></p>
 </section>
 <section id="summarize-by-season" class="slide level2">
 <h2>Summarize by season</h2>
-<div class="sourceCode" id="cb67"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a>seasonal<span class="ot">=</span>d_filtered2<span class="sc">%&gt;%</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year,season)<span class="sc">%&gt;%</span></span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmin=</span><span class="fu">mean</span>(tmin),</span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmax=</span><span class="fu">mean</span>(tmax),</span>
-<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">prcp=</span><span class="fu">mean</span>(prcp))<span class="sc">%&gt;%</span></span>
-<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">75</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a>seasonal<span class="ot">=</span>d_filtered2<span class="sc">%&gt;%</span></span>
+<span id="cb68-2"><a href="#cb68-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year,season)<span class="sc">%&gt;%</span></span>
+<span id="cb68-3"><a href="#cb68-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb68-4"><a href="#cb68-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmin=</span><span class="fu">mean</span>(tmin),</span>
+<span id="cb68-5"><a href="#cb68-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">tmax=</span><span class="fu">mean</span>(tmax),</span>
+<span id="cb68-6"><a href="#cb68-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">prcp=</span><span class="fu">mean</span>(prcp))<span class="sc">%&gt;%</span></span>
+<span id="cb68-7"><a href="#cb68-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">75</span>)</span></code></pre></div>
 <pre><code>## `summarise()` has grouped output by &#39;year&#39;. You can override using the `.groups` argument.</code></pre>
 </section>
 <section id="seasonal-trends" class="slide level2">
 <h2>Seasonal Trends</h2>
-<div class="sourceCode" id="cb69"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(seasonal,<span class="fu">aes</span>(<span class="at">y=</span>tmin,<span class="at">x=</span>year))<span class="sc">+</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>season,<span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="sc">+</span></span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>T)<span class="sc">+</span></span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(seasonal,<span class="fu">aes</span>(<span class="at">y=</span>tmin,<span class="at">x=</span>year))<span class="sc">+</span></span>
+<span id="cb70-2"><a href="#cb70-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>season,<span class="at">scales =</span> <span class="st">&quot;free_y&quot;</span>)<span class="sc">+</span></span>
+<span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>T)<span class="sc">+</span></span>
+<span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-38-1.png" /></p>
 </section>
 <section id="fit-a-linear-model-to-a-single-season" class="slide level2">
 <h2>Fit a linear model to a single season</h2>
-<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>lm1<span class="ot">=</span>seasonal<span class="sc">%&gt;%</span></span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(season<span class="sc">==</span><span class="st">&quot;Summer&quot;</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb71-3"><a href="#cb71-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(tmin<span class="sc">~</span>year,<span class="at">data=</span>.)</span>
-<span id="cb71-4"><a href="#cb71-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb71-5"><a href="#cb71-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)<span class="sc">$</span>r.squared</span></code></pre></div>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>lm1<span class="ot">=</span>seasonal<span class="sc">%&gt;%</span></span>
+<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(season<span class="sc">==</span><span class="st">&quot;Summer&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(tmin<span class="sc">~</span>year,<span class="at">data=</span>.)</span>
+<span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)<span class="sc">$</span>r.squared</span></code></pre></div>
 <pre><code>## [1] 0.2820857</code></pre>
-<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm1)<span class="sc">%&gt;%</span><span class="fu">kable</span>() </span></code></pre></div>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm1)<span class="sc">%&gt;%</span><span class="fu">kable</span>() </span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1513,18 +1535,18 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="linear-regression-for-each-season" class="slide level2">
 <h2>Linear regression for <em>each</em> season</h2>
-<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit a lm model for each group</span></span>
-<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  d_filtered2 <span class="sc">%&gt;%</span></span>
-<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span> <span class="co">#process by season</span></span>
-<span id="cb74-4"><a href="#cb74-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span> <span class="co"># cut into groups</span></span>
-<span id="cb74-5"><a href="#cb74-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb74-6"><a href="#cb74-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lm_tmin =</span> purrr<span class="sc">::</span><span class="fu">map</span>(data, <span class="at">.f =</span> <span class="sc">~</span> <span class="fu">lm</span>(tmin <span class="sc">~</span> year, <span class="at">data =</span> .)), <span class="co">#fit model for each group</span></span>
-<span id="cb74-7"><a href="#cb74-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">tmin_tidy =</span> purrr<span class="sc">::</span><span class="fu">map</span>(lm_tmin, broom<span class="sc">::</span>tidy) <span class="co">#summarize model for each group</span></span>
-<span id="cb74-8"><a href="#cb74-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
-<span id="cb74-9"><a href="#cb74-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tmin_tidy) <span class="sc">%&gt;%</span></span>
-<span id="cb74-10"><a href="#cb74-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&quot;year&quot;</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb74-11"><a href="#cb74-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>data, <span class="sc">-</span>lm_tmin) <span class="sc">%&gt;%</span> </span>
-<span id="cb74-12"><a href="#cb74-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="co"># fit a lm model for each group</span></span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  d_filtered2 <span class="sc">%&gt;%</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(season) <span class="sc">%&gt;%</span> <span class="co">#process by season</span></span>
+<span id="cb75-4"><a href="#cb75-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nest</span>() <span class="sc">%&gt;%</span> <span class="co"># cut into groups</span></span>
+<span id="cb75-5"><a href="#cb75-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb75-6"><a href="#cb75-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">lm_tmin =</span> purrr<span class="sc">::</span><span class="fu">map</span>(data, <span class="at">.f =</span> <span class="sc">~</span> <span class="fu">lm</span>(tmin <span class="sc">~</span> year, <span class="at">data =</span> .)), <span class="co">#fit model for each group</span></span>
+<span id="cb75-7"><a href="#cb75-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">tmin_tidy =</span> purrr<span class="sc">::</span><span class="fu">map</span>(lm_tmin, broom<span class="sc">::</span>tidy) <span class="co">#summarize model for each group</span></span>
+<span id="cb75-8"><a href="#cb75-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span></span>
+<span id="cb75-9"><a href="#cb75-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(tmin_tidy) <span class="sc">%&gt;%</span></span>
+<span id="cb75-10"><a href="#cb75-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(term <span class="sc">==</span> <span class="st">&quot;year&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb75-11"><a href="#cb75-11" aria-hidden="true" tabindex="-1"></a>  dplyr<span class="sc">::</span><span class="fu">select</span>(<span class="sc">-</span>data, <span class="sc">-</span>lm_tmin) <span class="sc">%&gt;%</span> </span>
+<span id="cb75-12"><a href="#cb75-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <thead>
 <tr class="header">
@@ -1617,44 +1639,44 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="format-data-for-climdex" class="slide level2">
 <h2>Format data for <code>climdex</code></h2>
-<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PCICt)</span>
-<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Parse the dates into PCICt.</span></span>
-<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>pc.dates <span class="ot">&lt;-</span> <span class="fu">as.PCICt</span>(<span class="fu">as.POSIXct</span>(d_filtered<span class="sc">$</span>date),<span class="at">cal=</span><span class="st">&quot;gregorian&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PCICt)</span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Parse the dates into PCICt.</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>pc.dates <span class="ot">&lt;-</span> <span class="fu">as.PCICt</span>(<span class="fu">as.POSIXct</span>(d_filtered<span class="sc">$</span>date),<span class="at">cal=</span><span class="st">&quot;gregorian&quot;</span>)</span></code></pre></div>
 </section>
 <section id="generate-the-climdex-object" class="slide level2">
 <h2>Generate the climdex object</h2>
-<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(climdex.pcic)</span>
-<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>    ci <span class="ot">&lt;-</span> <span class="fu">climdexInput.raw</span>(</span>
-<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">tmax=</span>d_filtered<span class="sc">$</span>tmax,</span>
-<span id="cb76-4"><a href="#cb76-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">tmin=</span>d_filtered<span class="sc">$</span>tmin,</span>
-<span id="cb76-5"><a href="#cb76-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">prec=</span>d_filtered<span class="sc">$</span>prcp,</span>
-<span id="cb76-6"><a href="#cb76-6" aria-hidden="true" tabindex="-1"></a>      pc.dates,pc.dates,pc.dates, </span>
-<span id="cb76-7"><a href="#cb76-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">base.range=</span><span class="fu">c</span>(<span class="dv">1971</span>, <span class="dv">2000</span>))</span>
-<span id="cb76-8"><a href="#cb76-8" aria-hidden="true" tabindex="-1"></a>years<span class="ot">=</span><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(<span class="fu">unique</span>(ci<span class="sc">@</span>date.factors<span class="sc">$</span>annual)))</span></code></pre></div>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">library</span>(climdex.pcic)</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>    ci <span class="ot">&lt;-</span> <span class="fu">climdexInput.raw</span>(</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>      <span class="at">tmax=</span>d_filtered<span class="sc">$</span>tmax,</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>      <span class="at">tmin=</span>d_filtered<span class="sc">$</span>tmin,</span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>      <span class="at">prec=</span>d_filtered<span class="sc">$</span>prcp,</span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>      pc.dates,pc.dates,pc.dates, </span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a>      <span class="at">base.range=</span><span class="fu">c</span>(<span class="dv">1971</span>, <span class="dv">2000</span>))</span>
+<span id="cb77-8"><a href="#cb77-8" aria-hidden="true" tabindex="-1"></a>years<span class="ot">=</span><span class="fu">as.numeric</span>(<span class="fu">as.character</span>(<span class="fu">unique</span>(ci<span class="sc">@</span>date.factors<span class="sc">$</span>annual)))</span></code></pre></div>
 </section>
 <section id="cumulative-dry-days" class="slide level2">
 <h2>Cumulative dry days</h2>
-<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>cdd<span class="ot">=</span> <span class="fu">climdex.cdd</span>(ci, <span class="at">spells.can.span.years =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cdd<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>cdd<span class="ot">=</span> <span class="fu">climdex.cdd</span>(ci, <span class="at">spells.can.span.years =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cdd<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-43-1.png" /></p>
 </section>
 <section id="diurnal-temperature-range" class="slide level2">
 <h2>Diurnal Temperature Range</h2>
-<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>dtr<span class="ot">=</span><span class="fu">climdex.dtr</span>(ci, <span class="at">freq =</span> <span class="fu">c</span>(<span class="st">&quot;annual&quot;</span>))</span>
-<span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dtr<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>dtr<span class="ot">=</span><span class="fu">climdex.dtr</span>(ci, <span class="at">freq =</span> <span class="fu">c</span>(<span class="st">&quot;annual&quot;</span>))</span>
+<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dtr<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-44-1.png" /></p>
 </section>
 <section id="frost-days" class="slide level2">
 <h2>Frost Days</h2>
-<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>fd<span class="ot">=</span><span class="fu">climdex.fd</span>(ci)</span>
-<span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fd<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>fd<span class="ot">=</span><span class="fu">climdex.fd</span>(ci)</span>
+<span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fd<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
 <p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-45-1.png" /></p>
 </section></section>
     </div>
   </div>
 
-  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
@@ -1701,8 +1723,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>

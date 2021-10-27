@@ -23,7 +23,7 @@ library(knitr)
 
 ## Final Projects
 
-* Only 8 folks have published their sites...
+* Only 14 folks have published their sites...
 * Start moving your project proposal content into your website
   * Title
   * Introduction
@@ -37,10 +37,10 @@ library(knitr)
 ## Next Week's Case Study
 
 <iframe
-  src="http://wilsonlab.io/GEO511/CS_09.html"
+  src="http://geo511.wilsonlab.io/CS_09.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/CS_09.html)
+[source](http://geo511.wilsonlab.io/CS_09.html)
 
 
 # API
@@ -76,7 +76,7 @@ library(WikipediR)
 library(tidyverse)
 
 content=page_content(
-  page_name = "Application_programming_interface",
+  page_name = "API",
   project="Wikipedia",
   language="en",
   as_wikitext=T)
@@ -89,7 +89,7 @@ c1=content$parse$wikitext%>%
   str_replace_all("'","")%>%
   str_replace_all("\\[|\\]","")
 # results:
-cat(c1[3:4])
+cat(c1[5:6])
 ```
 
 ## Many data providers now have APIs
@@ -175,6 +175,37 @@ ggplot() +
 
 ```{r census, echo=F, message=F, results='show'}
 ```
+
+## Agricultural Data
+
+```{r, agriculture, results='hide', eval=T, message=F}
+
+library(rnassqs)
+#nassqs_auth("<your api key>")
+
+df <- nassqs_acres(
+  commodity_desc = "CORN",
+  year=2000:2020,
+  county_name = "Erie",
+  agg_level_desc = "COUNTY",
+  state_alpha = c("NY"),
+  statisticcat_desc = "AREA") %>% 
+  filter(short_desc=="CORN - ACRES PLANTED") %>% 
+  dplyr::select(year, Value) %>%
+  transmute(
+    year,
+    value = as.numeric(gsub(",", "", Value)))
+```
+
+
+## Results
+
+```{r agriculture2, echo=F, message=F, results='show'}
+ggplot(df,aes(x=year,y=value))+
+  geom_line()+
+  ylab("Total Area Planted in Corn (Acres)")
+```
+
 
 ## `FedData` package
 
