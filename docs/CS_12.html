@@ -13,8 +13,8 @@
 
 <title>Dynamic HTML graph of Daily Temperatures</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -430,25 +430,8 @@ library(widgetframe)</code></pre>
 <p>First use the following code to download the daily weather data.</p>
 <pre class="r"><code>library(tidyverse)
 library(rnoaa)
-library(xts)</code></pre>
-<pre><code>## Loading required package: zoo</code></pre>
-<pre><code>## 
-## Attaching package: &#39;zoo&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:terra&#39;:
-## 
-##     time&lt;-</code></pre>
-<pre><code>## The following objects are masked from &#39;package:base&#39;:
-## 
-##     as.Date, as.Date.numeric</code></pre>
-<pre><code>## 
-## Attaching package: &#39;xts&#39;</code></pre>
-<pre><code>## The following object is masked from &#39;package:leaflet&#39;:
-## 
-##     addLegend</code></pre>
-<pre><code>## The following objects are masked from &#39;package:dplyr&#39;:
-## 
-##     first, last</code></pre>
-<pre class="r"><code>library(dygraphs)
+library(xts)
+library(dygraphs)
  
 d=meteo_tidy_ghcnd(&quot;USW00014733&quot;,
                    date_min = &quot;2016-01-01&quot;, 
@@ -471,8 +454,8 @@ d=meteo_tidy_ghcnd(&quot;USW00014733&quot;,
 <div id="output" class="section level2">
 <h2>Output</h2>
 <p>At a minimum, your final graph should look something like this:</p>
-<div id="htmlwidget-e7288dd9f39d642af713" style="width:100%;height:500px;" class="widgetframe html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e7288dd9f39d642af713">{"x":{"url":"CS_12_files/figure-html//widgets/widget_unnamed-chunk-3.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-01e14d057ff0c8f41159" style="width:100%;height:500px;" class="widgetframe html-widget"></div>
+<script type="application/json" data-for="htmlwidget-01e14d057ff0c8f41159">{"x":{"url":"CS_12_files/figure-html//widgets/widget_unnamed-chunk-3.html","options":{"xdomain":"*","allowfullscreen":false,"lazyload":false}},"evals":[],"jsHooks":[]}</script>
 <p>What other visualizations can you make with these data?</p>
 </div>
 </div>
