@@ -1,6 +1,6 @@
 #' ---
 #' title: Tracking Hurricanes!
-#' subtitle: Analyze historical storm data from the NOAA API
+#' subtitle: Analyze historical storm data from NOAA
 #' week: 9
 #' type: Case Study
 #' reading:
@@ -8,7 +8,6 @@
 #'    - Performing [Spatial Joins with sf](https://r-spatial.github.io/sf/reference/st_join.html)
 #' tasks:
 #'    - Write a .Rmd script to perform the following tasks
-#'    - Use an API to access NOAA Storm data over the web
 #'    - Intersect the storms with US states to quantify how many storms in the database have hit each state.
 #' ---
 #' 
@@ -61,10 +60,7 @@ data(us_states)
 #' 
 #' ## Steps
 #' 
-#' 1. Use the API to Download storm data
-#'    * Use `storm_shp()` for `basin = "NA"`
-#'    * Read the points in with `storm_shp_read()`
-#'    * Convert to `sf` format with `st_as_sf()`
+#' 1. Use the code above to download the storm data and create an object called `storm_data`
 #' 2. Wrangle the data
 #'    * Filter to storms 1950-present with `filter()`
 #'    * Use `mutate_if()` to convert `-999.0` to `NA` in all numeric columns with the following command from the `dplyr` package: `mutate_if(is.numeric,` `function(x) ifelse(x==-999.0,NA,x))`

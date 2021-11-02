@@ -13,8 +13,8 @@
 
 <title>Tracking Hurricanes!</title>
 
-<script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
 <script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
@@ -389,7 +389,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Tracking Hurricanes!</h1>
-<h3 class="subtitle">Analyze historical storm data from the NOAA API</h3>
+<h3 class="subtitle">Analyze historical storm data from NOAA</h3>
 
 </div>
 
@@ -452,7 +452,7 @@ storms
 Florida
 </td>
 <td style="text-align:right;">
-83
+84
 </td>
 </tr>
 <tr>
@@ -468,7 +468,7 @@ North Carolina
 Georgia
 </td>
 <td style="text-align:right;">
-58
+60
 </td>
 </tr>
 <tr>
@@ -476,7 +476,7 @@ Georgia
 Texas
 </td>
 <td style="text-align:right;">
-53
+54
 </td>
 </tr>
 <tr>
@@ -484,7 +484,7 @@ Texas
 Louisiana
 </td>
 <td style="text-align:right;">
-50
+52
 </td>
 </tr>
 </tbody>
@@ -497,12 +497,7 @@ Show Hints
 <div id="steps" class="section level2">
 <h2>Steps</h2>
 <ol style="list-style-type: decimal">
-<li>Use the API to Download storm data
-<ul>
-<li>Use <code>storm_shp()</code> for <code>basin = "NA"</code></li>
-<li>Read the points in with <code>storm_shp_read()</code></li>
-<li>Convert to <code>sf</code> format with <code>st_as_sf()</code></li>
-</ul></li>
+<li>Use the code above to download the storm data and create an object called <code>storm_data</code></li>
 <li>Wrangle the data
 <ul>
 <li>Filter to storms 1950-present with <code>filter()</code></li>
