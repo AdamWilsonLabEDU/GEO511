@@ -9,7 +9,8 @@ system("cp -R pres/ docs/pres/")
 system("cp -R pres/_site/* docs/pres/")
 
 system("cp -R CS_08_Template docs/")
-  
+system("cp .nojekyll docs/.nojekyll")
+
 system("cp leaflet.html docs/leaflet.html")
 system("cp table.png docs/table.png")
 }

@@ -55,17 +55,17 @@ From the [Union of Concerned Scientists Satellite Database](http://www.ucsusa.or
 
 ## Debris & Satellites in low Earth orbit
 
-<img src="pres/PS_10_img//satellites.jpg" alt="alt text" width="75%">
+<img src="PS_10_img//satellites.jpg" alt="alt text" width="75%">
 
 Image courtesy of [European Space Agency](http://www.esa.int/spaceinimages/Images/2008/03/Debris_objects_-_mostly_debris_-_in_low_Earth_orbit_LEO_-_view_over_the_equator)
 
 
 ## NASA's Earth Observing System
 
-<img src="pres/PS_10_img//eos.jpg" alt="alt text" width="75%">
+<img src="PS_10_img//eos.jpg" alt="alt text" width="75%">
 
 ## Electromagnetic Radiation
-<img src="pres/PS_10_img/spectrum.png" alt="alt text" width="100%">
+<img src="PS_10_img/spectrum.png" alt="alt text" width="100%">
 
 ## EarthData
 
@@ -73,7 +73,7 @@ Image courtesy of [European Space Agency](http://www.esa.int/spaceinimages/Image
 
 Datasets, news, articles, information
 
-<img src="pres/PS_10_img//Earthdata1.png" alt="alt text" width="75%">
+<img src="PS_10_img//Earthdata1.png" alt="alt text" width="75%">
 
 ## EarthData
 
@@ -81,7 +81,7 @@ Datasets, news, articles, information
 
 Datasets, news, articles, information
 
-<img src="pres/PS_10_img//Earthdata2.png" alt="alt text" width="75%">
+<img src="PS_10_img//Earthdata2.png" alt="alt text" width="75%">
 
 # Image Processing in R
 
@@ -178,14 +178,14 @@ plot(ndvi, col=rev(terrain.colors(10)), main="Landsat-NDVI")
 ## Moderate Resolution Imaging Spectroradiometer (MODIS)
 
 
-<img src="pres/PS_10_img//TerraLaunch.png" alt="alt text" width="75%">
+<img src="PS_10_img//TerraLaunch.png" alt="alt text" width="75%">
 
 2 Satellites _Terra_ launched in 1999, _Aqua_ in 2002.
 
 
 ## Technical Details: swath
 
-<img src="pres/PS_10_img//terra.png" alt="alt text" width="75%">
+<img src="PS_10_img//terra.png" alt="alt text" width="75%">
 
 Viewing swath width of 2,330 km
 
@@ -193,7 +193,7 @@ Technical Details: spatial coverage
 
 ---
 
-<img src="pres/PS_10_img//first_complete_day_from_modis.jpg" alt="alt text" width="75%">
+<img src="PS_10_img//first_complete_day_from_modis.jpg" alt="alt text" width="75%">
 
 Covers Earth every one to two days
 
@@ -201,7 +201,7 @@ Technical Details: spectral coverage
 
 ---
 
-<img src="pres/PS_10_img//spectrum2.png" alt="alt text" width="75%">
+<img src="PS_10_img//spectrum2.png" alt="alt text" width="75%">
 
 36 spectral bands between 0.405 and 14.385 µm
 
@@ -209,7 +209,7 @@ Technical Details: spatial resolution
 
 ---
 
-<img src="pres/PS_10_img//resolution.jpg" alt="alt text" width="50%">
+<img src="PS_10_img//resolution.jpg" alt="alt text" width="50%">
 
 3 spatial resolutions -- 250m, 500m, and 1,000m 
 
@@ -257,7 +257,7 @@ Technical Details: spatial resolution
 
 ## Example product workflow
 
- <img src="pres/PS_10_img//VI_flow.png" alt="alt text" heigt="90%">
+ <img src="PS_10_img//VI_flow.png" alt="alt text" heigt="90%">
 
  
 MODIS Products used to generate vegetation indices. From the [MOD13 Algorithm Theoretical Basis Document](http://modis.gsfc.nasa.gov/data/atbd/atbd_mod13.pdf).  
@@ -268,11 +268,11 @@ MODIS Products used to generate vegetation indices. From the [MOD13 Algorithm Th
 
 Most NASA EOS data distributed as HDF files, which are very similar to netCDF.
 
-<img src="pres/PS_10_img//NETCDF4Library.jpg" alt="alt text" width="75%">
+<img src="PS_10_img//NETCDF4Library.jpg" alt="alt text" width="75%">
 
 ## NetCDF / HDF
 
-<img src="pres/PS_10_img//netcdf2.png" alt="alt text" width="75%">
+<img src="PS_10_img//netcdf2.png" alt="alt text" width="75%">
 
 
 ## Reading EO Data
@@ -324,7 +324,7 @@ lst[[1:10]] %>% gplot()+
 ## MODIS Gridding system
 
 
-![](pres/PS_10_img/modgrid.gif)
+![](PS_10_img/modgrid.gif)
 
 
 ## Filename Conventions
@@ -370,33 +370,33 @@ lst[[1:10]] %>% gplot()+
 
 
 The Land Processes Distributed Active Archive Center has a nice "Data Discovery" Tool:
-![](pres/PS_10_img/lpdaac.png)
+![](PS_10_img/lpdaac.png)
 
 ## MODIS Products Table
 
 Lists [all available MODIS land products]()
 
-![](pres/PS_10_img/lpdaac1.png)
+![](PS_10_img/lpdaac1.png)
 
 ## Annual Land Cover Type Description
 
-![](pres/PS_10_img/lpdaac2.png)
+![](PS_10_img/lpdaac2.png)
 
 
 ## Detailed layer information
 
-![](pres/PS_10_img/lpdaac3.png)
+![](PS_10_img/lpdaac3.png)
 
 
 ## Data access links
 
-![](pres/PS_10_img/lpdaac4.png)
+![](PS_10_img/lpdaac4.png)
 
 Downloading: `http`/`ftp` access
 
 ---
 
-![](pres/PS_10_img/lpdaac5.png)
+![](PS_10_img/lpdaac5.png)
 
 or the [LP DAAC2Disk Download Manager](https://lpdaac.usgs.gov/sites/default/files/public/datapool/DAAC2DiskUserGuide.pdf) which builds a download script.
 
@@ -404,18 +404,18 @@ or the [LP DAAC2Disk Download Manager](https://lpdaac.usgs.gov/sites/default/fil
 
 Available at [lpdaac.usgs.gov/tools/modis_reprojection_tool](https://lpdaac.usgs.gov/tools/modis_reprojection_tool).
 
-![](pres/PS_10_img/MRT1.png)
+![](PS_10_img/MRT1.png)
 
 ## MODIS Reprojection Tool:  Subset & Reproject
 
 
-![](pres/PS_10_img/MRT.png)
+![](PS_10_img/MRT.png)
 
 `MCD12Q1.A2012001.h12v04.051.2014288200441.hdf`
 
 ## Application for Extracting and Exploring Analysis Ready Samples (AppEEARS)
 
-![](pres/PS_10_img/appeears.png)
+![](PS_10_img/appeears.png)
 
 [https://lpdaacsvc.cr.usgs.gov/appeears/](https://lpdaacsvc.cr.usgs.gov/appeears/)
 
@@ -425,7 +425,7 @@ Available at [lpdaac.usgs.gov/tools/modis_reprojection_tool](https://lpdaac.usgs
 
 ## Data Subset
 
-![](pres/PS_10_img/appeears2.png)
+![](PS_10_img/appeears2.png)
 
 Submit and wait for results...
 
