@@ -1,18 +1,21 @@
 ---
-title:  Processing Data from Satellite Remote Sensing
+title: "Processing Data from Satellite Remote Sensing"
 type: Presentation
 week: 10
 ---
 
-```{r, echo=FALSE, message=FALSE, results='hide', purl=FALSE}
-source("functions.R")
+```{r, echo=FALSE, message=FALSE, results='hide', purl=FALSE, include=F}
+#source("functions.R")
 library(kableExtra)
 options(knitr.table.format = 'markdown')
-knitr::opts_chunk$set(cache=T,
+knitr::opts_knit$set(cache=T,
                       fig.width=6,
                       fig.height=3,
                       dpi=200,
-                      dev="png")
+                      dev="png",
+                      root.dir=rprojroot::find_rstudio_root_file())
+getwd()
+
 library(knitr)
 ```
 
@@ -26,10 +29,10 @@ library(knitr)
 ## Next Week's Case Study
 
 <iframe
-  src="http://wilsonlab.io/GEO511/CS_10.html"
+  src="http://geo511.wilsonlab.io/CS_10.html"
   width="100%" height="800">
 </iframe>
-[source](http://wilsonlab.io/GEO511/CS_10.html)
+[source](http://geo511.wilsonlab.io/CS_10.html)
 
 
 ## Objectives
@@ -52,17 +55,17 @@ From the [Union of Concerned Scientists Satellite Database](http://www.ucsusa.or
 
 ## Debris & Satellites in low Earth orbit
 
-<img src="PS_10_assets//satellites.jpg" alt="alt text" width="75%">
+<img src="pres/PS_10_img//satellites.jpg" alt="alt text" width="75%">
 
 Image courtesy of [European Space Agency](http://www.esa.int/spaceinimages/Images/2008/03/Debris_objects_-_mostly_debris_-_in_low_Earth_orbit_LEO_-_view_over_the_equator)
 
 
 ## NASA's Earth Observing System
 
-<img src="PS_10_assets//eos.jpg" alt="alt text" width="75%">
+<img src="pres/PS_10_img//eos.jpg" alt="alt text" width="75%">
 
 ## Electromagnetic Radiation
-<img src="PS_10_assets/spectrum.png" alt="alt text" width="100%">
+<img src="pres/PS_10_img/spectrum.png" alt="alt text" width="100%">
 
 ## EarthData
 
@@ -70,7 +73,7 @@ Image courtesy of [European Space Agency](http://www.esa.int/spaceinimages/Image
 
 Datasets, news, articles, information
 
-<img src="PS_10_assets//Earthdata1.png" alt="alt text" width="75%">
+<img src="pres/PS_10_img//Earthdata1.png" alt="alt text" width="75%">
 
 ## EarthData
 
@@ -78,12 +81,12 @@ Datasets, news, articles, information
 
 Datasets, news, articles, information
 
-<img src="PS_10_assets//Earthdata2.png" alt="alt text" width="75%">
+<img src="pres/PS_10_img//Earthdata2.png" alt="alt text" width="75%">
 
 # Image Processing in R
 
 ## Raster Package
-```{r}
+```{r load_files, message=F}
 library(raster)
 # Blue
 b2 <- raster('data/rs/LC08_044034_20170614_B2.tif')
@@ -119,7 +122,7 @@ s
 ```
 
 ## Import multiple bands
-```{r}
+```{r load_landsat}
 filenames <- paste0('data/rs/LC08_044034_20170614_B', 1:11, ".tif")
 filenames
 
@@ -128,7 +131,7 @@ landsat
 ```
 
 ## Blue, Green, Red, NIR
-```{r}
+```{r bgr}
 par(mfrow = c(1,2))
 plot(b4, main = "Red", col = gray(0:100 / 100))
 plot(b5, main = "NIR", col = gray(0:100 / 100))
@@ -175,14 +178,14 @@ plot(ndvi, col=rev(terrain.colors(10)), main="Landsat-NDVI")
 ## Moderate Resolution Imaging Spectroradiometer (MODIS)
 
 
-<img src="PS_10_assets//TerraLaunch.png" alt="alt text" width="75%">
+<img src="pres/PS_10_img//TerraLaunch.png" alt="alt text" width="75%">
 
 2 Satellites _Terra_ launched in 1999, _Aqua_ in 2002.
 
 
 ## Technical Details: swath
 
-<img src="PS_10_assets//terra.png" alt="alt text" width="75%">
+<img src="pres/PS_10_img//terra.png" alt="alt text" width="75%">
 
 Viewing swath width of 2,330 km
 
@@ -190,7 +193,7 @@ Technical Details: spatial coverage
 
 ---
 
-<img src="PS_10_assets//first_complete_day_from_modis.jpg" alt="alt text" width="75%">
+<img src="pres/PS_10_img//first_complete_day_from_modis.jpg" alt="alt text" width="75%">
 
 Covers Earth every one to two days
 
@@ -198,7 +201,7 @@ Technical Details: spectral coverage
 
 ---
 
-<img src="PS_10_assets//spectrum2.png" alt="alt text" width="75%">
+<img src="pres/PS_10_img//spectrum2.png" alt="alt text" width="75%">
 
 36 spectral bands between 0.405 and 14.385 µm
 
@@ -206,7 +209,7 @@ Technical Details: spatial resolution
 
 ---
 
-<img src="PS_10_assets//resolution.jpg" alt="alt text" width="50%">
+<img src="pres/PS_10_img//resolution.jpg" alt="alt text" width="50%">
 
 3 spatial resolutions -- 250m, 500m, and 1,000m 
 
@@ -254,7 +257,7 @@ Technical Details: spatial resolution
 
 ## Example product workflow
 
- <img src="PS_10_assets//VI_flow.png" alt="alt text" heigt="90%">
+ <img src="pres/PS_10_img//VI_flow.png" alt="alt text" heigt="90%">
 
  
 MODIS Products used to generate vegetation indices. From the [MOD13 Algorithm Theoretical Basis Document](http://modis.gsfc.nasa.gov/data/atbd/atbd_mod13.pdf).  
@@ -265,11 +268,11 @@ MODIS Products used to generate vegetation indices. From the [MOD13 Algorithm Th
 
 Most NASA EOS data distributed as HDF files, which are very similar to netCDF.
 
-<img src="PS_10_assets//NETCDF4Library.jpg" alt="alt text" width="75%">
+<img src="pres/PS_10_img//NETCDF4Library.jpg" alt="alt text" width="75%">
 
 ## NetCDF / HDF
 
-<img src="PS_10_assets//netcdf2.png" alt="alt text" width="75%">
+<img src="pres/PS_10_img//netcdf2.png" alt="alt text" width="75%">
 
 
 ## Reading EO Data
@@ -321,7 +324,7 @@ lst[[1:10]] %>% gplot()+
 ## MODIS Gridding system
 
 
-![](PS_10_assets/modgrid.gif)
+![](pres/PS_10_img/modgrid.gif)
 
 
 ## Filename Conventions
@@ -367,33 +370,33 @@ lst[[1:10]] %>% gplot()+
 
 
 The Land Processes Distributed Active Archive Center has a nice "Data Discovery" Tool:
-![](PS_10_assets/lpdaac.png)
+![](pres/PS_10_img/lpdaac.png)
 
 ## MODIS Products Table
 
 Lists [all available MODIS land products]()
 
-![](PS_10_assets/lpdaac1.png)
+![](pres/PS_10_img/lpdaac1.png)
 
 ## Annual Land Cover Type Description
 
-![](PS_10_assets/lpdaac2.png)
+![](pres/PS_10_img/lpdaac2.png)
 
 
 ## Detailed layer information
 
-![](PS_10_assets/lpdaac3.png)
+![](pres/PS_10_img/lpdaac3.png)
 
 
 ## Data access links
 
-![](PS_10_assets/lpdaac4.png)
+![](pres/PS_10_img/lpdaac4.png)
 
 Downloading: `http`/`ftp` access
 
 ---
 
-![](PS_10_assets/lpdaac5.png)
+![](pres/PS_10_img/lpdaac5.png)
 
 or the [LP DAAC2Disk Download Manager](https://lpdaac.usgs.gov/sites/default/files/public/datapool/DAAC2DiskUserGuide.pdf) which builds a download script.
 
@@ -401,18 +404,18 @@ or the [LP DAAC2Disk Download Manager](https://lpdaac.usgs.gov/sites/default/fil
 
 Available at [lpdaac.usgs.gov/tools/modis_reprojection_tool](https://lpdaac.usgs.gov/tools/modis_reprojection_tool).
 
-![](PS_10_assets/MRT1.png)
+![](pres/PS_10_img/MRT1.png)
 
 ## MODIS Reprojection Tool:  Subset & Reproject
 
 
-![](PS_10_assets/MRT.png)
+![](pres/PS_10_img/MRT.png)
 
 `MCD12Q1.A2012001.h12v04.051.2014288200441.hdf`
 
 ## Application for Extracting and Exploring Analysis Ready Samples (AppEEARS)
 
-![](PS_10_assets/appeears.png)
+![](pres/PS_10_img/appeears.png)
 
 [https://lpdaacsvc.cr.usgs.gov/appeears/](https://lpdaacsvc.cr.usgs.gov/appeears/)
 
@@ -422,7 +425,7 @@ Available at [lpdaac.usgs.gov/tools/modis_reprojection_tool](https://lpdaac.usgs
 
 ## Data Subset
 
-![](PS_10_assets/appeears2.png)
+![](pres/PS_10_img/appeears2.png)
 
 Submit and wait for results...
 
