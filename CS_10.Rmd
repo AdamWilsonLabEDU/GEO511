@@ -18,7 +18,7 @@ knitr::opts_chunk$set(cache=F)
 
 # Tasks
 
-```{r tasks,results='asis',echo=F}
+```{r tasks,results='asis',echo=F, purl=F}
 md_bullet(rmarkdown::metadata$tasks)
 ```
 
