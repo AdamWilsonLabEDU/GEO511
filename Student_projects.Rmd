@@ -13,6 +13,74 @@ Each student wrote a script (using the [R](https://www.r-project.org/) programmi
 
 You are invited to explore the student projects below (click on a title to visit their website).  Each projects includes the embedded code in addition to their narrative and graphical stories.   If you find something interesting, you are free to download and re-run the script to reproduce the entire analysis (including generating the tables/figures and even the webpage itself).
 
+## 2021
+```{r,echo=F, warning=F, message=F, eval=T}
+library(tidyverse)
+library(knitr)
+library(rvest)
+library(fontawesome)
+
+update=F
+
+if(update){
+d=data.frame(url=
+  paste0("https://geo511-2021.github.io/",c(
+  "2021_project-sunho-hwang",
+  "2021_project-Sunnyyueh",
+  "2021_project-sadiekra",
+  "2021_project-MicaelaFLipman",
+  "2021_project-Marisgrundy",
+  "2021_project-ajgould",
+  "2021_project-ryan-zhenqi-zhou",
+  "2021_project-Lokki98",
+  "2021_project-rachelzhang77",
+  "2021_project-hui-97",
+  "2021_project-FanLukeLi ",
+  "2021_project-chenqingqing",
+  "2021_project-mzimmer22",
+  "2021_project-seancolb",
+  "2021_project-arwaggon",
+  "2021_project-weiliu-gis",
+  "2021_project-joe-dcs",
+  "2021_project-miagiann"
+  )),
+#  group=c(rep(1,8),rep(2,9)),
+  stringsAsFactors = F)
+
+d=d%>%mutate(user=sub("/","",
+      sub("https://geo511-2021.github.io/2021_project-","",url,
+                          ignore.case = T)),
+      github=paste0("https://github.com/GEO511-2021/2021_geo511-project-",
+                   user))
+for(i in 1:nrow(d)) {
+#  print(i)
+  d$title[i] <- ifelse(
+    is.na(tryCatch(read_html(d$url[i], verbose=T), 
+                   error = function(e){NA})),
+         NA,
+         read_html(d$url[i]) %>% html_nodes("h1")%>%html_text()%>%first()
+  )
+}
+save(d,file="2021_Student_projects_data.Rdata")
+}
+```
+
+
+```{r, echo=F, message=F, results='hide', eval=T}
+load("2021_Student_projects_data.Rdata")
+```
+
+
+```{r,asis=T, echo=F, eval=T}
+d%>%
+  arrange(user)%>%
+  mutate(Title=paste0("[",title,"](",url,")")) %>%
+#         GitHub=paste("<a href=",github,"><i>",fa('github',fill ="#2780E3"),"</i></a>"))%>%
+  dplyr::select(Student=user,Title)%>%
+  kable()
+```
+
+
 ## 2020
 ```{r,echo=F, warning=F, message=F, eval=T}
 library(tidyverse)
