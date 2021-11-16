@@ -1,5 +1,3 @@
-md_bullet(rmarkdown::metadata$tasks)
-
 library(raster)
 library(rasterVis)
 library(rgdal)

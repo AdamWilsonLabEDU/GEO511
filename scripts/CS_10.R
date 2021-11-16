@@ -14,8 +14,6 @@
 #' 
 #' # Tasks
 #' 
-## ----tasks,results='asis',echo=F----------------------------------------------
-md_bullet(rmarkdown::metadata$tasks)
 
 #' 
 #' 

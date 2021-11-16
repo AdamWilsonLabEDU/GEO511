@@ -489,49 +489,104 @@ lcd=data.frame(
 kable(head(lcd))</code></pre>
 <table>
 <thead>
-<tr class="header">
-<th align="left"></th>
-<th align="right">ID</th>
-<th align="left">landcover</th>
-<th align="left">col</th>
+<tr>
+<th style="text-align:left;">
+</th>
+<th style="text-align:right;">
+ID
+</th>
+<th style="text-align:left;">
+landcover
+</th>
+<th style="text-align:left;">
+col
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="left">Water</td>
-<td align="right">0</td>
-<td align="left">Water</td>
-<td align="left">#000080</td>
+<tr>
+<td style="text-align:left;">
+Water
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+Water
+</td>
+<td style="text-align:left;">
+#000080
+</td>
 </tr>
-<tr class="even">
-<td align="left">Evergreen Needleleaf forest</td>
-<td align="right">1</td>
-<td align="left">Evergreen Needleleaf forest</td>
-<td align="left">#008000</td>
+<tr>
+<td style="text-align:left;">
+Evergreen Needleleaf forest
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+Evergreen Needleleaf forest
+</td>
+<td style="text-align:left;">
+#008000
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Evergreen Broadleaf forest</td>
-<td align="right">2</td>
-<td align="left">Evergreen Broadleaf forest</td>
-<td align="left">#00FF00</td>
+<tr>
+<td style="text-align:left;">
+Evergreen Broadleaf forest
+</td>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+Evergreen Broadleaf forest
+</td>
+<td style="text-align:left;">
+#00FF00
+</td>
 </tr>
-<tr class="even">
-<td align="left">Deciduous Needleleaf forest</td>
-<td align="right">3</td>
-<td align="left">Deciduous Needleleaf forest</td>
-<td align="left">#99CC00</td>
+<tr>
+<td style="text-align:left;">
+Deciduous Needleleaf forest
+</td>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:left;">
+Deciduous Needleleaf forest
+</td>
+<td style="text-align:left;">
+#99CC00
+</td>
 </tr>
-<tr class="odd">
-<td align="left">Deciduous Broadleaf forest</td>
-<td align="right">4</td>
-<td align="left">Deciduous Broadleaf forest</td>
-<td align="left">#99FF99</td>
+<tr>
+<td style="text-align:left;">
+Deciduous Broadleaf forest
+</td>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:left;">
+Deciduous Broadleaf forest
+</td>
+<td style="text-align:left;">
+#99FF99
+</td>
 </tr>
-<tr class="even">
-<td align="left">Mixed forest</td>
-<td align="right">5</td>
-<td align="left">Mixed forest</td>
-<td align="left">#339966</td>
+<tr>
+<td style="text-align:left;">
+Mixed forest
+</td>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:left;">
+Mixed forest
+</td>
+<td style="text-align:left;">
+#339966
+</td>
 </tr>
 </tbody>
 </table>
@@ -669,128 +724,295 @@ QC_Data$QA_word4[QC_Data$Bit7 == 1 &amp; QC_Data$Bit6==0] &lt;- &quot;LST Err &g
 QC_Data$QA_word4[QC_Data$Bit7 == 1 &amp; QC_Data$Bit6==1] &lt;- &quot;LST Err &gt; 4&quot;
 kable(head(QC_Data))</code></pre>
 <table>
-<colgroup>
-<col width="11%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="3%" />
-<col width="21%" />
-<col width="11%" />
-<col width="14%" />
-<col width="10%" />
-</colgroup>
 <thead>
-<tr class="header">
-<th align="right">Integer_Value</th>
-<th align="right">Bit7</th>
-<th align="right">Bit6</th>
-<th align="right">Bit5</th>
-<th align="right">Bit4</th>
-<th align="right">Bit3</th>
-<th align="right">Bit2</th>
-<th align="right">Bit1</th>
-<th align="right">Bit0</th>
-<th align="left">QA_word1</th>
-<th align="left">QA_word2</th>
-<th align="left">QA_word3</th>
-<th align="left">QA_word4</th>
+<tr>
+<th style="text-align:right;">
+Integer_Value
+</th>
+<th style="text-align:right;">
+Bit7
+</th>
+<th style="text-align:right;">
+Bit6
+</th>
+<th style="text-align:right;">
+Bit5
+</th>
+<th style="text-align:right;">
+Bit4
+</th>
+<th style="text-align:right;">
+Bit3
+</th>
+<th style="text-align:right;">
+Bit2
+</th>
+<th style="text-align:right;">
+Bit1
+</th>
+<th style="text-align:right;">
+Bit0
+</th>
+<th style="text-align:left;">
+QA_word1
+</th>
+<th style="text-align:left;">
+QA_word2
+</th>
+<th style="text-align:left;">
+QA_word3
+</th>
+<th style="text-align:left;">
+QA_word4
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">LST GOOD</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &lt;= 1</td>
+<tr>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+LST GOOD
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
 </tr>
-<tr class="even">
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &lt;= 1</td>
+<tr>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
 </tr>
-<tr class="odd">
-<td align="right">2</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="left">No Pixel,clouds</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &lt;= 1</td>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+No Pixel,clouds
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
 </tr>
-<tr class="even">
-<td align="right">3</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">1</td>
-<td align="left">No Pixel, Other QA</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &lt;= 1</td>
+<tr>
+<td style="text-align:right;">
+3
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+No Pixel, Other QA
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
 </tr>
-<tr class="odd">
-<td align="right">4</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="left">LST GOOD</td>
-<td align="left">Other Quality</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &lt;= 1</td>
+<tr>
+<td style="text-align:right;">
+4
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:left;">
+LST GOOD
+</td>
+<td style="text-align:left;">
+Other Quality
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
 </tr>
-<tr class="even">
-<td align="right">5</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="right">0</td>
-<td align="right">1</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Other Quality</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &lt;= 1</td>
+<tr>
+<td style="text-align:right;">
+5
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:right;">
+0
+</td>
+<td style="text-align:right;">
+1
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Other Quality
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
 </tr>
 </tbody>
 </table>
@@ -821,149 +1043,347 @@ QC_Data%&gt;%
   inner_join(data.frame(qcvals))%&gt;%
   kable()</code></pre>
 <pre><code>## Joining, by = &quot;Var1&quot;</code></pre>
-<table style="width:100%;">
-<colgroup>
-<col width="12%" />
-<col width="23%" />
-<col width="8%" />
-<col width="18%" />
-<col width="21%" />
-<col width="4%" />
-<col width="5%" />
-<col width="6%" />
-</colgroup>
+<table>
 <thead>
-<tr class="header">
-<th align="right">Integer_Value</th>
-<th align="left">QA_word1</th>
-<th align="left">QA_word2</th>
-<th align="left">QA_word3</th>
-<th align="left">QA_word4</th>
-<th align="left">Var1</th>
-<th align="left">keep</th>
-<th align="right">Freq</th>
+<tr>
+<th style="text-align:right;">
+Integer_Value
+</th>
+<th style="text-align:left;">
+QA_word1
+</th>
+<th style="text-align:left;">
+QA_word2
+</th>
+<th style="text-align:left;">
+QA_word3
+</th>
+<th style="text-align:left;">
+QA_word4
+</th>
+<th style="text-align:left;">
+Var1
+</th>
+<th style="text-align:left;">
+keep
+</th>
+<th style="text-align:right;">
+Freq
+</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
-<td align="right">2</td>
-<td align="left">No Pixel,clouds</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &lt;= 1</td>
-<td align="left">2</td>
-<td align="left">FALSE</td>
-<td align="right">150019</td>
+<tr>
+<td style="text-align:right;">
+2
+</td>
+<td style="text-align:left;">
+No Pixel,clouds
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
+<td style="text-align:left;">
+2
+</td>
+<td style="text-align:left;">
+FALSE
+</td>
+<td style="text-align:right;">
+150019
+</td>
 </tr>
-<tr class="even">
-<td align="right">17</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt;.01 &lt;=.02</td>
-<td align="left">LST Err &lt;= 1</td>
-<td align="left">17</td>
-<td align="left">TRUE</td>
-<td align="right">44552</td>
+<tr>
+<td style="text-align:right;">
+17
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt;.01 &lt;=.02
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
+<td style="text-align:left;">
+17
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+44552
+</td>
 </tr>
-<tr class="odd">
-<td align="right">33</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt;.02 &lt;=.04</td>
-<td align="left">LST Err &lt;= 1</td>
-<td align="left">33</td>
-<td align="left">TRUE</td>
-<td align="right">20225</td>
+<tr>
+<td style="text-align:right;">
+33
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt;.02 &lt;=.04
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
+<td style="text-align:left;">
+33
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+20225
+</td>
 </tr>
-<tr class="even">
-<td align="right">49</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt; .04</td>
-<td align="left">LST Err &lt;= 1</td>
-<td align="left">49</td>
-<td align="left">TRUE</td>
-<td align="right">3</td>
+<tr>
+<td style="text-align:right;">
+49
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt; .04
+</td>
+<td style="text-align:left;">
+LST Err &lt;= 1
+</td>
+<td style="text-align:left;">
+49
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+3
+</td>
 </tr>
-<tr class="odd">
-<td align="right">65</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &gt; 2 LST Err &lt;= 3</td>
-<td align="left">65</td>
-<td align="left">TRUE</td>
-<td align="right">243391</td>
+<tr>
+<td style="text-align:right;">
+65
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &gt; 2 LST Err &lt;= 3
+</td>
+<td style="text-align:left;">
+65
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+243391
+</td>
 </tr>
-<tr class="even">
-<td align="right">81</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt;.01 &lt;=.02</td>
-<td align="left">LST Err &gt; 2 LST Err &lt;= 3</td>
-<td align="left">81</td>
-<td align="left">TRUE</td>
-<td align="right">203501</td>
+<tr>
+<td style="text-align:right;">
+81
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt;.01 &lt;=.02
+</td>
+<td style="text-align:left;">
+LST Err &gt; 2 LST Err &lt;= 3
+</td>
+<td style="text-align:left;">
+81
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+203501
+</td>
 </tr>
-<tr class="odd">
-<td align="right">97</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt;.02 &lt;=.04</td>
-<td align="left">LST Err &gt; 2 LST Err &lt;= 3</td>
-<td align="left">97</td>
-<td align="left">TRUE</td>
-<td align="right">25897</td>
+<tr>
+<td style="text-align:right;">
+97
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt;.02 &lt;=.04
+</td>
+<td style="text-align:left;">
+LST Err &gt; 2 LST Err &lt;= 3
+</td>
+<td style="text-align:left;">
+97
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+25897
+</td>
 </tr>
-<tr class="even">
-<td align="right">113</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt; .04</td>
-<td align="left">LST Err &gt; 2 LST Err &lt;= 3</td>
-<td align="left">113</td>
-<td align="left">TRUE</td>
-<td align="right">32</td>
+<tr>
+<td style="text-align:right;">
+113
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt; .04
+</td>
+<td style="text-align:left;">
+LST Err &gt; 2 LST Err &lt;= 3
+</td>
+<td style="text-align:left;">
+113
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+32
+</td>
 </tr>
-<tr class="odd">
-<td align="right">129</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Error &lt;= .01</td>
-<td align="left">LST Err &gt; 1 LST Err &lt;= 2</td>
-<td align="left">129</td>
-<td align="left">TRUE</td>
-<td align="right">57</td>
+<tr>
+<td style="text-align:right;">
+129
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Error &lt;= .01
+</td>
+<td style="text-align:left;">
+LST Err &gt; 1 LST Err &lt;= 2
+</td>
+<td style="text-align:left;">
+129
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+57
+</td>
 </tr>
-<tr class="even">
-<td align="right">145</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt;.01 &lt;=.02</td>
-<td align="left">LST Err &gt; 1 LST Err &lt;= 2</td>
-<td align="left">145</td>
-<td align="left">TRUE</td>
-<td align="right">29607</td>
+<tr>
+<td style="text-align:right;">
+145
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt;.01 &lt;=.02
+</td>
+<td style="text-align:left;">
+LST Err &gt; 1 LST Err &lt;= 2
+</td>
+<td style="text-align:left;">
+145
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+29607
+</td>
 </tr>
-<tr class="odd">
-<td align="right">161</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt;.02 &lt;=.04</td>
-<td align="left">LST Err &gt; 1 LST Err &lt;= 2</td>
-<td align="left">161</td>
-<td align="left">TRUE</td>
-<td align="right">3</td>
+<tr>
+<td style="text-align:right;">
+161
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt;.02 &lt;=.04
+</td>
+<td style="text-align:left;">
+LST Err &gt; 1 LST Err &lt;= 2
+</td>
+<td style="text-align:left;">
+161
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+3
+</td>
 </tr>
-<tr class="even">
-<td align="right">177</td>
-<td align="left">LST Produced,Other Quality</td>
-<td align="left">Good Data</td>
-<td align="left">Emiss Err &gt; .04</td>
-<td align="left">LST Err &gt; 1 LST Err &lt;= 2</td>
-<td align="left">177</td>
-<td align="left">TRUE</td>
-<td align="right">5</td>
+<tr>
+<td style="text-align:right;">
+177
+</td>
+<td style="text-align:left;">
+LST Produced,Other Quality
+</td>
+<td style="text-align:left;">
+Good Data
+</td>
+<td style="text-align:left;">
+Emiss Err &gt; .04
+</td>
+<td style="text-align:left;">
+LST Err &gt; 1 LST Err &lt;= 2
+</td>
+<td style="text-align:left;">
+177
+</td>
+<td style="text-align:left;">
+TRUE
+</td>
+<td style="text-align:right;">
+5
+</td>
 </tr>
 </tbody>
 </table>
