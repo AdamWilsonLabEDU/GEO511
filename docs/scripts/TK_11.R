@@ -44,7 +44,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #' 
 #' ### Confirming 'reproducibility'
 #' 
-#' After pushing the files to GitHub, try downloading it as a zip file, opening in RStudio, and clicking build website - it should work.
+#' Confirm that the page is able to build by checking the GitHub actions tab on your repository.  
 #' 
 #' ## Common issues
 #' 

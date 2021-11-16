@@ -49,16 +49,15 @@ Plan to spend at least 1 hour for each review (2 hours total). The objectives fo
 ### Download and reproduce the project
 
 1) Explore the final projects in the [class repository](https://github.com/geo511-2021?q=project&type=&language=)
-2) Select two projects that do not already have two evaluations (pull requests). For example, in the image above, there are 0 pull requests, so this repository would be available for you to review.  If there are already 2 pull requests, select another repository.
-2) Go to the github page linked in the assignment and download the repository as a zip file (click on the <img src='project_assets/download.png' width=100> button).
-3) Unzip the file after it downloads
-4) Open the project or `index.Rmd` in RStudio and click `Build Website` in the `Build` tab in the upper right.
-5) Evaluate whether the project meets the specifications listed in the [Project First Draft task](TK_11.html)
+2) Select two projects that do not already have three evaluations (pull requests). For example, in the image above, there are 0 pull requests, so this repository would be available for you to review.  If there are already 3 pull requests, select another repository.
+2) Browse the code (mostly `index.Rmd`)
+3) Browse the project website (should be linked in the upper right corner of the repository page on GitHub).
+4) Evaluate whether the project meets the specifications listed in the [Project First Draft task](TK_11.html)
 
 
 ### Provide feedback and evaluation via pull request
 
-After you reproduce the project, you will provide feedback via pull request.
+After you browse the project, you will provide feedback via pull request.
 
 The following video will walk you through the steps of providing feedback via a pull request.
 <iframe width="560" height="315" src="https://www.youtube.com/embed/wy9EggBhC-M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
@@ -74,4 +73,3 @@ The following video will walk you through the steps of providing feedback via a 
 7) Hover over lines you would like to comment on and click the little blue plus button.  Then enter your comment and select "Add single comment"
 6) Repeat steps 2-6 for any additional files you want to comment on 
 
-Be sure to install any required libraries (do not complain if it fails because you don't have a library installed).
