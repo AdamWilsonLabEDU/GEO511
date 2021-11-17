@@ -50,7 +50,7 @@ d=data.frame(url=
 d=d%>%mutate(user=sub("/","",
       sub("https://geo511-2021.github.io/2021_project-","",url,
                           ignore.case = T)),
-      github=paste0("https://github.com/GEO511-2021/2021_geo511-project-",
+      github=paste0("https://github.com/GEO511-2021/2021_project-",
                    user))
 for(i in 1:nrow(d)) {
 #  print(i)
@@ -72,12 +72,14 @@ load("2021_Student_projects_data.Rdata")
 
 
 ```{r,asis=T, echo=F, eval=T}
+
 d%>%
   arrange(user)%>%
-  mutate(Title=paste0("[",title,"](",url,")")) %>%
-#         GitHub=paste("<a href=",github,"><i>",fa('github',fill ="#2780E3"),"</i></a>"))%>%
-  dplyr::select(Student=user,Title)%>%
-  kable()
+  mutate(Title=paste0("[",title,"](",url,")"),
+         Status=paste0("![](",github,"/actions/workflows/main.yml/badge.svg)"),
+         GitHub=paste("<a href=",github,"><i>",fa('github',fill ="#2780E3"),"</i></a>"))%>%
+  dplyr::select(Student=user,Title,Status,GitHub)%>%
+    kable()
 ```
 
 

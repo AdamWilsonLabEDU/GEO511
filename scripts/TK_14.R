@@ -7,7 +7,9 @@
 #'   - 
 #' tasks:
 #'    - Continue working on final project
-#'    - Come to class with any questions
+#'    - Finish any remaining DataCamp courses
+#'    - Ask questions!
+#'    - Start working on your Grade Request Letter
 #' ---
 #' 
 #' 
