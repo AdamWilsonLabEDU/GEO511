@@ -46,3 +46,4 @@ output_table=function(){
   paste(
 "| [<i class='fas fa-code fa-2x' aria-hidden='true'></i><br>  R Script](",output_nocomment,") | [<i class='fa fa-file-code-o fa-2x'></i> <br> Commented R Script](",output,") | [<i class='far fa-file-alt fa-2x'></i> <br>  Rmd Script](",fullinput,")|
 |:--:|:-:|:-:|",collapse="")}
+

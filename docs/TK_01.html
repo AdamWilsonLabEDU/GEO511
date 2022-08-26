@@ -13,7 +13,7 @@
 
 <title>Getting Started</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -394,18 +398,29 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">1-2 in R4DS</a></li>
+<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">1-2 in
+R4DS</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
-<li>Read the <a href="Syllabus.html">course syllabus</a> and make sure you understand our class routine and grading</li>
-<li>Install R on your computer <a href="https://cloud.r-project.org" target="blank">from here</a> if you haven’t already installed it.</li>
-<li>Install RStudio Desktop (free version) on your computer <a href="https://www.rstudio.com/products/rstudio/download/" target="blank">from this source</a></li>
-<li>Join the Slack Channel by following the link sent via email (ask if you did not receive this link)</li>
-<li>Join our DataCamp class following the link sent via email. Start working on the first assignment (try to finish by Thursday)</li>
-<li>Create a <a href="https://github.com/join?source=header-home" target="blank">GitHub account</a> and submit your github username to the form sent to your email. This username may follow you for years, use something professional that you will want to share with your future employer.</li>
+<li>Read the <a href="Syllabus.html">course syllabus</a> and make sure
+you understand our class routine and grading</li>
+<li>Install R on your computer <a href="https://cloud.r-project.org"
+target="blank">from here</a> if you haven’t already installed it.</li>
+<li>Install RStudio Desktop (free version) on your computer <a
+href="https://www.rstudio.com/products/rstudio/download/"
+target="blank">from this source</a></li>
+<li>Join the Slack Channel by following the link sent via email (ask if
+you did not receive this link)</li>
+<li>Join our DataCamp class following the link sent via email. Start
+working on the first assignment (try to finish by Thursday)</li>
+<li>Create a <a href="https://github.com/join?source=header-home"
+target="blank">GitHub account</a> and submit your github username to the
+form sent to your email. This username may follow you for years, use
+something professional that you will want to share with your future
+employer.</li>
 </ul>
 </div>
 

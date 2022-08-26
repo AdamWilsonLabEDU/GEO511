@@ -13,7 +13,7 @@
 
 <title>DataCamp.knit</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -390,66 +394,131 @@ div.tocify {
 </div>
 
 
-<p><a  href="http://datacamp.com"> <img src="img/DataCamp_logo.png" width=50% ></img></a></p>
-<p>DataCamp offers interactive R, Python, Sheets, SQL and shell courses on topics in data science, statistics and machine learning. You can learn from a team of expert teachers in the comfort of your browser with video lessons and fun coding challenges and projects.</p>
+<p><a  href="http://datacamp.com">
+<img src="img/DataCamp_logo.png" width=50% ></img></a></p>
+<p>DataCamp offers interactive R, Python, Sheets, SQL and shell courses
+on topics in data science, statistics and machine learning. You can
+learn from a team of expert teachers in the comfort of your browser with
+video lessons and fun coding challenges and projects.</p>
 <div id="datacamp-in-this-course" class="section level2">
 <h2>DataCamp in this course</h2>
-<p>As a student in this course, you will receive a six month subscription to DataCamp’s ‘premium’ materials. We will use DataCamp to reinforce your learning <em>and</em> assess your development. Throughout the semester, various chapters/courses will be assigned via DataCamp. I have assigned due dates to each DataCamp assignment that are aligned with course content and case studies. It is <em>highly recommened to complete the assigned chapters by the due dates</em> designated in your <a href="https://www.datacamp.com/enterprise/geo511-fall-2020">DataCamp ‘classroom’</a>, but in terms of your grade the only deadline is the end of the semester.</p>
+<p>As a student in this course, you will receive a six month
+subscription to DataCamp’s ‘premium’ materials. We will use DataCamp to
+reinforce your learning <em>and</em> assess your development. Throughout
+the semester, various chapters/courses will be assigned via DataCamp. I
+have assigned due dates to each DataCamp assignment that are aligned
+with course content and case studies. It is <em>highly recommened to
+complete the assigned chapters by the due dates</em> designated in your
+<a href="https://www.datacamp.com/enterprise/geo511-fall-2020">DataCamp
+‘classroom’</a>, but in terms of your grade the only deadline is the end
+of the semester.</p>
 <p>See <a href="Syllabus.html">Syllabus for more information.</a></p>
 </div>
-<div id="additional-recommended-datacamp-courses" class="section level2">
+<div id="additional-recommended-datacamp-courses"
+class="section level2">
 <h2>Additional recommended DataCamp courses</h2>
-<p>The courses listed below are optional (if not assigned in your <a href="https://www.datacamp.com/enterprise/geo511-fall-2020">classroom</a>) but you may find them useful to further your own development (or even to work on your final project in this or other courses).</p>
-<p>See all the <a href="https://www.datacamp.com/courses">available courses in DataCamp here.</a>.</p>
+<p>The courses listed below are optional (if not assigned in your <a
+href="https://www.datacamp.com/enterprise/geo511-fall-2020">classroom</a>)
+but you may find them useful to further your own development (or even to
+work on your final project in this or other courses).</p>
+<p>See all the <a href="https://www.datacamp.com/courses">available
+courses in DataCamp here.</a>.</p>
 <div id="foundational-skills" class="section level3">
 <h3>Foundational Skills</h3>
 <ul>
-<li><a href="https://www.datacamp.com/courses/free-introduction-to-r">Introduction to R</a></li>
+<li><a
+href="https://www.datacamp.com/courses/free-introduction-to-r">Introduction
+to R</a></li>
 </ul>
 </div>
 <div id="data-wrangling" class="section level3">
 <h3>Data Wrangling</h3>
 <ul>
-<li><a href="https://www.datacamp.com/courses/importing-data-in-r-part-1">Importing Data in R (Part 1)</a></li>
-<li><a href="https://www.datacamp.com/courses/importing-data-in-r-part-2">Importing Data in R (Part 2)</a></li>
-<li><a href="https://www.datacamp.com/courses/cleaning-data-in-r">Cleaning Data in R</a></li>
-<li><a href="https://www.datacamp.com/courses/importing-cleaning-data-in-r-case-studies">Importing &amp; Cleaning Data in R: Case Studies</a></li>
-<li><a href="https://www.datacamp.com/courses/introduction-to-the-tidyverse">Introduction to the tidyverse</a></li>
+<li><a
+href="https://www.datacamp.com/courses/importing-data-in-r-part-1">Importing
+Data in R (Part 1)</a></li>
+<li><a
+href="https://www.datacamp.com/courses/importing-data-in-r-part-2">Importing
+Data in R (Part 2)</a></li>
+<li><a
+href="https://www.datacamp.com/courses/cleaning-data-in-r">Cleaning Data
+in R</a></li>
+<li><a
+href="https://www.datacamp.com/courses/importing-cleaning-data-in-r-case-studies">Importing
+&amp; Cleaning Data in R: Case Studies</a></li>
+<li><a
+href="https://www.datacamp.com/courses/introduction-to-the-tidyverse">Introduction
+to the tidyverse</a></li>
 </ul>
 </div>
 <div id="modeling" class="section level3">
 <h3>Modeling</h3>
 <ul>
-<li><a href="https://www.datacamp.com/courses/exploratory-data-analysis-in-r-case-study">Exploratory Data Analysis in R: Case Study</a></li>
-<li><a href="https://www.datacamp.com/courses/statistical-modeling-in-r-part-1">Statistical Modeling in R (Part 1)</a></li>
-<li><a href="https://www.datacamp.com/courses/statistical-modeling-in-r-part-2">Statistical Modeling in R (Part 2)</a></li>
+<li><a
+href="https://www.datacamp.com/courses/exploratory-data-analysis-in-r-case-study">Exploratory
+Data Analysis in R: Case Study</a></li>
+<li><a
+href="https://www.datacamp.com/courses/statistical-modeling-in-r-part-1">Statistical
+Modeling in R (Part 1)</a></li>
+<li><a
+href="https://www.datacamp.com/courses/statistical-modeling-in-r-part-2">Statistical
+Modeling in R (Part 2)</a></li>
 </ul>
 </div>
 <div id="spatial-analyses-and-networks" class="section level3">
 <h3>Spatial Analyses and Networks</h3>
 <ul>
-<li><a href="https://www.datacamp.com/courses/working-with-geospatial-data-in-r">Working with Geospatial Data in R</a> (uses the older <code>sp</code> package instead of <code>sf</code>)</li>
-<li><a href="https://www.datacamp.com/courses/spatial-analysis-in-r-with-sf-and-raster">Spatial Analysis in R with sf and raster</a></li>
-<li><a href="https://www.datacamp.com/courses/spatial-statistics-in-r">Spatial Statistics in R</a></li>
-<li><a href="https://www.datacamp.com/courses/network-science-in-r-a-tidy-approach">Network Science in R - A Tidy Approach</a></li>
-<li><a href="https://www.datacamp.com/courses/interactive-maps-with-leaflet-in-r">Interactive Maps with leaflet in R</a></li>
+<li><a
+href="https://www.datacamp.com/courses/working-with-geospatial-data-in-r">Working
+with Geospatial Data in R</a> (uses the older <code>sp</code> package
+instead of <code>sf</code>)</li>
+<li><a
+href="https://www.datacamp.com/courses/spatial-analysis-in-r-with-sf-and-raster">Spatial
+Analysis in R with sf and raster</a></li>
+<li><a
+href="https://www.datacamp.com/courses/spatial-statistics-in-r">Spatial
+Statistics in R</a></li>
+<li><a
+href="https://www.datacamp.com/courses/network-science-in-r-a-tidy-approach">Network
+Science in R - A Tidy Approach</a></li>
+<li><a
+href="https://www.datacamp.com/courses/interactive-maps-with-leaflet-in-r">Interactive
+Maps with leaflet in R</a></li>
 </ul>
 </div>
 <div id="visualization-communication" class="section level3">
 <h3>Visualization &amp; Communication</h3>
 <ul>
-<li><a href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-1">Data Visualization with ggplot2 (Part 1)</a></li>
-<li><a href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-2">Data Visualization with ggplot2 (Part 2)</a></li>
-<li><a href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-3">Data Visualization with ggplot2 (Part 3)</a></li>
-<li><a href="https://www.datacamp.com/courses/visualizing-time-series-data-in-r">Visualizing Time Series Data in R</a></li>
-<li><a href="https://www.datacamp.com/courses/reporting-with-r-markdown">Reporting with R Markdown</a></li>
-<li><a href="https://www.datacamp.com/courses/communicating-with-data-in-the-tidyverse">Communicating with Data in the Tidyverse</a></li>
+<li><a
+href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-1">Data
+Visualization with ggplot2 (Part 1)</a></li>
+<li><a
+href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-2">Data
+Visualization with ggplot2 (Part 2)</a></li>
+<li><a
+href="https://www.datacamp.com/courses/data-visualization-with-ggplot2-3">Data
+Visualization with ggplot2 (Part 3)</a></li>
+<li><a
+href="https://www.datacamp.com/courses/visualizing-time-series-data-in-r">Visualizing
+Time Series Data in R</a></li>
+<li><a
+href="https://www.datacamp.com/courses/reporting-with-r-markdown">Reporting
+with R Markdown</a></li>
+<li><a
+href="https://www.datacamp.com/courses/communicating-with-data-in-the-tidyverse">Communicating
+with Data in the Tidyverse</a></li>
 </ul>
 </div>
 </div>
 <div id="datacamp-certification" class="section level2">
 <h2>DataCamp Certification</h2>
-<p>DataCamp is a respected source of online courses in data science topics. After you complete a DataCamp “course”", you can <a href="https://support.datacamp.com/hc/en-us/articles/360005885114-Where-can-I-download-the-certificates-">download certificates</a> or post <a href="https://support.datacamp.com/hc/en-us/articles/360001548814-How-can-I-share-my-certificate-Statement-of-Accomplishment-">certified skills to your LinkedIn page</a>. You could also potentially add the courses you complete to your CV.</p>
+<p>DataCamp is a respected source of online courses in data science
+topics. After you complete a DataCamp “course”“, you can <a
+href="https://support.datacamp.com/hc/en-us/articles/360005885114-Where-can-I-download-the-certificates-">download
+certificates</a> or post <a
+href="https://support.datacamp.com/hc/en-us/articles/360001548814-How-can-I-share-my-certificate-Statement-of-Accomplishment-">certified
+skills to your LinkedIn page</a>. You could also potentially add the
+courses you complete to your CV.</p>
 </div>
 
 <!-- Google Analytics -->

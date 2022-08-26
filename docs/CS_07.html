@@ -13,7 +13,7 @@
 
 <title>Getting Help!</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -395,8 +399,10 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>How to <a href="http://adv-r.had.co.nz/Reproducibility.html">write a reproducible example</a></li>
-<li>Using <a href="https://reprex.tidyverse.org/">Reprex package</a></li>
+<li>How to <a href="http://adv-r.had.co.nz/Reproducibility.html">write a
+reproducible example</a></li>
+<li>Using <a href="https://reprex.tidyverse.org/">Reprex
+package</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
@@ -406,7 +412,8 @@ div.tocify {
 <li>Learn how to search for help</li>
 <li>Learn how to create a Minimum Working Example (MWE)</li>
 <li>Debug existing code</li>
-<li>Save your reprex to your course repository as an html file using Export -&gt; “Save As Webpage” in the RStudio “Viewer” Tab.</li>
+<li>Post your reprex as an ‘issue’ in github</li>
+<li>Post your repex to slack</li>
 </ul>
 <div id="libraries" class="section level2">
 <h2>Libraries</h2>
@@ -419,18 +426,32 @@ data(world)</code></pre>
 </div>
 <div id="your-problem" class="section level2">
 <h2>Your problem</h2>
-<p>You want to make a figure illustrating the distribution of GDP per capita for all countries within each continent using the <code>world</code> data in the <code>spData</code> package.</p>
+<p>You want to make a figure illustrating the distribution of GDP per
+capita for all countries within each continent using the
+<code>world</code> data in the <code>spData</code> package.</p>
 <div id="your-goal" class="section level3">
 <h3>Your goal</h3>
-<p>Your desired figure looks something like the following: <img src="CS_07_files/figure-html/unnamed-chunk-3-1.png" width="4500" /></p>
+<p>Your desired figure looks something like the following:
+<img src="CS_07_files/figure-html/unnamed-chunk-3-1.png" width="4500" /></p>
 </div>
 <div id="current-version-of-your-code" class="section level3">
 <h3>Current Version of your code</h3>
-<p>You have started working on the figure but can’t seem to make it work like you want. Here is your current version of the code (and the resulting figure):</p>
+<p>You have started working on the figure but can’t seem to make it work
+like you want. Here is your current version of the code (and the
+resulting figure):</p>
 <pre class="r"><code>ggplot(world,aes(x=gdpPercap, y=continent, color=continent))+
    geom_density(alpha=0.5,color=F)</code></pre>
 <p><img src="CS_07_files/figure-html/unnamed-chunk-4-1.png" width="4500" /></p>
-<p>The second figure is quite different from the one you want. You want to ask for help and so you know that you need to make a reproducible example. Starting with the code above, make the required edits so you can use <code>reprex()</code> to generate a nicely formatted example that you could post as a github ‘issue,’ send as an email or post to a forum to ask for help. See the <a href="https://reprex.tidyverse.org/">reading</a> for more help. Note: you do <em>not</em> need to recreate the first figure above, only to use <code>reprex()</code> to illustrate your question and problematic code.</p>
+<p>The second figure is quite different from the one you want. You want
+to ask for help and so you know that you need to make a reproducible
+example. Starting with the code above, make the required edits so you
+can use <code>reprex()</code> to generate a nicely formatted example
+that you could post as a github ‘issue,’ send as an email or post to a
+forum to ask for help. See the <a
+href="https://reprex.tidyverse.org/">reading</a> for more help. Note:
+you do <em>not</em> need to recreate the first figure above, only to use
+<code>reprex()</code> to illustrate your question and problematic
+code.</p>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo1">
 Show Hints
@@ -439,12 +460,17 @@ Show Hints
 <div id="steps" class="section level2">
 <h2>Steps</h2>
 <ol style="list-style-type: decimal">
-<li>Download the <a href="scripts/CS_07_nocomments.R" target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i> starter R script (if desired)</a>. Save this directly to your course folder (repository) so you don’t lose track of it!</li>
-<li>Add code (only 3 lines) needed to produce the second plot (hint: make sure the data are available)</li>
+<li>Download the <a href="scripts/CS_07_nocomments.R"
+target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i>
+starter R script (if desired)</a>. Save this directly to your course
+folder (repository) so you don’t lose track of it!</li>
+<li>Add code (only 3 lines) needed to produce the second plot (hint:
+make sure the data are available)</li>
 <li>Copy the code to your clipboard</li>
 <li>Post as an ‘issue’ in github
 <ol style="list-style-type: decimal">
-<li>run <code>reprex(venue="gh")</code> to generate the reproducible example and put the content on your clipboard</li>
+<li>run <code>reprex(venue="gh")</code> to generate the reproducible
+example and put the content on your clipboard</li>
 <li>go to <em>your</em> repository on github</li>
 <li>click on the “issues” tab (to the right of the ‘code’ tab)</li>
 <li>click the green ‘New issue’ button</li>
@@ -453,8 +479,11 @@ Show Hints
 </ol></li>
 <li>Post to the slack #reprex channel
 <ol style="list-style-type: decimal">
-<li>run <code>reprex(venue="gh")</code> to generate the reproducible example</li>
-<li>paste in the <a href="https://2021spatialda-dba8777.slack.com/archives/C02HHC8GDFG">reprex</a> channel.</li>
+<li>run <code>reprex(venue="gh")</code> to generate the reproducible
+example</li>
+<li>paste in the <a
+href="https://2021spatialda-dba8777.slack.com/archives/C02HHC8GDFG">reprex</a>
+channel.</li>
 </ol></li>
 </ol>
 <p>It should look something like this:</p>

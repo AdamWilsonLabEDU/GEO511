@@ -13,7 +13,7 @@
 
 <title>Satellite Remote Sensing</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -65,6 +65,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -89,6 +90,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -314,7 +318,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -333,7 +337,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -354,7 +358,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -397,11 +401,17 @@ div.tocify {
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
-<li>Extract a timeseries from a single location in a netcdf file (part 1)</li>
-<li>Calculate a monthly climatology from a weekely timeseries (part 2)</li>
+<li>Extract a timeseries from a single location in a netcdf file (part
+1)</li>
+<li>Calculate a monthly climatology from a weekely timeseries (part
+2)</li>
 <li>Summarize Land Surface Temperature by Land Cover (part 3)</li>
 </ul>
-<p><a href="scripts/CS_10.R"><i class="fa fa-file-code-o fa-3x" aria-hidden="true"></i> The R Script associated with this page is available here</a>. If you like, you can download this file and open it (or copy-paste into a new script) with RStudio so you can follow along.</p>
+<p><a
+href="scripts/CS_10.R"><i class="fa fa-file-code-o fa-3x" aria-hidden="true"></i>
+The R Script associated with this page is available here</a>. If you
+like, you can download this file and open it (or copy-paste into a new
+script) with RStudio so you can follow along.</p>
 <div id="libraries" class="section level3">
 <h3>Libraries</h3>
 <pre class="r"><code>library(raster)
@@ -436,7 +446,9 @@ lst_url=&quot;https://github.com/adammwilson/DataScienceData/blob/master/inst/ex
 # download them
 download.file(lulc_url,destfile=&quot;data/MCD12Q1.051_aid0001.nc&quot;, mode=&quot;wb&quot;)
 download.file(lst_url,destfile=&quot;data/MOD11A2.006_aid0001.nc&quot;, mode=&quot;wb&quot;)</code></pre>
-<p>You should also edit your .gitignore file (in your tasks repository folder) to include <code>*data*</code> on one line. This will prevent git from adding these files.</p>
+<p>You should also edit your .gitignore file (in your tasks repository
+folder) to include <code>*data*</code> on one line. This will prevent
+git from adding these files.</p>
 </div>
 <div id="load-data-into-r" class="section level2">
 <h2>Load data into R</h2>
@@ -458,7 +470,9 @@ plot(lulc)</code></pre>
 <p><img src="CS_10_files/figure-html/unnamed-chunk-6-1.png" width="2100" /></p>
 <div id="process-landcover-data" class="section level3">
 <h3>Process landcover data</h3>
-<p>Assign land cover clases from <a href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mcd12q1">MODIS website</a></p>
+<p>Assign land cover clases from <a
+href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mcd12q1">MODIS
+website</a></p>
 <pre class="r"><code>  Land_Cover_Type_1 = c(
     Water = 0, 
     `Evergreen Needleleaf forest` = 1, 
@@ -590,7 +604,9 @@ Mixed forest
 </tr>
 </tbody>
 </table>
-<p>Convert LULC raster into a ‘factor’ (categorical) raster. This requires building the Raster Attribute Table (RAT). Unfortunately, this is a bit of manual process as follows.</p>
+<p>Convert LULC raster into a ‘factor’ (categorical) raster. This
+requires building the Raster Attribute Table (RAT). Unfortunately, this
+is a bit of manual process as follows.</p>
 <pre class="r"><code># convert to raster (easy)
 lulc=as.factor(lulc)
 
@@ -616,7 +632,8 @@ gplot(lulc)+
 <p><img src="CS_10_files/figure-html/unnamed-chunk-10-1.png" width="2100" /></p>
 <div id="convert-lst-to-degrees-c" class="section level2">
 <h2>Convert LST to Degrees C</h2>
-<p>You can convert LST from Degrees Kelvin (K) to Celcius (C) with <code>offs()</code>.</p>
+<p>You can convert LST from Degrees Kelvin (K) to Celcius (C) with
+<code>offs()</code>.</p>
 <pre class="r"><code>offs(lst)=-273.15
 plot(lst[[1:10]])</code></pre>
 <p><img src="CS_10_files/figure-html/unnamed-chunk-11-1.png" width="2100" /></p>
@@ -624,15 +641,24 @@ plot(lst[[1:10]])</code></pre>
 </div>
 <div id="modland-quality-control" class="section level1 well">
 <h1>MODLAND Quality control</h1>
-<p>See a detailed explaination <a href="https://lpdaac.usgs.gov/sites/default/files/public/modis/docs/MODIS_LP_QA_Tutorial-1b.pdf">here</a>. Some code below from <a href="https://stevemosher.wordpress.com/2012/12/05/modis-qc-bits/">Steven Mosher’s blog</a>.</p>
-<p>Expand this to learn more about MODIS quality control. This is optional for this class, but important if you want to work with this kind of data ‘for real’.</p>
+<p>See a detailed explaination <a
+href="https://lpdaac.usgs.gov/sites/default/files/public/modis/docs/MODIS_LP_QA_Tutorial-1b.pdf">here</a>.
+Some code below from <a
+href="https://stevemosher.wordpress.com/2012/12/05/modis-qc-bits/">Steven
+Mosher’s blog</a>.</p>
+<p>Expand this to learn more about MODIS quality control. This is
+optional for this class, but important if you want to work with this
+kind of data ‘for real’.</p>
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo1">
 More Info
 </button>
 <div id="demo1" class="collapse">
-<div id="mod11a2-land-surface-temperature-quality-control" class="section level2">
+<div id="mod11a2-land-surface-temperature-quality-control"
+class="section level2">
 <h2>MOD11A2 (Land Surface Temperature) Quality Control</h2>
-<p><a href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod11a2">MOD11A2 QC Layer table</a></p>
+<p><a
+href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod11a2">MOD11A2
+QC Layer table</a></p>
 <pre class="r"><code>lstqc=stack(&quot;data/MOD11A2.006_aid0001.nc&quot;,varname=&quot;QC_Day&quot;)
 plot(lstqc[[1:2]])</code></pre>
 <p><img src="CS_10_files/figure-html/unnamed-chunk-12-1.png" width="2100" /></p>
@@ -676,19 +702,22 @@ plot(lstqc[[1:2]])</code></pre>
 </tr>
 </tbody>
 </table>
-<p>Reverse the digits with <code>rev()</code> and compare with QC table above.</p>
+<p>Reverse the digits with <code>rev()</code> and compare with QC table
+above.</p>
 <pre class="r"><code>rev(as.integer(intToBits(65)[1:8]))</code></pre>
 <pre><code>## [1] 0 1 0 0 0 0 0 1</code></pre>
 <p>QC for value <code>65</code>:</p>
 <ul>
-<li>LST produced, other quality, recommend examination of more detailed QA</li>
+<li>LST produced, other quality, recommend examination of more detailed
+QA</li>
 <li>good data quality of L1B in 7 TIR bands</li>
 <li>average emissivity error &lt;= 0.01</li>
 <li>Average LST error &lt;= 2K</li>
 </ul>
 </div>
 </div>
-<div id="filter-the-the-lst-data-using-the-qc-data" class="section level3">
+<div id="filter-the-the-lst-data-using-the-qc-data"
+class="section level3">
 <h3>Filter the the lst data using the QC data</h3>
 <pre class="r"><code>## set up data frame to hold all combinations
 QC_Data &lt;- data.frame(Integer_Value = 0:255,
@@ -1389,7 +1418,8 @@ TRUE
 </table>
 <p>Do you want to update the values you are keeping?</p>
 </div>
-<div id="filter-the-lst-data-keeping-only-keepvals" class="section level3">
+<div id="filter-the-lst-data-keeping-only-keepvals"
+class="section level3">
 <h3>Filter the LST Data keeping only <code>keepvals</code></h3>
 <p>These steps take a couple minutes.</p>
 <p>Make logical flag to use for mask</p>
@@ -1402,7 +1432,8 @@ TRUE
   coord_equal()+
   theme(legend.position = &quot;bottom&quot;)</code></pre>
 <p><img src="CS_10_files/figure-html/unnamed-chunk-20-1.png" width="2100" /></p>
-<p>Mask the lst data using the QC data and overwrite the original data.</p>
+<p>Mask the lst data using the QC data and overwrite the original
+data.</p>
 <pre class="r"><code>lst=mask(lst,mask=lstkeep,maskval=0)</code></pre>
 </div>
 </div>
@@ -1410,10 +1441,12 @@ TRUE
 </div>
 <div id="add-dates-to-z-time-dimension" class="section level2">
 <h2>Add Dates to Z (time) dimension</h2>
-<p>The default layer names of the LST file include the date as follows:</p>
+<p>The default layer names of the LST file include the date as
+follows:</p>
 <pre class="r"><code>names(lst)[1:5]</code></pre>
 <pre><code>## [1] &quot;X2000.02.18&quot; &quot;X2000.02.26&quot; &quot;X2000.03.05&quot; &quot;X2000.03.13&quot; &quot;X2000.03.21&quot;</code></pre>
-<p>Convert those values to a proper R Date format by dropping the “X” and using <code>as.Date()</code>.</p>
+<p>Convert those values to a proper R Date format by dropping the “X”
+and using <code>as.Date()</code>.</p>
 <pre class="r"><code>tdates=names(lst)%&gt;%
   sub(pattern=&quot;X&quot;,replacement=&quot;&quot;)%&gt;%
   as.Date(&quot;%Y.%m.%d&quot;)
@@ -1430,21 +1463,38 @@ Show Hints
 </button>
 <div id="demo2" class="collapse">
 <ol style="list-style-type: decimal">
-<li>Use <code>lw=SpatialPoints(data.frame(x= -78.791547,y=43.007211))</code> to define a new Spatial Point at that location.</li>
-<li>Set the projection of your point with <code>projection()</code> to <code>"+proj=longlat"</code>.</li>
-<li>Transform the point to the projection of the raster using <code>spTransform()</code>.</li>
-<li>Extract the LST data for that location with: <code>extract(lst,lw,buffer=1000,fun=mean,na.rm=T)</code>. You may want to transpose them with <code>t()</code> to convert it from a wide matrix to long vector.</li>
-<li>Extract the dates for each layer with <code>getZ(lst)</code> and combine them into a data.frame with the transposed raster values. You could use <code>data.frame()</code>, <code>cbind.data.frame()</code> or <code>bind_cols()</code> to do this. The goal is to make a single dataframe with the dates and lst values in columns.</li>
-<li>Plot it with <code>ggplot()</code> including points for the raw data and a smooth version as a line. You will probably want to adjust both <code>span</code> and <code>n</code> in <code>geom_smooth</code>.</li>
+<li>Use
+<code>lw=SpatialPoints(data.frame(x= -78.791547,y=43.007211))</code> to
+define a new Spatial Point at that location.</li>
+<li>Set the projection of your point with <code>projection()</code> to
+<code>"+proj=longlat"</code>.</li>
+<li>Transform the point to the projection of the raster using
+<code>spTransform()</code>.</li>
+<li>Extract the LST data for that location with:
+<code>extract(lst,lw,buffer=1000,fun=mean,na.rm=T)</code>. You may want
+to transpose them with <code>t()</code> to convert it from a wide matrix
+to long vector.</li>
+<li>Extract the dates for each layer with <code>getZ(lst)</code> and
+combine them into a data.frame with the transposed raster values. You
+could use <code>data.frame()</code>, <code>cbind.data.frame()</code> or
+<code>bind_cols()</code> to do this. The goal is to make a single
+dataframe with the dates and lst values in columns.</li>
+<li>Plot it with <code>ggplot()</code> including points for the raw data
+and a smooth version as a line. You will probably want to adjust both
+<code>span</code> and <code>n</code> in <code>geom_smooth</code>.</li>
 </ol>
 </div>
 </div>
-<p>Your graph should look like this: <img src="CS_10_files/figure-html/unnamed-chunk-24-1.png" width="2100" /></p>
-<p>See the <code>library(rts)</code> for more timeseries related functions.</p>
+<p>Your graph should look like this:
+<img src="CS_10_files/figure-html/unnamed-chunk-24-1.png" width="2100" /></p>
+<p>See the <code>library(rts)</code> for more timeseries related
+functions.</p>
 </div>
-<div id="part-2-summarize-weekly-data-to-monthly-climatologies" class="section level1">
+<div id="part-2-summarize-weekly-data-to-monthly-climatologies"
+class="section level1">
 <h1>Part 2: Summarize weekly data to monthly climatologies</h1>
-<p>Now we will use a function called <code>stackApply()</code> to calculate monthly mean land surface temperature.</p>
+<p>Now we will use a function called <code>stackApply()</code> to
+calculate monthly mean land surface temperature.</p>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo3">
 Show Hint
@@ -1452,15 +1502,23 @@ Show Hint
 <div id="demo3" class="collapse">
 <p>Hints:</p>
 <ol style="list-style-type: decimal">
-<li>First make a variable called <code>tmonth</code> by converting the dates to months using <code>as.numeric(format(getZ(lst),"%m"))</code></li>
-<li>Use <code>stackApply()</code> to summarize the mean value per month (using the <code>tmonth</code> variable you just created) and save the results as <code>lst_month</code>.</li>
-<li>Set the names of the layers to months with <code>names(lst_month)=month.name</code></li>
-<li>Plot the map for each month with <code>gplot()</code> in the RasterVis Package.</li>
-<li>Calculate the monthly mean for the entire image with <code>cellStats(lst_month,mean)</code></li>
+<li>First make a variable called <code>tmonth</code> by converting the
+dates to months using
+<code>as.numeric(format(getZ(lst),"%m"))</code></li>
+<li>Use <code>stackApply()</code> to summarize the mean value per month
+(using the <code>tmonth</code> variable you just created) and save the
+results as <code>lst_month</code>.</li>
+<li>Set the names of the layers to months with
+<code>names(lst_month)=month.name</code></li>
+<li>Plot the map for each month with <code>gplot()</code> in the
+RasterVis Package.</li>
+<li>Calculate the monthly mean for the entire image with
+<code>cellStats(lst_month,mean)</code></li>
 </ol>
 </div>
 </div>
-<p>A plot of the monthly climatologies will look like this: <img src="CS_10_files/figure-html/unnamed-chunk-25-1.png" width="2100" /></p>
+<p>A plot of the monthly climatologies will look like this:
+<img src="CS_10_files/figure-html/unnamed-chunk-25-1.png" width="2100" /></p>
 And the table should be as follows:
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -1571,26 +1629,39 @@ December
 </tr>
 </tbody>
 </table>
-<div id="part-3-summarize-land-surface-temperature-by-land-cover" class="section level2">
+<div id="part-3-summarize-land-surface-temperature-by-land-cover"
+class="section level2">
 <h2>Part 3: Summarize Land Surface Temperature by Land Cover</h2>
-<p>Make a plot and table to contrast Land Surface Temperature in <em>Urban &amp; built-up</em> and <em>Deciduous Broadleaf forest</em> areas.</p>
+<p>Make a plot and table to contrast Land Surface Temperature in
+<em>Urban &amp; built-up</em> and <em>Deciduous Broadleaf forest</em>
+areas.</p>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo4">
 Show Hints
 </button>
 <div id="demo4" class="collapse">
 <ol style="list-style-type: decimal">
-<li><p>Resample <code>lc</code> to <code>lst</code> grid using <code>resample()</code> with <code>method=ngb</code>.</p></li>
-<li><p>Extract the values from <code>lst_month</code> and <code>lulc2</code> into a data.frame as follows:</p>
+<li><p>Resample <code>lc</code> to <code>lst</code> grid using
+<code>resample()</code> with <code>method=ngb</code>.</p></li>
+<li><p>Extract the values from <code>lst_month</code> and
+<code>lulc2</code> into a data.frame as follows:</p>
 <pre><code>lcds1=cbind.data.frame(
 values(lst_month),
 ID=values(lulc2[[1]]))%&gt;%
 na.omit()</code></pre></li>
-<li><p>Gather the data into a ‘tidy’ format using <code>gather(key='month',value='value,-ID)</code>.</p></li>
-<li><p>Use <code>mutate()</code> to convert ID to numeric (e.g. <code>ID=as.numeric(ID)</code> and month to an <em>ordered</em> factor with <code>month=factor(month,levels=month.name,ordered=T)</code>.</p></li>
-<li><p>do a left join with the <code>lcd</code> table you created at the beginning.</p></li>
-<li><p>Use <code>filter()</code> to keep only <code>landcover%in%c("Urban &amp; built-up","Deciduous Broadleaf forest")</code></p></li>
-<li><p>Develop a ggplot to illustrate the monthly variability in LST between the two land cover types. The exact form of plot is up to you. Experiment with different geometries, etc.</p></li>
+<li><p>Gather the data into a ‘tidy’ format using
+<code>gather(key='month',value='value,-ID)</code>.</p></li>
+<li><p>Use <code>mutate()</code> to convert ID to numeric
+(e.g. <code>ID=as.numeric(ID)</code> and month to an <em>ordered</em>
+factor with
+<code>month=factor(month,levels=month.name,ordered=T)</code>.</p></li>
+<li><p>do a left join with the <code>lcd</code> table you created at the
+beginning.</p></li>
+<li><p>Use <code>filter()</code> to keep only
+<code>landcover%in%c("Urban &amp; built-up","Deciduous Broadleaf forest")</code></p></li>
+<li><p>Develop a ggplot to illustrate the monthly variability in LST
+between the two land cover types. The exact form of plot is up to you.
+Experiment with different geometries, etc.</p></li>
 </ol>
 </div>
 </div>
@@ -1602,10 +1673,15 @@ na.omit()</code></pre></li>
 Extra time?
 </button>
 <div id="demo5" class="collapse">
-<p>This is a more complicated table which involves using the <code>zonal</code> function to aggregate, followed by <code>gather</code>ing, <code>spread</code>ing, and creative <code>paste</code>ing to combine text fields.</p>
+<p>This is a more complicated table which involves using the
+<code>zonal</code> function to aggregate, followed by
+<code>gather</code>ing, <code>spread</code>ing, and creative
+<code>paste</code>ing to combine text fields.</p>
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <caption>
-Mean Monthly (±SD) Land Surface Temperature in Buffalo, NY for two landcover classes. Data derived from MODIS LST product (MOD11A2) and MODIS landcover product (MCD12Q1).
+Mean Monthly (±SD) Land Surface Temperature in Buffalo, NY for two
+landcover classes. Data derived from MODIS LST product (MOD11A2) and
+MODIS landcover product (MCD12Q1).
 </caption>
 <thead>
 <tr>

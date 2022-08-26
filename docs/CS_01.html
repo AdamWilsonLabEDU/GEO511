@@ -13,7 +13,7 @@
 
 <title>Your first script</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -65,6 +65,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -89,6 +90,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -314,7 +318,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -333,7 +337,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -354,7 +358,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -389,7 +393,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Your first script</h1>
-<h3 class="subtitle">Write a script that reads in data, calculates a statistic, and makes a plot.</h3>
+<h3 class="subtitle">Write a script that reads in data, calculates a
+statistic, and makes a plot.</h3>
 
 </div>
 
@@ -397,15 +402,22 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>Datacamp’s <a href="https://www.datacamp.com/community/tutorials/make-histogram-basic-r"><em>How to Make a Histogram with Basic R</em></a></li>
-<li>Datacamp’s <a href="https://www.datacamp.com/community/tutorials/make-histogram-ggplot2"><em>How to Make a Histogram with ggplot</em></a></li>
+<li>Datacamp’s <a
+href="https://www.datacamp.com/community/tutorials/make-histogram-basic-r"><em>How
+to Make a Histogram with Basic R</em></a></li>
+<li>Datacamp’s <a
+href="https://www.datacamp.com/community/tutorials/make-histogram-ggplot2"><em>How
+to Make a Histogram with ggplot</em></a></li>
 </ul>
 </div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>You are working on a new project and your colleague has asked you to calculate the mean Petal Length in the dataset she collected in the field.</p>
+<p>You are working on a new project and your colleague has asked you to
+calculate the mean Petal Length in the dataset she collected in the
+field.</p>
 <p>It looks like this:</p>
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; overflow-x: scroll; width:100%; ">
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -2980,21 +2992,37 @@ virginica
 </tbody>
 </table>
 </div>
-<p>To work with only one column in the <code>iris</code> dataset, try typing <code>iris$Sepal.Length</code>. What does the <code>$</code> do?</p>
-<p>For the histogram, you can either use the basic <code>hist()</code> function (easier but less powerful) or try to use the <code>geom_hist()</code> function in ggplot (more complicated but much more powerful). See the reading list for hints on these two functions.</p>
-<p>When you complete this task, you will have done some ‘reproducible research’ resulting in a script that calculates a statistic and makes a graph. In future lessons we’ll cover how to save the graphic to your hardrive (if you are curious, check out the examples in <code>?png</code>)</p>
+<p>To work with only one column in the <code>iris</code> dataset, try
+typing <code>iris$Sepal.Length</code>. What does the <code>$</code>
+do?</p>
+<p>For the histogram, you can either use the basic <code>hist()</code>
+function (easier but less powerful) or try to use the
+<code>geom_hist()</code> function in ggplot (more complicated but much
+more powerful). See the reading list for hints on these two
+functions.</p>
+<p>When you complete this task, you will have done some ‘reproducible
+research’ resulting in a script that calculates a statistic and makes a
+graph. In future lessons we’ll cover how to save the graphic to your
+hardrive (if you are curious, check out the examples in
+<code>?png</code>)</p>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
-<li>Create a new R script in RStudio (File-&gt;New File-&gt;R Script)</li>
+<li>Create a new R script in RStudio (File-&gt;New File-&gt;R
+Script)</li>
 <li>Save this file somewhere you will find it later</li>
-<li>In your new script, load the iris dataset with <code>data(iris)</code></li>
-<li>Read the help file for the function that calculates the mean (you can run <code>?mean</code> or use the GUI).</li>
-<li>Calculate the mean of the <code>Petal.Length</code> field and save it as an object named <code>petal_length_mean</code></li>
-<li>Plot the distribution of the <code>Petal.Length</code> column as a histogram (<code>?hist</code>)</li>
+<li>In your new script, load the iris dataset with
+<code>data(iris)</code></li>
+<li>Read the help file for the function that calculates the mean (you
+can run <code>?mean</code> or use the GUI).</li>
+<li>Calculate the mean of the <code>Petal.Length</code> field and save
+it as an object named <code>petal_length_mean</code></li>
+<li>Plot the distribution of the <code>Petal.Length</code> column as a
+histogram (<code>?hist</code>)</li>
 <li>Save the script</li>
-<li>Click ‘Source’ in RStudio to run your script from beginning to end</li>
+<li>Click ‘Source’ in RStudio to run your script from beginning to
+end</li>
 </ul>
 </div>
 

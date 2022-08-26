@@ -13,7 +13,7 @@
 
 <title>Wealth over time</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -395,71 +399,122 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>The <a href="https://ggplot2.tidyverse.org/" target="blank">ggplot2 vignette</a></li>
-<li>R4DS <a href="http://r4ds.had.co.nz/data-visualisation.html" target="blank">Chapter 3 - Data visualization</a></li>
-<li>The <a href="https://youtu.be/OwII-dwh-bk" target="blank">Hans Rosling The River of Myths</a></li>
-<li>Watch the <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen" target="blank">Hons Rosling video</a></li>
+<li>The <a href="https://ggplot2.tidyverse.org/" target="blank">ggplot2
+vignette</a></li>
+<li>R4DS <a href="http://r4ds.had.co.nz/data-visualisation.html"
+target="blank">Chapter 3 - Data visualization</a></li>
+<li>The <a href="https://youtu.be/OwII-dwh-bk" target="blank">Hans
+Rosling The River of Myths</a></li>
+<li>Watch the <a
+href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen"
+target="blank">Hons Rosling video</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
-<li>Recreate layered graphics with ggplot including raw and transformed data</li>
+<li>Recreate layered graphics with ggplot including raw and transformed
+data</li>
 <li>Save graphical output as a .png file</li>
 <li>Save your script as a .R or .Rmd in your course repository</li>
 </ul>
 </div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p><a href="http://www.gapminder.org/news/sad-to-announce-hans-rosling-passed-away-this-morning/" target="blank">Hans Rosling</a> is one of the most popular data scientists on the web. <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen" target="blank">His original TED talk</a> was very popular when it came out. We are going to create some graphics using his formatted data as our weekly case study. Note that we need to remove Kuwait from the data (<a href="https://github.com/jennybc/gapminder/issues/9" target="blank">discussion on this</a>)</p>
+<p><a
+href="http://www.gapminder.org/news/sad-to-announce-hans-rosling-passed-away-this-morning/"
+target="blank">Hans Rosling</a> is one of the most popular data
+scientists on the web. <a
+href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen"
+target="blank">His original TED talk</a> was very popular when it came
+out. We are going to create some graphics using his formatted data as
+our weekly case study. Note that we need to remove Kuwait from the data
+(<a href="https://github.com/jennybc/gapminder/issues/9"
+target="blank">discussion on this</a>)</p>
 </div>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>
-<p>In this exercise you will recreate the two graphics shown below using <code>gapminder</code> dataset from <code>library(gapminder)</code> (get them to match as closely as you can). Specific instructions/steps are listed in the ‘Detailed Steps’ section.</p>
-<div id="wealth-and-life-expectancy-through-time" class="section level2">
+<p>In this exercise you will recreate the two graphics shown below using
+<code>gapminder</code> dataset from <code>library(gapminder)</code> (get
+them to match as closely as you can). Specific instructions/steps are
+listed in the ‘Detailed Steps’ section.</p>
+<div id="wealth-and-life-expectancy-through-time"
+class="section level2">
 <h2>Wealth and life expectancy through time</h2>
 <p><img src="CS_03_files/figure-html/code1-1.png" width="4500" /><img src="CS_03_files/figure-html/code1-2.png" width="4500" /></p>
 </div>
 <div id="detailed-steps" class="section level2">
 <h2>Detailed Steps</h2>
 <ol style="list-style-type: decimal">
-<li>Use <code>library(ggplot2); library(gapminder); library(dplyr)</code> to load the necessary packages.
+<li>Use
+<code>library(ggplot2); library(gapminder); library(dplyr)</code> to
+load the necessary packages.
 <ul>
-<li>Use <code>filter()</code> to remove “Kuwait” from the <code>gapminder</code> dataset for reasons noted in the background</li>
+<li>Use <code>filter()</code> to remove “Kuwait” from the
+<code>gapminder</code> dataset for reasons noted in the background</li>
 </ul></li>
 <li>Plot #1 (the first row of plots)
 <ul>
-<li>Use <code>ggplot()</code> and the <code>theme_bw()</code> to duplicate the first plot using the filtered dataset (without Kuwait)</li>
-<li>Specify the appropriate aesthetic mapping (<code>aes()</code>) to color by contintent and adjust the size of the point with <code>size=pop/100000</code>. Remember that if you adjust the data like this you will also need to update the legend later.</li>
-<li>Use <code>scale_y_continuous(trans = "sqrt")</code> to get the correct scale on the y-axis.</li>
-<li>Use <code>facet_wrap(~year,nrow=1)</code> to divide the plot into separate panels.</li>
-<li>Use <code>labs()</code> to specify more informative x, y, size, and color keys.<br />
+<li>Use <code>ggplot()</code> and the <code>theme_bw()</code> to
+duplicate the first plot using the filtered dataset (without
+Kuwait)</li>
+<li>Specify the appropriate aesthetic mapping (<code>aes()</code>) to
+color by contintent and adjust the size of the point with
+<code>size=pop/100000</code>. Remember that if you adjust the data like
+this you will also need to update the legend later.</li>
+<li>Use <code>scale_y_continuous(trans = "sqrt")</code> to get the
+correct scale on the y-axis.</li>
+<li>Use <code>facet_wrap(~year,nrow=1)</code> to divide the plot into
+separate panels.</li>
+<li>Use <code>labs()</code> to specify more informative x, y, size, and
+color keys.<br />
 </li>
-<li>the result will look something like this (with the details filled in): <code>ggplot(...) + geom_point() + facet_wrap(...) + scale_y_continuous(...) +</code> <code>theme_bw() + labs(...)</code></li>
+<li>the result will look something like this (with the details filled
+in):
+<code>ggplot(...) + geom_point() + facet_wrap(...) + scale_y_continuous(...) +</code>
+<code>theme_bw() + labs(...)</code></li>
 </ul></li>
 <li>Prepare the data for the second plot
 <ul>
-<li>Use <code>group_by()</code> to group by <code>continent</code> and <code>year</code></li>
-<li>Use <code>summarize()</code> with the below commands to calculate the data for the black continent average line on the second plot:
+<li>Use <code>group_by()</code> to group by <code>continent</code> and
+<code>year</code></li>
+<li>Use <code>summarize()</code> with the below commands to calculate
+the data for the black continent average line on the second plot:
 <ul>
 <li><code>gdpPercapweighted = weighted.mean(x = gdpPercap, w = pop)</code></li>
 <li><code>pop = sum(as.numeric(pop))</code></li>
 </ul></li>
-<li>Save this aggregated data as an object called <code>gapminder_continent</code></li>
+<li>Save this aggregated data as an object called
+<code>gapminder_continent</code></li>
 </ul></li>
 <li>Plot #2 (the second row of plots)
 <ul>
-<li>Use <code>ggplot()</code> and the <code>theme_bw()</code> to duplicate the second plot. In this plot you will add elements from both the raw gapminder dataset and your dataset summarized by continent. You will need to use the new data you summarized to add the black lines and dots showing the continent average. So it will look something like this: <code>ggplot(gapminder,...) + geom_line() + geom_point() + geom_line(data=newdata,...) +</code> <code>geom_point(data=newdata,...) + facet_wrap() + theme_bw() + labs(...)</code></li>
+<li>Use <code>ggplot()</code> and the <code>theme_bw()</code> to
+duplicate the second plot. In this plot you will add elements from both
+the raw gapminder dataset and your dataset summarized by continent. You
+will need to use the new data you summarized to add the black lines and
+dots showing the continent average. So it will look something like this:
+<code>ggplot(gapminder,...) + geom_line() + geom_point() + geom_line(data=newdata,...) +</code>
+<code>geom_point(data=newdata,...) + facet_wrap() + theme_bw() + labs(...)</code></li>
 </ul></li>
-<li>Use <code>ggsave()</code> or <code>png()</code> and save each plot as a <code>.png</code> with a width of 15 inches</li>
-<li>Click <code>Source</code> to confirm that your script runs from start to finish without errors and saves the graphics.</li>
-<li>Save your script as <code>case_study_03.R</code> or <code>case_study_03.Rmd</code> (if you are starting to play with R Markdown) in your course repository for week 3.</li>
+<li>Use <code>ggsave()</code> or <code>png()</code> and save each plot
+as a <code>.png</code> with a width of 15 inches</li>
+<li>Click <code>Source</code> to confirm that your script runs from
+start to finish without errors and saves the graphics.</li>
+<li>Save your script as <code>case_study_03.R</code> or
+<code>case_study_03.Rmd</code> (if you are starting to play with R
+Markdown) in your course repository for week 3.</li>
 </ol>
 </div>
 <div id="next-steps" class="section level2">
 <h2>Next steps</h2>
-<p>It’s possible to do some data aggregation like this ‘within’ a ggplot call using the <code>stat_summary()</code> and friends. See <a href="https://ggplot2.tidyverse.org/reference/stat_summary.html">here</a> for more details.</p>
-<p><i> <small> Adapted from <a href="https://byuistats.github.io/M335">BYU M335 Data Science Course</a> </small> </i></p>
+<p>It’s possible to do some data aggregation like this ‘within’ a ggplot
+call using the <code>stat_summary()</code> and friends. See <a
+href="https://ggplot2.tidyverse.org/reference/stat_summary.html">here</a>
+for more details.</p>
+<p><i> <small> Adapted from <a
+href="https://byuistats.github.io/M335">BYU M335 Data Science Course</a>
+</small> </i></p>
 </div>
 </div>
 

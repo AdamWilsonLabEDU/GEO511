@@ -13,7 +13,7 @@
 
 <title>Find hottest country on each continent</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -387,7 +391,9 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Find hottest country on each continent</h1>
-<h3 class="subtitle">Use sf and raster to quantify maximum temperature for each country and then identify the hottest one on each continent.</h3>
+<h3 class="subtitle">Use sf and raster to quantify maximum temperature
+for each country and then identify the hottest one on each
+continent.</h3>
 
 </div>
 
@@ -395,32 +401,54 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>Raster Vector Interactions <a href="https://geocompr.robinlovelace.net/geometric-operations.html#raster-vector" target="blank">GCR</a></li>
+<li>Raster Vector Interactions <a
+href="https://geocompr.robinlovelace.net/geometric-operations.html#raster-vector"
+target="blank">GCR</a></li>
 </ul>
 </div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>The raster data format is commonly used for environmental datasets such as elevation, climate, soil, and land cover. We commonly need to <code>extract</code> the data from raster objects using simple features (vector objects). For example if you had a set of points you collected using a GPS and wanted to know the mean annual temperature at each point, you might <code>extract</code> the data from each location in a raster-based map of temperature.</p>
-<p><img src="https://geocompr.robinlovelace.net/05-geometry-operations_files/figure-html/pointextr-1.png" /></p>
-<p>You could also be interested in some summary of the raster data across multiple pixels (such as the buffered points above, a transect, or within a polygon). For example, you might be interested in the mean elevation within the entire polygon in the above figure.</p>
-<p>In this case study we’ll work with a timeseries of temperature data from <a href="http://worldclim.org">WorldClim</a>. These are near-global rasters of various climatic variables available at several resolutions. For convenience, we’ll work with the very coarse data (0.5 degree, which is about 50km), but much finer data are available (~1km).</p>
+<p>The raster data format is commonly used for environmental datasets
+such as elevation, climate, soil, and land cover. We commonly need to
+<code>extract</code> the data from raster objects using simple features
+(vector objects). For example if you had a set of points you collected
+using a GPS and wanted to know the mean annual temperature at each
+point, you might <code>extract</code> the data from each location in a
+raster-based map of temperature.</p>
+<p><img
+src="https://geocompr.robinlovelace.net/05-geometry-operations_files/figure-html/pointextr-1.png" /></p>
+<p>You could also be interested in some summary of the raster data
+across multiple pixels (such as the buffered points above, a transect,
+or within a polygon). For example, you might be interested in the mean
+elevation within the entire polygon in the above figure.</p>
+<p>In this case study we’ll work with a timeseries of temperature data
+from <a href="http://worldclim.org">WorldClim</a>. These are near-global
+rasters of various climatic variables available at several resolutions.
+For convenience, we’ll work with the very coarse data (0.5 degree, which
+is about 50km), but much finer data are available (~1km).</p>
 </div>
 <div id="objective" class="section level1">
 <h1>Objective</h1>
 <blockquote>
-<p>Identify the hottest country on each continent (not counting Antarctica) by intersecting a set of polygons with a raster image and calculating the maximum raster value in each polygon.</p>
+<p>Identify the hottest country on each continent (not counting
+Antarctica) by intersecting a set of polygons with a raster image and
+calculating the maximum raster value in each polygon.</p>
 </blockquote>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
-<li>Calculate annual maximum temperatures from a monthly spatio-temporal dataset</li>
+<li>Calculate annual maximum temperatures from a monthly spatio-temporal
+dataset</li>
 <li>Remove Antarctica from the <code>world</code> dataset</li>
 <li>Summarize raster values within polygons</li>
 <li>Generate a summary figure and table.</li>
 <li>Save your script as a .R or .Rmd in your course repository</li>
 </ul>
-<p><a href="scripts/CS_06_nocomments.R" target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i> Download starter R script (if desired)</a>. Save this directly to your course folder (repository) so you don’t lose track of it!</p>
+<p><a href="scripts/CS_06_nocomments.R"
+target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i>
+Download starter R script (if desired)</a>. Save this directly to your
+course folder (repository) so you don’t lose track of it!</p>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo1">
 Show Hints
@@ -435,45 +463,92 @@ library(sp)
 library(spData)
 library(tidyverse)
 library(sf)</code></pre>
-<p>Loading the <code>spData()</code> package may return a warning: <code>To access larger datasets...install spDataLarge...</code>. This is not required - you can use the standard lower resolution files and safely ignore this message.</p>
+<p>Loading the <code>spData()</code> package may return a warning:
+<code>To access larger datasets...install spDataLarge...</code>. This is
+not required - you can use the standard lower resolution files and
+safely ignore this message.</p>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
 <p>Download monthly WorldClim data</p>
 <pre class="r"><code>data(world)  #load &#39;world&#39; data from spData package
 tmax_monthly &lt;- getData(name = &quot;worldclim&quot;, var=&quot;tmax&quot;, res=10)</code></pre>
-<p>If the Worldclim website is down (e.g. you get an error above), you can get similar long term mean temperature data from the <a href="https://crudata.uea.ac.uk/cru/data/temperature/">Climatic Research Unit (CRU) here</a>. Download these data in netcdf format using the code below:</p>
+<p>If the Worldclim website is down (e.g. you get an error above), you
+can get similar long term mean temperature data from the <a
+href="https://crudata.uea.ac.uk/cru/data/temperature/">Climatic Research
+Unit (CRU) here</a>. Download these data in netcdf format using the code
+below:</p>
 <pre class="r"><code>library(ncdf4)
 download.file(&quot;https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc&quot;,&quot;crudata.nc&quot;)
 tmean=raster(&quot;crudata.nc&quot;)</code></pre>
-<p>Note: If you use the CRU data instead of the WorldClim data, you will have to edit/adjust the steps below accordingly.</p>
+<p>Note: If you use the CRU data instead of the WorldClim data, you will
+have to edit/adjust the steps below accordingly.</p>
 </div>
 <div id="steps" class="section level2">
 <h2>Steps</h2>
 <ol style="list-style-type: decimal">
 <li>Prepare country polygon data (the <code>world</code> object).
 <ol style="list-style-type: decimal">
-<li>Remove “Antarctica” with <code>filter()</code> because WorldClim does not have data there.</li>
-<li>Convert the <code>world</code> object to <code>sp</code> format (the ‘old’ format) because the <code>raster</code> package doesn’t accept <code>sf</code> objects. you can do this with <code>as(world,"Spatial")</code>.</li>
+<li>Remove “Antarctica” with <code>filter()</code> because WorldClim
+does not have data there.</li>
+<li>Convert the <code>world</code> object to <code>sp</code> format (the
+‘old’ format) because the <code>raster</code> package doesn’t accept
+<code>sf</code> objects. you can do this with
+<code>as(world,"Spatial")</code>.</li>
 </ol></li>
 <li>Prepare Climate Data
 <ol style="list-style-type: decimal">
-<li>Download and load the WorldClim maximum temperature dataset at the lowest resolution (10 degrees) using the code above (<code>tmax_monthly=getData(...)</code>).</li>
-<li>Inspect the new <code>tmax_monthly</code> object (you can start by just typing it’s name <code>tmax_monthly</code>, then perhaps making a <code>plot()</code>). How many layers does it have? What do these represent? You can read more about the data <a href="https://www.worldclim.org/data/worldclim21.html">here</a></li>
-<li>The WorldClim data are stored as hundreths of degrees C. So a real value of 15.5 C would be stored as 155. This saves disk space because they can be stored as integers instead of floating point numbers. This means each value needs to be multiplied by 0.1 to convert back to degrees C. You can do this with <code>gain()</code>.</li>
-<li>Create a new object called <code>tmax_annual</code> that is the annual maximum temperature in each pixel of the raster stack using <code>max()</code>. This will find the maximum temperature in each location across all months.</li>
-<li>Use <code>names(tmax_annual) &lt;- "tmax"</code> to change the name of the layer in the new <code>tmax_annual</code> object to <code>tmax</code>. This makes the later code more intuitive than keeping the default name <code>layer</code>.</li>
+<li>Download and load the WorldClim maximum temperature dataset at the
+lowest resolution (10 degrees) using the code above
+(<code>tmax_monthly=getData(...)</code>).</li>
+<li>Inspect the new <code>tmax_monthly</code> object (you can start by
+just typing it’s name <code>tmax_monthly</code>, then perhaps making a
+<code>plot()</code>). How many layers does it have? What do these
+represent? You can read more about the data <a
+href="https://www.worldclim.org/data/worldclim21.html">here</a></li>
+<li>The WorldClim data are stored as hundreths of degrees C. So a real
+value of 15.5 C would be stored as 155. This saves disk space because
+they can be stored as integers instead of floating point numbers. This
+means each value needs to be multiplied by 0.1 to convert back to
+degrees C. You can do this with <code>gain()</code>.</li>
+<li>Create a new object called <code>tmax_annual</code> that is the
+annual maximum temperature in each pixel of the raster stack using
+<code>max()</code>. This will find the maximum temperature in each
+location across all months.</li>
+<li>Use <code>names(tmax_annual) &lt;- "tmax"</code> to change the name
+of the layer in the new <code>tmax_annual</code> object to
+<code>tmax</code>. This makes the later code more intuitive than keeping
+the default name <code>layer</code>.</li>
 </ol></li>
 <li>Calculate the maximum temperature observed in each country.
 <ol style="list-style-type: decimal">
-<li>use <code>raster::extract()</code> to identify the maximum temperature observed in each country (<code>fun=max</code>). Also set <code>na.rm=T, small=T, sp=T</code> to 1) handle missing data along coastlines, 2) account for small countries that may not have a full 0.5 degree pixel in them, and 3) return a spatial polygon object instead of just a vector of values.</li>
-<li>convert the results of the previous step to <code>sf</code> format with <code>st_as_sf()</code>. Now you have an updated polygon object with a new column of maximium temperature. Cool!</li>
+<li>use <code>raster::extract()</code> to identify the maximum
+temperature observed in each country (<code>fun=max</code>). Also set
+<code>na.rm=T, small=T, sp=T</code> to 1) handle missing data along
+coastlines, 2) account for small countries that may not have a full 0.5
+degree pixel in them, and 3) return a spatial polygon object instead of
+just a vector of values.</li>
+<li>convert the results of the previous step to <code>sf</code> format
+with <code>st_as_sf()</code>. Now you have an updated polygon object
+with a new column of maximium temperature. Cool!</li>
 <li>save this spatial feature as <code>tmax_country</code>.</li>
 </ol></li>
 <li>Communicate your results
 <ol style="list-style-type: decimal">
-<li>use <code>ggplot()</code> and <code>geom_sf()</code> to plot the maximum temperature in each country polygon (not the original raster layer). To recreate the image below, you will also need <code>+scale_fill_viridis_c(name="Annual\nMaximum\nTemperature (C)")</code>. Note the use of <code>\n</code> to insert a line break in the text string. You can move the legend around with <code>+theme(legend.position = 'bottom')</code>.</li>
-<li>use <code>dplyr</code> tools to find the hottest country in each continent. You may need <code>group_by()</code> and <code>top_n</code>. To create a nice looking table, you may also want to use <code>select()</code> to keep only the desired columns, <code>arrange()</code> to sort them, <code>st_set_geometry(NULL)</code> to drop the geometry column (if desired). Save this table as <code>hottest_continents</code>.</li>
+<li>use <code>ggplot()</code> and <code>geom_sf()</code> to plot the
+maximum temperature in each country polygon (not the original raster
+layer). To recreate the image below, you will also need
+<code>+scale_fill_viridis_c(name="Annual\nMaximum\nTemperature (C)")</code>.
+Note the use of <code>\n</code> to insert a line break in the text
+string. You can move the legend around with
+<code>+theme(legend.position = 'bottom')</code>.</li>
+<li>use <code>dplyr</code> tools to find the hottest country in each
+continent. You may need <code>group_by()</code> and <code>top_n</code>.
+To create a nice looking table, you may also want to use
+<code>select()</code> to keep only the desired columns,
+<code>arrange()</code> to sort them, <code>st_set_geometry(NULL)</code>
+to drop the geometry column (if desired). Save this table as
+<code>hottest_continents</code>.</li>
 </ol></li>
 </ol>
 </div>
@@ -576,13 +651,16 @@ Seven seas (open ocean)
 </tr>
 </tbody>
 </table>
-<p>Note that these data are based on 0.5 degree resolution data and thus will miss small hot places and cannot be directly compared with station-based data.</p>
+<p>Note that these data are based on 0.5 degree resolution data and thus
+will miss small hot places and cannot be directly compared with
+station-based data.</p>
 <div class="extraswell">
 <button data-toggle="collapse" class="btn btn-link" data-target="#extras">
 Extra time? Try this…
 </button>
 <div id="extras" class="collapse">
-<p>Build a <a href="https://rstudio.github.io/leaflet/">leaflet map</a> of the same dataset.</p>
+<p>Build a <a href="https://rstudio.github.io/leaflet/">leaflet map</a>
+of the same dataset.</p>
 <iframe id="test" style=" height:400px; width:100%;" scrolling="no" frameborder="0" src="CS06_leaflet.html">
 </iframe>
 </div>

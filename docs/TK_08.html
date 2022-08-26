@@ -13,7 +13,7 @@
 
 <title>Create Final Project Webpage</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -387,7 +391,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Create Final Project Webpage</h1>
-<h3 class="subtitle">Data I/O. RMarkdown to create dynamic research outputs. Publishing to github/word/html/etc</h3>
+<h3 class="subtitle">Data I/O. RMarkdown to create dynamic research
+outputs. Publishing to github/word/html/etc</h3>
 
 </div>
 
@@ -396,8 +401,11 @@ div.tocify {
 <h1>Reading</h1>
 <ul>
 <li>Chapters <a href="http://r4ds.had.co.nz">11, 26-30 in R4DS</a></li>
-<li>Browse website about <a href="https://rmarkdown.rstudio.com/index.html">RMarkdown</a></li>
-<li>Browse details about creating <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown Websites</a></li>
+<li>Browse website about <a
+href="https://rmarkdown.rstudio.com/index.html">RMarkdown</a></li>
+<li>Browse details about creating <a
+href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown
+Websites</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
@@ -410,13 +418,21 @@ div.tocify {
 </ul>
 <div id="overview" class="section level2">
 <h2>Overview</h2>
-<p>One convenient way to share research details is through a public website that includes all the information needed to reproduce the project. You will do this for your final project.</p>
-<p>Today we will make a copy of a template for your final project, edit it, and ‘push’ it back up to your github account. You can check out the template code at <a href="https://github.com/AdamWilsonLabEDU/geo511_project">https://github.com/AdamWilsonLabEDU/geo511_project</a> and the template website at <a href="https://adamwilsonlabedu.github.io/geo511_project/">https://adamwilsonlabedu.github.io/geo511_project/</a></p>
+<p>One convenient way to share research details is through a public
+website that includes all the information needed to reproduce the
+project. You will do this for your final project.</p>
+<p>Today we will make a copy of a template for your final project, edit
+it, and ‘push’ it back up to your github account. You can check out the
+template code at <a
+href="https://github.com/AdamWilsonLabEDU/geo511_project">https://github.com/AdamWilsonLabEDU/geo511_project</a>
+and the template website at <a
+href="https://adamwilsonlabedu.github.io/geo511_project/">https://adamwilsonlabedu.github.io/geo511_project/</a></p>
 </div>
 <div id="r-markdown" class="section level2">
 <h2>R Markdown</h2>
 <p>Cheatsheet:</p>
-<p><a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf"> <img src="https://d33wubrfki0l68.cloudfront.net/6c48bf42c4571dc3e47a30c4d46c9472ee3fa9b9/3b49b/lesson-images/cheatsheets-1-cheatsheet.png" alt="alt text" width="400"></a></p>
+<p><a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf">
+<img src="https://d33wubrfki0l68.cloudfront.net/6c48bf42c4571dc3e47a30c4d46c9472ee3fa9b9/3b49b/lesson-images/cheatsheets-1-cheatsheet.png" alt="alt text" width="400"></a></p>
 </div>
 <div id="libraries" class="section level2">
 <h2>Libraries</h2>
@@ -427,64 +443,93 @@ library(knitr)</code></pre>
 <h2>Create a copy of the project template.</h2>
 <p>Steps:</p>
 <ol style="list-style-type: decimal">
-<li>Click on <a href="https://classroom.github.com/a/ofNd8maP">this link</a> to make a copy of the project template.<br />
+<li>Click on <a href="https://classroom.github.com/a/ofNd8maP">this
+link</a> to make a copy of the project template.<br />
 </li>
-<li>Open your new repository in GitHub. It will look something like <a href="https://github.com/GEO511-2021/2021_project-adammwilson">https://github.com/GEO511-2021/2021_project-adammwilson</a></li>
+<li>Open your new repository in GitHub. It will look something like <a
+href="https://github.com/GEO511-2021/2021_project-adammwilson">https://github.com/GEO511-2021/2021_project-adammwilson</a></li>
 <li>Click the green button “Clone or Download” and copy the URL.</li>
 </ol>
 </div>
-<div id="clone-the-project-template-to-your-computer" class="section level2">
+<div id="clone-the-project-template-to-your-computer"
+class="section level2">
 <h2>Clone the project template to your computer</h2>
-<p>Now you will make a local copy on your computer by creating a new project and ‘cloning’ the repository you just forked.</p>
+<p>Now you will make a local copy on your computer by creating a new
+project and ‘cloning’ the repository you just forked.</p>
 <ol style="list-style-type: decimal">
 <li>Open RStudio</li>
-<li><strong>File -&gt; New Project -&gt; Version Control -&gt; Git</strong></li>
+<li><strong>File -&gt; New Project -&gt; Version Control -&gt;
+Git</strong></li>
 </ol>
 <ul>
-<li>URL: paste from above. It will be similar to <code>https://adamwilsonlabedu.github.io/geo511_project/</code> but with your username.</li>
-<li>Project name: you can rename it if you want or keep the default.</li>
-<li>Project as subdirectory of <code>~/Documents</code> or wherever you want to put it.</li>
+<li>URL: paste from above. It will be similar to
+<code>https://adamwilsonlabedu.github.io/geo511_project/</code> but with
+your username.</li>
+<li>Project name: you can rename it if you want or keep the
+default.</li>
+<li>Project as subdirectory of <code>~/Documents</code> or wherever you
+want to put it.</li>
 </ul>
 <ol start="3" style="list-style-type: decimal">
-<li>It should download the project to your computer then open it to the <code>index.Rmd</code> file.</li>
+<li>It should download the project to your computer then open it to the
+<code>index.Rmd</code> file.</li>
 </ol>
 </div>
 <div id="play-with-the-project-template" class="section level2">
 <h2>Play with the project template</h2>
 <ol style="list-style-type: decimal">
-<li>Select the <code>Build</code> tab in the upper right corner of RStudio, then click <code>Build Website</code></li>
-<li>Check out the website settings in <code>_site.yml</code>. These adjust the appearance, title, etc.</li>
-<li>Check out <code>_navbar.yml</code>. These settings define the menus, etc. If you only have one page you probably won’t need to adjust this information.</li>
+<li>Select the <code>Build</code> tab in the upper right corner of
+RStudio, then click <code>Build Website</code></li>
+<li>Check out the website settings in <code>_site.yml</code>. These
+adjust the appearance, title, etc.</li>
+<li>Check out <code>_navbar.yml</code>. These settings define the menus,
+etc. If you only have one page you probably won’t need to adjust this
+information.</li>
 </ol>
 </div>
 <div id="push-to-github-and-enable-the-website" class="section level2">
 <h2>Push to GitHub and enable the website</h2>
 <ol style="list-style-type: decimal">
-<li>Select the <code>Git</code> tab in the upper right and notice how it keeps track of any changes.</li>
+<li>Select the <code>Git</code> tab in the upper right and notice how it
+keeps track of any changes.</li>
 </ol>
 <ul>
-<li>To ‘commit’ the files (which is like saving them), check the files you want to commit (or all of them) and click <code>commit</code>.</li>
-<li>Type in a brief message about the changes you made. Maybe something like “First update to my project materials”</li>
+<li>To ‘commit’ the files (which is like saving them), check the files
+you want to commit (or all of them) and click <code>commit</code>.</li>
+<li>Type in a brief message about the changes you made. Maybe something
+like “First update to my project materials”</li>
 <li>Click <code>Commit</code>, then <code>close</code>.</li>
 <li>Click <code>Push</code> to push it back up to GitHub.</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
-<li>Now go to your repository website (similar to <code>https://adamwilsonlabedu.github.io/geo511_project/</code></li>
+<li>Now go to your repository website (similar to
+<code>https://adamwilsonlabedu.github.io/geo511_project/</code></li>
 <li>Publish your website
 <ul>
-<li>Click settings in the upper right, then select the <code>Pages</code> section</li>
-<li>Change “Source” to <code>gh-pages / (root) folder</code> and click Save</li>
+<li>Click settings in the upper right, then select the
+<code>Pages</code> section</li>
+<li>Change “Source” to <code>gh-pages / (root) folder</code> and click
+Save</li>
 <li>Copy your new site’s URL to your clipboard</li>
-<li>Go back to the ‘Code’ tab for your project respository and find the line “No description, website, or topics provided” and click “Edit” on the right as shown in the following figure. <img src="assets/github_website.png" /></li>
-<li>Paste the URL in the “Website” box. This will make it easier for others to find your website.</li>
+<li>Go back to the ‘Code’ tab for your project respository and find the
+line “No description, website, or topics provided” and click “Edit” on
+the right as shown in the following figure. <img
+src="assets/github_website.png" /></li>
+<li>Paste the URL in the “Website” box. This will make it easier for
+others to find your website.</li>
 </ul></li>
-<li>Go to your new project webpage. It can take ~5 minutes to appear after enabling.</li>
-<li>Now you can <code>commit</code> and then <code>push</code> your updates from RStudio and your website will be updated. If you get tired of entering your username and password every time, check out the instructions <a href="GitSSHNotes.html">here</a>.</li>
+<li>Go to your new project webpage. It can take ~5 minutes to appear
+after enabling.</li>
+<li>Now you can <code>commit</code> and then <code>push</code> your
+updates from RStudio and your website will be updated. If you get tired
+of entering your username and password every time, check out the
+instructions <a href="GitSSHNotes.html">here</a>.</li>
 </ol>
 </div>
 <div id="github-actions" class="section level2">
 <h2>GitHub actions</h2>
-<p>The template is set up to compile remotely using GitHub actions. This will make sure that your code is reproducible.</p>
+<p>The template is set up to compile remotely using GitHub actions. This
+will make sure that your code is reproducible.</p>
 </div>
 <div id="explore-markdown-functions" class="section level2">
 <h2>Explore markdown functions</h2>
@@ -492,11 +537,16 @@ library(knitr)</code></pre>
 <li>Use the Cheatsheet to add sections and some example narrative.<br />
 </li>
 <li>Add more figures or different versions of a figure</li>
-<li>Check out the <code>kable()</code> function for tables (e.g. <code>kable(head(d))</code>)</li>
+<li>Check out the <code>kable()</code> function for tables
+(e.g. <code>kable(head(d))</code>)</li>
 </ol>
-<p><a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf"> <img src="https://d33wubrfki0l68.cloudfront.net/6c48bf42c4571dc3e47a30c4d46c9472ee3fa9b9/3b49b/lesson-images/cheatsheets-1-cheatsheet.png" alt="alt text" width="400"></a></p>
+<p><a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf">
+<img src="https://d33wubrfki0l68.cloudfront.net/6c48bf42c4571dc3e47a30c4d46c9472ee3fa9b9/3b49b/lesson-images/cheatsheets-1-cheatsheet.png" alt="alt text" width="400"></a></p>
 <blockquote>
-<p>Abandoning the habit of secrecy in favor of process transparency and peer review was the crucial step by which alchemy became chemistry.<small>Raymond, E. S., 2004, The art of UNIX programming: Addison-Wesley.</small></p>
+<p>Abandoning the habit of secrecy in favor of process transparency and
+peer review was the crucial step by which alchemy became
+chemistry.<small>Raymond, E. S., 2004, The art of UNIX programming:
+Addison-Wesley.</small></p>
 </blockquote>
 </div>
 </div>

@@ -13,7 +13,7 @@
 
 <title>Course Schedule</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -391,12 +395,17 @@ div.tocify {
 </div>
 
 
-<p>Course content is designed to be flexible to accommodate student interest and abilities. The order and timing of course topics may change as the semester progresses.</p>
+<p>Course content is designed to be flexible to accommodate student
+interest and abilities. The order and timing of course topics may change
+as the semester progresses.</p>
 <p><strong>Readings</strong></p>
 <p>We will refer to the following texts (all available online):</p>
 <ul>
-<li>R4DS <a href="http://r4ds.had.co.nz"><em>R for Data Science</em> by Garrett Grolemund and Hadley Wickham</a></li>
-<li>GCR <a href="https://geocompr.robinlovelace.net/"><em>Geocomputation with R</em> by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow (CRC Press, 2018)</a></li>
+<li>R4DS <a href="http://r4ds.had.co.nz"><em>R for Data Science</em> by
+Garrett Grolemund and Hadley Wickham</a></li>
+<li>GCR <a href="https://geocompr.robinlovelace.net/"><em>Geocomputation
+with R</em> by Robin Lovelace, Jakub Nowosad, and Jannes Muenchow (CRC
+Press, 2018)</a></li>
 <li>HG <a href="https://happygitwithr.com/">Happy Git with R</a></li>
 </ul>
 <div id="schedule" class="section level2">
@@ -417,117 +426,141 @@ div.tocify {
 <th align="center">Presentation</th>
 <th align="center">Tasks</th>
 <th align="center">Case Study</th>
-<th align="center"><a href="https://www.datacamp.com/enterprise/geo511-fall-2020">DataCamp</a></th>
+<th align="center"><a
+href="https://www.datacamp.com/enterprise/geo511-fall-2020">DataCamp</a></th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
 <td align="left">1</td>
-<td align="left">8/31/21</td>
-<td align="center"><a href="pres/PS_01.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">8/30/22</td>
+<td align="center"><a href="pres/PS_01.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_01.html">Getting Started</a></td>
 <td align="center"><a href="./CS_01.html">Your first script</a></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
 <td align="left">2</td>
-<td align="left">9/7/21</td>
-<td align="center"><a href="pres/PS_02.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
-<td align="center"><a href="./TK_02.html">Graphics Background and Getting started with RStudio</a></td>
-<td align="center"><a href="./CS_02.html">My grandfather says summers are getting hotter</a></td>
+<td align="left">9/6/22</td>
+<td align="center"><a href="pres/PS_02.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="center"><a href="./TK_02.html">Graphics Background and
+Getting started with RStudio</a></td>
+<td align="center"><a href="./CS_02.html">My grandfather says summers
+are getting hotter</a></td>
 <td align="center">Introduction to R</td>
 </tr>
 <tr class="odd">
 <td align="left">3</td>
-<td align="left">9/14/21</td>
-<td align="center"><a href="pres/PS_03.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">9/13/22</td>
+<td align="center"><a href="pres/PS_03.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_03.html">Git Repository</a></td>
 <td align="center"><a href="./CS_03.html">Wealth over time</a></td>
 <td align="center">Introduction to Data Visualization with ggplot</td>
 </tr>
 <tr class="even">
 <td align="left">4</td>
-<td align="left">9/21/21</td>
-<td align="center"><a href="pres/PS_04.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">9/20/22</td>
+<td align="center"><a href="pres/PS_04.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_04.html">Data Wrangling 2</a></td>
-<td align="center"><a href="./CS_04.html">Farthest airport from New York City</a></td>
+<td align="center"><a href="./CS_04.html">Farthest airport from New York
+City</a></td>
 <td align="center">Introduction to the Tidyverse</td>
 </tr>
 <tr class="odd">
 <td align="left">5</td>
-<td align="left">9/28/21</td>
-<td align="center"><a href="pres/PS_05.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">9/27/22</td>
+<td align="center"><a href="pres/PS_05.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_05.html">Spatial Vector Data</a></td>
 <td align="center"><a href="./CS_05.html">Beware the Canadians!</a></td>
 <td align="center">Communicating with Data in the Tidyverse</td>
 </tr>
 <tr class="even">
 <td align="left">6</td>
-<td align="left">10/5/21</td>
-<td align="center"><a href="pres/PS_06.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">10/4/22</td>
+<td align="center"><a href="pres/PS_06.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_06.html">Spatial Raster Data</a></td>
-<td align="center"><a href="./CS_06.html">Find hottest country on each continent</a></td>
+<td align="center"><a href="./CS_06.html">Find hottest country on each
+continent</a></td>
 <td align="center">Visualizing Geospatial Data in R</td>
 </tr>
 <tr class="odd">
 <td align="left">7</td>
-<td align="left">10/12/21</td>
-<td align="center"><a href="pres/PS_07.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">10/11/22</td>
+<td align="center"><a href="pres/PS_07.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_07.html">Project Proposal</a></td>
 <td align="center"><a href="./CS_07.html">Getting Help!</a></td>
 <td align="center">Spatial Analysis in R with sf and raster</td>
 </tr>
 <tr class="even">
 <td align="left">8</td>
-<td align="left">10/19/21</td>
-<td align="center"><a href="pres/PS_08.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
-<td align="center"><a href="./TK_08.html">Create Final Project Webpage</a></td>
-<td align="center"><a href="./CS_08.html">One Script, Many Products</a></td>
+<td align="left">10/18/22</td>
+<td align="center"><a href="pres/PS_08.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="center"><a href="./TK_08.html">Create Final Project
+Webpage</a></td>
+<td align="center"><a href="./CS_08.html">One Script, Many
+Products</a></td>
 <td align="center">Interactive maps with leaflet in R</td>
 </tr>
 <tr class="odd">
 <td align="left">9</td>
-<td align="left">10/26/21</td>
-<td align="center"><a href="pres/PS_09.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
-<td align="center"><a href="./TK_09.html">APIs, time-series, and weather Data</a></td>
+<td align="left">10/25/22</td>
+<td align="center"><a href="pres/PS_09.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="center"><a href="./TK_09.html">APIs, time-series, and weather
+Data</a></td>
 <td align="center"><a href="./CS_09.html">Tracking Hurricanes!</a></td>
 <td align="center">Intermediate Data Visualization with ggplot2</td>
 </tr>
 <tr class="even">
 <td align="left">10</td>
-<td align="left">11/2/21</td>
-<td align="center"><a href="pres/PS_10.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">11/1/22</td>
+<td align="center"><a href="pres/PS_10.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_10.html">Remote Sensing</a></td>
-<td align="center"><a href="./CS_10.html">Satellite Remote Sensing</a></td>
+<td align="center"><a href="./CS_10.html">Satellite Remote
+Sensing</a></td>
 <td align="center">Exploratory Data Analysis in R: Case Study</td>
 </tr>
 <tr class="odd">
 <td align="left">11</td>
-<td align="left">11/9/21</td>
-<td align="center"><a href="pres/PS_11.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">11/8/22</td>
+<td align="center"><a href="pres/PS_11.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_11.html">Project First Draft</a></td>
-<td align="center"><a href="./CS_11.html">Parallel Computing with R</a></td>
+<td align="center"><a href="./CS_11.html">Parallel Computing with
+R</a></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
 <td align="left">12</td>
-<td align="left">11/16/21</td>
-<td align="center"><a href="pres/PS_12.html" target="_blank"><i class='fas fa-desktop'> </i></a></td>
+<td align="left">11/15/22</td>
+<td align="center"><a href="pres/PS_12.html"
+target="_blank"><i class='fas fa-desktop'> </i></a></td>
 <td align="center"><a href="./TK_12.html">Project Peer Review</a></td>
-<td align="center"><a href="./CS_12.html">Dynamic HTML graph of Daily Temperatures</a></td>
+<td align="center"><a href="./CS_12.html">Dynamic HTML graph of Daily
+Temperatures</a></td>
 <td align="center"></td>
 </tr>
 <tr class="odd">
 <td align="left">13</td>
-<td align="left">11/23/21</td>
+<td align="left">11/22/22</td>
 <td align="center"></td>
-<td align="center"><a href="./TK_13.html">Thanksgiving Week (Tuesday Class Optional)</a></td>
+<td align="center"><a href="./TK_13.html">Thanksgiving Week (Tuesday
+Class Optional)</a></td>
 <td align="center"><a href=""></a></td>
 <td align="center"></td>
 </tr>
 <tr class="even">
 <td align="left">14</td>
-<td align="left">11/30/21</td>
+<td align="left">11/29/22</td>
 <td align="center"></td>
 <td align="center"><a href="./TK_14.html">Project Workshop</a></td>
 <td align="center"><a href=""></a></td>
@@ -535,7 +568,7 @@ div.tocify {
 </tr>
 <tr class="odd">
 <td align="left">15</td>
-<td align="left">12/7/21</td>
+<td align="left">12/6/22</td>
 <td align="center"></td>
 <td align="center"><a href="./TK_14.html">Project Workshop</a></td>
 <td align="center"><a href="./TK_14.html">Project Workshop</a></td>
@@ -546,7 +579,9 @@ div.tocify {
 </div>
 <div id="student-leadership-and-presentations" class="section level2">
 <h2>Student Leadership and Presentations</h2>
-<p><a href="https://docs.google.com/spreadsheets/d/1CSUL1l_UTi_vmzqPTjDhDAidkrt1ArNl8yRSD83TGSI/edit?usp=sharing">Click here to edit the table below</a></p>
+<p><a
+href="https://docs.google.com/spreadsheets/d/1CSUL1l_UTi_vmzqPTjDhDAidkrt1ArNl8yRSD83TGSI/edit?usp=sharing">Click
+here to edit the table below</a></p>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" style="height: 1000px; width: 100%;">
 </iframe>
 </div>

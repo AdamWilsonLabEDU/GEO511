@@ -13,7 +13,7 @@
 
 <title>My grandfather says summers are getting hotter</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -386,7 +390,8 @@ div.tocify {
 
 
 
-<h1 class="title toc-ignore">My grandfather says summers are getting hotter</h1>
+<h1 class="title toc-ignore">My grandfather says summers are getting
+hotter</h1>
 <h3 class="subtitle">Import data and plot a timeseries</h3>
 
 </div>
@@ -395,25 +400,65 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>The <a href="https://ggplot2.tidyverse.org/">ggplot2 vignette</a></li>
+<li>The <a href="https://ggplot2.tidyverse.org/">ggplot2
+vignette</a></li>
 </ul>
 </div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>You are at a family gathering at Niagara Falls and your grandfather claims that summer temperatures are hotter now than they were when he was a kid in the 1920s. His brother disagrees - he remembers summers being just as hot as they are now. Your inner data scientist thinks this is an empirical question that you can answer with data.</p>
-<p>You will use the NASA GISS temperature record for the Buffalo Niagara Airport available <a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">from this website</a>. Later we’ll learn how to use APIs to interact with online databases, but for now we’ll work with a simple csv file.</p>
+<p>You are at a family gathering at Niagara Falls and your grandfather
+claims that summer temperatures are hotter now than they were when he
+was a kid in the 1920s. His brother disagrees - he remembers summers
+being just as hot as they are now. Your inner data scientist thinks this
+is an empirical question that you can answer with data.</p>
+<p>You will use the NASA GISS temperature record for the Buffalo Niagara
+Airport available <a
+href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">from
+this website</a>. Later we’ll learn how to use APIs to interact with
+online databases, but for now we’ll work with a simple csv file.</p>
 </div>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>
 <div id="download-the-temperature-data" class="section level2">
 <h2>Download the temperature data</h2>
-<p>If you explore the <a href="https://www.giss.nasa.gov/">NASA GISS website</a> for a station (<a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">Buffalo, NY website</a>), you’ll find they provide a link to download the data directly as a comma-separated-values (CSV) file. CSV files are simple text files with commas in between the values. They are a common format for storing and sharing relatively small tabular datasets because they are so simple that many different software can open them, from Excel to ArcGIS.</p>
+<p>If you explore the <a href="https://www.giss.nasa.gov/">NASA GISS
+website</a> for a station (<a
+href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">Buffalo,
+NY website</a>), you’ll find they provide a link to download the data
+directly as a comma-separated-values (CSV) file. CSV files are simple
+text files with commas in between the values. They are a common format
+for storing and sharing relatively small tabular datasets because they
+are so simple that many different software can open them, from Excel to
+ArcGIS.</p>
 <pre class="r"><code>library(tidyverse)
 
 # define the link to the data - you can try this in your browser too.  Note that the URL ends in .txt.
 dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt&quot;</code></pre>
-<p>This url points to a CSV file with monthly mean temperatures from the GISS dataset. You can <a href="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt">check out the file here</a>. Now use <code>read_table()</code> to download and import the table directly from the website (cool, huh!?).</p>
-<pre class="r"><code>temp=read_table(dataurl,
+<p>This url points to a CSV file with monthly mean temperatures from the
+GISS dataset. You can <a
+href="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt">check
+out the file here</a>. Now use <code>read_table()</code> to download and
+import the table directly from the website (cool, huh!?).</p>
+<pre class="r"><code>#the next line tells the NASA site to create the temporary file
+httr::GET(&quot;https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1&quot;)</code></pre>
+<pre><code>## Response [https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1]
+##   Date: 2022-08-25 19:52
+##   Status: 200
+##   Content-Type: text/html
+##   Size: 50.2 kB
+## 
+## &lt;!DOCTYPE HTML&gt;&lt;html lang=&quot;en&quot;&gt;
+## 
+## &lt;head&gt;
+## &lt;meta http-equiv=&quot;X-UA-Compatible&quot; content=&quot;IE=edge;&quot;/&gt;
+## &lt;meta http-equiv=&quot;Content-Type&quot; content=&quot;text/html;charset=utf-8&quot; /&gt;
+## &lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;https://www.giss.nasa.gov/css/cs...
+## &lt;title&gt;Data.GISS: 
+## GISS Surface Temperature Analysis (v4)
+## &lt;/title&gt;
+## ...</code></pre>
+<pre class="r"><code># the next lines download the data
+temp=read_table(dataurl,
               skip=3, #skip the first line which has column names
               na=&quot;999.90&quot;, # tell R that 999.90 means missing in this dataset
               col_names = c(&quot;YEAR&quot;,&quot;JAN&quot;,&quot;FEB&quot;,&quot;MAR&quot;, # define column names 
@@ -423,15 +468,24 @@ dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14
                             &quot;SON&quot;,&quot;metANN&quot;))
 # renaming is necessary becuase they used dashes (&quot;-&quot;)
 # in the column names and R doesn&#39;t like that.</code></pre>
-<p>If the command above gives you an error, open <a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">the page</a> in the browser and update the <code>dataurl</code> link to download the csv.</p>
+<p>If the command above gives you an error, open <a
+href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">the
+page</a> in the browser and update the <code>dataurl</code> link to
+download the csv.</p>
 </div>
 <div id="explore-the-data" class="section level2">
 <h2>Explore the data</h2>
-<p>Now use your tools to explore the dataset. You can try <code>View(temp)</code> to open the table in a browsable ‘excel-like’ window. Or <code>summary(temp)</code> to get summaries of each column. Or <code>glimpse(temp)</code>.</p>
+<p>Now use your tools to explore the dataset. You can try
+<code>View(temp)</code> to open the table in a browsable ‘excel-like’
+window. Or <code>summary(temp)</code> to get summaries of each column.
+Or <code>glimpse(temp)</code>.</p>
 </div>
 <div id="develop-the-graphic" class="section level2">
 <h2>Develop the graphic</h2>
-<p>You want to make a nice graphic to show your grandfather at your next family gathering. Be sure to include informative axis labels, a graph title, a graph subtitle describing the source of the data, the raw data, and a smoothed line showing the overall trend through time.</p>
+<p>You want to make a nice graphic to show your grandfather at your next
+family gathering. Be sure to include informative axis labels, a graph
+title, a graph subtitle describing the source of the data, the raw data,
+and a smoothed line showing the overall trend through time.</p>
 <p>It should look something like this:</p>
 <p><img src="CS_02_files/figure-html/unnamed-chunk-3-1.png" width="2100" /></p>
 </div>
@@ -440,21 +494,34 @@ dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14
 <h1>Specific Tasks</h1>
 <ul>
 <li>Create a new R script in RStudio</li>
-<li>Load data from a comma-separated-values formatted text file hosted on a website</li>
-<li>Graph the annual mean temperature in June, July and August (<code>JJA</code>) using ggplot</li>
+<li>Load data from a comma-separated-values formatted text file hosted
+on a website</li>
+<li>Graph the annual mean temperature in June, July and August
+(<code>JJA</code>) using ggplot</li>
 <li>Add a smooth line with <code>geom_smooth()</code></li>
-<li>Add informative axis labels using <code>xlab()</code> and <code>ylab()</code> including <a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">units</a></li>
+<li>Add informative axis labels using <code>xlab()</code> and
+<code>ylab()</code> including <a
+href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">units</a></li>
 <li>Add a graph title with <code>ggtitle()</code></li>
-<li>Save a graphic to a png file using <code>png()</code> and <code>dev.off()</code> OR <a href="https://ggplot2.tidyverse.org/reference/ggsave.html"><code>ggsave</code></a></li>
+<li>Save a graphic to a png file using <code>png()</code> and
+<code>dev.off()</code> OR <a
+href="https://ggplot2.tidyverse.org/reference/ggsave.html"><code>ggsave</code></a></li>
 <li>Save the script</li>
-<li>Click ‘Source’ in RStudio to run the script from beginning to end to re-run the entire process</li>
+<li>Click ‘Source’ in RStudio to run the script from beginning to end to
+re-run the entire process</li>
 </ul>
-<p>What do you tell your grandfather and his brother? What additional tests / visualizations could you do?</p>
+<p>What do you tell your grandfather and his brother? What additional
+tests / visualizations could you do?</p>
 </div>
 <div id="extra-time" class="section level1">
 <h1>Extra time?</h1>
-<p>If you have extra time, use the <a href="https://data.giss.nasa.gov/gistemp/station_data_v4_globe/">station selector</a> to find the links to download additional stations and make additional plots. You could even merge different stations into the same table and plot them together.</p>
-<p>Can you think of other plots to consider? Perhaps aggregating to mean temperature by decade?</p>
+<p>If you have extra time, use the <a
+href="https://data.giss.nasa.gov/gistemp/station_data_v4_globe/">station
+selector</a> to find the links to download additional stations and make
+additional plots. You could even merge different stations into the same
+table and plot them together.</p>
+<p>Can you think of other plots to consider? Perhaps aggregating to mean
+temperature by decade?</p>
 </div>
 
 <!-- Google Analytics -->

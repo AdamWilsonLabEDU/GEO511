@@ -13,7 +13,7 @@
 
 <title>Farthest airport from New York City</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -395,18 +399,25 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>R4DS <a href="http://r4ds.had.co.nz/relational-data.html" target="blank">Chapter 13 - Relational Data</a></li>
+<li>R4DS <a href="http://r4ds.had.co.nz/relational-data.html"
+target="blank">Chapter 13 - Relational Data</a></li>
 </ul>
 </div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>In this exercise you will use various data wrangling tools to answer questions from the data held in separate tables. We’ll use the data in the <code>nycflights13</code> package which has relationships between the tables as follows.</p>
-<p><img src="http://r4ds.had.co.nz/diagrams/relational-nycflights.png" /></p>
+<p>In this exercise you will use various data wrangling tools to answer
+questions from the data held in separate tables. We’ll use the data in
+the <code>nycflights13</code> package which has relationships between
+the tables as follows.</p>
+<p><img
+src="http://r4ds.had.co.nz/diagrams/relational-nycflights.png" /></p>
 </div>
 <div id="objective" class="section level1">
 <h1>Objective</h1>
 <blockquote>
-<p>What is the full name (not the three letter code) of the destination airport farthest from any of the NYC airports in the <code>flights</code> table?</p>
+<p>What is the full name (not the three letter code) of the destination
+airport farthest from any of the NYC airports in the
+<code>flights</code> table?</p>
 </blockquote>
 <p>Save the name as a character value <code>farthest_airport</code>.</p>
 </div>
@@ -414,14 +425,19 @@ div.tocify {
 <h1>Tasks</h1>
 <ul>
 <li>Join two datasets using a common column</li>
-<li>Answer a question that requires understanding how multiple tables are related</li>
+<li>Answer a question that requires understanding how multiple tables
+are related</li>
 <li>Save your script as a .R or .Rmd in your course repository</li>
 </ul>
 <p>You will need to load the necessary packages</p>
 <pre class="r"><code>library(tidyverse)
 library(nycflights13)</code></pre>
-<p><a href="scripts/CS_04_nocomments.R" target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i> Download starter R script (if desired)</a></p>
-<p>There are several ways to do this using at least two different joins. I found two solutions that use 5 or 6 functions separated by pipes (<code>%&gt;%</code>). Can you do it in fewer?</p>
+<p><a href="scripts/CS_04_nocomments.R"
+target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i>
+Download starter R script (if desired)</a></p>
+<p>There are several ways to do this using at least two different joins.
+I found two solutions that use 5 or 6 functions separated by pipes
+(<code>%&gt;%</code>). Can you do it in fewer?</p>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo1">
 Show Hints
@@ -429,14 +445,26 @@ Show Hints
 <div id="demo1" class="collapse">
 <p>The details below describe one possible approach.</p>
 <ol style="list-style-type: decimal">
-<li>Open the help file for the <code>nycflights13</code> package by searching in the “Help” panel in RStudio.</li>
-<li>Look at the contents of the various tables to find the ones you need (<code>name</code>, <code>distance</code>, and <code>dest</code>). You can use <code>head()</code>, <code>glimpse()</code>, <code>View()</code>, <code>str()</code>.<br />
+<li>Open the help file for the <code>nycflights13</code> package by
+searching in the “Help” panel in RStudio.</li>
+<li>Look at the contents of the various tables to find the ones you need
+(<code>name</code>, <code>distance</code>, and <code>dest</code>). You
+can use <code>head()</code>, <code>glimpse()</code>,
+<code>View()</code>, <code>str()</code>.<br />
 </li>
-<li>In the table with distances, find the airport code that is farthest from the New York Airports (perhaps using <code>arrange()</code> and <code>slice()</code>)</li>
-<li>Join this table with the one that has the full airport names. You will either need to rename the columns so they match the other table or use the <code>by</code> parameter in the join. e.g. check out <code>?left_join()</code></li>
+<li>In the table with distances, find the airport code that is farthest
+from the New York Airports (perhaps using <code>arrange()</code> and
+<code>slice()</code>)</li>
+<li>Join this table with the one that has the full airport names. You
+will either need to rename the columns so they match the other table or
+use the <code>by</code> parameter in the join. e.g. check out
+<code>?left_join()</code></li>
 <li><code>select()</code> only the <code>destName</code> column</li>
-<li>Convert the data.frame to a single character value with <code>as.character()</code>. This converts the data.frame object into a single value.</li>
-<li>Save the resulting airport name as an object called <code>farthest_airport</code></li>
+<li>Convert the data.frame to a single character value with
+<code>as.character()</code>. This converts the data.frame object into a
+single value.</li>
+<li>Save the resulting airport name as an object called
+<code>farthest_airport</code></li>
 </ol>
 </div>
 </div>
@@ -445,7 +473,9 @@ Show Hints
 Extra time? Try these extra activities…
 </button>
 <div id="extras" class="collapse">
-<p>Soon we will introduce working with spatial data and doing similar kinds of operations. If you have time to play, see if you can figure out what this does:</p>
+<p>Soon we will introduce working with spatial data and doing similar
+kinds of operations. If you have time to play, see if you can figure out
+what this does:</p>
 <pre class="r"><code>airports %&gt;%
   distinct(lon,lat) %&gt;%
   ggplot(aes(lon, lat)) +
@@ -453,12 +483,16 @@ Extra time? Try these extra activities…
     geom_point(col=&quot;red&quot;) +
     coord_quickmap()</code></pre>
 <p><img src="CS_04_files/figure-html/unnamed-chunk-3-1.png" width="2100" /></p>
-<p>Can you figure out how to map mean delays by destination airport as shown below?</p>
-<pre><code>## `summarise()` has grouped output by &#39;name&#39;, &#39;lat&#39;. You can override using the `.groups` argument.</code></pre>
+<p>Can you figure out how to map mean delays by destination airport as
+shown below?</p>
+<pre><code>## `summarise()` has grouped output by &#39;name&#39;, &#39;lat&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <p><img src="CS_04_files/figure-html/unnamed-chunk-4-1.png" width="2100" /></p>
 </div>
 </div>
-<p><i> <small> Adapted from <a href="http://r4ds.had.co.nz/relational-data.html#filtering-joins">R for Data Science</a> </small> </i></p>
+<p><i> <small> Adapted from <a
+href="http://r4ds.had.co.nz/relational-data.html#filtering-joins">R for
+Data Science</a> </small> </i></p>
 </div>
 
 <!-- Google Analytics -->

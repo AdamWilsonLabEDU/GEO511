@@ -13,7 +13,7 @@
 
 <title>Project First Draft</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -387,7 +391,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Project First Draft</h1>
-<h3 class="subtitle">Submit the first draft of your project for peer review</h3>
+<h3 class="subtitle">Submit the first draft of your project for peer
+review</h3>
 
 </div>
 
@@ -395,7 +400,9 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>Documentation for <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown Websites</a></li>
+<li>Documentation for <a
+href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown
+Websites</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
@@ -405,30 +412,50 @@ div.tocify {
 </ul>
 <div id="first-draft" class="section level3">
 <h3>First Draft</h3>
-<p>The first draft of your project will be assessed by your peers in GitHub. The objectives of the peer evaluation are:</p>
+<p>The first draft of your project will be assessed by your peers in
+GitHub. The objectives of the peer evaluation are:</p>
 <ul>
-<li>Expose you to the work of your peers so you know what others are working on</li>
-<li>Provide an opportunity to share your knowledge to improve their project</li>
+<li>Expose you to the work of your peers so you know what others are
+working on</li>
+<li>Provide an opportunity to share your knowledge to improve their
+project</li>
 </ul>
-<p>You should use the project website template (or similar) to generate a html version of your project report. If your project requires any data not available in public repositories, you should put it in a folder called <code>/data</code> in your project’s home directory and then import it into R with <code>read.csv('data/filename.csv')</code> or similar so that anyone with a copy of the repository can re-create the HTML output.</p>
+<p>You should use the project website template (or similar) to generate
+a html version of your project report. If your project requires any data
+not available in public repositories, you should put it in a folder
+called <code>/data</code> in your project’s home directory and then
+import it into R with <code>read.csv('data/filename.csv')</code> or
+similar so that anyone with a copy of the repository can re-create the
+HTML output.</p>
 </div>
 <div id="required-components-of-first-draft" class="section level2">
 <h2>Required components of first draft</h2>
 <ol style="list-style-type: decimal">
-<li><strong>Introduction</strong> [~ 200 words]: Clearly stated background and questions / hypotheses / problems being addressed. Sets up the analysis in an interesting and compelling way.</li>
-<li><strong>Data</strong>: Script downloads at least one dataset automatically through the internet or loads the data from the <code>data/</code> folder. This could use a direct download (e.g. download.file()) or an API (e.g. anything from ROpenSci).</li>
-<li><strong>Figure</strong>: The HTML file includes at least one figure of the data.</li>
-<li><strong>Reproducibility</strong>: The .Rmd should generate the HTML output when “Build Website” is clicked.</li>
+<li><strong>Introduction</strong> [~ 200 words]: Clearly stated
+background and questions / hypotheses / problems being addressed. Sets
+up the analysis in an interesting and compelling way.</li>
+<li><strong>Data</strong>: Script downloads at least one dataset
+automatically through the internet or loads the data from the
+<code>data/</code> folder. This could use a direct download
+(e.g. download.file()) or an API (e.g. anything from ROpenSci).</li>
+<li><strong>Figure</strong>: The HTML file includes at least one figure
+of the data.</li>
+<li><strong>Reproducibility</strong>: The .Rmd should generate the HTML
+output when “Build Website” is clicked.</li>
 </ol>
 <div id="confirming-reproducibility" class="section level3">
 <h3>Confirming ‘reproducibility’</h3>
-<p>Confirm that the page is able to build by checking the GitHub actions tab on your repository.</p>
+<p>Confirm that the page is able to build by checking the GitHub actions
+tab on your repository.</p>
 </div>
 </div>
 <div id="common-issues" class="section level2">
 <h2>Common issues</h2>
 <ol style="list-style-type: decimal">
-<li>Importing data from somewhere on your computer. You should not have any commands such as <code>read.csv("~/projects/inputdata.csv")</code> that read any data from your computer other than the <code>data/</code> folder in your repository.</li>
+<li>Importing data from somewhere on your computer. You should not have
+any commands such as <code>read.csv("~/projects/inputdata.csv")</code>
+that read any data from your computer other than the <code>data/</code>
+folder in your repository.</li>
 </ol>
 </div>
 </div>

@@ -94,7 +94,9 @@ Imports:
     xtable,
     DiagrammeR,
     fontawesome,
-    rvest
+    rvest,
+    gapminder,
+    nycflights13
 Suggests: 
     testthat
 RoxygenNote: 7.1.1

@@ -13,7 +13,7 @@
 
 <title>Resource Introduction</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -393,39 +397,75 @@ div.tocify {
 
 <div id="description" class="section level1">
 <h1>Description</h1>
-<p>Each student will be expected to introduce an R-related resource that is relevant to their research interests in a 5 minute presentation during a class session. Most students elect to introduce an R package, but you could also introduce a data source, interesting blog, etc., as long as it’s relevant to the course. If you are aren’t sure, please ask Professor Wilson. The objectives are:</p>
+<p>Each student will be expected to introduce an R-related resource that
+is relevant to their research interests in a 5 minute presentation
+during a class session. Most students elect to introduce an R package,
+but you could also introduce a data source, interesting blog, etc., as
+long as it’s relevant to the course. If you are aren’t sure, please ask
+Professor Wilson. The objectives are:</p>
 <ul>
-<li>Learn how to find/download/install a new package and learn how to use it</li>
-<li>Teach your peers about existing R packages that may be useful in their research</li>
+<li>Learn how to find/download/install a new package and learn how to
+use it</li>
+<li>Teach your peers about existing R packages that may be useful in
+their research</li>
 </ul>
 <p>The presentation must include:</p>
 <ol style="list-style-type: decimal">
-<li>Brief introduction: what does the package do and why is it useful? (<strong>1-2 slides, 1 minute</strong>)</li>
-<li>Author introduction: a short background (affiliation and other packages, etc.) on at least one of the package authors (<strong>1 slide, 1 minute</strong>)</li>
-<li>Simple demonstration of package code: example input/output from the examples or custom coded examples (<strong>2-3 slides, 3 minutes</strong>)</li>
+<li>Brief introduction: what does the package do and why is it useful?
+(<strong>1-2 slides, 1 minute</strong>)</li>
+<li>Author introduction: a short background (affiliation and other
+packages, etc.) on at least one of the package authors (<strong>1 slide,
+1 minute</strong>)</li>
+<li>Simple demonstration of package code: example input/output from the
+examples or custom coded examples (<strong>2-3 slides, 3
+minutes</strong>)</li>
 </ol>
-<p>There will not be time to actually run any code <em>on-the-fly</em> during your presentation. Instead, use RMarkdown to create a presentation (html) or markdown (md) file so that you can simply display it during class (like the lectures). Then paste your github link into the schedule spreadsheet so we can easily open/view it during class. For the first few weeks, you may simply share your screen and use a powerpoint or other presentation software.</p>
-<p>To select a package, I recommend starting with the <a href="https://cran.r-project.org/web/views/">views on CRAN</a> for a topic of interest. Then read the narrative in the task view for something interesting to you and install the package in R with <code>install.package("packagename")</code> in R and take a look at what it can do. Most package functions include sample code that performs a function. For example, if I was introducing the <code>dplyr</code> package, I might choose the <code>filter()</code> function. If you look in the help you will find a section called “Examples” that you can use for your example code in your presentation. All you have to do is copy-paste it from the help into the R console and them summarize what it’s doing in your presentation. For example, I might demonstrate (from the <code>filter()</code> documentation) that the following code will select all characters from Star Wars that are human.</p>
+<p>There will not be time to actually run any code <em>on-the-fly</em>
+during your presentation. Instead, use RMarkdown to create a
+presentation (html) or markdown (md) file so that you can simply display
+it during class (like the lectures). Then paste your github link into
+the schedule spreadsheet so we can easily open/view it during class. For
+the first few weeks, you may simply share your screen and use a
+powerpoint or other presentation software.</p>
+<p>To select a package, I recommend starting with the <a
+href="https://cran.r-project.org/web/views/">views on CRAN</a> for a
+topic of interest. Then read the narrative in the task view for
+something interesting to you and install the package in R with
+<code>install.package("packagename")</code> in R and take a look at what
+it can do. Most package functions include sample code that performs a
+function. For example, if I was introducing the <code>dplyr</code>
+package, I might choose the <code>filter()</code> function. If you look
+in the help you will find a section called “Examples” that you can use
+for your example code in your presentation. All you have to do is
+copy-paste it from the help into the R console and them summarize what
+it’s doing in your presentation. For example, I might demonstrate (from
+the <code>filter()</code> documentation) that the following code will
+select all characters from Star Wars that are human.</p>
 <pre class="r"><code>library(dplyr)
 filter(starwars, species == &quot;Human&quot;)</code></pre>
 <pre><code>## # A tibble: 35 × 14
-##    name    height  mass hair_color  skin_color eye_color birth_year sex   gender
-##    &lt;chr&gt;    &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;       &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-##  1 Luke S…    172    77 blond       fair       blue            19   male  mascu…
-##  2 Darth …    202   136 none        white      yellow          41.9 male  mascu…
-##  3 Leia O…    150    49 brown       light      brown           19   fema… femin…
-##  4 Owen L…    178   120 brown, grey light      blue            52   male  mascu…
-##  5 Beru W…    165    75 brown       light      blue            47   fema… femin…
-##  6 Biggs …    183    84 black       light      brown           24   male  mascu…
-##  7 Obi-Wa…    182    77 auburn, wh… fair       blue-gray       57   male  mascu…
-##  8 Anakin…    188    84 blond       fair       blue            41.9 male  mascu…
-##  9 Wilhuf…    180    NA auburn, gr… fair       blue            64   male  mascu…
-## 10 Han So…    180    80 brown       fair       brown           29   male  mascu…
+##    name     height  mass hair_color skin_color eye_color birth_year sex   gender
+##    &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+##  1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+##  2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+##  3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+##  4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+##  5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+##  6 Biggs D…    183    84 black      light      brown           24   male  mascu…
+##  7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+##  8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+##  9 Wilhuff…    180    NA auburn, g… fair       blue            64   male  mascu…
+## 10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
 ## # … with 25 more rows, and 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;,
 ## #   films &lt;list&gt;, vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 <div id="example-presentation" class="section level2">
 <h2>Example Presentation</h2>
-<p>Here is an example presentation about the <a href="pres/PackagePresentation.html"><code>ggrepel</code> package</a> that was built using this <a href="pres/PackagePresentation.Rmd">R Markdown file</a>, which is <a href="https://github.com/AdamWilsonLab/GEO511/blob/master/pres/PackagePresentation.Rmd">also visible on github</a>.</p>
+<p>Here is an example presentation about the <a
+href="pres/PackagePresentation.html"><code>ggrepel</code> package</a>
+that was built using this <a href="pres/PackagePresentation.Rmd">R
+Markdown file</a>, which is <a
+href="https://github.com/AdamWilsonLab/GEO511/blob/master/pres/PackagePresentation.Rmd">also
+visible on github</a>.</p>
 </div>
 </div>
 

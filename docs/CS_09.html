@@ -13,7 +13,7 @@
 
 <title>Tracking Hurricanes!</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -65,6 +65,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -89,6 +90,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -314,7 +318,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -333,7 +337,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -354,7 +358,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -397,16 +401,20 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>Overview of the <a href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data-access">International Best Track Archive for Climate Stewardship (IBTrACS)</a></li>
-<li>Performing <a href="https://r-spatial.github.io/sf/reference/st_join.html">Spatial Joins with sf</a></li>
+<li>Overview of the <a
+href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data-access">International
+Best Track Archive for Climate Stewardship (IBTrACS)</a></li>
+<li>Performing <a
+href="https://r-spatial.github.io/sf/reference/st_join.html">Spatial
+Joins with sf</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
 <li>Write a .Rmd script to perform the following tasks</li>
-<li>Use an API to access NOAA Storm data over the web</li>
-<li>Intersect the storms with US states to quantify how many storms in the database have hit each state.</li>
+<li>Intersect the storms with US states to quantify how many storms in
+the database have hit each state.</li>
 </ul>
 <div id="libraries-data" class="section level2">
 <h2>Libraries &amp; Data</h2>
@@ -420,7 +428,10 @@ data(us_states)</code></pre>
 </div>
 <div id="objective" class="section level2">
 <h2>Objective</h2>
-<p>In this case study you will download storm track data from NOAA, make a summary plot, and quantify how many storms have hit each of the United States. This will require you to use a spatial join (<code>st_join</code>).</p>
+<p>In this case study you will download storm track data from NOAA, make
+a summary plot, and quantify how many storms have hit each of the United
+States. This will require you to use a spatial join
+(<code>st_join</code>).</p>
 <div id="your-goal" class="section level3">
 <h3>Your goal</h3>
 <pre class="r"><code># Download zipped data from noaa with storm track information
@@ -429,12 +440,19 @@ tdir=tempdir()
 download.file(dataurl,destfile=file.path(tdir,&quot;temp.zip&quot;))
 unzip(file.path(tdir,&quot;temp.zip&quot;),exdir = tdir)
 list.files(tdir)</code></pre>
-<pre><code>## [1] &quot;IBTrACS.NA.list.v04r00.points.dbf&quot; &quot;IBTrACS.NA.list.v04r00.points.prj&quot;
-## [3] &quot;IBTrACS.NA.list.v04r00.points.shp&quot; &quot;IBTrACS.NA.list.v04r00.points.shx&quot;
-## [5] &quot;temp.zip&quot;</code></pre>
+<pre><code>##  [1] &quot;file15f7810d06666&quot;                 &quot;file15f7811c01ba0&quot;                
+##  [3] &quot;file15f783a20e407&quot;                 &quot;file15f78421fa6d9.html&quot;           
+##  [5] &quot;file15f784467211a&quot;                 &quot;file15f784511c1e9.html&quot;           
+##  [7] &quot;file15f784eae550b&quot;                 &quot;file15f786357af74&quot;                
+##  [9] &quot;IBTrACS.NA.list.v04r00.points.dbf&quot; &quot;IBTrACS.NA.list.v04r00.points.prj&quot;
+## [11] &quot;IBTrACS.NA.list.v04r00.points.shp&quot; &quot;IBTrACS.NA.list.v04r00.points.shx&quot;
+## [13] &quot;libloc_192_d77de41bdeed6f03.rds&quot;   &quot;libloc_213_5f7d0f6e85d1f59b.rds&quot;  
+## [15] &quot;temp.zip&quot;</code></pre>
 <pre class="r"><code>storm_data &lt;- read_sf(list.files(tdir,pattern=&quot;.shp&quot;,full.names = T))</code></pre>
-<p>Your desired figure looks something like the following: <img src="CS_09_files/figure-html/unnamed-chunk-4-1.png" width="4500" /></p>
-Calculate a table of the five states that have experienced the most storms.
+<p>Your desired figure looks something like the following:
+<img src="CS_09_files/figure-html/unnamed-chunk-4-1.png" width="4500" /></p>
+Calculate a table of the five states that have experienced the most
+storms.
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -452,7 +470,7 @@ storms
 Florida
 </td>
 <td style="text-align:right;">
-84
+85
 </td>
 </tr>
 <tr>
@@ -460,7 +478,7 @@ Florida
 North Carolina
 </td>
 <td style="text-align:right;">
-64
+65
 </td>
 </tr>
 <tr>
@@ -468,7 +486,7 @@ North Carolina
 Georgia
 </td>
 <td style="text-align:right;">
-60
+58
 </td>
 </tr>
 <tr>
@@ -497,32 +515,55 @@ Show Hints
 <div id="steps" class="section level2">
 <h2>Steps</h2>
 <ol style="list-style-type: decimal">
-<li>Use the code above to download the storm data and create an object called <code>storm_data</code></li>
+<li>Use the code above to download the storm data and create an object
+called <code>storm_data</code></li>
 <li>Wrangle the data
 <ul>
 <li>Filter to storms 1950-present with <code>filter()</code></li>
-<li>Use <code>mutate_if()</code> to convert <code>-999.0</code> to <code>NA</code> in all numeric columns with the following command from the <code>dplyr</code> package: <code>mutate_if(is.numeric,</code> <code>function(x) ifelse(x==-999.0,NA,x))</code></li>
-<li>Use the following command to add a column for decade: <code>mutate(decade=(floor(year/10)*10))</code></li>
-<li>Use <code>st_bbox()</code> to identify the bounding box of the storm data and save this as an object called <code>region</code>.</li>
+<li>Use <code>mutate_if()</code> to convert <code>-999.0</code> to
+<code>NA</code> in all numeric columns with the following command from
+the <code>dplyr</code> package: <code>mutate_if(is.numeric,</code>
+<code>function(x) ifelse(x==-999.0,NA,x))</code></li>
+<li>Use the following command to add a column for decade:
+<code>mutate(decade=(floor(year/10)*10))</code></li>
+<li>Use <code>st_bbox()</code> to identify the bounding box of the storm
+data and save this as an object called <code>region</code>.</li>
 </ul></li>
 <li>Make the first plot</li>
 </ol>
 <ul>
-<li>Use <code>ggplot()</code> to plot the <code>world</code> polygon layer and add the following:</li>
-<li>add <code>facet_wrap(~decade)</code> to create a panel for each decade</li>
-<li>add <code>stat_bin2d(data=storms,</code> <code>aes(y=st_coordinates(storms)[,2],</code> <code>x=st_coordinates(storms)[,1]),bins=100)</code></li>
-<li>use <code>scale_fill_distiller(palette="YlOrRd",</code> <code>trans="log",</code> <code>direction=-1,</code> <code>breaks = c(1,10,100,1000))</code> to set the color ramp</li>
-<li>use <code>coord_sf(ylim=region[c(2,4)],</code> <code>xlim=region[c(1,3)])</code> to crop the plot to the region.</li>
+<li>Use <code>ggplot()</code> to plot the <code>world</code> polygon
+layer and add the following:</li>
+<li>add <code>facet_wrap(~decade)</code> to create a panel for each
+decade</li>
+<li>add <code>stat_bin2d(data=storms,</code>
+<code>aes(y=st_coordinates(storms)[,2],</code>
+<code>x=st_coordinates(storms)[,1]),bins=100)</code></li>
+<li>use <code>scale_fill_distiller(palette="YlOrRd",</code>
+<code>trans="log",</code> <code>direction=-1,</code>
+<code>breaks = c(1,10,100,1000))</code> to set the color ramp</li>
+<li>use <code>coord_sf(ylim=region[c(2,4)],</code>
+<code>xlim=region[c(1,3)])</code> to crop the plot to the region.</li>
 </ul>
 <ol start="4" style="list-style-type: decimal">
 <li>Calculate table of the five states with most storms.
 <ul>
-<li>use <code>st_transform</code> to reproject <code>us_states</code> to the reference system of the <code>storms</code> object (you can extract a CRS from a sf object with <code>st_crs(storms)</code></li>
-<li>Rename the <code>NAME</code> column in the state data to <code>state</code> to avoid confusion with storm name using <code>select(state=NAME)</code></li>
-<li>Perform a spatial join between the storm database and the states object with: <code>storm_states &lt;- st_join(storms, states,</code> <code>join = st_intersects,left = F)</code>. This will ’add` the state to any storm that was recorded within that state.</li>
-<li>Use <code>group_by(state)</code> to group the next step by US state</li>
-<li>use <code>summarize(storms=length(unique(NAME)))</code> to count how many unique storms occurred in each state.</li>
-<li>use <code>arrange(desc(storms))</code> to sort by the number of storms in each state</li>
+<li>use <code>st_transform</code> to reproject <code>us_states</code> to
+the reference system of the <code>storms</code> object (you can extract
+a CRS from a sf object with <code>st_crs(storms)</code></li>
+<li>Rename the <code>NAME</code> column in the state data to
+<code>state</code> to avoid confusion with storm name using
+<code>select(state=NAME)</code></li>
+<li>Perform a spatial join between the storm database and the states
+object with: <code>storm_states &lt;- st_join(storms, states,</code>
+<code>join = st_intersects,left = F)</code>. This will ’add` the state
+to any storm that was recorded within that state.</li>
+<li>Use <code>group_by(state)</code> to group the next step by US
+state</li>
+<li>use <code>summarize(storms=length(unique(NAME)))</code> to count how
+many unique storms occurred in each state.</li>
+<li>use <code>arrange(desc(storms))</code> to sort by the number of
+storms in each state</li>
 <li>use <code>slice(1:5)</code> to keep only the top 5 states ```</li>
 </ul></li>
 </ol>
@@ -535,10 +576,13 @@ Show Hints
 Extra time? Try this…
 </button>
 <div id="extras" class="collapse">
-<p>Try to replicate the following graphic using the data you transformed above.</p>
-<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the `.groups` argument.</code></pre>
+<p>Try to replicate the following graphic using the data you transformed
+above.</p>
+<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the
+## `.groups` argument.</code></pre>
 <p><img src="CS_09_files/figure-html/unnamed-chunk-6-1.png" width="3000" /></p>
-<p>Can you sort the rows (states) in order of storm frequency (instead of alphabetical)?</p>
+<p>Can you sort the rows (states) in order of storm frequency (instead
+of alphabetical)?</p>
 </div>
 </div>
 </div>

@@ -49,6 +49,9 @@ dataurl="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/
 #' This url points to a CSV file with monthly mean temperatures from the GISS dataset.  You can [check out the file here](`r dataurl`).  Now use `read_table()` to download and import the table directly from the website (cool, huh!?).
 #' 
 ## ---- message=F, eval=T-------------------------------------------------------
+#the next line tells the NASA site to create the temporary file
+httr::GET("https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&ds=14&dt=1")
+# the next lines download the data
 temp=read_table(dataurl,
               skip=3, #skip the first line which has column names
               na="999.90", # tell R that 999.90 means missing in this dataset

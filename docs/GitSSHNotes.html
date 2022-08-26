@@ -13,7 +13,7 @@
 
 <title>Git and GitHub</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -393,57 +397,98 @@ div.tocify {
 
 <div id="version-control" class="section level1">
 <h1>Version control</h1>
-<p>For a more detailed description of using version control in RStudio, see <a href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">this link</a>. The important parts are summarized below.</p>
+<p>For a more detailed description of using version control in RStudio,
+see <a
+href="https://support.rstudio.com/hc/en-us/articles/200532077-Version-Control-with-Git-and-SVN">this
+link</a>. The important parts are summarized below.</p>
 <div id="installing-git" class="section level2">
 <h2>Installing Git</h2>
-<p>Before you can use Git with RStudio, you must install Git on your system:</p>
+<p>Before you can use Git with RStudio, you must install Git on your
+system:</p>
 <ul>
-<li>Windows &amp; OS X: <a href="http://git-scm.com/downloads">http://git-scm.com/downloads</a>
+<li>Windows &amp; OS X: <a
+href="http://git-scm.com/downloads">http://git-scm.com/downloads</a>
 <ul>
-<li>Note: Xcode on OS X may already contain a copy of Git. Check by running <code>which git</code> in your OS X terminal. If it returns a path (e.g. <code>/usr/bin/git</code>), it is already installed.</li>
+<li>Note: Xcode on OS X may already contain a copy of Git. Check by
+running <code>which git</code> in your OS X terminal. If it returns a
+path (e.g. <code>/usr/bin/git</code>), it is already installed.</li>
 </ul></li>
 <li>Debian/Ubuntu: <code>sudo apt-get install git-core</code></li>
 <li>Fedora/RedHat: <code>sudo yum install git-core</code></li>
 </ul>
 </div>
-<div id="creating-a-new-project-based-on-a-remote-git-repository" class="section level2">
+<div id="creating-a-new-project-based-on-a-remote-git-repository"
+class="section level2">
 <h2>Creating a new project based on a remote Git repository</h2>
-<p>If you have an existing remote Git repository (e.g. if you already made one on GitHub) that you want to use as the basis for an RStudio project you should:</p>
+<p>If you have an existing remote Git repository (e.g. if you already
+made one on GitHub) that you want to use as the basis for an RStudio
+project you should:</p>
 <ul>
 <li>In RStudio, Run File -&gt; New Project</li>
 <li>Choose to create a new project from Version Control</li>
 <li>Choose Git</li>
-<li>Provide the repository URL (and other appropriate options) and then click Create Project</li>
+<li>Provide the repository URL (and other appropriate options) and then
+click Create Project</li>
 </ul>
-<p>The remote repository will be cloned into the specified directory and RStudio’s version control features will then be available for that directory.</p>
+<p>The remote repository will be cloned into the specified directory and
+RStudio’s version control features will then be available for that
+directory.</p>
 </div>
-<div id="setting-up-the-ability-to-push-changes-back-to-github-with-ssh" class="section level2">
-<h2>Setting up the ability to <code>push</code> changes back to GitHub with SSH</h2>
-<p>Version control repositories can typically be accessed using a variety of protocols (including http and https). Many repositories can also be accessed using SSH (this is the mode of connection for many hosting services including GitHub and R-Forge).</p>
-<p>While <code>HTTPS</code> is easier to set up when you want to clone a public respository (it essentially just works like a web link), it’s annoying to use it regularly and have to enter your username and password each time you want to <code>push</code> a commit back up.<br />
-In many cases the authentication for an SSH connection is done using public/private RSA key pairs. This type of authentication requires two steps, generating a public/private key pair and then providing the public key to the hosting provider (e.g. GitHub)</p>
-<p>Follow these instructions to set up a SSH connection with GitHub so you can easily <code>push</code> and <code>pull</code> a project.</p>
+<div id="setting-up-the-ability-to-push-changes-back-to-github-with-ssh"
+class="section level2">
+<h2>Setting up the ability to <code>push</code> changes back to GitHub
+with SSH</h2>
+<p>Version control repositories can typically be accessed using a
+variety of protocols (including http and https). Many repositories can
+also be accessed using SSH (this is the mode of connection for many
+hosting services including GitHub and R-Forge).</p>
+<p>While <code>HTTPS</code> is easier to set up when you want to clone a
+public respository (it essentially just works like a web link), it’s
+annoying to use it regularly and have to enter your username and
+password each time you want to <code>push</code> a commit back up.<br />
+In many cases the authentication for an SSH connection is done using
+public/private RSA key pairs. This type of authentication requires two
+steps, generating a public/private key pair and then providing the
+public key to the hosting provider (e.g. GitHub)</p>
+<p>Follow these instructions to set up a SSH connection with GitHub so
+you can easily <code>push</code> and <code>pull</code> a project.</p>
 <div id="generating-a-ssh-key-in-rstudio" class="section level3">
 <h3>Generating a SSH key in Rstudio</h3>
 <p>First open RStudio -&gt; preferences -&gt; Git/SVN</p>
 <p><img src="11_assets/Git01.png" /></p>
-<p>If you do not already have a SSH RSA Key listed, click “Create RSA Key…”</p>
+<p>If you do not already have a SSH RSA Key listed, click “Create RSA
+Key…”</p>
 <p><img src="11_assets/Git01a.png" /></p>
-<p>You can add a passphrase if you want (like a password, it makes the key more secure). If you add one here, you will have to type it each time to push to GitHub. After you have created the RSA Key, you can click “View public key” on the preferences page.</p>
+<p>You can add a passphrase if you want (like a password, it makes the
+key more secure). If you add one here, you will have to type it each
+time to push to GitHub. After you have created the RSA Key, you can
+click “View public key” on the preferences page.</p>
 <p><img src="11_assets/Git02.png" />.</p>
-<p>Copy that text into your clipboard (with cmd-C or ctrl-C) and then go to <a href="GitHub.com">GitHub.com</a>. Click the little account icon in the upper right corner and select “settings”.</p>
+<p>Copy that text into your clipboard (with cmd-C or ctrl-C) and then go
+to <a href="GitHub.com">GitHub.com</a>. Click the little account icon in
+the upper right corner and select “settings”.</p>
 <p><img src="11_assets/Git03.png" /></p>
-<p>And then select the SSH keys tab on the left and then click “Add SSH Key” on the right.</p>
+<p>And then select the SSH keys tab on the left and then click “Add SSH
+Key” on the right.</p>
 <p><img src="11_assets/Git04.png" />.</p>
-<p>In the title box type some description of your current computer (for your own reference) such as “Adam’s Laptop.” In the Key box, paste your public key that you copied from RStudio:</p>
+<p>In the title box type some description of your current computer (for
+your own reference) such as “Adam’s Laptop.” In the Key box, paste your
+public key that you copied from RStudio:</p>
 <p><img src="11_assets/Git05.png" />.</p>
-<p>Once you have added your SSH key to RStudio and Git, you should be able to <code>push</code> and <code>pull</code> to your repositories without a password (unless you created one with your SSH key).</p>
-<p>While Linux and Mac OSX both include SSH as part of the base system, Windows does not. As a result the standard Windows distribution of Git (Msysgit, referenced above) also includes an SSH client.</p>
+<p>Once you have added your SSH key to RStudio and Git, you should be
+able to <code>push</code> and <code>pull</code> to your repositories
+without a password (unless you created one with your SSH key).</p>
+<p>While Linux and Mac OSX both include SSH as part of the base system,
+Windows does not. As a result the standard Windows distribution of Git
+(Msysgit, referenced above) also includes an SSH client.</p>
 </div>
 </div>
 <div id="for-more-information" class="section level2">
 <h2>For more information</h2>
-<p>There is a complete book on Git available on the <a href="http://git-scm.com/book/en/v2">Git website</a>. It includes much more detail than is needed for this class, but it is a good reference.</p>
+<p>There is a complete book on Git available on the <a
+href="http://git-scm.com/book/en/v2">Git website</a>. It includes much
+more detail than is needed for this class, but it is a good
+reference.</p>
 </div>
 </div>
 

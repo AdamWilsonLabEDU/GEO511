@@ -13,7 +13,7 @@
 
 <title>Final Presentation</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -395,8 +399,12 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>Wikipedia pages about <a href="http://en.wikipedia.org/wiki/Lightning_Talk">Lightning talks</a></li>
-<li>Wikipedia pages about <a href="http://en.wikipedia.org/wiki/Ignite_(event)">Ignite Sessions</a></li>
+<li>Wikipedia pages about <a
+href="http://en.wikipedia.org/wiki/Lightning_Talk">Lightning
+talks</a></li>
+<li>Wikipedia pages about <a
+href="http://en.wikipedia.org/wiki/Ignite_(event)">Ignite
+Sessions</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
@@ -404,22 +412,56 @@ div.tocify {
 <ul>
 <li>Commit second (or final) version of final project to GitHub</li>
 <li>Prepare to give your 5 minute presentation</li>
-<li>Present your analysis to your roommates, significant other, etc. and update your presentation based on the feedback</li>
-<li>Get feedback from 2-3 fellow classmates on your presentation and update it based on their feedback</li>
+<li>Present your analysis to your roommates, significant other, etc. and
+update your presentation based on the feedback</li>
+<li>Get feedback from 2-3 fellow classmates on your presentation and
+update it based on their feedback</li>
 <li>Give your 5 minute presentation in class</li>
 </ul>
 <div id="lightning-project-presentation" class="section level3">
 <h3>‘Lightning’ Project Presentation</h3>
-<p>Many conferences and workshops have been moving from the traditional presentation and poster sessions to use alternative mechanisms for disseminating information. Amongst the most popular are the short talk formats including the <a href="http://en.wikipedia.org/wiki/Lightning_Talk">lightning talk</a> and <a href="http://en.wikipedia.org/wiki/Ignite_(event)">ignite Sessions</a>.</p>
-<p><strong>During the last week of class, each student will give a 5 minute overview of their project.</strong> You will open the html version on the screen (no need to make a separate presentation). It’s OK if not all the text will be readable on the screen (as you know the projector is really low resolution). However, you should think about this presentation when designing your project. Good use of headers, figures, and simple tables will make it easier to present!</p>
-<p>It’s important to remember that most of the guidelines for good presentations still apply. You should still make eye contact with the audience, you should still be prepared to stop earlier or handle awkward questions, you should still remember to go to the bathroom beforehand. What the short talk format provides you with is a framework to get down to the essence of what you are trying to say to the audience.</p>
+<p>Many conferences and workshops have been moving from the traditional
+presentation and poster sessions to use alternative mechanisms for
+disseminating information. Amongst the most popular are the short talk
+formats including the <a
+href="http://en.wikipedia.org/wiki/Lightning_Talk">lightning talk</a>
+and <a href="http://en.wikipedia.org/wiki/Ignite_(event)">ignite
+Sessions</a>.</p>
+<p><strong>During the last week of class, each student will give a 5
+minute overview of their project.</strong> You will open the html
+version on the screen (no need to make a separate presentation). It’s OK
+if not all the text will be readable on the screen (as you know the
+projector is really low resolution). However, you should think about
+this presentation when designing your project. Good use of headers,
+figures, and simple tables will make it easier to present!</p>
+<p>It’s important to remember that most of the guidelines for good
+presentations still apply. You should still make eye contact with the
+audience, you should still be prepared to stop earlier or handle awkward
+questions, you should still remember to go to the bathroom beforehand.
+What the short talk format provides you with is a framework to get down
+to the essence of what you are trying to say to the audience.</p>
 <p><strong>Make your point and make it quickly</strong></p>
-<p>You will not be able to cover all the information in your project. Your goal is to get us excited about what you have done.</p>
-<p>You are not there to provide the detail required for them to reproduce your work, you’re there to inspire them to search out your work. Remember they can download and reproduce your project if they want to.</p>
-<p>Practice against a timer. Practice standing up. Five minutes is a really short time when presenting. And yet make sure you go slow and steady and reduce the amount you say rather than rushing to try and cram more in.</p>
+<p>You will not be able to cover all the information in your project.
+Your goal is to get us excited about what you have done.</p>
+<p>You are not there to provide the detail required for them to
+reproduce your work, you’re there to inspire them to search out your
+work. Remember they can download and reproduce your project if they want
+to.</p>
+<p>Practice against a timer. Practice standing up. Five minutes is a
+really short time when presenting. And yet make sure you go slow and
+steady and reduce the amount you say rather than rushing to try and cram
+more in.</p>
 <p><strong>And remember, the audience is on your side!</strong></p>
-<p>In summary, remember that for the presentation, DELIVERY is more important than CONTENT. This doesn’t mean that your content shouldn’t be good, but that it is always better to get across something that sticks in your audience’s mind, than getting them to forget everything you’ve just said.</p>
-<p>Time will be tight for this final day, so please practice so that you will stay within the 5 minute time period. The objectives of this presentation are primarily to share your work with your classmates and hopefully give you more ideas of ways you can use programming (and R) in your research.</p>
+<p>In summary, remember that for the presentation, DELIVERY is more
+important than CONTENT. This doesn’t mean that your content shouldn’t be
+good, but that it is always better to get across something that sticks
+in your audience’s mind, than getting them to forget everything you’ve
+just said.</p>
+<p>Time will be tight for this final day, so please practice so that you
+will stay within the 5 minute time period. The objectives of this
+presentation are primarily to share your work with your classmates and
+hopefully give you more ideas of ways you can use programming (and R) in
+your research.</p>
 </div>
 </div>
 

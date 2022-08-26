@@ -13,7 +13,7 @@
 
 <title>Project Peer Review</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -394,23 +398,29 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>GitHub <a href="https://help.github.com/articles/about-pull-requests/">Pull Requests</a></li>
+<li>GitHub <a
+href="https://help.github.com/articles/about-pull-requests/">Pull
+Requests</a></li>
 <li>Chapter <a href="http://r4ds.had.co.nz">28 in R4DS</a></li>
 </ul>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
-<li>Review at least two other students’ projects and make comments via a <em>pull request</em> in GitHub.</li>
+<li>Review at least two other students’ projects and make comments via a
+<em>pull request</em> in GitHub.</li>
 </ul>
 </div>
 <div id="project-peer-evaluation" class="section level1">
 <h1>Project Peer Evaluation</h1>
-<p>Plan to spend at least 1 hour for each review (2 hours total). The objectives for this assignment are to:</p>
+<p>Plan to spend at least 1 hour for each review (2 hours total). The
+objectives for this assignment are to:</p>
 <ol style="list-style-type: decimal">
 <li>See what other students are doing for their final project</li>
-<li>Understand how to organize code and data to make it easily reproducible (by others or your future self)</li>
-<li>Learn how to provide feedback through the ‘pull request’ mechanism in GitHub.</li>
+<li>Understand how to organize code and data to make it easily
+reproducible (by others or your future self)</li>
+<li>Learn how to provide feedback through the ‘pull request’ mechanism
+in GitHub.</li>
 <li>Provide feedback to help improve other student’s projects</li>
 </ol>
 <div id="instructions" class="section level2">
@@ -418,39 +428,65 @@ div.tocify {
 <div id="selecting-a-project-to-evaluate" class="section level3">
 <h3>Selecting a project to evaluate</h3>
 <ol style="list-style-type: decimal">
-<li>Browse the <a href="https://github.com/geo511-2021?q=project&amp;type=&amp;language=">current drafts of projects here</a>.<br />
+<li>Browse the <a
+href="https://github.com/geo511-2021?q=project&amp;type=&amp;language=">current
+drafts of projects here</a>.<br />
 </li>
-<li>Select two repositories and evaluate them according to the instructions listed in the <a href="TK_11.html">Project First Draft task</a></li>
+<li>Select two repositories and evaluate them according to the
+instructions listed in the <a href="TK_11.html">Project First Draft
+task</a></li>
 </ol>
 <p><img src="project_assets/project_evaluation.png" /></p>
 </div>
 <div id="download-and-reproduce-the-project" class="section level3">
 <h3>Download and reproduce the project</h3>
 <ol style="list-style-type: decimal">
-<li>Explore the final projects in the <a href="https://github.com/geo511-2021?q=project&amp;type=&amp;language=">class repository</a></li>
-<li>Select two projects that do not already have three evaluations (pull requests). For example, in the image above, there are 0 pull requests, so this repository would be available for you to review. If there are already 3 pull requests, select another repository.</li>
+<li>Explore the final projects in the <a
+href="https://github.com/geo511-2021?q=project&amp;type=&amp;language=">class
+repository</a></li>
+<li>Select two projects that do not already have three evaluations (pull
+requests). For example, in the image above, there are 0 pull requests,
+so this repository would be available for you to review. If there are
+already 3 pull requests, select another repository.</li>
 <li>Browse the code (mostly <code>index.Rmd</code>)</li>
-<li>Browse the project website (should be linked in the upper right corner of the repository page on GitHub).</li>
-<li>Evaluate whether the project meets the specifications listed in the <a href="TK_11.html">Project First Draft task</a></li>
+<li>Browse the project website (should be linked in the upper right
+corner of the repository page on GitHub).</li>
+<li>Evaluate whether the project meets the specifications listed in the
+<a href="TK_11.html">Project First Draft task</a></li>
 </ol>
 </div>
-<div id="provide-feedback-and-evaluation-via-pull-request" class="section level3">
+<div id="provide-feedback-and-evaluation-via-pull-request"
+class="section level3">
 <h3>Provide feedback and evaluation via pull request</h3>
-<p>After you browse the project, you will provide feedback via pull request.</p>
-<p>The following video will walk you through the steps of providing feedback via a pull request. <iframe width="560" height="315" src="https://www.youtube.com/embed/wy9EggBhC-M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
+<p>After you browse the project, you will provide feedback via pull
+request.</p>
+<p>The following video will walk you through the steps of providing
+feedback via a pull request.
+<iframe width="560" height="315" src="https://www.youtube.com/embed/wy9EggBhC-M" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></p>
 <ol style="list-style-type: decimal">
-<li>In the “Code” tab of the github page for the project, click on the file you want to provide feedback on (typically this will be <code>index.Rmd</code>)</li>
+<li>In the “Code” tab of the github page for the project, click on the
+file you want to provide feedback on (typically this will be
+<code>index.Rmd</code>)</li>
 <li>Click the pencil icon on the right side to edit the file</li>
 <li>You can make changes or comment on the code
 <ul>
 <li>To make changes, simply edit the text</li>
-<li>To comment, you must still make some sort of change on the lines where you want to cmment. The easiest thing is simply to add a space at the end of the line (as I do in the video above).</li>
+<li>To comment, you must still make some sort of change on the lines
+where you want to cmment. The easiest thing is simply to add a space at
+the end of the line (as I do in the video above).</li>
 </ul></li>
-<li>At the bottom of the file, there is a section called “Commit Changes”, select the button for <strong>Create a new branch for this commit and start a pull request.</strong> and name the new branch <code>project_feedback_githubusername</code></li>
+<li>At the bottom of the file, there is a section called “Commit
+Changes”, select the button for <strong>Create a new branch for this
+commit and start a pull request.</strong> and name the new branch
+<code>project_feedback_githubusername</code></li>
 <li>Click “Propose File change”</li>
-<li>Click on the button “Files Changed #1” near the middle of the next page</li>
-<li>Hover over lines you would like to comment on and click the little blue plus button. Then enter your comment and select “Add single comment”</li>
-<li>Repeat steps 2-6 for any additional files you want to comment on</li>
+<li>Click on the button “Files Changed #1” near the middle of the next
+page</li>
+<li>Hover over lines you would like to comment on and click the little
+blue plus button. Then enter your comment and select “Add single
+comment”</li>
+<li>Repeat steps 2-6 for any additional files you want to comment
+on</li>
 </ol>
 </div>
 </div>

@@ -14,7 +14,7 @@
 
 <title>GDAL and sf</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -64,6 +64,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -88,6 +89,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -313,7 +317,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -332,7 +336,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -353,7 +357,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -397,16 +401,22 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>Chapter <a href="http://r4ds.had.co.nz/workflow-projects.html" target="blank">8 R for Data Science - Projects</a></li>
-<li>RStudio and <a href="https://www.youtube.com/watch?v=E2d91v1Twcc" target="blank">the Git GUI</a></li>
+<li>Chapter <a href="http://r4ds.had.co.nz/workflow-projects.html"
+target="blank">8 R for Data Science - Projects</a></li>
+<li>RStudio and <a href="https://www.youtube.com/watch?v=E2d91v1Twcc"
+target="blank">the Git GUI</a></li>
 </ul>
 <div id="introduction-to-git" class="section level2">
 <h2>Introduction to Git</h2>
-<p>See the presentation associated with this task <a href="presentations/Week03_Git.html">here</a>.</p>
+<p>See the presentation associated with this task <a
+href="presentations/Week03_Git.html">here</a>.</p>
 </div>
 <div id="course-folder-structure" class="section level2">
 <h2>Course Folder Structure</h2>
-<p>For the rest of the course, you should keep your files organzed in a git-managed repository. After syncing your local computer with your class repository, you will have a folder structure similar to the image below.</p>
+<p>For the rest of the course, you should keep your files organzed in a
+git-managed repository. After syncing your local computer with your
+class repository, you will have a folder structure similar to the image
+below.</p>
 <p><img src="img/folderstructure.png" width="400px" /></p>
 </div>
 </div>
@@ -416,7 +426,9 @@ div.tocify {
 <li>Install GDAL</li>
 <li>Install the sf package</li>
 </ul>
-<p><i> <small> Adapted from <a href="https://byuistats.github.io/M335">BYU M335 Data Science Course</a> </small> </i></p>
+<p><i> <small> Adapted from <a
+href="https://byuistats.github.io/M335">BYU M335 Data Science Course</a>
+</small> </i></p>
 </div>
 
 <!-- Google Analytics -->

@@ -13,7 +13,7 @@
 
 <title>Tasklist</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -391,106 +395,155 @@ div.tocify {
 </div>
 
 
-<p>Below are a set of tasks that we will work on in class (either alone or in small groups).</p>
+<p>Below are a set of tasks that we will work on in class (either alone
+or in small groups).</p>
 <hr />
 <div id="cs_01-your-first-script" class="section level2">
 <h2><a href="./CS_01.html">CS_01 : Your first script</a></h2>
-<p>Write a script that reads in data, calculates a statistic, and makes a plot.</p>
-<a class="btn btn-link" href="./CS_01.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i1">Preview Readings &amp; Tasks </button>
+<p>Write a script that reads in data, calculates a statistic, and makes
+a plot.</p>
+<a class="btn btn-link" href="./CS_01.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i1">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i1" class="collapse">
 <div id="readings" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Datacamp’s <a href="https://www.datacamp.com/community/tutorials/make-histogram-basic-r"><em>How to Make a Histogram with Basic R</em></a></li>
-<li>Datacamp’s <a href="https://www.datacamp.com/community/tutorials/make-histogram-ggplot2"><em>How to Make a Histogram with ggplot</em></a></li>
+<li>Datacamp’s <a
+href="https://www.datacamp.com/community/tutorials/make-histogram-basic-r"><em>How
+to Make a Histogram with Basic R</em></a></li>
+<li>Datacamp’s <a
+href="https://www.datacamp.com/community/tutorials/make-histogram-ggplot2"><em>How
+to Make a Histogram with ggplot</em></a></li>
 </ul>
 </div>
 <div id="tasks" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Create a new R script in RStudio (File-&gt;New File-&gt;R Script)</li>
+<li>Create a new R script in RStudio (File-&gt;New File-&gt;R
+Script)</li>
 <li>Save this file somewhere you will find it later</li>
-<li>In your new script, load the iris dataset with <code>data(iris)</code></li>
-<li>Read the help file for the function that calculates the mean (you can run <code>?mean</code> or use the GUI).</li>
-<li>Calculate the mean of the <code>Petal.Length</code> field and save it as an object named <code>petal_length_mean</code></li>
-<li>Plot the distribution of the <code>Petal.Length</code> column as a histogram (<code>?hist</code>)</li>
+<li>In your new script, load the iris dataset with
+<code>data(iris)</code></li>
+<li>Read the help file for the function that calculates the mean (you
+can run <code>?mean</code> or use the GUI).</li>
+<li>Calculate the mean of the <code>Petal.Length</code> field and save
+it as an object named <code>petal_length_mean</code></li>
+<li>Plot the distribution of the <code>Petal.Length</code> column as a
+histogram (<code>?hist</code>)</li>
 <li>Save the script</li>
-<li>Click ‘Source’ in RStudio to run your script from beginning to end</li>
+<li>Click ‘Source’ in RStudio to run your script from beginning to
+end</li>
 </ul>
 </div>
 </div>
 <hr />
 <div id="tk_01-getting-started" class="section level2">
 <h2><a href="./TK_01.html">TK_01 : Getting Started</a></h2>
-<a class="btn btn-link" href="./TK_01.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i2">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_01.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i2">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i2" class="collapse">
 <div id="readings-1" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">1-2 in R4DS</a></li>
+<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">1-2 in
+R4DS</a></li>
 </ul>
 </div>
 <div id="tasks-1" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Read the <a href="Syllabus.html">course syllabus</a> and make sure you understand our class routine and grading</li>
-<li>Install R on your computer <a href="https://cloud.r-project.org" target="blank">from here</a> if you haven’t already installed it.</li>
-<li>Install RStudio Desktop (free version) on your computer <a href="https://www.rstudio.com/products/rstudio/download/" target="blank">from this source</a></li>
-<li>Join the Slack Channel by following the link sent via email (ask if you did not receive this link)</li>
-<li>Join our DataCamp class following the link sent via email. Start working on the first assignment (try to finish by Thursday)</li>
-<li>Create a <a href="https://github.com/join?source=header-home" target="blank">GitHub account</a> and submit your github username to the form sent to your email. This username may follow you for years, use something professional that you will want to share with your future employer.</li>
+<li>Read the <a href="Syllabus.html">course syllabus</a> and make sure
+you understand our class routine and grading</li>
+<li>Install R on your computer <a href="https://cloud.r-project.org"
+target="blank">from here</a> if you haven’t already installed it.</li>
+<li>Install RStudio Desktop (free version) on your computer <a
+href="https://www.rstudio.com/products/rstudio/download/"
+target="blank">from this source</a></li>
+<li>Join the Slack Channel by following the link sent via email (ask if
+you did not receive this link)</li>
+<li>Join our DataCamp class following the link sent via email. Start
+working on the first assignment (try to finish by Thursday)</li>
+<li>Create a <a href="https://github.com/join?source=header-home"
+target="blank">GitHub account</a> and submit your github username to the
+form sent to your email. This username may follow you for years, use
+something professional that you will want to share with your future
+employer.</li>
 </ul>
 </div>
 </div>
 <hr />
-<div id="cs_02-my-grandfather-says-summers-are-getting-hotter" class="section level2">
-<h2><a href="./CS_02.html">CS_02 : My grandfather says summers are getting hotter</a></h2>
+<div id="cs_02-my-grandfather-says-summers-are-getting-hotter"
+class="section level2">
+<h2><a href="./CS_02.html">CS_02 : My grandfather says summers are
+getting hotter</a></h2>
 <p>Import data and plot a timeseries</p>
-<a class="btn btn-link" href="./CS_02.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i3">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_02.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i3">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i3" class="collapse">
 <div id="readings-2" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>The <a href="https://ggplot2.tidyverse.org/">ggplot2 vignette</a></li>
+<li>The <a href="https://ggplot2.tidyverse.org/">ggplot2
+vignette</a></li>
 </ul>
 </div>
 <div id="tasks-2" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Create a new R script in RStudio</li>
-<li>Load data from a comma-separated-values formatted text file hosted on a website</li>
-<li>Graph the annual mean temperature in June, July and August (<code>JJA</code>) using ggplot</li>
+<li>Load data from a comma-separated-values formatted text file hosted
+on a website</li>
+<li>Graph the annual mean temperature in June, July and August
+(<code>JJA</code>) using ggplot</li>
 <li>Add a smooth line with <code>geom_smooth()</code></li>
-<li>Add informative axis labels using <code>xlab()</code> and <code>ylab()</code> including <a href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">units</a></li>
+<li>Add informative axis labels using <code>xlab()</code> and
+<code>ylab()</code> including <a
+href="https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1">units</a></li>
 <li>Add a graph title with <code>ggtitle()</code></li>
-<li>Save a graphic to a png file using <code>png()</code> and <code>dev.off()</code> OR <a href="https://ggplot2.tidyverse.org/reference/ggsave.html"><code>ggsave</code></a></li>
+<li>Save a graphic to a png file using <code>png()</code> and
+<code>dev.off()</code> OR <a
+href="https://ggplot2.tidyverse.org/reference/ggsave.html"><code>ggsave</code></a></li>
 <li>Save the script</li>
-<li>Click ‘Source’ in RStudio to run the script from beginning to end to re-run the entire process</li>
+<li>Click ‘Source’ in RStudio to run the script from beginning to end to
+re-run the entire process</li>
 </ul>
 </div>
 </div>
 <hr />
-<div id="tk_02-graphics-background-and-getting-started-with-rstudio" class="section level2">
-<h2><a href="./TK_02.html">TK_02 : Graphics Background and Getting started with RStudio</a></h2>
-<a class="btn btn-link" href="./TK_02.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i4">Preview Readings &amp; Tasks </button>
+<div id="tk_02-graphics-background-and-getting-started-with-rstudio"
+class="section level2">
+<h2><a href="./TK_02.html">TK_02 : Graphics Background and Getting
+started with RStudio</a></h2>
+<a class="btn btn-link" href="./TK_02.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i4">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i4" class="collapse">
 <div id="readings-3" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="http://r4ds.had.co.nz">3 in R4DS</a></li>
-<li>Chapter <a href="http://r4ds.had.co.nz/workflow-projects.html" target="blank">8 R for Data Science - Projects</a></li>
+<li>Chapter <a href="http://r4ds.had.co.nz/workflow-projects.html"
+target="blank">8 R for Data Science - Projects</a></li>
 </ul>
 </div>
 <div id="tasks-3" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Watch <a href="https://youtu.be/fSgEeI2Xpdc" target="blank">John Rauser Talk</a></li>
-<li>Watch <a href="https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/">Programming - Part 1 (Writing code in RStudio)</a></li>
-<li>Watch <a href="https://rstudio.com/resources/webinars/managing-part-1-projects-in-rstudio/">Managing - Part 1 (Projects in RStudio)</a></li>
+<li>Watch <a href="https://youtu.be/fSgEeI2Xpdc" target="blank">John
+Rauser Talk</a></li>
+<li>Watch <a
+href="https://rstudio.com/resources/webinars/programming-part-1-writing-code-in-rstudio/">Programming
+- Part 1 (Writing code in RStudio)</a></li>
+<li>Watch <a
+href="https://rstudio.com/resources/webinars/managing-part-1-projects-in-rstudio/">Managing
+- Part 1 (Projects in RStudio)</a></li>
 </ul>
 </div>
 </div>
@@ -498,22 +551,30 @@ div.tocify {
 <div id="cs_03-wealth-over-time" class="section level2">
 <h2><a href="./CS_03.html">CS_03 : Wealth over time</a></h2>
 <p>Data wrangling plus more advanced ggplot</p>
-<a class="btn btn-link" href="./CS_03.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i5">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_03.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i5">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i5" class="collapse">
 <div id="readings-4" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>The <a href="https://ggplot2.tidyverse.org/" target="blank">ggplot2 vignette</a></li>
-<li>R4DS <a href="http://r4ds.had.co.nz/data-visualisation.html" target="blank">Chapter 3 - Data visualization</a></li>
-<li>The <a href="https://youtu.be/OwII-dwh-bk" target="blank">Hans Rosling The River of Myths</a></li>
-<li>Watch the <a href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen" target="blank">Hons Rosling video</a></li>
+<li>The <a href="https://ggplot2.tidyverse.org/" target="blank">ggplot2
+vignette</a></li>
+<li>R4DS <a href="http://r4ds.had.co.nz/data-visualisation.html"
+target="blank">Chapter 3 - Data visualization</a></li>
+<li>The <a href="https://youtu.be/OwII-dwh-bk" target="blank">Hans
+Rosling The River of Myths</a></li>
+<li>Watch the <a
+href="https://www.ted.com/talks/hans_rosling_shows_the_best_stats_you_ve_ever_seen"
+target="blank">Hons Rosling video</a></li>
 </ul>
 </div>
 <div id="tasks-4" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Recreate layered graphics with ggplot including raw and transformed data</li>
+<li>Recreate layered graphics with ggplot including raw and transformed
+data</li>
 <li>Save graphical output as a .png file</li>
 <li>Save your script as a .R or .Rmd in your course repository</li>
 </ul>
@@ -523,55 +584,83 @@ div.tocify {
 <div id="tk_03-git-repository" class="section level2">
 <h2><a href="./TK_03.html">TK_03 : Git Repository</a></h2>
 <p>Start using Github to manage course materials</p>
-<a class="btn btn-link" href="./TK_03.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i6">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_03.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i6">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i6" class="collapse">
 <div id="readings-5" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">4-5 in R4DS</a></li>
-<li>Chapters <a href="https://happygitwithr.com/install-intro.html" target="blank">4-10 in Happy Git and Github for the useR - Installation</a></li>
-<li>Chapters <a href="http://happygitwithr.com" target="blank">13-15 in Happy Git and Github for the useR - Installation</a></li>
+<li>Chapters <a href="http://r4ds.had.co.nz" target="blank">4-5 in
+R4DS</a></li>
+<li>Chapters <a href="https://happygitwithr.com/install-intro.html"
+target="blank">4-10 in Happy Git and Github for the useR -
+Installation</a></li>
+<li>Chapters <a href="http://happygitwithr.com" target="blank">13-15 in
+Happy Git and Github for the useR - Installation</a></li>
 </ul>
 </div>
 <div id="tasks-5" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Watch <a href="https://www.youtube.com/watch?v=E2d91v1Twcc" target="blank">the Git GUI</a></li>
-<li>Install <a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git on your computer</a></li>
+<li>Watch <a href="https://www.youtube.com/watch?v=E2d91v1Twcc"
+target="blank">the Git GUI</a></li>
+<li>Install <a
+href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">git
+on your computer</a></li>
 <li>Configure Git</li>
-<li>Make sure git works in R-Studio (do you see the Git tab in the upper right?)</li>
-<li>Optionally sign up for the <a href="https://education.github.com/pack">GitHub Education pack</a></li>
-<li>Click on <a href="https://classroom.github.com/a/8LE9CtTz">this link to access the course repository</a></li>
-<li>Set up <a href="https://happygitwithr.com/credential-caching.html#gitcreds-package">it credentials following this</a></li>
-<li>Create a new project in Rstudio and connect it to the new repository in GitHub. Helpful instructions are <a href="http://happygitwithr.com/rstudio-git-github.html#clone-the-new-github-repository-to-your-computer-via-rstudio">here</a></li>
-<li>Make some change. For example, you could edit the README.md file in your repository to include a brief description of the repository (e.g. “Coursework for Spatial Data Science”).</li>
-<li>Stage and Commit your changes to Git (using the git tab in the upper right of RStudio)</li>
-<li>Introduce yourself to git following <a href="https://happygitwithr.com/hello-git.html">these instructions</a></li>
+<li>Make sure git works in R-Studio (do you see the Git tab in the upper
+right?)</li>
+<li>Optionally sign up for the <a
+href="https://education.github.com/pack">GitHub Education pack</a></li>
+<li>Click on <a href="https://classroom.github.com/a/8LE9CtTz">this link
+to access the course repository</a></li>
+<li>Set up <a
+href="https://happygitwithr.com/credential-caching.html#gitcreds-package">it
+credentials following this</a></li>
+<li>Create a new project in Rstudio and connect it to the new repository
+in GitHub. Helpful instructions are <a
+href="http://happygitwithr.com/rstudio-git-github.html#clone-the-new-github-repository-to-your-computer-via-rstudio">here</a></li>
+<li>Make some change. For example, you could edit the README.md file in
+your repository to include a brief description of the repository
+(e.g. “Coursework for Spatial Data Science”).</li>
+<li>Stage and Commit your changes to Git (using the git tab in the upper
+right of RStudio)</li>
+<li>Introduce yourself to git following <a
+href="https://happygitwithr.com/hello-git.html">these
+instructions</a></li>
 <li>Push the repository up to GitHub</li>
 <li>Confirm that the changes are visible on your github webpage</li>
-<li>Copy the contents of your scripts from previous weeks into the appropriate file (but don’t edit the file name!)</li>
+<li>Copy the contents of your scripts from previous weeks into the
+appropriate file (but don’t edit the file name!)</li>
 </ul>
 </div>
 </div>
 <hr />
-<div id="cs_04-farthest-airport-from-new-york-city" class="section level2">
-<h2><a href="./CS_04.html">CS_04 : Farthest airport from New York City</a></h2>
+<div id="cs_04-farthest-airport-from-new-york-city"
+class="section level2">
+<h2><a href="./CS_04.html">CS_04 : Farthest airport from New York
+City</a></h2>
 <p>Joining Relational Data</p>
-<a class="btn btn-link" href="./CS_04.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i7">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_04.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i7">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i7" class="collapse">
 <div id="readings-6" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>R4DS <a href="http://r4ds.had.co.nz/relational-data.html" target="blank">Chapter 13 - Relational Data</a></li>
+<li>R4DS <a href="http://r4ds.had.co.nz/relational-data.html"
+target="blank">Chapter 13 - Relational Data</a></li>
 </ul>
 </div>
 <div id="tasks-6" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Join two datasets using a common column</li>
-<li>Answer a question that requires understanding how multiple tables are related</li>
+<li>Answer a question that requires understanding how multiple tables
+are related</li>
 <li>Save your script as a .R or .Rmd in your course repository</li>
 </ul>
 </div>
@@ -580,7 +669,9 @@ div.tocify {
 <div id="tk_04-data-wrangling-2" class="section level2">
 <h2><a href="./TK_04.html">TK_04 : Data Wrangling 2</a></h2>
 <p>Joining data</p>
-<a class="btn btn-link" href="./TK_04.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i8">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_04.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i8">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i8" class="collapse">
 <div id="readings-7" class="section level2">
@@ -592,9 +683,12 @@ div.tocify {
 <div id="tasks-7" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Confirm that all tasks and case studies you have completed have been committed in your course repository and pushed to Github.</li>
-<li>Look ahead at Task 6 (Project Proposal) and start thinking about possibilities</li>
-<li>Post at least one rough project idea (with links, etc.) to Slack in the Projects Channel.</li>
+<li>Confirm that all tasks and case studies you have completed have been
+committed in your course repository and pushed to Github.</li>
+<li>Look ahead at Task 6 (Project Proposal) and start thinking about
+possibilities</li>
+<li>Post at least one rough project idea (with links, etc.) to Slack in
+the Projects Channel.</li>
 </ul>
 </div>
 </div>
@@ -602,21 +696,26 @@ div.tocify {
 <div id="cs_05-beware-the-canadians" class="section level2">
 <h2><a href="./CS_05.html">CS_05 : Beware the Canadians!</a></h2>
 <p>Working with Spatial Data and the sf package</p>
-<a class="btn btn-link" href="./CS_05.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i9">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_05.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i9">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i9" class="collapse">
 <div id="readings-8" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>The <a href="https://r-spatial.github.io/sf/" target="blank">Spatial Features Package (sf)</a></li>
+<li>The <a href="https://r-spatial.github.io/sf/" target="blank">Spatial
+Features Package (sf)</a></li>
 </ul>
 </div>
 <div id="tasks-8" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Reproject spatial data using <code>st_transform()</code></li>
-<li>Perform spatial operations on spatial data (e.g. intersection and buffering)</li>
-<li>Generate a polygon that includes all land in NY that is within 10km of the Canadian border and calculate the area</li>
+<li>Perform spatial operations on spatial data (e.g. intersection and
+buffering)</li>
+<li>Generate a polygon that includes all land in NY that is within 10km
+of the Canadian border and calculate the area</li>
 <li>Save your script as a .R or .Rmd in your course repository</li>
 </ul>
 </div>
@@ -624,14 +723,18 @@ div.tocify {
 <hr />
 <div id="tk_05-spatial-vector-data" class="section level2">
 <h2><a href="./TK_05.html">TK_05 : Spatial Vector Data</a></h2>
-<p>Vector data processing. Integrating ‘traditional GIS’ analyses with statistical modelling. Data intersection, overlays, zonal statistics</p>
-<a class="btn btn-link" href="./TK_05.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i10">Preview Readings &amp; Tasks </button>
+<p>Vector data processing. Integrating ‘traditional GIS’ analyses with
+statistical modelling. Data intersection, overlays, zonal statistics</p>
+<a class="btn btn-link" href="./TK_05.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i10">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i10" class="collapse">
 <div id="readings-9" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Chapters <a href="https://geocompr.robinlovelace.net/">1-2 in GCR</a></li>
+<li>Chapters <a href="https://geocompr.robinlovelace.net/">1-2 in
+GCR</a></li>
 </ul>
 </div>
 <div id="tasks-9" class="section level2">
@@ -642,22 +745,30 @@ div.tocify {
 </div>
 </div>
 <hr />
-<div id="cs_06-find-hottest-country-on-each-continent" class="section level2">
-<h2><a href="./CS_06.html">CS_06 : Find hottest country on each continent</a></h2>
-<p>Use sf and raster to quantify maximum temperature for each country and then identify the hottest one on each continent.</p>
-<a class="btn btn-link" href="./CS_06.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i11">Preview Readings &amp; Tasks </button>
+<div id="cs_06-find-hottest-country-on-each-continent"
+class="section level2">
+<h2><a href="./CS_06.html">CS_06 : Find hottest country on each
+continent</a></h2>
+<p>Use sf and raster to quantify maximum temperature for each country
+and then identify the hottest one on each continent.</p>
+<a class="btn btn-link" href="./CS_06.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i11">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i11" class="collapse">
 <div id="readings-10" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Raster Vector Interactions <a href="https://geocompr.robinlovelace.net/geometric-operations.html#raster-vector" target="blank">GCR</a></li>
+<li>Raster Vector Interactions <a
+href="https://geocompr.robinlovelace.net/geometric-operations.html#raster-vector"
+target="blank">GCR</a></li>
 </ul>
 </div>
 <div id="tasks-10" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Calculate annual maximum temperatures from a monthly spatio-temporal dataset</li>
+<li>Calculate annual maximum temperatures from a monthly spatio-temporal
+dataset</li>
 <li>Remove Antarctica from the <code>world</code> dataset</li>
 <li>Summarize raster values within polygons</li>
 <li>Generate a summary figure and table.</li>
@@ -669,13 +780,16 @@ div.tocify {
 <div id="tk_06-spatial-raster-data" class="section level2">
 <h2><a href="./TK_06.html">TK_06 : Spatial Raster Data</a></h2>
 <p>Gridded spatial data</p>
-<a class="btn btn-link" href="./TK_06.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i12">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_06.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i12">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i12" class="collapse">
 <div id="readings-11" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Chapters <a href="https://geocompr.robinlovelace.net/">3-4 in GCR</a></li>
+<li>Chapters <a href="https://geocompr.robinlovelace.net/">3-4 in
+GCR</a></li>
 </ul>
 </div>
 <div id="tasks-11" class="section level2">
@@ -689,14 +803,18 @@ div.tocify {
 <div id="cs_07-getting-help" class="section level2">
 <h2><a href="./CS_07.html">CS_07 : Getting Help!</a></h2>
 <p>Learning more about finding help</p>
-<a class="btn btn-link" href="./CS_07.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i13">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_07.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i13">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i13" class="collapse">
 <div id="readings-12" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>How to <a href="http://adv-r.had.co.nz/Reproducibility.html">write a reproducible example</a></li>
-<li>Using <a href="https://reprex.tidyverse.org/">Reprex package</a></li>
+<li>How to <a href="http://adv-r.had.co.nz/Reproducibility.html">write a
+reproducible example</a></li>
+<li>Using <a href="https://reprex.tidyverse.org/">Reprex
+package</a></li>
 </ul>
 </div>
 <div id="tasks-12" class="section level2">
@@ -714,13 +832,16 @@ div.tocify {
 <hr />
 <div id="tk_07-project-proposal" class="section level2">
 <h2><a href="./TK_07.html">TK_07 : Project Proposal</a></h2>
-<a class="btn btn-link" href="./TK_07.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i14">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_07.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i14">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i14" class="collapse">
 <div id="readings-13" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Chapters <a href="https://geocompr.robinlovelace.net/">3-4 in GCR</a></li>
+<li>Chapters <a href="https://geocompr.robinlovelace.net/">3-4 in
+GCR</a></li>
 </ul>
 </div>
 <div id="tasks-13" class="section level2">
@@ -729,44 +850,58 @@ div.tocify {
 <li>Write your project proposal in a .Rmd file</li>
 <li>Compile the .Rmd to .md using the “Knit” button</li>
 <li>Push both the .Rmd and .md to Github</li>
-<li>Post links to your project proposal .md file in the Projects Channel on Slack.</li>
+<li>Post links to your project proposal .md file in the Projects Channel
+on Slack.</li>
 </ul>
 </div>
 </div>
 <hr />
 <div id="cs_08-one-script-many-products" class="section level2">
 <h2><a href="./CS_08.html">CS_08 : One Script, Many Products</a></h2>
-<p>RMarkdown to create dynamic research outputs. Publishing to github/word/html/etc</p>
-<a class="btn btn-link" href="./CS_08.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i15">Preview Readings &amp; Tasks </button>
+<p>RMarkdown to create dynamic research outputs. Publishing to
+github/word/html/etc</p>
+<a class="btn btn-link" href="./CS_08.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i15">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i15" class="collapse">
 <div id="readings-14" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Browse website about <a href="https://rmarkdown.rstudio.com/index.html">RMarkdown</a></li>
-<li>Browse <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown, the Definitive Guide</a></li>
+<li>Browse website about <a
+href="https://rmarkdown.rstudio.com/index.html">RMarkdown</a></li>
+<li>Browse <a href="https://bookdown.org/yihui/rmarkdown/">R Markdown,
+the Definitive Guide</a></li>
 </ul>
 </div>
 <div id="tasks-14" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Build a RMarkdown document that downloads a dataset, produces one graph and one table, and exports to four different formats (HTML, GitHub Markdown, Word, Powerpoint).</li>
+<li>Build a RMarkdown document that downloads a dataset, produces one
+graph and one table, and exports to four different formats (HTML, GitHub
+Markdown, Word, Powerpoint).</li>
 </ul>
 </div>
 </div>
 <hr />
 <div id="tk_08-create-final-project-webpage" class="section level2">
 <h2><a href="./TK_08.html">TK_08 : Create Final Project Webpage</a></h2>
-<p>Data I/O. RMarkdown to create dynamic research outputs. Publishing to github/word/html/etc</p>
-<a class="btn btn-link" href="./TK_08.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i16">Preview Readings &amp; Tasks </button>
+<p>Data I/O. RMarkdown to create dynamic research outputs. Publishing to
+github/word/html/etc</p>
+<a class="btn btn-link" href="./TK_08.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i16">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i16" class="collapse">
 <div id="readings-15" class="section level2">
 <h2>Readings</h2>
 <ul>
 <li>Chapters <a href="http://r4ds.had.co.nz">11, 26-30 in R4DS</a></li>
-<li>Browse website about <a href="https://rmarkdown.rstudio.com/index.html">RMarkdown</a></li>
-<li>Browse details about creating <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown Websites</a></li>
+<li>Browse website about <a
+href="https://rmarkdown.rstudio.com/index.html">RMarkdown</a></li>
+<li>Browse details about creating <a
+href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown
+Websites</a></li>
 </ul>
 </div>
 <div id="tasks-15" class="section level2">
@@ -783,37 +918,53 @@ div.tocify {
 <div id="cs_09-tracking-hurricanes" class="section level2">
 <h2><a href="./CS_09.html">CS_09 : Tracking Hurricanes!</a></h2>
 <p>Analyze historical storm data from NOAA</p>
-<a class="btn btn-link" href="./CS_09.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i17">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_09.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i17">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i17" class="collapse">
 <div id="readings-16" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Overview of the <a href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data-access">International Best Track Archive for Climate Stewardship (IBTrACS)</a></li>
-<li>Performing <a href="https://r-spatial.github.io/sf/reference/st_join.html">Spatial Joins with sf</a></li>
+<li>Overview of the <a
+href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data-access">International
+Best Track Archive for Climate Stewardship (IBTrACS)</a></li>
+<li>Performing <a
+href="https://r-spatial.github.io/sf/reference/st_join.html">Spatial
+Joins with sf</a></li>
 </ul>
 </div>
 <div id="tasks-16" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Write a .Rmd script to perform the following tasks</li>
-<li>Intersect the storms with US states to quantify how many storms in the database have hit each state.</li>
+<li>Intersect the storms with US states to quantify how many storms in
+the database have hit each state.</li>
 </ul>
 </div>
 </div>
 <hr />
-<div id="tk_09-apis-time-series-and-weather-data" class="section level2">
-<h2><a href="./TK_09.html">TK_09 : APIs, time-series, and weather Data</a></h2>
+<div id="tk_09-apis-time-series-and-weather-data"
+class="section level2">
+<h2><a href="./TK_09.html">TK_09 : APIs, time-series, and weather
+Data</a></h2>
 <p>Processing daily weather data from NOAA</p>
-<a class="btn btn-link" href="./TK_09.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i18">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_09.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i18">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i18" class="collapse">
 <div id="readings-17" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Overview of the <a href="https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn">GHCN Dataset</a></li>
-<li>Overview of <a href="https://tclavelle.github.io/blog/r_and_apis/">R and APIs</a></li>
-<li>Optional DataCamp course <a href="https://www.datacamp.com/courses/working-with-web-data-in-r">Working with Web Data in R</a></li>
+<li>Overview of the <a
+href="https://www.ncdc.noaa.gov/data-access/land-based-station-data/land-based-datasets/global-historical-climatology-network-ghcn">GHCN
+Dataset</a></li>
+<li>Overview of <a href="https://tclavelle.github.io/blog/r_and_apis/">R
+and APIs</a></li>
+<li>Optional DataCamp course <a
+href="https://www.datacamp.com/courses/working-with-web-data-in-r">Working
+with Web Data in R</a></li>
 </ul>
 </div>
 <div id="tasks-17" class="section level2">
@@ -827,7 +978,9 @@ div.tocify {
 <div id="cs_10-satellite-remote-sensing" class="section level2">
 <h2><a href="./CS_10.html">CS_10 : Satellite Remote Sensing</a></h2>
 <p>Analyze Satellite Data</p>
-<a class="btn btn-link" href="./CS_10.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i19">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_10.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i19">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i19" class="collapse">
 <div id="readings-18" class="section level2">
@@ -836,8 +989,10 @@ div.tocify {
 <div id="tasks-18" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Extract a timeseries from a single location in a netcdf file (part 1)</li>
-<li>Calculate a monthly climatology from a weekely timeseries (part 2)</li>
+<li>Extract a timeseries from a single location in a netcdf file (part
+1)</li>
+<li>Calculate a monthly climatology from a weekely timeseries (part
+2)</li>
 <li>Summarize Land Surface Temperature by Land Cover (part 3)</li>
 </ul>
 </div>
@@ -846,7 +1001,9 @@ div.tocify {
 <div id="tk_10-remote-sensing" class="section level2">
 <h2><a href="./TK_10.html">TK_10 : Remote Sensing</a></h2>
 <p>Processing MODIS data from NASA</p>
-<a class="btn btn-link" href="./TK_10.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i20">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_10.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i20">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i20" class="collapse">
 <div id="readings-19" class="section level2">
@@ -858,17 +1015,23 @@ div.tocify {
 <div id="tasks-19" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Look through this week’s case study <a href="CS_10.html">processing MODIS RS data</a></li>
-<li>Take notes on interesting or useful things you learned in your course repository.</li>
+<li>Look through this week’s case study <a href="CS_10.html">processing
+MODIS RS data</a></li>
+<li>Take notes on interesting or useful things you learned in your
+course repository.</li>
 <li>Keep working on your project!</li>
 </ul>
 </div>
 </div>
 <hr />
-<div id="cs_11_solution-parallel-computing-with-r" class="section level2">
-<h2><a href="./CS_11_Solution.html">CS_11_Solution : Parallel Computing with R</a></h2>
+<div id="cs_11_solution-parallel-computing-with-r"
+class="section level2">
+<h2><a href="./CS_11_Solution.html">CS_11_Solution : Parallel Computing
+with R</a></h2>
 <p>Write a parallel for loop</p>
-<a class="btn btn-link" href="./CS_11_Solution.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i21">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_11_Solution.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i21">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i21" class="collapse">
 <div id="readings-20" class="section level2">
@@ -882,22 +1045,30 @@ div.tocify {
 <div id="cs_11-parallel-computing-with-r" class="section level2">
 <h2><a href="./CS_11.html">CS_11 : Parallel Computing with R</a></h2>
 <p>Write a parallel for loop</p>
-<a class="btn btn-link" href="./CS_11.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i22">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_11.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i22">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i22" class="collapse">
 <div id="readings-21" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Parallel <a href="https://link.springer.com/chapter/10.1007/978-3-642-13872-0_64">Computing with the R Language in a Supercomputing Environment</a></li>
-<li>CRAN Task View <a href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">High Performance and Parallel Computing with R</a></li>
+<li>Parallel <a
+href="https://link.springer.com/chapter/10.1007/978-3-642-13872-0_64">Computing
+with the R Language in a Supercomputing Environment</a></li>
+<li>CRAN Task View <a
+href="http://cran.r-project.org/web/views/HighPerformanceComputing.html">High
+Performance and Parallel Computing with R</a></li>
 </ul>
 </div>
 <div id="tasks-21" class="section level2">
 <h2>Tasks</h2>
 <ul>
 <li>Download spatial data from the U.S. Census</li>
-<li>Write a parallel <code>foreach()</code> loop to generate a point representing each person in each census polygon (block/tract)</li>
-<li>Set the output of the <code>foreach()</code> funtion to return a spatial (<code>sf</code>) object</li>
+<li>Write a parallel <code>foreach()</code> loop to generate a point
+representing each person in each census polygon (block/tract)</li>
+<li>Set the output of the <code>foreach()</code> funtion to return a
+spatial (<code>sf</code>) object</li>
 <li>Make a ‘dot map’ of the racial distribution in Buffalo, NY.</li>
 </ul>
 </div>
@@ -906,13 +1077,17 @@ div.tocify {
 <div id="tk_11-project-first-draft" class="section level2">
 <h2><a href="./TK_11.html">TK_11 : Project First Draft</a></h2>
 <p>Submit the first draft of your project for peer review</p>
-<a class="btn btn-link" href="./TK_11.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i23">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_11.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i23">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i23" class="collapse">
 <div id="readings-22" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Documentation for <a href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown Websites</a></li>
+<li>Documentation for <a
+href="https://rmarkdown.rstudio.com/rmarkdown_websites.htm">RMarkdown
+Websites</a></li>
 </ul>
 </div>
 <div id="tasks-22" class="section level2">
@@ -923,17 +1098,24 @@ div.tocify {
 </div>
 </div>
 <hr />
-<div id="cs_12-dynamic-html-graph-of-daily-temperatures" class="section level2">
-<h2><a href="./CS_12.html">CS_12 : Dynamic HTML graph of Daily Temperatures</a></h2>
+<div id="cs_12-dynamic-html-graph-of-daily-temperatures"
+class="section level2">
+<h2><a href="./CS_12.html">CS_12 : Dynamic HTML graph of Daily
+Temperatures</a></h2>
 <p>Using DyGraph library.</p>
-<a class="btn btn-link" href="./CS_12.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i24">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_12.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i24">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i24" class="collapse">
 <div id="readings-23" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Browse the <a href="http://gallery.htmlwidgets.org/">HTML Widgets page</a> for many more examples. Take notes in your readme.md about potential uses in your project.</li>
-<li>Explore the <a href="http://rstudio.github.io/dygraphs/">DyGraphs webpage</a></li>
+<li>Browse the <a href="http://gallery.htmlwidgets.org/">HTML Widgets
+page</a> for many more examples. Take notes in your readme.md about
+potential uses in your project.</li>
+<li>Explore the <a href="http://rstudio.github.io/dygraphs/">DyGraphs
+webpage</a></li>
 </ul>
 </div>
 <div id="tasks-23" class="section level2">
@@ -941,14 +1123,17 @@ div.tocify {
 <ul>
 <li>Download daily weather data for Buffalo, NY using an API</li>
 <li>Generate a dynamic html visualization of the timeseries.</li>
-<li>Save the graph to your project folder using Export-&gt;Save as Webpage</li>
+<li>Save the graph to your project folder using Export-&gt;Save as
+Webpage</li>
 </ul>
 </div>
 </div>
 <hr />
 <div id="cs_15-final-challenge" class="section level2">
 <h2><a href="./CS_15.html">CS_15 : Final Challenge</a></h2>
-<a class="btn btn-link" href="./CS_15.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i25">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./CS_15.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i25">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i25" class="collapse">
 <div id="readings-24" class="section level2">
@@ -961,27 +1146,36 @@ div.tocify {
 <hr />
 <div id="tk_12-project-peer-review" class="section level2">
 <h2><a href="./TK_12.html">TK_12 : Project Peer Review</a></h2>
-<a class="btn btn-link" href="./TK_12.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i26">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_12.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i26">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i26" class="collapse">
 <div id="readings-25" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>GitHub <a href="https://help.github.com/articles/about-pull-requests/">Pull Requests</a></li>
+<li>GitHub <a
+href="https://help.github.com/articles/about-pull-requests/">Pull
+Requests</a></li>
 <li>Chapter <a href="http://r4ds.had.co.nz">28 in R4DS</a></li>
 </ul>
 </div>
 <div id="tasks-25" class="section level2">
 <h2>Tasks</h2>
 <ul>
-<li>Review at least two other students’ projects and make comments via a <em>pull request</em> in GitHub.</li>
+<li>Review at least two other students’ projects and make comments via a
+<em>pull request</em> in GitHub.</li>
 </ul>
 </div>
 </div>
 <hr />
-<div id="tk_13-thanksgiving-week-tuesday-class-optional" class="section level2">
-<h2><a href="./TK_13.html">TK_13 : Thanksgiving Week (Tuesday Class Optional)</a></h2>
-<a class="btn btn-link" href="./TK_13.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i27">Preview Readings &amp; Tasks </button>
+<div id="tk_13-thanksgiving-week-tuesday-class-optional"
+class="section level2">
+<h2><a href="./TK_13.html">TK_13 : Thanksgiving Week (Tuesday Class
+Optional)</a></h2>
+<a class="btn btn-link" href="./TK_13.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i27">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i27" class="collapse">
 <div id="readings-26" class="section level2">
@@ -1000,7 +1194,9 @@ div.tocify {
 <hr />
 <div id="tk_14-project-workshop" class="section level2">
 <h2><a href="./TK_14.html">TK_14 : Project Workshop</a></h2>
-<a class="btn btn-link" href="./TK_14.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i28">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_14.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i28">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i28" class="collapse">
 <div id="readings-27" class="section level2">
@@ -1023,14 +1219,20 @@ div.tocify {
 <div id="tk_15-final-presentation" class="section level2">
 <h2><a href="./TK_15.html">TK_15 : Final Presentation</a></h2>
 <p>Present your project to the class</p>
-<a class="btn btn-link" href="./TK_15.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i29">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_15.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i29">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i29" class="collapse">
 <div id="readings-28" class="section level2">
 <h2>Readings</h2>
 <ul>
-<li>Wikipedia pages about <a href="http://en.wikipedia.org/wiki/Lightning_Talk">Lightning talks</a></li>
-<li>Wikipedia pages about <a href="http://en.wikipedia.org/wiki/Ignite_(event)">Ignite Sessions</a></li>
+<li>Wikipedia pages about <a
+href="http://en.wikipedia.org/wiki/Lightning_Talk">Lightning
+talks</a></li>
+<li>Wikipedia pages about <a
+href="http://en.wikipedia.org/wiki/Ignite_(event)">Ignite
+Sessions</a></li>
 </ul>
 </div>
 <div id="tasks-28" class="section level2">
@@ -1038,8 +1240,10 @@ div.tocify {
 <ul>
 <li>Commit second (or final) version of final project to GitHub</li>
 <li>Prepare to give your 5 minute presentation</li>
-<li>Present your analysis to your roommates, significant other, etc. and update your presentation based on the feedback</li>
-<li>Get feedback from 2-3 fellow classmates on your presentation and update it based on their feedback</li>
+<li>Present your analysis to your roommates, significant other, etc. and
+update your presentation based on the feedback</li>
+<li>Get feedback from 2-3 fellow classmates on your presentation and
+update it based on their feedback</li>
 <li>Give your 5 minute presentation in class</li>
 </ul>
 </div>
@@ -1048,7 +1252,9 @@ div.tocify {
 <div id="tk_16-publish-final-project" class="section level2">
 <h2><a href="./TK_16.html">TK_16 : Publish Final Project</a></h2>
 <p>Commit the final version of your project</p>
-<a class="btn btn-link" href="./TK_16.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i30">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_16.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i30">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i30" class="collapse">
 <div id="readings-29" class="section level2">
@@ -1066,7 +1272,9 @@ div.tocify {
 <div id="tk_17-publish-final-project" class="section level2">
 <h2><a href="./TK_17.html">TK_17 : Publish Final Project</a></h2>
 <p>Commit the final version of your project</p>
-<a class="btn btn-link" href="./TK_17.html" role="button" >Full Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i31">Preview Readings &amp; Tasks </button>
+<a class="btn btn-link" href="./TK_17.html" role="button" >Full
+Description</a><button data-toggle="collapse" class="btn btn-link" data-target="#i31">Preview
+Readings &amp; Tasks </button>
 </div>
 <div id="i31" class="collapse">
 <div id="readings-30" class="section level2">

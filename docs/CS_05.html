@@ -13,7 +13,7 @@
 
 <title>Beware the Canadians!</title>
 
-<script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
 <script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <link href="site_libs/bootstrap-3.3.5/css/cosmo.min.css" rel="stylesheet" />
@@ -63,6 +63,7 @@ if (window.hljs) {
 
 
 
+
 <link rel="stylesheet" href="styles.css" type="text/css" />
 
 
@@ -87,6 +88,9 @@ button.code-folding-btn:focus {
 }
 summary {
   display: list-item;
+}
+details > summary > p:only-child {
+  display: inline;
 }
 pre code {
   padding: 0;
@@ -312,7 +316,7 @@ div.tocify {
 <div class="navbar navbar-inverse  navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-bs-toggle="collapse" data-target="#navbar" data-bs-target="#navbar">
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -331,7 +335,7 @@ div.tocify {
   <a href="Schedule.html">Schedule</a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Assignments
      
     <span class="caret"></span>
@@ -352,7 +356,7 @@ div.tocify {
   </ul>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Resources
      
     <span class="caret"></span>
@@ -395,20 +399,29 @@ div.tocify {
 <div id="reading" class="section level1">
 <h1>Reading</h1>
 <ul>
-<li>The <a href="https://r-spatial.github.io/sf/" target="blank">Spatial Features Package (sf)</a></li>
+<li>The <a href="https://r-spatial.github.io/sf/" target="blank">Spatial
+Features Package (sf)</a></li>
 </ul>
 </div>
 <div id="background" class="section level1">
 <h1>Background</h1>
-<p>Up to this point, we have dealt with data that fits into the tidy format without much effort. Spatial data has many complicating factors that have made handling spatial data in R complicated. Big strides are being made to make spatial data tidy in R.</p>
+<p>Up to this point, we have dealt with data that fits into the tidy
+format without much effort. Spatial data has many complicating factors
+that have made handling spatial data in R complicated. Big strides are
+being made to make spatial data tidy in R.</p>
 </div>
 <div id="objective" class="section level1">
 <h1>Objective</h1>
-<p>You woke up in the middle of the night terrified of the Canadians after a bad dream. You decide you need to set up military bases to defend the Canada-NY border. After you tweet your plans, you realize you have no plan. What will you do next?</p>
+<p>You woke up in the middle of the night terrified of the Canadians
+after a bad dream. You decide you need to set up military bases to
+defend the Canada-NY border. After you tweet your plans, you realize you
+have no plan. What will you do next?</p>
 <blockquote>
 <ol style="list-style-type: decimal">
-<li>Generate a polygon that includes all <em>land</em> in NY that is within 10km of the Canadian border (not including the great lakes).</li>
-<li>Calculate it’s area in km^2. How much land will you need to defend from the Canadians?</li>
+<li>Generate a polygon that includes all <em>land</em> in NY that is
+within 10km of the Canadian border (not including the great lakes).</li>
+<li>Calculate it’s area in km^2. How much land will you need to defend
+from the Canadians?</li>
 </ol>
 </blockquote>
 </div>
@@ -416,11 +429,15 @@ div.tocify {
 <h1>Tasks</h1>
 <ul>
 <li>Reproject spatial data using <code>st_transform()</code></li>
-<li>Perform spatial operations on spatial data (e.g. intersection and buffering)</li>
-<li>Generate a polygon that includes all land in NY that is within 10km of the Canadian border and calculate the area</li>
+<li>Perform spatial operations on spatial data (e.g. intersection and
+buffering)</li>
+<li>Generate a polygon that includes all land in NY that is within 10km
+of the Canadian border and calculate the area</li>
 <li>Save your script as a .R or .Rmd in your course repository</li>
 </ul>
-<p><a href="scripts/CS_05_nocomments.R" target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i> Download starter R script (if desired)</a></p>
+<p><a href="scripts/CS_05_nocomments.R"
+target="_blank"><i class="fa fa-file-code-o fa-1x" aria-hidden="true"></i>
+Download starter R script (if desired)</a></p>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo1">
 Show Hints
@@ -454,29 +471,40 @@ data(us_states)
 <pre class="r"><code>albers=&quot;+proj=aea +lat_1=29.5 +lat_2=45.5 +lat_0=37.5 +lon_0=-96 +x_0=0 +y_0=0 +ellps=GRS80 +datum=NAD83 +units=m +no_defs&quot;</code></pre>
 it easier to use <code>ggplot()</code>
 <ol start="2" style="list-style-type: decimal">
-<li>filter the world dataset to include only <code>name_long=="Canada"</code></li>
+<li>filter the world dataset to include only
+<code>name_long=="Canada"</code></li>
 <li>buffer canada to 10km (10000m)</li>
 </ol></li>
 <li><code>us_states</code> object
 <ol style="list-style-type: decimal">
-<li>transform to the albers equal area projection defined above as <code>albers</code></li>
-<li>filter the <code>us_states</code> dataset to include only <code>NAME == "New York"</code></li>
+<li>transform to the albers equal area projection defined above as
+<code>albers</code></li>
+<li>filter the <code>us_states</code> dataset to include only
+<code>NAME == "New York"</code></li>
 </ol></li>
 <li>Create a ‘border’ object
 <ol style="list-style-type: decimal">
-<li>use <code>st_intersection()</code> to intersect the canada buffer with New York (this will be your final polygon)</li>
-<li>Plot the border area using <code>ggplot()</code> and <code>geom_sf()</code>.</li>
-<li>use <code>st_area()</code> to calculate the area of this polygon.</li>
-<li>Convert the units to km^2. You can use <code>set_units(km^2)</code> (from the <code>units</code> library) or some other method.</li>
+<li>use <code>st_intersection()</code> to intersect the canada buffer
+with New York (this will be your final polygon)</li>
+<li>Plot the border area using <code>ggplot()</code> and
+<code>geom_sf()</code>.</li>
+<li>use <code>st_area()</code> to calculate the area of this
+polygon.</li>
+<li>Convert the units to km^2. You can use <code>set_units(km^2)</code>
+(from the <code>units</code> library) or some other method.</li>
 </ol></li>
-<li>Do not worry about small waterways, etc. Just use the two datasets listed above.</li>
+<li>Do not worry about small waterways, etc. Just use the two datasets
+listed above.</li>
 </ol>
 </div>
 </div>
 </div>
 <p>Your final result should look something like this:</p>
 <p><img src="CS_05_files/figure-html/unnamed-chunk-4-1.png" width="2100" /></p>
-<p>Important note: This is a crude dataset meant simply to illustrate the use of intersections and buffers. The two datasets are not adequate for a highly accurate analysis. Please do not use these data for real military purposes.</p>
+<p>Important note: This is a crude dataset meant simply to illustrate
+the use of intersections and buffers. The two datasets are not adequate
+for a highly accurate analysis. Please do not use these data for real
+military purposes.</p>
 <div class="extraswell">
 <button data-toggle="collapse" class="btn btn-link" data-target="#extras">
 Extra time? Try these extra activities…
