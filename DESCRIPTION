@@ -96,7 +96,8 @@ Imports:
     fontawesome,
     rvest,
     gapminder,
-    nycflights13
+    nycflights13,
+    rnassqs
 Suggests: 
     testthat
 RoxygenNote: 7.1.1

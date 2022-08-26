@@ -36,7 +36,7 @@ We will refer to the following texts (all available online):
 ## Schedule
 
 ```{r table1,results='asis',echo=F}
-cat("| Week | Date | Presentation | Tasks  |  Case Study | [DataCamp](https://www.datacamp.com/enterprise/geo511-fall-2020) | \n")
+cat("| Week | Date | Presentation | Tasks  |  Case Study | [DataCamp](https://app.datacamp.com/groups/2022-geo-511-spatial-data-science/dashboard) | \n")
 cat("|:-|:-|:-:|:---:|:---:|:---:|\n") 
 
 not_na_exists<-function(x){
@@ -141,7 +141,5 @@ wpres2=ifelse(length(wpres)==1,
 
 ## Student Leadership and Presentations
 
-[Click here to edit the table below](https://docs.google.com/spreadsheets/d/1CSUL1l_UTi_vmzqPTjDhDAidkrt1ArNl8yRSD83TGSI/edit?usp=sharing)
-
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&single=true" style="height: 1000px; width: 100%;"></iframe>
+[Click here to edit the table below](https://buffalo.box.com/s/74r8gc4r9j8ly3ncx9kyt2xsxw0uaaiu)
 

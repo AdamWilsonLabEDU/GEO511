@@ -1,0 +1,15 @@
+## Resource Presentations
+
+<iframe
+  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&single=true"
+  width="100%" height="800">
+</iframe>
+[source](https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&single=true)
+
+## Case Study Presentations -  Let's pick a winner!
+
+<iframe
+  src="https://wheelofnames.com/4tc-n5n"
+  width="100%" height="500">
+</iframe>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&single=true" style="height: 800px; width: 100%;"></iframe>

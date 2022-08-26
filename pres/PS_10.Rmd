@@ -19,10 +19,10 @@ getwd()
 library(knitr)
 ```
 
-```{r child = "course_schedule.Rmd"}
+```{r child = "pres/course_schedule.Rmd"}
 ```
 
-```{r child = "resource_case_study.Rmd"}
+```{r child = "pres/resource_case_study.Rmd"}
 ```
 
 
