@@ -2228,10 +2228,9 @@ world %>%
 ## Bounding box:  xmin: 141.0002 ymin: -10.65248 xmax: 156.02 ymax: -2.500002
 ## Geodetic CRS:  WGS 84
 ## # A tibble: 1 × 11
-##   iso_a2 name_long        continent region_un subregion type  area_km2    pop lifeExp gdpPercap
-## * <chr>  <chr>            <chr>     <chr>     <chr>     <chr>    <dbl>  <dbl>   <dbl>     <dbl>
-## 1 PG     Papua New Guinea Oceania   Oceania   Melanesia Sove…  464520. 7.76e6    65.2     3709.
-## # … with 1 more variable: geom <MULTIPOLYGON [°]>
+##   iso_a2 name_long        continent region_un subregion type   area_km2    pop lifeExp gdpPercap                      geom
+## * <chr>  <chr>            <chr>     <chr>     <chr>     <chr>     <dbl>  <dbl>   <dbl>     <dbl>        <MULTIPOLYGON [°]>
+## 1 PG     Papua New Guinea Oceania   Oceania   Melanesia Sover…  464520. 7.76e6    65.2     3709. (((141.0002 -2.600151, 1…
 ```
 
 
@@ -2254,8 +2253,7 @@ world = st_read(vector_filepath)
 ```
 
 ```
-## Reading layer `world' from data source 
-##   `/Users/adamw/Library/R/x86_64/4.2/library/spData/shapes/world.gpkg' using driver `GPKG'
+## Reading layer `world' from data source `/Users/adamw/Library/R/x86_64/4.2/library/spData/shapes/world.gpkg' using driver `GPKG'
 ## Simple feature collection with 177 features and 10 fields
 ## Geometry type: MULTIPOLYGON
 ## Dimension:     XY
@@ -2282,14 +2280,14 @@ world
 ## Bounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513
 ## Geodetic CRS:  WGS 84
 ## First 3 features:
-##   iso_a2      name_long continent region_un       subregion              type  area_km2
-## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97
-## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79
-## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60
-##        pop lifeExp gdpPercap                           geom
-## 1   885806  69.960  8222.254 MULTIPOLYGON (((-180 -16.55...
-## 2 52234869  64.163  2402.099 MULTIPOLYGON (((33.90371 -0...
-## 3       NA      NA        NA MULTIPOLYGON (((-8.66559 27...
+##   iso_a2      name_long continent region_un       subregion              type  area_km2      pop lifeExp gdpPercap
+## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97   885806  69.960  8222.254
+## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79 52234869  64.163  2402.099
+## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60       NA      NA        NA
+##                             geom
+## 1 MULTIPOLYGON (((-180 -16.55...
+## 2 MULTIPOLYGON (((33.90371 -0...
+## 3 MULTIPOLYGON (((-8.66559 27...
 ```
 
 
@@ -2359,14 +2357,14 @@ print(world, n=3)
 ## Bounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513
 ## Geodetic CRS:  WGS 84
 ## First 3 features:
-##   iso_a2      name_long continent region_un       subregion              type  area_km2
-## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97
-## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79
-## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60
-##        pop lifeExp gdpPercap                           geom
-## 1   885806  69.960  8222.254 MULTIPOLYGON (((-180 -16.55...
-## 2 52234869  64.163  2402.099 MULTIPOLYGON (((33.90371 -0...
-## 3       NA      NA        NA MULTIPOLYGON (((-8.66559 27...
+##   iso_a2      name_long continent region_un       subregion              type  area_km2      pop lifeExp gdpPercap
+## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97   885806  69.960  8222.254
+## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79 52234869  64.163  2402.099
+## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60       NA      NA        NA
+##                             geom
+## 1 MULTIPOLYGON (((-180 -16.55...
+## 2 MULTIPOLYGON (((33.90371 -0...
+## 3 MULTIPOLYGON (((-8.66559 27...
 ```
 
 ```r
@@ -2456,11 +2454,11 @@ world_cont = world %>%
 ## Bounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513
 ## Geodetic CRS:  WGS 84
 ## # A tibble: 8 × 3
-##   continent    pop_sum                                                                     geom
-##   <chr>          <dbl>                                                       <MULTIPOLYGON [°]>
-## 1 Asia      4311408059 (((104.37 -1.084843, 104.0108 -1.059212, 103.4376 -0.7119459, 103.8384 …
-## 2 Africa    1154946633 (((43.1453 11.46204, 42.71587 11.73564, 43.28638 11.97493, 43.31785 12.…
-## 3 Europe     669036256 (((-180 64.97971, -179.4327 65.40411, -179.8838 65.87456, -178.6861 66.…
+##   continent    pop_sum                                                                                    geom
+##   <chr>          <dbl>                                                                      <MULTIPOLYGON [°]>
+## 1 Asia      4311408059 (((104.37 -1.084843, 104.0108 -1.059212, 103.4376 -0.7119459, 103.8384 0.1045417, 10...
+## 2 Africa    1154946633 (((43.1453 11.46204, 42.71587 11.73564, 43.28638 11.97493, 43.31785 12.39015, 43.081...
+## 3 Europe     669036256 (((-180 64.97971, -179.4327 65.40411, -179.8838 65.87456, -178.6861 66.11211, -178.9...
 ## # … with 5 more rows
 ```
 

@@ -440,14 +440,15 @@ tdir=tempdir()
 download.file(dataurl,destfile=file.path(tdir,&quot;temp.zip&quot;))
 unzip(file.path(tdir,&quot;temp.zip&quot;),exdir = tdir)
 list.files(tdir)</code></pre>
-<pre><code>##  [1] &quot;file15f7810d06666&quot;                 &quot;file15f7811c01ba0&quot;                
-##  [3] &quot;file15f783a20e407&quot;                 &quot;file15f78421fa6d9.html&quot;           
-##  [5] &quot;file15f784467211a&quot;                 &quot;file15f784511c1e9.html&quot;           
-##  [7] &quot;file15f784eae550b&quot;                 &quot;file15f786357af74&quot;                
-##  [9] &quot;IBTrACS.NA.list.v04r00.points.dbf&quot; &quot;IBTrACS.NA.list.v04r00.points.prj&quot;
-## [11] &quot;IBTrACS.NA.list.v04r00.points.shp&quot; &quot;IBTrACS.NA.list.v04r00.points.shx&quot;
-## [13] &quot;libloc_192_d77de41bdeed6f03.rds&quot;   &quot;libloc_213_5f7d0f6e85d1f59b.rds&quot;  
-## [15] &quot;temp.zip&quot;</code></pre>
+<pre><code>##  [1] &quot;file702b1293e07c&quot;                  &quot;file702b29877500&quot;                 
+##  [3] &quot;file702b29960560&quot;                  &quot;file702b2a76f66b&quot;                 
+##  [5] &quot;file702b2d33f0c.html&quot;              &quot;file702b2e6bd567&quot;                 
+##  [7] &quot;file702b33d2a794.html&quot;             &quot;file702b68248819&quot;                 
+##  [9] &quot;file702b72bb8edf&quot;                  &quot;file702bd9120bf&quot;                  
+## [11] &quot;file702be35fd36&quot;                   &quot;IBTrACS.NA.list.v04r00.points.dbf&quot;
+## [13] &quot;IBTrACS.NA.list.v04r00.points.prj&quot; &quot;IBTrACS.NA.list.v04r00.points.shp&quot;
+## [15] &quot;IBTrACS.NA.list.v04r00.points.shx&quot; &quot;libloc_192_d77de41bdeed6f03.rds&quot;  
+## [17] &quot;libloc_213_5f7d0f6e85d1f59b.rds&quot;   &quot;temp.zip&quot;</code></pre>
 <pre class="r"><code>storm_data &lt;- read_sf(list.files(tdir,pattern=&quot;.shp&quot;,full.names = T))</code></pre>
 <p>Your desired figure looks something like the following:
 <img src="CS_09_files/figure-html/unnamed-chunk-4-1.png" width="4500" /></p>
