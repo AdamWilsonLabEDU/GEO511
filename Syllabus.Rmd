@@ -8,17 +8,17 @@ This course introduces students to the fundamentals of spatial data science. The
 
 # Logistics
 Professor Adam M. Wilson ([http://wilsonlab.io](wilsonlab.io))
-Office Hours: Thursdays 3:30-4:30pm
+Office Hours: Thursdays 12:30-1:30pm
 3 Credit Hours
 
 ## Schedule 
-Tuesdays/Thursdays 9:35-10:55am (live and in person)
+Tuesdays/Thursdays 2:00-3:20pm (live and in person)
 
 ## Course Structure	
 The course will focus on programming in the R language. Typical class sessions will consist of a short (<30 minute) lecture followed by interactive exercises and activities.   All class activities will use [RStudio](rstudio.com). 
 
 ## Course Communication (UBLearns & Slack)
-Course announcements and other materials will be distributed through [UBLearns](https://ublearns.buffalo.edu) and/or our [Slack Channel](https://join.slack.com/t/2021spatialda-dba8777/shared_invite/zt-uyw8rbz8-jxlKule2U6ChR3JRmK8a_A).  Please check the sites regularly (or enable notifications).  
+Course announcements and other materials will be distributed through [UBLearns](https://ublearns.buffalo.edu) and/or our [Slack Channel](https://join.slack.com/t/ub-geo511/shared_invite/zt-1f4pwm98m-neHG07wIi8n6GUjtv7CLBw).  Please check the sites regularly (or enable notifications).  
 
 ## Computer requirements
 During the course we will complete class exercises on your personal laptop (under any Mac, Linux, or Windows). If you do not have access to a laptop, please let the professor know as soon as possible.  
@@ -147,7 +147,7 @@ Near the end of the semester, you will be asked to complete a coding assessment 
 * Final project website
 
 ## Textbook
-We will read parts of [_R for Data Science_](http://r4ds.had.co.nz/) and [_Geocomputation with R_](https://geocompr.robinlovelace.net/) which are both available online. All additional materials will be available through [the course website](http://wilsonlab.io/GEO511).
+We will read parts of [_R for Data Science_](http://r4ds.had.co.nz/) and [_Geocomputation with R_](https://geocompr.robinlovelace.net/) which are both available online. All additional materials will be available through [the course website](http://geo511.wilsonlab.io).
 
 ## On-time Completion
 

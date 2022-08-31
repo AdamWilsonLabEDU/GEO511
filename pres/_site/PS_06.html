@@ -7,13 +7,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -74,7 +75,7 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -506,9 +507,9 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-    <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-    <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <script src="externals/header-attrs/header-attrs.js"></script>
+    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -528,15 +529,18 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Readings</h2>
 <iframe src="https://geocompr.robinlovelace.net/intro.html" width="100%" height="800">
 </iframe>
-<p><a href="https://geocompr.robinlovelace.net/intro.html">source</a></p>
+<p><a
+href="https://geocompr.robinlovelace.net/intro.html">source</a></p>
 </section>
 <section id="resource-presentations" class="slide level2">
 <h2>Resource Presentations</h2>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
 </iframe>
-<p><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
+<p><a
+href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
 </section>
-<section id="case-study-presentations---lets-pick-a-winner" class="slide level2">
+<section id="case-study-presentations---lets-pick-a-winner"
+class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
 <iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
 </iframe>
@@ -548,7 +552,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <ul>
 <li><code>sp</code> First major spatial data package/format</li>
 <li><code>rgdal</code> reading and writing spatial data</li>
-<li><code>rgeos</code> Interface to open-source geometry engine (GEOS)</li>
+<li><code>rgeos</code> Interface to open-source geometry engine
+(GEOS)</li>
 <li><code>sf</code> Spatial Features in the ‘tidyverse’</li>
 <li><code>raster</code> gridded data (like satellite imagery)</li>
 <li>and a few others…</li>
@@ -556,11 +561,13 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="common-simple-feature-sf-types" class="slide level2">
 <h2>Common Simple Feature (SF) types</h2>
-<p><img data-src="https://geocompr.robinlovelace.net/figures/sf-classes.png" /></p>
+<p><img
+data-src="https://geocompr.robinlovelace.net/figures/sf-classes.png" /></p>
 </section>
 <section id="what-about-grids" class="slide level2">
 <h2>What about grids?</h2>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-4-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-4-1.png" /></p>
 </section>
 <section>
 <section id="raster-data" class="title-slide slide level1">
@@ -584,11 +591,21 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="raster-data-in-the-tidyverse" class="slide level2">
 <h2>Raster data in the tidyverse</h2>
-<p>Raster data is not yet closely connected to the <strong>tidyverse</strong>, however:</p>
+<p>Raster data is not yet closely connected to the
+<strong>tidyverse</strong>, however:</p>
 <ul>
-<li>Some functions from <code>raster</code> work well in <code>pipes</code></li>
-<li>Convert vector data to <code>Spatial*</code> form using <code>as(my_vector, "Spatial")</code> for raster-vector interactions</li>
-<li>Some early efforts to bring raster data into the <strong>tidyverse</strong>, including <a href="https://github.com/hypertidy/tabularaster">tabularaster</a>, <a href="https://github.com/mdsumner/sfraster">sfraster</a>, <a href="https://github.com/ecohealthalliance/fasterize">fasterize</a>, and <a href="https://github.com/r-spatial/stars">stars</a> (multidimensional, large datasets).</li>
+<li>Some functions from <code>raster</code> work well in
+<code>pipes</code></li>
+<li>Convert vector data to <code>Spatial*</code> form using
+<code>as(my_vector, "Spatial")</code> for raster-vector
+interactions</li>
+<li>Some early efforts to bring raster data into the
+<strong>tidyverse</strong>, including <a
+href="https://github.com/hypertidy/tabularaster">tabularaster</a>, <a
+href="https://github.com/mdsumner/sfraster">sfraster</a>, <a
+href="https://github.com/ecohealthalliance/fasterize">fasterize</a>, and
+<a href="https://github.com/r-spatial/stars">stars</a>
+(multidimensional, large datasets).</li>
 </ul>
 </section>
 <section id="raster-package" class="slide level2">
@@ -597,7 +614,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(spData)</span>
 <span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(elev) <span class="co">#load fake data from spData package</span></span>
 <span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev) <span class="co">#load fake data from spData package</span></span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-5-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-5-1.png" /></p>
 </section>
 <section id="raster-data-structure" class="slide level2">
 <h2>Raster Data Structure</h2>
@@ -697,21 +715,24 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">canProcessInMemory</span>(elev)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
-<p>Raster does not try to load or work with large datasets in RAM. It creates temporary files and processes them in the background.</p>
+<p>Raster does not try to load or work with large datasets in RAM. It
+creates temporary files and processes them in the background.</p>
 </section>
 <section id="map-algebra" class="slide level2">
 <h2>Map Algebra</h2>
 <p>Convert feet to meters</p>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>elev_m <span class="ot">&lt;-</span> elev<span class="sc">*</span><span class="fl">0.3048</span></span>
 <span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev_m)</span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-11-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-11-1.png" /></p>
 </section>
 <section class="slide level2">
 
 <h3 id="simple-filter">Simple Filter</h3>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>high_ground <span class="ot">&lt;-</span> elev_m<span class="sc">&gt;</span><span class="dv">8</span></span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(high_ground)</span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-12-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-12-1.png" /></p>
 </section>
 <section class="slide level2">
 
@@ -729,21 +750,25 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode" id="cb21"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span>
 <span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev_m)</span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(elev_smooth)</span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-14-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-14-1.png" /></p>
 </section>
 <section id="arbitrary-functions" class="slide level2">
 <h2>Arbitrary functions</h2>
 <div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>NA16<span class="ot">=</span><span class="cf">function</span>(x) <span class="fu">ifelse</span>(x <span class="sc">==</span> <span class="dv">16</span>,<span class="dv">1</span>,<span class="cn">NA</span>)</span>
 <span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>one_cell <span class="ot">&lt;-</span> <span class="fu">calc</span>(elev,<span class="at">fun =</span> NA16)</span>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(one_cell)</span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-15-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-15-1.png" /></p>
 </section>
 <section id="distances-to-non-na-cells" class="slide level2">
 <h2>Distances to non-NA cells</h2>
 <div class="sourceCode" id="cb23"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">distance</span>(one_cell)<span class="sc">%&gt;%</span></span>
 <span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">plot</span>()</span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-16-1.png" /></p>
-<p>Distance unit is meters if RasterLayer is <code>+proj=longlat</code>, map units (typically also meters) otherwise.</p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-16-1.png" /></p>
+<p>Distance unit is meters if RasterLayer is <code>+proj=longlat</code>,
+map units (typically also meters) otherwise.</p>
 </section>
 <section id="and-much-more" class="slide level2">
 <h2>And much more</h2>
@@ -767,42 +792,70 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rasterVis)</span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">gplot</span>(elev)<span class="sc">+</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill=</span>value))</span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-17-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-17-1.png" /></p>
 </section>
 <section class="slide level2">
 
-<h3 id="all-ggplot-functionality-available">All ggplot functionality available</h3>
+<h3 id="all-ggplot-functionality-available">All ggplot functionality
+available</h3>
 <div class="sourceCode" id="cb25"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">gplot</span>(elev)<span class="sc">+</span></span>
 <span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_raster</span>(<span class="fu">aes</span>(<span class="at">fill=</span>value))<span class="sc">+</span></span>
 <span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_equal</span>()<span class="sc">+</span></span>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code></pre></div>
-<p><img data-src="PS_06_files/figure-revealjs/unnamed-chunk-18-1.png" /></p>
+<p><img
+data-src="PS_06_files/figure-revealjs/unnamed-chunk-18-1.png" /></p>
 </section></section>
     </div>
   </div>
 
-  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
         // Display the page number of the current slide
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
         center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
         // Enable slide navigation via mouse wheel
         mouseWheel: false,
         // Opens links in an iframe preview overlay
         previewLinks: true,
         // Transition style
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -829,8 +882,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>

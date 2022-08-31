@@ -7,11 +7,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 
-<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -443,9 +443,9 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-    <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-    <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <script src="externals/header-attrs-2.14/header-attrs.js"></script>
+    <link href="externals/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+    <link href="externals/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -461,28 +461,53 @@ document.getElementsByTagName('head')[0].appendChild(style);
     </div>
   </div>
 
-  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
         // Display the page number of the current slide
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
         center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
         // Enable slide navigation via mouse wheel
         mouseWheel: false,
         // Opens links in an iframe preview overlay
         previewLinks: true,
         // Transition style
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -509,8 +534,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>

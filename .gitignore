@@ -31,6 +31,14 @@ vignettes/*.pdf
 /*_cache/
 /cache/
 *cache*
+./*_files
+pres/*.html
+pres/*.md
+pres/*_files
+pres/_site/*
+pres/externals/
+pres/lib
+pres/widgets
 
 # Temporary files created by R markdown
 *.utf8.md

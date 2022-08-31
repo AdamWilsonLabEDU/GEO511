@@ -444,9 +444,9 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="externals/header-attrs-2.9/header-attrs.js"></script>
-    <link href="externals/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-    <link href="externals/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <script src="externals/header-attrs/header-attrs.js"></script>
+    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -465,11 +465,13 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="original-graph" class="slide level2">
 <h2>Original Graph</h2>
-<p><img data-src="http://www.perceptualedge.com/images/example9problem.gif" /></p>
+<p><img
+data-src="http://www.perceptualedge.com/images/example9problem.gif" /></p>
 </section>
 <section id="revised-graph" class="slide level2">
 <h2>Revised Graph</h2>
-<p><img data-src="http://www.perceptualedge.com/images/example9solution.jpg" /></p>
+<p><img
+data-src="http://www.perceptualedge.com/images/example9solution.jpg" /></p>
 </section></section>
 <section>
 <section id="training-your-eyes" class="title-slide slide level1">
@@ -482,7 +484,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="interpret-these-error-statements" class="slide level2">
 <h2>Interpret these error statements</h2>
-<p>Discuss with your neighbor what the error statement is saying. How would you fix it?</p>
+<p>Discuss with your neighbor what the error statement is saying. How
+would you fix it?</p>
 </section></section>
     </div>
   </div>
@@ -495,20 +498,45 @@ document.getElementsByTagName('head')[0].appendChild(style);
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
         // Display the page number of the current slide
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
         center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
         // Enable slide navigation via mouse wheel
         mouseWheel: false,
         // Opens links in an iframe preview overlay
         previewLinks: true,
         // Transition style
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.

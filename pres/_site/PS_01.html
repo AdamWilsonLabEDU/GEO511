@@ -7,11 +7,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 
-<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -443,9 +443,9 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="site_libs/header-attrs/header-attrs.js"></script>
-    <link href="site_libs/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="site_libs/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <script src="externals/header-attrs/header-attrs.js"></script>
+    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -453,7 +453,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <section>
     <h1 class="title">Spatial Data Science (GEO511)</h1>
-  <h1 class="subtitle"><a href="http://geo511.wilsonlab.io">geo511.wilsonlab.io</a></h1>
+  <h1 class="subtitle"><a
+href="http://geo511.wilsonlab.io">geo511.wilsonlab.io</a></h1>
 </section>
 
 <section id="todays-plan" class="slide level2">
@@ -474,7 +475,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="adam-m.-wilson" class="slide level2">
 <h2>Adam M. Wilson</h2>
 <div class="columns-2">
-<p>Associate Professor of Global Environmental Change<br> Geography Department</p>
+<p>Associate Professor of Global Environmental Change<br> Geography
+Department</p>
 <p>I Use R:</p>
 <ul>
 <li>GIS (with a little GRASS)</li>
@@ -510,15 +512,20 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="spatial-data-science" class="slide level2">
 <h2>Spatial Data Science</h2>
-<p><img src="ps01_img/data-science.png" width=100%></img> –Grolemund &amp; Wickham, R for Data Science, O’Reilly 2016</p>
+<p><img src="ps01_img/data-science.png" width=100%></img> –Grolemund
+&amp; Wickham, R for Data Science, O’Reilly 2016</p>
 </section>
 <section id="course-learning-objectives" class="slide level2">
 <h2>Course Learning Objectives</h2>
 <ol type="1">
-<li>Convert data from varied formats/structures to desired format for analysis and visualization</li>
-<li>Clean, transform, and merge data attributes/variables appropriately</li>
-<li>Effectively display and communicate meaning from spatial, temporal, and textual data</li>
-<li>Use current analysis, presentation, and collaboration tools in the spatial data science field.</li>
+<li>Convert data from varied formats/structures to desired format for
+analysis and visualization</li>
+<li>Clean, transform, and merge data attributes/variables
+appropriately</li>
+<li>Effectively display and communicate meaning from spatial, temporal,
+and textual data</li>
+<li>Use current analysis, presentation, and collaboration tools in the
+spatial data science field.</li>
 </ol>
 <p>This course is NOT a statistics course (see GEO 505, etc.).</p>
 </section>
@@ -578,7 +585,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ol></li>
 <li><strong>Class Time Thursday</strong>
 <ol type="a">
-<li>Updates &amp; Questions from reading and daily class tasks [~10 minutes]<br />
+<li>Updates &amp; Questions from reading and daily class tasks [~10
+minutes]<br />
 </li>
 <li>Student Resource Presentation(s) [20 minutes]<br />
 </li>
@@ -596,8 +604,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Covid Protocol</h2>
 <ul>
 <li>Not able to socially-distance in classroom</li>
-<li>Masks on at all times</li>
-<li>When working in groups (Tuesdays), feel free to move somewhere (outside?)</li>
+<li>Masks Optional</li>
+<li>When working in groups (Tuesdays), feel free to move somewhere
+(outside?)</li>
 <li>Please stay home if sick!</li>
 </ul>
 </section>
@@ -636,7 +645,6 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Group Leader Sign ups</h2>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
 </iframe>
-<p><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
 </section>
 <section id="meet-your-group" class="slide level2">
 <h2>Meet your group</h2>
@@ -645,20 +653,24 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Topics
 <ul>
 <li>Introduce again</li>
-<li>Do you have any experience writing code? (if so, which languages, etc.)?</li>
+<li>Do you have any experience writing code? (if so, which languages,
+etc.)?</li>
 <li>What do you hope to learn from this course?</li>
-<li>Perhaps identify leader for next week (who will be prepared to explain Case Study 1)</li>
+<li>Perhaps identify leader for next week (who will be prepared to
+explain Case Study 1)</li>
 </ul></li>
 <li>After ~10 minutes, we’ll return to single group to summarize</li>
 </ul>
 </section>
-<section id="selecting-the-case-study-presentation" class="slide level2">
+<section id="selecting-the-case-study-presentation"
+class="slide level2">
 <h2>Selecting the Case Study Presentation</h2>
 <iframe src="https://wheelofnames.com/bw4-gdt" width="100%" height="800">
 </iframe>
 </section></section>
 <section>
-<section id="what-is-r-and-who-uses-it" class="title-slide slide level1">
+<section id="what-is-r-and-who-uses-it"
+class="title-slide slide level1">
 <h1>What is R and who uses it?</h1>
 
 </section>
@@ -673,16 +685,20 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>6,000+ free, community-contributed packages</li>
 <li>A supportive and increasing user community</li>
 </ul>
-<p>R is a dialect of the S language developed at Bell Laboratories (formerly AT&amp;T) by John Chambers et. al. (same group developed C and UNIX©)</p>
+<p>R is a dialect of the S language developed at Bell Laboratories
+(formerly AT&amp;T) by John Chambers et. al. (same group developed C and
+UNIX©)</p>
 </section>
 <section id="what-is-the-r-environment" class="slide level2">
 <h2>What is the R environment?</h2>
 <ul>
 <li>effective data handling and storage facility</li>
 <li>suite of operators for (vectorized) calculations</li>
-<li>large, coherent, integrated collection of tools for data analysis</li>
+<li>large, coherent, integrated collection of tools for data
+analysis</li>
 <li>graphical capabilities (screen or hardcopy)</li>
-<li>well-developed, simple, and effective programming language which includes:
+<li>well-developed, simple, and effective programming language which
+includes:
 <ul>
 <li>conditionals</li>
 <li>loops</li>
@@ -701,29 +717,37 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Spatial Visualizations</h2>
 <iframe src="https://www.r-graph-gallery.com/connection-map.html" width="100%" height="800">
 </iframe>
-<p><a href="https://www.r-graph-gallery.com/connection-map.html">source</a></p>
+<p><a
+href="https://www.r-graph-gallery.com/connection-map.html">source</a></p>
 </section>
 <section id="spatial-data-processing-in-r" class="slide level2">
 <h2>Spatial Data Processing in R</h2>
 <p>Packages: <code>sf, sp, maptools, rgeos, raster, ggmap</code></p>
-<p>R can perform many GIS functions and workflows (often better than a GIS!).</p>
+<p>R can perform many GIS functions and workflows (often better than a
+GIS!).</p>
 </section>
 <section id="strengths-limitations" class="slide level2">
 <h2>Strengths &amp; Limitations</h2>
 <ul>
 <li>Just-in-time compilation
 <ul>
-<li>Slower than compiled languages (C+, etc.) <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></li>
-<li>Faster to compose <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+<li>Slower than compiled languages (C+, etc.)
+<i class="fa fa-thumbs-o-down" aria-hidden="true"></i></li>
+<li>Faster to compose
+<i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
 </ul></li>
-<li>Many available packages <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+<li>Many available packages
+<i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
 <li>Most operations conducted in RAM
 <ul>
-<li>RAM can be limiting and/or expensive <i class="fa fa-thumbs-o-down" aria-hidden="true"></i></li>
+<li>RAM can be limiting and/or expensive
+<i class="fa fa-thumbs-o-down" aria-hidden="true"></i></li>
 <li><code>Error: cannot allocate vector of size X Mb</code></li>
-<li>Various packages and clever programming can overcome this… <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+<li>Various packages and clever programming can overcome this…
+<i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
 </ul></li>
-<li>Free like beer <strong>AND</strong> speech! <i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
+<li>Free like beer <strong>AND</strong> speech!
+<i class="fa fa-thumbs-o-up" aria-hidden="true"></i></li>
 </ul>
 </section>
 <section id="r-interface" class="slide level2">
@@ -749,8 +773,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="scholarly-articles" class="slide level2">
 <h2>Scholarly Articles</h2>
-<p><img data-src="https://i1.wp.com/r4stats.com/wp-content/uploads/2019/03/Fig_2a_ScholarlyImpact2018-1.png?w=650" /></p>
-<p>Number of scholarly articles found in the most recent complete year (2018) for the more popular data science software. To be included, software must be used in at least 750 scholarly articles.</p>
+<p><img
+data-src="https://i1.wp.com/r4stats.com/wp-content/uploads/2019/03/Fig_2a_ScholarlyImpact2018-1.png?w=650" /></p>
+<p>Number of scholarly articles found in the most recent complete year
+(2018) for the more popular data science software. To be included,
+software must be used in at least 750 scholarly articles.</p>
 </section>
 <section id="interface-to-r" class="slide level2">
 <h2>Interface to R</h2>
@@ -760,12 +787,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>R vs Python</h2>
 <iframe src="https://s3.amazonaws.com/assets.datacamp.com/email/other/Python+vs+R+(1).png" width="100%" height="800">
 </iframe>
-<p><a href="https://s3.amazonaws.com/assets.datacamp.com/email/other/Python+vs+R+(1).png">source</a></p>
+<p><a
+href="https://s3.amazonaws.com/assets.datacamp.com/email/other/Python+vs+R+(1).png">source</a></p>
 </section>
 <section id="many-cheatsheets-available" class="slide level2">
 <h2>Many ‘Cheatsheets’ available</h2>
 <p><img src="https://raw.githubusercontent.com/rstudio/cheatsheets/master/pngs/data-visualization.png" width=75%></img></p>
-<p><a href="https://www.rstudio.com/resources/cheatsheets/">source</a></p>
+<p><a
+href="https://www.rstudio.com/resources/cheatsheets/">source</a></p>
 </section></section>
 <section>
 <section id="why-code-at-all" class="title-slide slide level1">
@@ -775,7 +804,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="why-write-code-when-you-can-click" class="slide level2">
 <h2>Why write code when you can click?</h2>
 <p><img src="PS_01_img/arcgis.jpg" width=50%></img></p>
-<p>Graphical User Interfaces are useful, especially when you are learning…</p>
+<p>Graphical User Interfaces are useful, especially when you are
+learning…</p>
 </section>
 <section id="typical-gui-workflow" class="slide level2">
 <h2>Typical GUI Workflow</h2>
@@ -785,30 +815,54 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Organized and repeatable workflow</h2>
 <p><img src="PS_01_img/workflow2.png" width=100%></img></p>
 </section>
-<section id="learning-a-programming-language-can-help-you-learn-how-to-think-logically." class="slide level2">
-<h2>Learning a programming language can help you learn how to think logically.</h2>
+<section
+id="learning-a-programming-language-can-help-you-learn-how-to-think-logically."
+class="slide level2">
+<h2>Learning a programming language can help you learn how to think
+logically.</h2>
 <blockquote>
-A man who does not know foreign language is ignorant of his own. <br> – Johann Wolfgang von Goethe (1749 - 1832)
+A man who does not know foreign language is ignorant of his own. <br> –
+Johann Wolfgang von Goethe (1749 - 1832)
 </blockquote>
 </section>
-<section id="programming-gives-you-access-to-more-computer-power." class="slide level2">
+<section id="programming-gives-you-access-to-more-computer-power."
+class="slide level2">
 <h2>Programming gives you access to more computer power.</h2>
 <blockquote>
-The computer is incredibly fast, accurate, and stupid. Man is unbelievably slow, inaccurate, and brilliant. The marriage of the two is a force beyond calculation. <br> – Leo Cherne
+The computer is incredibly fast, accurate, and stupid. Man is
+unbelievably slow, inaccurate, and brilliant. The marriage of the two is
+a force beyond calculation. <br> – Leo Cherne
 </blockquote>
 </section>
-<section id="from-graphical-user-interface-gui-to-scripting" class="slide level2">
+<section id="from-graphical-user-interface-gui-to-scripting"
+class="slide level2">
 <h2>From Graphical User Interface (GUI) to Scripting</h2>
 <p><img src="PS_01_img/08_productivity.png" width=100%></img></p>
 </section>
 <section id="parallel-processing" class="slide level2">
 <h2>Parallel Processing</h2>
-<p>For BIG jobs: multi-core processors / high performance computing with foreach. <img src="PS_01_img/05_parallel.png" width=100%></img></p>
+<p>For BIG jobs: multi-core processors / high performance computing with
+foreach. <img src="PS_01_img/05_parallel.png" width=100%></img></p>
 </section></section>
 <section>
 <section id="case-study-1" class="title-slide slide level1">
 <h1>Case Study 1</h1>
 
+</section>
+<section id="resource-presentations-1" class="slide level2">
+<h2>Resource Presentations</h2>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
+</iframe>
+<p><a
+href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
+</section>
+<section id="case-study-presentations---lets-pick-a-winner"
+class="slide level2">
+<h2>Case Study Presentations - Let’s pick a winner!</h2>
+<iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
+</iframe>
+<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" style="height: 800px; width: 100%;">
+</iframe>
 </section>
 <section id="case-study-motivations" class="slide level2">
 <h2>Case Study Motivations</h2>
@@ -840,34 +894,60 @@ The computer is incredibly fast, accurate, and stupid. Man is unbelievably slow,
 <li>other things you tried</li>
 <li>things that didn’t work</li>
 </ul></li>
-<li>Do mention your group mates and any contributions they made (if they did)</li>
+<li>Do mention your group mates and any contributions they made (if they
+did)</li>
 </ol>
 </section></section>
     </div>
   </div>
 
-  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
         // Display the page number of the current slide
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
         center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
         // Enable slide navigation via mouse wheel
         mouseWheel: false,
         // Opens links in an iframe preview overlay
         previewLinks: true,
         // Transition style
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -894,8 +974,8 @@ The computer is incredibly fast, accurate, and stupid. Man is unbelievably slow,
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>

@@ -14,6 +14,7 @@
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -506,7 +507,7 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="site_libs/header-attrs-2.14/header-attrs.js"></script>
     <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
     <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 </head>
@@ -528,9 +529,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Resource Presentations</h2>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
 </iframe>
-<p><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
+<p><a
+href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
 </section>
-<section id="case-study-presentations---lets-pick-a-winner" class="slide level2">
+<section id="case-study-presentations---lets-pick-a-winner"
+class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
 <iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
 </iframe>
@@ -552,7 +555,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>MODIS data processing</li>
 </ul>
 </section>
-<section id="active-earth-observing-satellites-eos-as-of-8312015" class="slide level2">
+<section id="active-earth-observing-satellites-eos-as-of-8312015"
+class="slide level2">
 <h2>Active Earth Observing Satellites (EOS) (as of 8/31/2015)</h2>
 <ul>
 <li>Total number of operating satellites: 2,062
@@ -563,12 +567,17 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul></li>
 <li>Total Earth Observing Satellites (EOS): 710</li>
 </ul>
-<p>From the <a href="http://www.ucsusa.org/nuclear-weapons/space-weapons/satellite-database.html#.VjzlnoS98VQ">Union of Concerned Scientists Satellite Database</a> and <a href="http://www.pixalytics.com/blog/">Pixalytics Blog</a></p>
+<p>From the <a
+href="http://www.ucsusa.org/nuclear-weapons/space-weapons/satellite-database.html#.VjzlnoS98VQ">Union
+of Concerned Scientists Satellite Database</a> and <a
+href="http://www.pixalytics.com/blog/">Pixalytics Blog</a></p>
 </section>
 <section id="debris-satellites-in-low-earth-orbit" class="slide level2">
 <h2>Debris &amp; Satellites in low Earth orbit</h2>
 <p><img src="PS_10_img/satellites.jpg" alt="alt text" width="75%"></p>
-<p>Image courtesy of <a href="http://www.esa.int/spaceinimages/Images/2008/03/Debris_objects_-_mostly_debris_-_in_low_Earth_orbit_LEO_-_view_over_the_equator">European Space Agency</a></p>
+<p>Image courtesy of <a
+href="http://www.esa.int/spaceinimages/Images/2008/03/Debris_objects_-_mostly_debris_-_in_low_Earth_orbit_LEO_-_view_over_the_equator">European
+Space Agency</a></p>
 </section>
 <section id="nasas-earth-observing-system" class="slide level2">
 <h2>NASA’s Earth Observing System</h2>
@@ -620,8 +629,48 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Metadata</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># coordinate reference system (CRS)</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">crs</span>(b2)</span></code></pre></div>
-<pre><code>## CRS arguments:
-##  +proj=utm +zone=10 +datum=WGS84 +units=m +no_defs</code></pre>
+<pre><code>## Coordinate Reference System:
+## Deprecated Proj.4 representation:
+##  +proj=utm +zone=10 +datum=WGS84 +units=m +no_defs 
+## WKT2 2019 representation:
+## PROJCRS[&quot;WGS 84 / UTM zone 10N&quot;,
+##     BASEGEOGCRS[&quot;WGS 84&quot;,
+##         DATUM[&quot;World Geodetic System 1984&quot;,
+##             ELLIPSOID[&quot;WGS 84&quot;,6378137,298.257223563,
+##                 LENGTHUNIT[&quot;metre&quot;,1]]],
+##         PRIMEM[&quot;Greenwich&quot;,0,
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433]],
+##         ID[&quot;EPSG&quot;,4326]],
+##     CONVERSION[&quot;UTM zone 10N&quot;,
+##         METHOD[&quot;Transverse Mercator&quot;,
+##             ID[&quot;EPSG&quot;,9807]],
+##         PARAMETER[&quot;Latitude of natural origin&quot;,0,
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],
+##             ID[&quot;EPSG&quot;,8801]],
+##         PARAMETER[&quot;Longitude of natural origin&quot;,-123,
+##             ANGLEUNIT[&quot;degree&quot;,0.0174532925199433],
+##             ID[&quot;EPSG&quot;,8802]],
+##         PARAMETER[&quot;Scale factor at natural origin&quot;,0.9996,
+##             SCALEUNIT[&quot;unity&quot;,1],
+##             ID[&quot;EPSG&quot;,8805]],
+##         PARAMETER[&quot;False easting&quot;,500000,
+##             LENGTHUNIT[&quot;metre&quot;,1],
+##             ID[&quot;EPSG&quot;,8806]],
+##         PARAMETER[&quot;False northing&quot;,0,
+##             LENGTHUNIT[&quot;metre&quot;,1],
+##             ID[&quot;EPSG&quot;,8807]]],
+##     CS[Cartesian,2],
+##         AXIS[&quot;(E)&quot;,east,
+##             ORDER[1],
+##             LENGTHUNIT[&quot;metre&quot;,1]],
+##         AXIS[&quot;(N)&quot;,north,
+##             ORDER[2],
+##             LENGTHUNIT[&quot;metre&quot;,1]],
+##     USAGE[
+##         SCOPE[&quot;Engineering survey, topographic mapping.&quot;],
+##         AREA[&quot;Between 126°W and 120°W, northern hemisphere between equator and 84°N, onshore and offshore. Canada - British Columbia (BC); Northwest Territories (NWT); Nunavut; Yukon. United States (USA) - Alaska (AK).&quot;],
+##         BBOX[0,-126,84,-120]],
+##     ID[&quot;EPSG&quot;,32610]]</code></pre>
 <div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Number of cells, rows, columns</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ncell</span>(b2)</span></code></pre></div>
 <pre><code>## [1] 1863765</code></pre>
@@ -637,7 +686,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">compareRaster</span>(b2,b3)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 </section>
-<section id="check-the-properties-of-the-rasterstack" class="slide level2">
+<section id="check-the-properties-of-the-rasterstack"
+class="slide level2">
 <h2>Check the properties of the RasterStack</h2>
 <div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>s <span class="ot">&lt;-</span> <span class="fu">stack</span>(b5, b4, b3)</span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>s</span></code></pre></div>
@@ -692,7 +742,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>landsatFCC <span class="ot">&lt;-</span> <span class="fu">stack</span>(b5, b4, b3)</span>
 <span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plotRGB</span>(landsatFCC, <span class="at">axes=</span><span class="cn">TRUE</span>, <span class="at">stretch=</span><span class="st">&quot;lin&quot;</span>, <span class="at">main=</span><span class="st">&quot;Landsat False Color&quot;</span>)</span></code></pre></div>
-<p><img data-src="PS_10_files/figure-revealjs/unnamed-chunk-6-1.png" /></p>
+<p><img
+data-src="PS_10_files/figure-revealjs/unnamed-chunk-6-1.png" /></p>
 </section>
 <section id="vegetation-indices" class="slide level2">
 <h2>Vegetation indices</h2>
@@ -701,19 +752,28 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>ndvi <span class="ot">&lt;-</span> <span class="fu">overlay</span>(landsat[[<span class="dv">5</span>]], landsat[[<span class="dv">4</span>]], <span class="at">fun=</span>fndvi)</span>
 <span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(ndvi, <span class="at">col=</span><span class="fu">rev</span>(<span class="fu">terrain.colors</span>(<span class="dv">10</span>)), <span class="at">main=</span><span class="st">&quot;Landsat-NDVI&quot;</span>)</span></code></pre></div>
-<p><img data-src="PS_10_files/figure-revealjs/unnamed-chunk-8-1.png" /></p>
+<p><img
+data-src="PS_10_files/figure-revealjs/unnamed-chunk-8-1.png" /></p>
 </section>
 <section id="more-resources" class="slide level2">
 <h2>More resources</h2>
 <ul>
-<li><a href="https://rspatial.org/raster/rs/index.html"><em>Spatial Data Science</em> chapter on Remote Sensing Image Analysis</a></li>
+<li><a href="https://rspatial.org/raster/rs/index.html"><em>Spatial Data
+Science</em> chapter on Remote Sensing Image Analysis</a></li>
 <li>R Packages:
 <ul>
-<li><a href="https://github.com/atlanhq/rLandsat">rLandsat</a> <img data-src="https://camo.githubusercontent.com/2577927b74027f444f39a652d2de0cf7c773cc4b/68747470733a2f2f692e696d6775722e636f6d2f636d6a746567472e706e67" alt="rLandsat flow" /></li>
-<li><a href="https://ropensci.github.io/MODIStsp/">MODIStsp</a>: automatizing the creation of time series of raster images derived from MODIS Land Products data.</li>
-<li><a href="http://bleutner.github.io/RStoolbox/">RStoolbox</a>: RS data processing</li>
-<li><a href="https://cran.r-project.org/package=hsdar">hsdar</a>: Hyperspectral data</li>
-<li><a href="https://oscarperpinan.github.io/rastervis/">rasterVis</a>: Visualization</li>
+<li><a href="https://github.com/atlanhq/rLandsat">rLandsat</a> <img
+data-src="https://camo.githubusercontent.com/2577927b74027f444f39a652d2de0cf7c773cc4b/68747470733a2f2f692e696d6775722e636f6d2f636d6a746567472e706e67"
+alt="rLandsat flow" /></li>
+<li><a href="https://ropensci.github.io/MODIStsp/">MODIStsp</a>:
+automatizing the creation of time series of raster images derived from
+MODIS Land Products data.</li>
+<li><a href="http://bleutner.github.io/RStoolbox/">RStoolbox</a>: RS
+data processing</li>
+<li><a href="https://cran.r-project.org/package=hsdar">hsdar</a>:
+Hyperspectral data</li>
+<li><a href="https://oscarperpinan.github.io/rastervis/">rasterVis</a>:
+Visualization</li>
 </ul></li>
 </ul>
 </section></section>
@@ -722,10 +782,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h1>MODIS</h1>
 
 </section>
-<section id="moderate-resolution-imaging-spectroradiometer-modis" class="slide level2">
+<section id="moderate-resolution-imaging-spectroradiometer-modis"
+class="slide level2">
 <h2>Moderate Resolution Imaging Spectroradiometer (MODIS)</h2>
 <p><img src="PS_10_img/TerraLaunch.png" alt="alt text" width="75%"></p>
-<p>2 Satellites <em>Terra</em> launched in 1999, <em>Aqua</em> in 2002.</p>
+<p>2 Satellites <em>Terra</em> launched in 1999, <em>Aqua</em> in
+2002.</p>
 </section>
 <section id="technical-details-swath" class="slide level2">
 <h2>Technical Details: swath</h2>
@@ -753,8 +815,10 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="modis-data-processing" class="slide level2">
 <h2>MODIS Data Processing</h2>
 <ul>
-<li>Tracking and Data Relay Satellite System in White Sands, New Mexico</li>
-<li>EOS Data and Operations System @ Goddard Space Flight Center in Greenbelt, MD</li>
+<li>Tracking and Data Relay Satellite System in White Sands, New
+Mexico</li>
+<li>EOS Data and Operations System @ Goddard Space Flight Center in
+Greenbelt, MD</li>
 <li>MODIS Adaptive Processing System (MODAPS)</li>
 <li>3 DAACs for distribution</li>
 </ul>
@@ -788,7 +852,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li>Land Cover Products</li>
 <li>Vegetation Index Products (NDVI and EVI)</li>
 <li>Thermal Anomalies - Active Fires</li>
-<li>Photosynthetically Active Radiation (FPAR) / Leaf Area Index (LAI)</li>
+<li>Photosynthetically Active Radiation (FPAR) / Leaf Area Index
+(LAI)</li>
 <li>Evapotranspiration</li>
 <li>Primary Productivity</li>
 <li>Vegetation Continuous Fields</li>
@@ -799,7 +864,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="example-product-workflow" class="slide level2">
 <h2>Example product workflow</h2>
 <p><img src="PS_10_img/VI_flow.png" alt="alt text" heigt="90%"></p>
-<p>MODIS Products used to generate vegetation indices. From the <a href="http://modis.gsfc.nasa.gov/data/atbd/atbd_mod13.pdf">MOD13 Algorithm Theoretical Basis Document</a>.</p>
+<p>MODIS Products used to generate vegetation indices. From the <a
+href="http://modis.gsfc.nasa.gov/data/atbd/atbd_mod13.pdf">MOD13
+Algorithm Theoretical Basis Document</a>.</p>
 </section></section>
 <section>
 <section id="data" class="title-slide slide level1">
@@ -808,7 +875,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="data-formats" class="slide level2">
 <h2>Data formats</h2>
-<p>Most NASA EOS data distributed as HDF files, which are very similar to netCDF.</p>
+<p>Most NASA EOS data distributed as HDF files, which are very similar
+to netCDF.</p>
 <p><img src="PS_10_img/NetCDF4Library.jpg" alt="alt text" width="75%"></p>
 </section>
 <section id="netcdf-hdf" class="slide level2">
@@ -817,7 +885,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="reading-eo-data" class="slide level2">
 <h2>Reading EO Data</h2>
-<p><code>raster</code> package functions can read NetCDF/HDF files if <code>ncdf4</code> package is installed.</p>
+<p><code>raster</code> package functions can read NetCDF/HDF files if
+<code>ncdf4</code> package is installed.</p>
 <div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>ncfile<span class="ot">=</span><span class="st">&quot;data/MOD11A2.006_aid0001.nc&quot;</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>nc<span class="ot">=</span>ncdf4<span class="sc">::</span><span class="fu">nc_open</span>(ncfile,<span class="at">verbose =</span> F)</span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(nc<span class="sc">$</span>var)</span></code></pre></div>
@@ -1042,7 +1111,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">facet_wrap</span>(<span class="sc">~</span>variable,<span class="at">nrow=</span><span class="dv">1</span>)<span class="sc">+</span></span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">coord_equal</span>()<span class="sc">+</span></span>
 <span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme</span>(<span class="at">axis.text=</span><span class="fu">element_blank</span>())</span></code></pre></div>
-<p><img data-src="PS_10_files/figure-revealjs/unnamed-chunk-13-1.png" /></p>
+<p><img
+data-src="PS_10_files/figure-revealjs/unnamed-chunk-13-1.png" /></p>
 </section>
 <section id="collection-level-naming-conventsions" class="slide level2">
 <h2>Collection-Level Naming Conventsions</h2>
@@ -1070,7 +1140,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li><code>.A2006001</code> - Julian Date of Acquisition (A-YYYYDDD)</li>
 <li><code>.h08v05</code> - Tile Identifier (horizontalXXverticalYY)</li>
 <li><code>.005</code> - Collection Version</li>
-<li><code>.2006012234567</code> - Julian Date of Production (YYYYDDDHHMMSS)</li>
+<li><code>.2006012234567</code> - Julian Date of Production
+(YYYYDDDHHMMSS)</li>
 <li><code>.hdf</code> - Data Format (HDF-EOS)</li>
 </ul>
 </section>
@@ -1095,17 +1166,24 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="modis-data" class="slide level2">
 <h2>MODIS Data</h2>
-<h3 id="distributed-active-archive-centers-daacs">Distributed Active Archive Centers (DAACs)</h3>
+<h3 id="distributed-active-archive-centers-daacs">Distributed Active
+Archive Centers (DAACs)</h3>
 <ul>
-<li><strong>Level 1 data:</strong> geolocation, cloud mask, and atmosphere products <a href="http://ladsweb.nascom.nasa.gov/">ladsweb.nascom.nasa.gov</a></li>
-<li><strong>Land products:</strong> <a href="https://lpdaac.usgs.gov/">lpdaac.usgs.gov</a></li>
-<li><strong>Cryosphere (snow/ice) products:</strong> <a href="http://nsidc.org/daac/modis/index.html">nsidc.org/daac/modis</a></li>
-<li><strong>Ocean color and sea surface temperature:</strong> <a href="http://oceancolor.gsfc.nasa.gov/">oceancolor.gsfc.nasa.gov</a></li>
+<li><strong>Level 1 data:</strong> geolocation, cloud mask, and
+atmosphere products <a
+href="http://ladsweb.nascom.nasa.gov/">ladsweb.nascom.nasa.gov</a></li>
+<li><strong>Land products:</strong> <a
+href="https://lpdaac.usgs.gov/">lpdaac.usgs.gov</a></li>
+<li><strong>Cryosphere (snow/ice) products:</strong> <a
+href="http://nsidc.org/daac/modis/index.html">nsidc.org/daac/modis</a></li>
+<li><strong>Ocean color and sea surface temperature:</strong> <a
+href="http://oceancolor.gsfc.nasa.gov/">oceancolor.gsfc.nasa.gov</a></li>
 </ul>
 </section>
 <section id="accessing-data" class="slide level2">
 <h2>Accessing data</h2>
-<p>The Land Processes Distributed Active Archive Center has a nice “Data Discovery” Tool: <img data-src="PS_10_img/lpdaac.png" /></p>
+<p>The Land Processes Distributed Active Archive Center has a nice “Data
+Discovery” Tool: <img data-src="PS_10_img/lpdaac.png" /></p>
 </section>
 <section id="modis-products-table" class="slide level2">
 <h2>MODIS Products Table</h2>
@@ -1128,22 +1206,30 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section class="slide level2">
 
 <p><img data-src="PS_10_img/lpdaac5.png" /></p>
-<p>or the <a href="https://lpdaac.usgs.gov/sites/default/files/public/datapool/DAAC2DiskUserGuide.pdf">LP DAAC2Disk Download Manager</a> which builds a download script.</p>
+<p>or the <a
+href="https://lpdaac.usgs.gov/sites/default/files/public/datapool/DAAC2DiskUserGuide.pdf">LP
+DAAC2Disk Download Manager</a> which builds a download script.</p>
 </section>
 <section id="modis-reprojection-tool" class="slide level2">
 <h2>MODIS Reprojection Tool</h2>
-<p>Available at <a href="https://lpdaac.usgs.gov/tools/modis_reprojection_tool">lpdaac.usgs.gov/tools/modis_reprojection_tool</a>.</p>
+<p>Available at <a
+href="https://lpdaac.usgs.gov/tools/modis_reprojection_tool">lpdaac.usgs.gov/tools/modis_reprojection_tool</a>.</p>
 <p><img data-src="PS_10_img/MRT1.png" /></p>
 </section>
-<section id="modis-reprojection-tool-subset-reproject" class="slide level2">
+<section id="modis-reprojection-tool-subset-reproject"
+class="slide level2">
 <h2>MODIS Reprojection Tool: Subset &amp; Reproject</h2>
 <p><img data-src="PS_10_img/MRT.png" /></p>
 <p><code>MCD12Q1.A2012001.h12v04.051.2014288200441.hdf</code></p>
 </section>
-<section id="application-for-extracting-and-exploring-analysis-ready-samples-appeears" class="slide level2">
-<h2>Application for Extracting and Exploring Analysis Ready Samples (AppEEARS)</h2>
+<section
+id="application-for-extracting-and-exploring-analysis-ready-samples-appeears"
+class="slide level2">
+<h2>Application for Extracting and Exploring Analysis Ready Samples
+(AppEEARS)</h2>
 <p><img data-src="PS_10_img/appeears.png" /></p>
-<p><a href="https://lpdaacsvc.cr.usgs.gov/appeears/">https://lpdaacsvc.cr.usgs.gov/appeears/</a></p>
+<p><a
+href="https://lpdaacsvc.cr.usgs.gov/appeears/">https://lpdaacsvc.cr.usgs.gov/appeears/</a></p>
 <ul>
 <li>Provide access to regional subsets</li>
 <li>Merge across tiles</li>
@@ -1157,13 +1243,16 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="case-study" class="slide level2">
 <h2>Case Study</h2>
-<p>Analysis of Land Use Land Cover and Land Surface Temperature across Buffalo using MODIS timeseries.</p>
+<p>Analysis of Land Use Land Cover and Land Surface Temperature across
+Buffalo using MODIS timeseries.</p>
 </section>
 <section id="presentation-credits" class="slide level2">
 <h2>Presentation Credits</h2>
 <ul>
 <li>Images: NASA</li>
-<li>Some contents from Steve Ackerman <code>stevea@ssec.wisc.edu</code>, Cooperative Institute for Meteorological Satellite Studies, University of Wisconsin-Madison</li>
+<li>Some contents from Steve Ackerman <code>stevea@ssec.wisc.edu</code>,
+Cooperative Institute for Meteorological Satellite Studies, University
+of Wisconsin-Madison</li>
 </ul>
 </section></section>
     </div>
@@ -1177,20 +1266,45 @@ document.getElementsByTagName('head')[0].appendChild(style);
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
         // Display the page number of the current slide
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
         center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
         // Enable slide navigation via mouse wheel
         mouseWheel: false,
         // Opens links in an iframe preview overlay
         previewLinks: true,
         // Transition style
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.

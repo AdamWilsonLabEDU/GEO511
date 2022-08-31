@@ -7,13 +7,14 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 <style type="text/css">
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
 code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
@@ -74,7 +75,7 @@ code span.vs { color: #4e9a06; } /* VerbatimString */
 code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 
-<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -506,9 +507,9 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="site_libs/header-attrs-2.11/header-attrs.js"></script>
-    <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-    <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+    <script src="externals/header-attrs/header-attrs.js"></script>
+    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -540,9 +541,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Resource Presentations</h2>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
 </iframe>
-<p><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
+<p><a
+href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
 </section>
-<section id="case-study-presentations---lets-pick-a-winner" class="slide level2">
+<section id="case-study-presentations---lets-pick-a-winner"
+class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
 <iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
 </iframe>
@@ -565,10 +568,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <iframe src="https://en.wikipedia.org/wiki/Application_programming_interface" width="100%" height="400px">
 </iframe>
 <ul>
-<li class="fragment">Imagine I wanted to work with Wikipedia content…</li>
+<li class="fragment">Imagine I wanted to work with Wikipedia
+content…</li>
 </ul>
 </section>
-<section id="manually-processing-information-from-the-web" class="slide level2">
+<section id="manually-processing-information-from-the-web"
+class="slide level2">
 <h2>Manually processing information from the web</h2>
 <ul>
 <li>Browse to page, <code>File-&gt;Save As</code>, repeat.</li>
@@ -596,7 +601,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">language=</span><span class="st">&quot;en&quot;</span>,</span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="at">as_wikitext=</span>T)</span></code></pre></div>
 </section>
-<section id="apis-allow-direct-and-often-custom-sharing-of-data" class="slide level2">
+<section id="apis-allow-direct-and-often-custom-sharing-of-data"
+class="slide level2">
 <h2>APIs allow direct (and often custom) sharing of data</h2>
 <div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>c1<span class="ot">=</span>content<span class="sc">$</span>parse<span class="sc">$</span>wikitext<span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_split</span>(<span class="fu">boundary</span>(<span class="st">&quot;sentence&quot;</span>),<span class="at">simplify =</span> T)<span class="sc">%&gt;%</span></span>
@@ -604,7 +610,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">str_replace_all</span>(<span class="st">&quot;</span><span class="sc">\\</span><span class="st">[|</span><span class="sc">\\</span><span class="st">]&quot;</span>,<span class="st">&quot;&quot;</span>)</span>
 <span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co"># results:</span></span>
 <span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(c1[<span class="dv">5</span><span class="sc">:</span><span class="dv">6</span>])</span></code></pre></div>
-<pre><code>## An application programming interface (API) is a connection between computers or between computer programs.  It is a type of software Interface (computing)|interface, offering a service to other pieces of software.&lt;ref&gt;{{cite book |last=Reddy |first=Martin |author-link= |date=2011 |title=API Design for C++ |url=https://www.google.com/books/edition/API_Design_for_C++/IY29LylT85wC |publisher=Elsevier Science |page=1 |isbn=9780123850041}}&lt;/ref&gt; A document or standard that describes how to build or use such a connection or interface is called an API specification.</code></pre>
+<pre><code>## It is a type of software Interface (computing)|interface, offering a service to other pieces of software.&lt;ref&gt;{{cite book |last=Reddy |first=Marathi |author-link= |date=2011 |title=API Design for C++ |url=https://www.google.com/books/edition/API_Design_for_C++/IY29LylT85wC |publisher=Elsevier Science |page=1 |isbn=9780123850041}}&lt;/ref&gt; A document or standard that describes how to build or use such a connection or interface is called an API specification.  A computer system that meets this standard is said to implement or expose an API.</code></pre>
 </section>
 <section id="many-data-providers-now-have-apis" class="slide level2">
 <h2>Many data providers now have APIs</h2>
@@ -651,9 +657,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Endpoints</h2>
 <p>The URL you will request information from.</p>
 <ul>
-<li>Data.gov API: <a href="https://www.data.gov/developers/apis" class="uri">https://www.data.gov/developers/apis</a></li>
-<li>Github API: <a href="https://api.github.com" class="uri">https://api.github.com</a></li>
-<li>U.S. Census API: <a href="http://api.census.gov" class="uri">http://api.census.gov</a></li>
+<li>Data.gov API: <a href="https://www.data.gov/developers/apis"
+class="uri">https://www.data.gov/developers/apis</a></li>
+<li>Github API: <a href="https://api.github.com"
+class="uri">https://api.github.com</a></li>
+<li>U.S. Census API: <a href="http://api.census.gov"
+class="uri">http://api.census.gov</a></li>
 </ul>
 </section>
 <section id="some-r-packages-for-specific-apis" class="slide level2">
@@ -691,10 +700,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="results" class="slide level2">
 <h2>Results</h2>
-<pre><code>## Warning: The `shift_geo` argument is deprecated and will be removed in a future
-## release. We recommend using `tigris::shift_geometry()` instead.</code></pre>
-<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please
-## use `guide = &quot;none&quot;` instead.</code></pre>
+<pre><code>## Warning: The `shift_geo` argument is deprecated and will be removed in a future release. We recommend using `tigris::shift_geometry()` instead.</code></pre>
+<pre><code>## Warning: It is deprecated to specify `guide = FALSE` to remove a guide. Please use `guide = &quot;none&quot;` instead.</code></pre>
 <p><img data-src="PS_09_files/figure-revealjs/census-1.png" /></p>
 </section>
 <section id="agricultural-data" class="slide level2">
@@ -722,7 +729,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="feddata-package" class="slide level2">
 <h2><code>FedData</code> package</h2>
 <ul>
-<li>National Elevation Dataset digital elevation models (1 and 1/3 arc-second; USGS)</li>
+<li>National Elevation Dataset digital elevation models (1 and 1/3
+arc-second; USGS)</li>
 <li>National Hydrography Dataset (USGS)</li>
 <li>Soil Survey Geographic (SSURGO) database</li>
 <li>International Tree Ring Data Bank.</li>
@@ -734,13 +742,15 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>NOAA APIv2</h2>
 <iframe src="https://www.ncdc.noaa.gov/cdo-web/webservices/v2" width="100%" height="400px">
 </iframe>
-<p><a href="http://www.ncdc.noaa.gov/cdo-web/webservices/v2">National Climatic Data Center application programming interface (API)</a>.</p>
+<p><a href="http://www.ncdc.noaa.gov/cdo-web/webservices/v2">National
+Climatic Data Center application programming interface (API)</a>.</p>
 </section>
 <section id="rnoaa-package" class="slide level2">
 <h2><code>rNOAA</code> package</h2>
 <p>Handles downloading data directly from NOAA APIv2.</p>
 <ul>
-<li><code>buoy_*</code> NOAA Buoy data from the National Buoy Data Center</li>
+<li><code>buoy_*</code> NOAA Buoy data from the National Buoy Data
+Center</li>
 <li><code>ghcnd_*</code> GHCND daily data from NOAA</li>
 <li><code>isd_*</code> ISD/ISH data from NOAA</li>
 <li><code>homr_*</code> Historical Observing Metadata Repository</li>
@@ -752,7 +762,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 </section></section>
 <section>
-<section id="global-historical-climatology-network-ghcn" class="title-slide slide level1">
+<section id="global-historical-climatology-network-ghcn"
+class="title-slide slide level1">
 <h1>Global Historical Climatology Network (GHCN)</h1>
 
 </section>
@@ -770,17 +781,31 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="station-locations" class="slide level2">
 <h2>Station locations</h2>
-<p>Download the GHCN station inventory with <code>ghcnd_stations()</code> and convert to <code>sf</code> object. The download can take a minute or two.</p>
+<p>Download the GHCN station inventory with
+<code>ghcnd_stations()</code> and convert to <code>sf</code> object. The
+download can take a minute or two.</p>
 <div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>st <span class="ot">=</span> <span class="fu">ghcnd_stations</span>()<span class="sc">%&gt;%</span></span>
 <span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()<span class="sc">%&gt;%</span>  <span class="co"># remove records with missing values</span></span>
 <span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_as_sf</span>(<span class="at">coords=</span><span class="fu">c</span>(<span class="st">&quot;longitude&quot;</span>,<span class="st">&quot;latitude&quot;</span>))<span class="sc">%&gt;%</span> <span class="co">#convert to sf</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">st_set_crs</span>(<span class="st">&quot;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&quot;</span>)</span></code></pre></div>
 <pre><code>## using cached file: ~/Library/Caches/R/noaa_ghcnd/ghcnd-stations.rds</code></pre>
-<pre><code>## date created (size, mb): 2021-08-29 22:53:46 (2.142)</code></pre>
+<pre><code>## date created (size, mb): 2022-05-10 12:03:29 (2.159)</code></pre>
 <pre><code>## using cached file: ~/Library/Caches/R/noaa_ghcnd/ghcnd-inventory.rds</code></pre>
-<pre><code>## date created (size, mb): 2021-08-29 22:54:22 (2.638)</code></pre>
+<pre><code>## date created (size, mb): 2022-05-10 12:03:48 (2.669)</code></pre>
 <div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(st)<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 8%" />
+<col style="width: 5%" />
+<col style="width: 18%" />
+<col style="width: 7%" />
+<col style="width: 5%" />
+<col style="width: 6%" />
+<col style="width: 9%" />
+<col style="width: 8%" />
+<col style="width: 20%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -885,13 +910,16 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
 <h3 id="and-50-others-for-example">And ~50 others! For example:</h3>
 <ul>
-<li><strong>ACMC</strong> Average cloudiness midnight to midnight from 30-second ceilometer</li>
+<li><strong>ACMC</strong> Average cloudiness midnight to midnight from
+30-second ceilometer</li>
 <li><strong>AWND</strong> Average daily wind speed</li>
-<li><strong>FMTM</strong> Time of fastest mile or fastest 1-minute wind</li>
+<li><strong>FMTM</strong> Time of fastest mile or fastest 1-minute
+wind</li>
 <li><strong>MDSF</strong> Multiday snowfall total</li>
 </ul>
 </section>
-<section id="filter-to-temperature-and-precipitation" class="slide level2">
+<section id="filter-to-temperature-and-precipitation"
+class="slide level2">
 <h2><code>filter()</code> to temperature and precipitation</h2>
 <div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>st_filtered<span class="ot">=</span>dplyr<span class="sc">::</span><span class="fu">filter</span>(st,element<span class="sc">%in%</span><span class="fu">c</span>(<span class="st">&quot;TMAX&quot;</span>,<span class="st">&quot;TMIN&quot;</span>,<span class="st">&quot;PRCP&quot;</span>))</span></code></pre></div>
 </section>
@@ -916,15 +944,23 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section class="slide level2">
 
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-12-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-12-1.png" /></p>
 </section>
 <section id="download-daily-data-from-ghcn" class="slide level2">
 <h2>Download daily data from GHCN</h2>
-<p><code>ghcnd()</code> will download a <code>.dly</code> text file for a particular station. But how to choose?</p>
+<p><code>ghcnd()</code> will download a <code>.dly</code> text file for
+a particular station. But how to choose?</p>
 </section>
-<section id="geocode-in-ggmap-package-useful-for-geocoding-place-names" class="slide level2">
-<h2><code>geocode</code> in ggmap package useful for geocoding place names</h2>
-<p>Geocodes a location (find latitude and longitude) using either (1) the Data Science Toolkit (<a href="http://www.datasciencetoolkit.org/about" class="uri">http://www.datasciencetoolkit.org/about</a>) or (2) Google Maps.</p>
+<section id="geocode-in-ggmap-package-useful-for-geocoding-place-names"
+class="slide level2">
+<h2><code>geocode</code> in ggmap package useful for geocoding place
+names</h2>
+<p>Geocodes a location (find latitude and longitude) using either (1)
+the Data Science Toolkit (<a
+href="http://www.datasciencetoolkit.org/about"
+class="uri">http://www.datasciencetoolkit.org/about</a>) or (2) Google
+Maps.</p>
 <div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">geocode</span>(<span class="st">&quot;University at Buffalo, NY&quot;</span>)</span></code></pre></div>
 <pre><code>## # A tibble: 1 × 2
 ##     lon   lat
@@ -965,9 +1001,21 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>st1<span class="ot">=</span><span class="fu">st_within</span>(st_filtered,buffalo_b)<span class="sc">%&gt;%</span> <span class="co">#find stations in the buffered polygon</span></span>
 <span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">apply</span>(<span class="dv">1</span>, any) </span>
 <span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a><span class="fu">str</span>(st1)</span></code></pre></div>
-<pre><code>##  logi [1:196634] FALSE FALSE FALSE FALSE FALSE FALSE ...</code></pre>
+<pre><code>##  logi [1:197653] FALSE FALSE FALSE FALSE FALSE FALSE ...</code></pre>
 <div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kable</span>(st_filtered[st1,])</span></code></pre></div>
 <table>
+<colgroup>
+<col style="width: 3%" />
+<col style="width: 12%" />
+<col style="width: 7%" />
+<col style="width: 6%" />
+<col style="width: 11%" />
+<col style="width: 8%" />
+<col style="width: 10%" />
+<col style="width: 14%" />
+<col style="width: 12%" />
+<col style="width: 11%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th style="text-align: left;">id</th>
@@ -993,8 +1041,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                   <span class="at">var =</span> <span class="fu">c</span>(<span class="st">&quot;TMAX&quot;</span>,<span class="st">&quot;TMIN&quot;</span>,<span class="st">&quot;PRCP&quot;</span>),</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>                   <span class="at">keep_flags =</span> T)</span></code></pre></div>
 <pre><code>## using cached file: ~/Library/Caches/R/noaa_ghcnd/USW00014733.dly</code></pre>
-<pre><code>## date created (size, mb): 2021-08-29 22:58:37 (8.5)</code></pre>
-<pre><code>## file min/max dates: 1938-05-01 / 2021-08-31</code></pre>
+<pre><code>## date created (size, mb): 2022-05-10 12:03:21 (8.568)</code></pre>
+<pre><code>## file min/max dates: 1938-05-01 / 2022-05-31</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(d)<span class="sc">%&gt;%</span><span class="fu">kable</span>()</span></code></pre></div>
 <table>
 <colgroup>
@@ -1133,19 +1181,27 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section class="slide level2">
 
-<p>See <a href="http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf">CDO Daily Description</a> and raw <a href="http://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt">GHCND metadata</a> for more details.</p>
+<p>See <a
+href="http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf">CDO
+Daily Description</a> and raw <a
+href="http://www1.ncdc.noaa.gov/pub/data/ghcn/daily/readme.txt">GHCND
+metadata</a> for more details.</p>
 </section>
 <section id="quality-control-mflag" class="slide level2">
 <h2>Quality Control: MFLAG</h2>
 <p>Measurement Flag/Attribute</p>
 <ul>
 <li><strong>Blank</strong> no measurement information applicable</li>
-<li><strong>B</strong> precipitation total formed from two twelve-hour totals</li>
-<li><strong>H</strong> represents highest or lowest hourly temperature (TMAX or TMIN) or average of hourly values (TAVG)</li>
+<li><strong>B</strong> precipitation total formed from two twelve-hour
+totals</li>
+<li><strong>H</strong> represents highest or lowest hourly temperature
+(TMAX or TMIN) or average of hourly values (TAVG)</li>
 <li><strong>K</strong> converted from knots</li>
 <li>…</li>
 </ul>
-<p>See <a href="http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf">CDO Description</a></p>
+<p>See <a
+href="http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf">CDO
+Description</a></p>
 </section>
 <section id="quality-control-qflag" class="slide level2">
 <h2>Quality Control: QFLAG</h2>
@@ -1162,7 +1218,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <li><strong>W</strong> temperature too warm for snow</li>
 <li>…</li>
 </ul>
-<p>See <a href="http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf">CDO Description</a></p>
+<p>See <a
+href="http://www1.ncdc.noaa.gov/pub/data/cdo/documentation/GHCND_documentation.pdf">CDO
+Description</a></p>
 </section>
 <section id="quality-control-sflag" class="slide level2">
 <h2>Quality Control: SFLAG</h2>
@@ -1170,11 +1228,12 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="summarize-qc-flags" class="slide level2">
 <h2>Summarize QC flags</h2>
-<p>Summarize the QC flags. How many of which type are there? Should we be more conservative?</p>
+<p>Summarize the QC flags. How many of which type are there? Should we
+be more conservative?</p>
 <div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(d<span class="sc">$</span>qflag_tmin)  </span></code></pre></div>
 <pre><code>## 
 ##           G     I     S 
-## 30427     2     7     3</code></pre>
+## 30704     2     4     2</code></pre>
 <ul>
 <li><strong>G</strong> failed gap check</li>
 <li><strong>I</strong> failed internal consistency check</li>
@@ -1183,7 +1242,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section class="slide level2">
 
-<h3 id="filter-with-qc-data-and-change-units">Filter with QC data and change units</h3>
+<h3 id="filter-with-qc-data-and-change-units">Filter with QC data and
+change units</h3>
 <div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>d_filtered<span class="ot">=</span>d<span class="sc">%&gt;%</span></span>
 <span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmax=</span><span class="fu">ifelse</span>(qflag_tmax<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>tmax<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(tmax)<span class="sc">/</span><span class="dv">10</span>))<span class="sc">%&gt;%</span>  <span class="co"># convert to degrees C</span></span>
 <span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tmin=</span><span class="fu">ifelse</span>(qflag_tmin<span class="sc">!=</span><span class="st">&quot; &quot;</span><span class="sc">|</span>tmin<span class="sc">==-</span><span class="dv">9999</span>,<span class="cn">NA</span>,<span class="fu">as.numeric</span>(tmin)<span class="sc">/</span><span class="dv">10</span>))<span class="sc">%&gt;%</span>  <span class="co"># convert to degrees C</span></span>
@@ -1197,23 +1257,27 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>       <span class="fu">aes</span>(<span class="at">y=</span>tmax,<span class="at">x=</span>date))<span class="sc">+</span></span>
 <span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>id)</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-20-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-20-1.png" /></p>
 </section>
 <section class="slide level2">
 
-<p>Limit to a few years and plot the daily range and average temperatures.</p>
+<p>Limit to a few years and plot the daily range and average
+temperatures.</p>
 <div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>d_filtered_recent<span class="ot">=</span><span class="fu">filter</span>(d_filtered,date<span class="sc">&gt;</span><span class="fu">as.Date</span>(<span class="st">&quot;2017-01-01&quot;</span>))</span>
 <span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(d_filtered_recent,</span>
 <span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>         <span class="fu">aes</span>(<span class="at">ymax=</span>tmax,<span class="at">ymin=</span>tmin,<span class="at">x=</span>date))<span class="sc">+</span></span>
 <span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_ribbon</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>,<span class="at">fill=</span><span class="st">&quot;grey&quot;</span>)<span class="sc">+</span></span>
 <span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>(tmax<span class="sc">+</span>tmin)<span class="sc">/</span><span class="dv">2</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 4 row(s) containing missing values (geom_path).</code></pre>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-21-1.png" /></p>
+<pre><code>## Warning: Removed 24 row(s) containing missing values (geom_path).</code></pre>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-21-1.png" /></p>
 </section>
 <section id="zoo-package-for-rolling-functions" class="slide level2">
 <h2>Zoo package for rolling functions</h2>
-<p>Infrastructure for Regular and Irregular Time Series (Z’s Ordered Observations)</p>
+<p>Infrastructure for Regular and Irregular Time Series (Z’s Ordered
+Observations)</p>
 <ul>
 <li><code>rollmean()</code>: Rolling mean</li>
 <li><code>rollsum()</code>: Rolling sum</li>
@@ -1221,7 +1285,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </ul>
 <p>Use rollmean to calculate a rolling 60-day average.</p>
 <ul>
-<li><code>align</code> whether the index of the result should be left- or right-aligned or centered</li>
+<li><code>align</code> whether the index of the result should be left-
+or right-aligned or centered</li>
 </ul>
 </section>
 <section class="slide level2">
@@ -1239,12 +1304,14 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>(tmin<span class="sc">+</span>tmax)<span class="sc">/</span><span class="dv">2</span>),<span class="at">col=</span><span class="fu">grey</span>(<span class="fl">0.4</span>),<span class="at">size=</span>.<span class="dv">5</span>)<span class="sc">+</span></span>
 <span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>tmax<span class="fl">.60</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y=</span>tmax.b60),<span class="at">col=</span><span class="st">&quot;darkred&quot;</span>)</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-23-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-23-1.png" /></p>
 </section></section>
 <section>
 <section id="time-series-analysis" class="title-slide slide level1">
 <h1>Time Series analysis</h1>
-<p>Most timeseries functions use the time series class (<code>ts</code>)</p>
+<p>Most timeseries functions use the time series class
+(<code>ts</code>)</p>
 <div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>tmin.ts<span class="ot">=</span><span class="fu">ts</span>(d_filtered_recent<span class="sc">$</span>tmin,<span class="at">frequency =</span> <span class="dv">365</span>)</span></code></pre></div>
 </section>
 <section id="temporal-autocorrelation" class="slide level2">
@@ -1253,33 +1320,41 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(d_filtered_recent,<span class="fu">aes</span>(<span class="at">y=</span>tmin,<span class="at">x=</span><span class="fu">lag</span>(tmin)))<span class="sc">+</span></span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept=</span><span class="dv">0</span>, <span class="at">slope=</span><span class="dv">1</span>)</span></code></pre></div>
-<pre><code>## Warning: Removed 5 rows containing missing values (geom_point).</code></pre>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-25-1.png" /></p>
+<pre><code>## Warning: Removed 25 rows containing missing values (geom_point).</code></pre>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-25-1.png" /></p>
 </section>
 <section id="autocorrelation-functions" class="slide level2">
 <h2>Autocorrelation functions</h2>
 <ul>
-<li>autocorrelation <span class="math inline">\(x\)</span> vs. <span class="math inline">\(x_{t-1}\)</span> (lag=1)</li>
-<li>partial autocorrelation. <span class="math inline">\(x\)</span> vs. <span class="math inline">\(x_{n}\)</span> <em>after</em> controlling for correlations <span class="math inline">\(\in t-1:n\)</span></li>
+<li>autocorrelation <span class="math inline">\(x\)</span> vs. <span
+class="math inline">\(x_{t-1}\)</span> (lag=1)</li>
+<li>partial autocorrelation. <span class="math inline">\(x\)</span>
+vs. <span class="math inline">\(x_{n}\)</span> <em>after</em>
+controlling for correlations <span class="math inline">\(\in
+t-1:n\)</span></li>
 </ul>
 </section>
 <section id="autocorrelation" class="slide level2">
 <h2>Autocorrelation</h2>
 <div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">acf</span>(tmin.ts,<span class="at">lag.max =</span> <span class="dv">365</span><span class="sc">*</span><span class="dv">3</span>,<span class="at">na.action =</span> na.exclude )</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-26-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-26-1.png" /></p>
 </section>
 <section class="slide level2">
 
 <h3 id="partial-autocorrelation">Partial Autocorrelation</h3>
 <div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pacf</span>(tmin.ts,<span class="at">lag.max =</span> <span class="dv">365</span>,<span class="at">na.action =</span> na.exclude )</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-27-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-27-1.png" /></p>
 </section></section>
 <section>
 <section id="trend-analysis" class="title-slide slide level1">
 <h1>Trend analysis</h1>
 
 </section>
-<section id="group-by-month-season-year-and-decade." class="slide level2">
+<section id="group-by-month-season-year-and-decade."
+class="slide level2">
 <h2>Group by month, season, year, and decade.</h2>
 <p>How to convert years into ‘decades’?</p>
 <div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="dv">1938</span></span></code></pre></div>
@@ -1393,29 +1468,31 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <tr class="odd">
 <td style="text-align: left;">early</td>
 <td style="text-align: right;">13394</td>
-<td style="text-align: right;">4.200516</td>
-<td style="text-align: right;">13.67306</td>
-<td style="text-align: right;">25.09372</td>
+<td style="text-align: right;">4.199514</td>
+<td style="text-align: right;">13.67126</td>
+<td style="text-align: right;">25.09185</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">late</td>
-<td style="text-align: right;">17045</td>
-<td style="text-align: right;">4.817294</td>
-<td style="text-align: right;">13.77652</td>
-<td style="text-align: right;">28.51288</td>
+<td style="text-align: right;">17318</td>
+<td style="text-align: right;">4.778472</td>
+<td style="text-align: right;">13.73115</td>
+<td style="text-align: right;">28.55898</td>
 </tr>
 </tbody>
 </table>
 </section>
 <section class="slide level2">
 
-<p>But be careful, there were lots of missing data in the beginning of the record</p>
+<p>But be careful, there were lots of missing data in the beginning of
+the record</p>
 <div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a>d_filtered2<span class="sc">%&gt;%</span></span>
 <span id="cb60-2"><a href="#cb60-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(year)<span class="sc">%&gt;%</span></span>
 <span id="cb60-3"><a href="#cb60-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarize</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
 <span id="cb60-4"><a href="#cb60-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>year,<span class="at">y=</span>n))<span class="sc">+</span></span>
 <span id="cb60-5"><a href="#cb60-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-31-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-31-1.png" /></p>
 </section>
 <section class="slide level2">
 
@@ -1428,7 +1505,7 @@ document.getElementsByTagName('head')[0].appendChild(style);
 ##    year     n
 ##   &lt;dbl&gt; &lt;int&gt;
 ## 1  1938   245
-## 2  2021   243</code></pre>
+## 2  2022   151</code></pre>
 </section>
 <section class="slide level2">
 
@@ -1444,11 +1521,17 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>            )<span class="sc">%&gt;%</span></span>
 <span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>dec,<span class="at">y=</span>tmax))<span class="sc">+</span></span>
 <span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">col=</span><span class="st">&quot;grey&quot;</span>)</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-33-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-33-1.png" /></p>
 </section>
-<section id="look-for-specific-events-was-2020-unusually-hot-in-buffalo-ny" class="slide level2">
-<h2>Look for specific events: was 2020 unusually hot in Buffalo, NY?</h2>
-<p>Let’s compare 2020 with all the previous years in the dataset. First add ‘day of year’ to the data to facilitate showing all years on the same plot.</p>
+<section
+id="look-for-specific-events-was-2020-unusually-hot-in-buffalo-ny"
+class="slide level2">
+<h2>Look for specific events: was 2020 unusually hot in Buffalo,
+NY?</h2>
+<p>Let’s compare 2020 with all the previous years in the dataset. First
+add ‘day of year’ to the data to facilitate showing all years on the
+same plot.</p>
 <div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>df<span class="ot">=</span>d_filtered2<span class="sc">%&gt;%</span></span>
 <span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">doy=</span><span class="fu">as.numeric</span>(<span class="fu">format</span>(date,<span class="st">&quot;%j&quot;</span>)),</span>
 <span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">doydate=</span><span class="fu">as.Date</span>(<span class="fu">paste</span>(<span class="st">&quot;2020-&quot;</span>,doy),<span class="at">format=</span><span class="st">&quot;%Y-%j&quot;</span>))</span></code></pre></div>
@@ -1463,7 +1546,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb65-5"><a href="#cb65-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%b&quot;</span>),<span class="at">date_breaks =</span> <span class="st">&quot;2 months&quot;</span>) <span class="sc">+</span> </span>
 <span id="cb65-6"><a href="#cb65-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">&quot;Day of year&quot;</span>)</span></code></pre></div>
 <pre><code>## `geom_smooth()` using method = &#39;gam&#39; and formula &#39;y ~ s(x, bs = &quot;cs&quot;)&#39;</code></pre>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-35-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-35-1.png" /></p>
 </section>
 <section class="slide level2">
 
@@ -1474,7 +1558,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data=</span><span class="fu">filter</span>(df,year<span class="sc">==</span><span class="dv">2019</span>),<span class="at">col=</span><span class="st">&quot;red&quot;</span>)<span class="sc">+</span></span>
 <span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_date</span>(<span class="at">labels =</span> <span class="fu">date_format</span>(<span class="st">&quot;%b&quot;</span>),<span class="at">date_breaks =</span> <span class="st">&quot;2 months&quot;</span>,</span>
 <span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>               <span class="at">lim=</span><span class="fu">c</span>(<span class="fu">as.Date</span>(<span class="st">&quot;2019-08-01&quot;</span>),<span class="fu">as.Date</span>(<span class="st">&quot;2019-10-31&quot;</span>)))</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-36-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-36-1.png" /></p>
 </section>
 <section id="summarize-by-season" class="slide level2">
 <h2>Summarize by season</h2>
@@ -1494,16 +1579,18 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <span id="cb70-3"><a href="#cb70-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">stat_smooth</span>(<span class="at">method=</span><span class="st">&quot;lm&quot;</span>, <span class="at">se=</span>T)<span class="sc">+</span></span>
 <span id="cb70-4"><a href="#cb70-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()</span></code></pre></div>
 <pre><code>## `geom_smooth()` using formula &#39;y ~ x&#39;</code></pre>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-38-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-38-1.png" /></p>
 </section>
-<section id="fit-a-linear-model-to-a-single-season" class="slide level2">
+<section id="fit-a-linear-model-to-a-single-season"
+class="slide level2">
 <h2>Fit a linear model to a single season</h2>
 <div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a>lm1<span class="ot">=</span>seasonal<span class="sc">%&gt;%</span></span>
 <span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(season<span class="sc">==</span><span class="st">&quot;Summer&quot;</span>)<span class="sc">%&gt;%</span></span>
 <span id="cb72-3"><a href="#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">lm</span>(tmin<span class="sc">~</span>year,<span class="at">data=</span>.)</span>
 <span id="cb72-4"><a href="#cb72-4" aria-hidden="true" tabindex="-1"></a></span>
 <span id="cb72-5"><a href="#cb72-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(lm1)<span class="sc">$</span>r.squared</span></code></pre></div>
-<pre><code>## [1] 0.2820857</code></pre>
+<pre><code>## [1] 0.3061966</code></pre>
 <div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tidy</span>(lm1)<span class="sc">%&gt;%</span><span class="fu">kable</span>() </span></code></pre></div>
 <table>
 <thead>
@@ -1518,17 +1605,17 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <tbody>
 <tr class="odd">
 <td style="text-align: left;">(Intercept)</td>
-<td style="text-align: right;">-27.3354783</td>
-<td style="text-align: right;">7.6402074</td>
-<td style="text-align: right;">-3.577845</td>
-<td style="text-align: right;">0.0005919</td>
+<td style="text-align: right;">-30.0956953</td>
+<td style="text-align: right;">7.6312419</td>
+<td style="text-align: right;">-3.943748</td>
+<td style="text-align: right;">0.0001696</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">year</td>
-<td style="text-align: right;">0.0216391</td>
-<td style="text-align: right;">0.0038596</td>
-<td style="text-align: right;">5.606596</td>
-<td style="text-align: right;">0.0000003</td>
+<td style="text-align: right;">0.0230432</td>
+<td style="text-align: right;">0.0038541</td>
+<td style="text-align: right;">5.978943</td>
+<td style="text-align: right;">0.0000001</td>
 </tr>
 </tbody>
 </table>
@@ -1562,33 +1649,33 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <tr class="odd">
 <td style="text-align: left;">Spring</td>
 <td style="text-align: left;">year</td>
-<td style="text-align: right;">0.0157025</td>
-<td style="text-align: right;">0.0032314</td>
-<td style="text-align: right;">4.859407</td>
-<td style="text-align: right;">1.2e-06</td>
+<td style="text-align: right;">0.0144961</td>
+<td style="text-align: right;">0.0031820</td>
+<td style="text-align: right;">4.555678</td>
+<td style="text-align: right;">5.3e-06</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Summer</td>
 <td style="text-align: left;">year</td>
-<td style="text-align: right;">0.0233772</td>
-<td style="text-align: right;">0.0017552</td>
-<td style="text-align: right;">13.318941</td>
+<td style="text-align: right;">0.0237190</td>
+<td style="text-align: right;">0.0017520</td>
+<td style="text-align: right;">13.538056</td>
 <td style="text-align: right;">0.0e+00</td>
 </tr>
 <tr class="odd">
 <td style="text-align: left;">Fall</td>
 <td style="text-align: left;">year</td>
-<td style="text-align: right;">0.0141380</td>
-<td style="text-align: right;">0.0030396</td>
-<td style="text-align: right;">4.651252</td>
-<td style="text-align: right;">3.4e-06</td>
+<td style="text-align: right;">0.0161484</td>
+<td style="text-align: right;">0.0029881</td>
+<td style="text-align: right;">5.404307</td>
+<td style="text-align: right;">1.0e-07</td>
 </tr>
 <tr class="even">
 <td style="text-align: left;">Winter</td>
 <td style="text-align: left;">year</td>
-<td style="text-align: right;">0.0179402</td>
-<td style="text-align: right;">0.0029273</td>
-<td style="text-align: right;">6.128633</td>
+<td style="text-align: right;">0.0180738</td>
+<td style="text-align: right;">0.0028744</td>
+<td style="text-align: right;">6.287960</td>
 <td style="text-align: right;">0.0e+00</td>
 </tr>
 </tbody>
@@ -1596,7 +1683,9 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="autoregressive-models" class="slide level2">
 <h2>Autoregressive models</h2>
-<p>See <a href="https://cran.r-project.org/web/views/TimeSeries.html">Time Series Analysis Task View</a> for summary of available pack,-ages/models.</p>
+<p>See <a
+href="https://cran.r-project.org/web/views/TimeSeries.html">Time Series
+Analysis Task View</a> for summary of available pack,-ages/models.</p>
 <ul>
 <li>Moving average (MA) models</li>
 <li>autoregressive (AR) models</li>
@@ -1615,21 +1704,34 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="climate-metrics-climdex" class="slide level2">
 <h2>Climate Metrics: ClimdEX</h2>
-<p>Indices representing extreme aspects of climate derived from daily data:</p>
-<p>Climate Change Research Centre (CCRC) at University of New South Wales (UNSW) (<a href="http://www.climdex.org">climdex.org</a>).</p>
+<p>Indices representing extreme aspects of climate derived from daily
+data:</p>
+<p>Climate Change Research Centre (CCRC) at University of New South
+Wales (UNSW) (<a href="http://www.climdex.org">climdex.org</a>).</p>
 </section>
 <section id="core-indices" class="slide level2">
 <h2>27 Core indices</h2>
 <p>For example:</p>
 <ul>
-<li><strong>FD</strong> Number of frost days: Annual count of days when TN (daily minimum temperature) &lt; 0C.</li>
-<li><strong>SU</strong> Number of summer days: Annual count of days when TX (daily maximum temperature) &gt; 25C.</li>
-<li><strong>ID</strong> Number of icing days: Annual count of days when TX (daily maximum temperature) &lt; 0C.</li>
-<li><strong>TR</strong> Number of tropical nights: Annual count of days when TN (daily minimum temperature) &gt; 20C.</li>
-<li><strong>GSL</strong> Growing season length: Annual (1st Jan to 31st Dec in Northern Hemisphere (NH), 1st July to 30th June in Southern Hemisphere (SH)) count between first span of at least 6 days with daily mean temperature TG&gt;5C and first span after July 1st (Jan 1st in SH) of 6 days with TG&lt;5C.</li>
-<li><strong>TXx</strong> Monthly maximum value of daily maximum temperature</li>
-<li><strong>TN10p</strong> Percentage of days when TN &lt; 10th percentile</li>
-<li><strong>Rx5day</strong> Monthly maximum consecutive 5-day precipitation</li>
+<li><strong>FD</strong> Number of frost days: Annual count of days when
+TN (daily minimum temperature) &lt; 0C.</li>
+<li><strong>SU</strong> Number of summer days: Annual count of days when
+TX (daily maximum temperature) &gt; 25C.</li>
+<li><strong>ID</strong> Number of icing days: Annual count of days when
+TX (daily maximum temperature) &lt; 0C.</li>
+<li><strong>TR</strong> Number of tropical nights: Annual count of days
+when TN (daily minimum temperature) &gt; 20C.</li>
+<li><strong>GSL</strong> Growing season length: Annual (1st Jan to 31st
+Dec in Northern Hemisphere (NH), 1st July to 30th June in Southern
+Hemisphere (SH)) count between first span of at least 6 days with daily
+mean temperature TG&gt;5C and first span after July 1st (Jan 1st in SH)
+of 6 days with TG&lt;5C.</li>
+<li><strong>TXx</strong> Monthly maximum value of daily maximum
+temperature</li>
+<li><strong>TN10p</strong> Percentage of days when TN &lt; 10th
+percentile</li>
+<li><strong>Rx5day</strong> Monthly maximum consecutive 5-day
+precipitation</li>
 <li><strong>SDII</strong> Simple pricipitation intensity index</li>
 </ul>
 </section>
@@ -1658,45 +1760,73 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Cumulative dry days</h2>
 <div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a>cdd<span class="ot">=</span> <span class="fu">climdex.cdd</span>(ci, <span class="at">spells.can.span.years =</span> <span class="cn">TRUE</span>)</span>
 <span id="cb78-2"><a href="#cb78-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(cdd<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-43-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-43-1.png" /></p>
 </section>
 <section id="diurnal-temperature-range" class="slide level2">
 <h2>Diurnal Temperature Range</h2>
 <div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a>dtr<span class="ot">=</span><span class="fu">climdex.dtr</span>(ci, <span class="at">freq =</span> <span class="fu">c</span>(<span class="st">&quot;annual&quot;</span>))</span>
 <span id="cb79-2"><a href="#cb79-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(dtr<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-44-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-44-1.png" /></p>
 </section>
 <section id="frost-days" class="slide level2">
 <h2>Frost Days</h2>
 <div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a>fd<span class="ot">=</span><span class="fu">climdex.fd</span>(ci)</span>
 <span id="cb80-2"><a href="#cb80-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fd<span class="sc">~</span>years,<span class="at">type=</span><span class="st">&quot;l&quot;</span>)</span></code></pre></div>
-<p><img data-src="PS_09_files/figure-revealjs/unnamed-chunk-45-1.png" /></p>
+<p><img
+data-src="PS_09_files/figure-revealjs/unnamed-chunk-45-1.png" /></p>
 </section></section>
     </div>
   </div>
 
-  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
         // Display the page number of the current slide
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
         center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
         // Enable slide navigation via mouse wheel
         mouseWheel: false,
         // Opens links in an iframe preview overlay
         previewLinks: true,
         // Transition style
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -1723,8 +1853,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>

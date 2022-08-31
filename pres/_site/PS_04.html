@@ -7,11 +7,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 
-<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -443,11 +443,11 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="site_libs/header-attrs-2.10/header-attrs.js"></script>
-    <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
-    <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
-    <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-    <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+    <script src="externals/header-attrs/header-attrs.js"></script>
+    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
+    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
+    <script src="externals/kePrint/kePrint.js"></script>
+    <link href="externals/lightable/lightable.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -476,9 +476,11 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <h2>Resource Presentations</h2>
 <iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
 </iframe>
-<p><a href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
+<p><a
+href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
 </section>
-<section id="case-study-presentations---lets-pick-a-winner" class="slide level2">
+<section id="case-study-presentations---lets-pick-a-winner"
+class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
 <iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
 </iframe>
@@ -509,7 +511,8 @@ document.getElementsByTagName('head')[0].appendChild(style);
 <section id="relational-data" class="slide level2">
 <h2>Relational Data</h2>
 Flight Table in <code>library(nycflights13)</code>
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
 <table class="table" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1167,7 +1170,8 @@ ORD
 </table>
 </div>
 <br><br> Airport table in <code>library(nycflights13)</code>
-<div style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
+<div
+style="border: 1px solid #ddd; padding: 0px; overflow-y: scroll; height:200px; ">
 <table class="table table-condensed" style="font-size: 10px; margin-left: auto; margin-right: auto;">
 <thead>
 <tr>
@@ -1464,22 +1468,33 @@ America/Los_Angeles
 </section>
 <section id="relational-data-1" class="slide level2">
 <h2>Relational Data</h2>
-<p><img data-src="http://r4ds.had.co.nz/diagrams/relational-nycflights.png" /></p>
+<p><img
+data-src="http://r4ds.had.co.nz/diagrams/relational-nycflights.png" /></p>
 </section>
 <section id="visualizing-relational-data" class="slide level2">
 <h2>Visualizing Relational Data</h2>
 <p><img data-src="http://r4ds.had.co.nz/diagrams/join-setup.png" /></p>
 <ul>
-<li><strong>Primary key</strong>: uniquely identifies an observation in its own table. For example, <code>planes$tailnum</code> is a primary key because it uniquely identifies each plane in the planes table.</li>
-<li><strong>Foreign key</strong>: uniquely identifies an observation in another table. For example, the <code>flights$tailnum</code> is a foreign key because it appears in the flights table where it matches each flight to a unique plane.</li>
+<li><strong>Primary key</strong>: uniquely identifies an observation in
+its own table. For example, <code>planes$tailnum</code> is a primary key
+because it uniquely identifies each plane in the planes table.</li>
+<li><strong>Foreign key</strong>: uniquely identifies an observation in
+another table. For example, the <code>flights$tailnum</code> is a
+foreign key because it appears in the flights table where it matches
+each flight to a unique plane.</li>
 </ul>
 </section>
-<section id="families-of-verbs-designed-to-work-with-relational-data" class="slide level2">
+<section id="families-of-verbs-designed-to-work-with-relational-data"
+class="slide level2">
 <h2>3 families of verbs designed to work with relational data</h2>
 <ul>
-<li><strong>Mutating joins</strong>: add new variables to one data frame from matching observations in another</li>
-<li><strong>Filtering joins</strong>: filter observations from one data frame based on whether or not they match an observation in the other table.</li>
-<li><strong>Set operations</strong>: treat observations as if they were set elements</li>
+<li><strong>Mutating joins</strong>: add new variables to one data frame
+from matching observations in another</li>
+<li><strong>Filtering joins</strong>: filter observations from one data
+frame based on whether or not they match an observation in the other
+table.</li>
+<li><strong>Set operations</strong>: treat observations as if they were
+set elements</li>
 </ul>
 </section>
 <section id="inner-join" class="slide level2">
@@ -1511,25 +1526,33 @@ America/Los_Angeles
 <section id="duplicate-keys" class="slide level2">
 <h2>Duplicate Keys</h2>
 <h3 id="one-table-w-duplicates">One table w/ duplicates</h3>
-<p><img data-src="http://r4ds.had.co.nz/diagrams/join-one-to-many.png" /></p>
+<p><img
+data-src="http://r4ds.had.co.nz/diagrams/join-one-to-many.png" /></p>
 </section>
 <section id="duplicate-keys-1" class="slide level2">
 <h2>Duplicate Keys</h2>
 <h3 id="both-tables-w-duplicates">Both tables w/ duplicates</h3>
-<p><img data-src="http://r4ds.had.co.nz/diagrams/join-many-to-many.png" /></p>
+<p><img
+data-src="http://r4ds.had.co.nz/diagrams/join-many-to-many.png" /></p>
 </section>
 <section id="missing-keys" class="slide level2">
 <h2>Missing Keys</h2>
-<h3 id="semi_joinx-y-keeps-all-observations-in-x-that-have-a-match-in-y."><code>semi_join(x, y)</code> keeps all observations in x that have a match in y.</h3>
+<h3
+id="semi_joinx-y-keeps-all-observations-in-x-that-have-a-match-in-y."><code>semi_join(x, y)</code>
+keeps all observations in x that have a match in y.</h3>
 <p><img data-src="http://r4ds.had.co.nz/diagrams/join-semi.png" /></p>
 </section>
-<section id="anti_joinx-y-drops-all-observations-in-x-that-have-a-match-in-y." class="slide level2">
-<h2><code>anti_join(x, y)</code> drops all observations in x that have a match in y.</h2>
+<section
+id="anti_joinx-y-drops-all-observations-in-x-that-have-a-match-in-y."
+class="slide level2">
+<h2><code>anti_join(x, y)</code> drops all observations in x that have a
+match in y.</h2>
 <p><img data-src="http://r4ds.had.co.nz/diagrams/join-anti.png" /></p>
 <p>Anti-joins are useful for diagnosing join mismatches.</p>
 </section></section>
 <section>
-<section id="compare-with-other-functions" class="title-slide slide level1">
+<section id="compare-with-other-functions"
+class="title-slide slide level1">
 <h1>Compare with other functions</h1>
 
 </section>
@@ -1563,14 +1586,22 @@ America/Los_Angeles
 </tbody>
 </table>
 <ul>
-<li>specific dplyr verbs more clearly convey the intent of your code: they are concealed in the arguments of <span class="bullet_code">merge()</span>.</li>
-<li>dplyr’s joins are considerably faster and don’t mess with the order of the rows.</li>
+<li>specific dplyr verbs more clearly convey the intent of your code:
+they are concealed in the arguments of <span
+class="bullet_code">merge()</span>.</li>
+<li>dplyr’s joins are considerably faster and don’t mess with the order
+of the rows.</li>
 </ul>
 </section>
 <section id="sql" class="slide level2">
 <h2>SQL</h2>
-<p>SQL is the inspiration for dplyr’s conventions, so the translation is straightforward:</p>
+<p>SQL is the inspiration for dplyr’s conventions, so the translation is
+straightforward:</p>
 <table>
+<colgroup>
+<col style="width: 40%" />
+<col style="width: 59%" />
+</colgroup>
 <thead>
 <tr class="header">
 <th>dplyr</th>
@@ -1604,36 +1635,64 @@ America/Los_Angeles
 <section id="set-operations" class="slide level2">
 <h2>Set Operations</h2>
 <ul>
-<li><code>intersect(x, y)</code>: return only observations in both x and y.</li>
-<li><code>union(x, y)</code>: return unique observations in x and y.</li>
-<li><code>setdiff(x, y)</code>: return observations in x, but not in y.</li>
+<li><code>intersect(x, y)</code>: return only observations in both x and
+y.</li>
+<li><code>union(x, y)</code>: return unique observations in x and
+y.</li>
+<li><code>setdiff(x, y)</code>: return observations in x, but not in
+y.</li>
 </ul>
 </section></section>
     </div>
   </div>
 
-  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
       // Full list of configuration options available at:
       // https://github.com/hakimel/reveal.js#configuration
       Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
         // Display the page number of the current slide
         slideNumber: true,
         // Push each slide change to the browser history
         history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
         // Vertical centering of slides
         center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
         // Enable slide navigation via mouse wheel
         mouseWheel: false,
         // Opens links in an iframe preview overlay
         previewLinks: true,
         // Transition style
         transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
         // Transition style for full page slide backgrounds
         backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
         // The "normal" size of the presentation, aspect ratio will be preserved
         // when the presentation is scaled to fit different resolutions. Can be
         // specified using percentage units.
@@ -1660,8 +1719,8 @@ America/Los_Angeles
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>
