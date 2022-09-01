@@ -228,7 +228,7 @@ R is a dialect of the S language  developed at Bell Laboratories (formerly AT&T)
 
 ## Spatial Data Processing in R
 
-Packages: `sf, sp, maptools, rgeos, raster, ggmap`
+Packages: `sf, sp, maptools, rgeos, raster, terra, ggmap`
 
 R can perform many GIS functions and workflows (often better than a GIS!).
 
