@@ -317,20 +317,10 @@ lnstr_sf
 ```
 
 ---
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> type </th>
-   <th style="text-align:left;"> lnstr_sfc </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> random </td>
-   <td style="text-align:left;"> LINESTRING (0.6730739 0.724... </td>
-  </tr>
-</tbody>
-</table>
+
+|type   |lnstr_sfc                      |
+|:------|:------------------------------|
+|random |LINESTRING (0.6730739 0.724... |
 
 ---
 
@@ -2385,36 +2375,14 @@ pop_den <-
   arrange(desc(pop_density))
 ```
 
-<table>
- <thead>
-  <tr>
-   <th style="text-align:left;"> name_long </th>
-   <th style="text-align:right;"> pop_density </th>
-  </tr>
- </thead>
-<tbody>
-  <tr>
-   <td style="text-align:left;"> Bangladesh </td>
-   <td style="text-align:right;"> 1191.5288 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Palestine </td>
-   <td style="text-align:right;"> 852.6094 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Lebanon </td>
-   <td style="text-align:right;"> 554.8349 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Republic of Korea </td>
-   <td style="text-align:right;"> 512.3629 </td>
-  </tr>
-  <tr>
-   <td style="text-align:left;"> Rwanda </td>
-   <td style="text-align:right;"> 485.5621 </td>
-  </tr>
-</tbody>
-</table>
+
+|name_long         | pop_density|
+|:-----------------|-----------:|
+|Bangladesh        |   1191.5288|
+|Palestine         |    852.6094|
+|Lebanon           |    554.8349|
+|Republic of Korea |    512.3629|
+|Rwanda            |    485.5621|
 
 ---
 
