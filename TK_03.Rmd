@@ -13,15 +13,14 @@ tasks:
   - Configure Git 
   - Make sure git works in R-Studio (do you see the Git tab in the upper right?)
   - Optionally sign up for the [GitHub Education pack](https://education.github.com/pack)
-  - Click on [this link to access the course repository](https://classroom.github.com/a/8LE9CtTz)
-  - Set up [it credentials following this](https://happygitwithr.com/credential-caching.html#gitcreds-package)
+  - Click on [this link to create a repository for your case studies](https://classroom.github.com/a/GDqX5qEq)
+  - Set up [it credentials following this](https://happygitwithr.com/hello-git.html)
   - Create a new project in Rstudio and connect it to the new repository in GitHub. Helpful instructions are [here](http://happygitwithr.com/rstudio-git-github.html#clone-the-new-github-repository-to-your-computer-via-rstudio)
   - Make some change.  For example, you could edit the README.md file in your repository to include a brief description of the repository (e.g. "Coursework for Spatial Data Science").
   - Stage and Commit your changes to Git (using the git tab in the upper right of RStudio)
-  - Introduce yourself to git following [these instructions](https://happygitwithr.com/hello-git.html)
   - Push the repository up to GitHub
   - Confirm that the changes are visible on your github webpage
-  - Copy the contents of your scripts from previous weeks into the appropriate file (but don't edit the file name!)
+  - Copy the contents of your scripts from previous weeks into the appropriate files (but don't edit the file names!)
 ---
 
 ```{r setup, include=FALSE}

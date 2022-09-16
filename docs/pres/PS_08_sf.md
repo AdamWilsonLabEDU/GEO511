@@ -2228,9 +2228,9 @@ world %>%
 ## Bounding box:  xmin: 141.0002 ymin: -10.65248 xmax: 156.02 ymax: -2.500002
 ## Geodetic CRS:  WGS 84
 ## # A tibble: 1 × 11
-##   iso_a2 name_long        continent region_un subregion type   area_km2    pop lifeExp gdpPercap                      geom
-## * <chr>  <chr>            <chr>     <chr>     <chr>     <chr>     <dbl>  <dbl>   <dbl>     <dbl>        <MULTIPOLYGON [°]>
-## 1 PG     Papua New Guinea Oceania   Oceania   Melanesia Sover…  464520. 7.76e6    65.2     3709. (((141.0002 -2.600151, 1…
+##   iso_a2 name_long        continent region_un subregion type              area_km2     pop lifeExp gdpPercap                                              geom
+## * <chr>  <chr>            <chr>     <chr>     <chr>     <chr>                <dbl>   <dbl>   <dbl>     <dbl>                                <MULTIPOLYGON [°]>
+## 1 PG     Papua New Guinea Oceania   Oceania   Melanesia Sovereign country  464520. 7755785    65.2     3709. (((141.0002 -2.600151, 141.0171 -5.859022, 141.0…
 ```
 
 
@@ -2280,14 +2280,10 @@ world
 ## Bounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513
 ## Geodetic CRS:  WGS 84
 ## First 3 features:
-##   iso_a2      name_long continent region_un       subregion              type  area_km2      pop lifeExp gdpPercap
-## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97   885806  69.960  8222.254
-## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79 52234869  64.163  2402.099
-## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60       NA      NA        NA
-##                             geom
-## 1 MULTIPOLYGON (((-180 -16.55...
-## 2 MULTIPOLYGON (((33.90371 -0...
-## 3 MULTIPOLYGON (((-8.66559 27...
+##   iso_a2      name_long continent region_un       subregion              type  area_km2      pop lifeExp gdpPercap                           geom
+## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97   885806  69.960  8222.254 MULTIPOLYGON (((-180 -16.55...
+## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79 52234869  64.163  2402.099 MULTIPOLYGON (((33.90371 -0...
+## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60       NA      NA        NA MULTIPOLYGON (((-8.66559 27...
 ```
 
 
@@ -2357,14 +2353,10 @@ print(world, n=3)
 ## Bounding box:  xmin: -180 ymin: -89.9 xmax: 180 ymax: 83.64513
 ## Geodetic CRS:  WGS 84
 ## First 3 features:
-##   iso_a2      name_long continent region_un       subregion              type  area_km2      pop lifeExp gdpPercap
-## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97   885806  69.960  8222.254
-## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79 52234869  64.163  2402.099
-## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60       NA      NA        NA
-##                             geom
-## 1 MULTIPOLYGON (((-180 -16.55...
-## 2 MULTIPOLYGON (((33.90371 -0...
-## 3 MULTIPOLYGON (((-8.66559 27...
+##   iso_a2      name_long continent region_un       subregion              type  area_km2      pop lifeExp gdpPercap                           geom
+## 1     FJ           Fiji   Oceania   Oceania       Melanesia Sovereign country  19289.97   885806  69.960  8222.254 MULTIPOLYGON (((-180 -16.55...
+## 2     TZ       Tanzania    Africa    Africa  Eastern Africa Sovereign country 932745.79 52234869  64.163  2402.099 MULTIPOLYGON (((33.90371 -0...
+## 3     EH Western Sahara    Africa    Africa Northern Africa     Indeterminate  96270.60       NA      NA        NA MULTIPOLYGON (((-8.66559 27...
 ```
 
 ```r

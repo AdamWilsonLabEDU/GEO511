@@ -35,8 +35,6 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
-<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
-<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -436,78 +434,15 @@ States. This will require you to use a spatial join
 <h3>Your goal</h3>
 <pre class="r"><code># Download zipped data from noaa with storm track information
 dataurl=&quot;https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r00/access/shapefile/IBTrACS.NA.list.v04r00.points.zip&quot;
+
 tdir=tempdir()
 download.file(dataurl,destfile=file.path(tdir,&quot;temp.zip&quot;))
 unzip(file.path(tdir,&quot;temp.zip&quot;),exdir = tdir)
-list.files(tdir)</code></pre>
-<pre><code>##  [1] &quot;file702b1293e07c&quot;                  &quot;file702b29877500&quot;                 
-##  [3] &quot;file702b29960560&quot;                  &quot;file702b2a76f66b&quot;                 
-##  [5] &quot;file702b2d33f0c.html&quot;              &quot;file702b2e6bd567&quot;                 
-##  [7] &quot;file702b33d2a794.html&quot;             &quot;file702b68248819&quot;                 
-##  [9] &quot;file702b72bb8edf&quot;                  &quot;file702bd9120bf&quot;                  
-## [11] &quot;file702be35fd36&quot;                   &quot;IBTrACS.NA.list.v04r00.points.dbf&quot;
-## [13] &quot;IBTrACS.NA.list.v04r00.points.prj&quot; &quot;IBTrACS.NA.list.v04r00.points.shp&quot;
-## [15] &quot;IBTrACS.NA.list.v04r00.points.shx&quot; &quot;libloc_192_d77de41bdeed6f03.rds&quot;  
-## [17] &quot;libloc_213_5f7d0f6e85d1f59b.rds&quot;   &quot;temp.zip&quot;</code></pre>
-<pre class="r"><code>storm_data &lt;- read_sf(list.files(tdir,pattern=&quot;.shp&quot;,full.names = T))</code></pre>
-<p>Your desired figure looks something like the following:
-<img src="CS_09_files/figure-html/unnamed-chunk-4-1.png" width="4500" /></p>
-Calculate a table of the five states that have experienced the most
-storms.
-<table class="table" style="margin-left: auto; margin-right: auto;">
-<thead>
-<tr>
-<th style="text-align:left;">
-state
-</th>
-<th style="text-align:right;">
-storms
-</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left;">
-Florida
-</td>
-<td style="text-align:right;">
-85
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-North Carolina
-</td>
-<td style="text-align:right;">
-65
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Georgia
-</td>
-<td style="text-align:right;">
-58
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Texas
-</td>
-<td style="text-align:right;">
-54
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Louisiana
-</td>
-<td style="text-align:right;">
-52
-</td>
-</tr>
-</tbody>
-</table>
+list.files(tdir)
+storm_data &lt;- read_sf(list.files(tdir,pattern=&quot;.shp&quot;,full.names = T))</code></pre>
+<p>Your desired figure looks something like the following:</p>
+<p>Calculate a table of the five states that have experienced the most
+storms.</p>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo1">
 Show Hints
@@ -579,9 +514,6 @@ Extra time? Try this…
 <div id="extras" class="collapse">
 <p>Try to replicate the following graphic using the data you transformed
 above.</p>
-<pre><code>## `summarise()` has grouped output by &#39;state&#39;. You can override using the
-## `.groups` argument.</code></pre>
-<p><img src="CS_09_files/figure-html/unnamed-chunk-6-1.png" width="3000" /></p>
 <p>Can you sort the rows (states) in order of storm frequency (instead
 of alphabetical)?</p>
 </div>
