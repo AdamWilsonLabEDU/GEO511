@@ -527,17 +527,17 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="resource-presentations" class="slide level2">
 <h2>Resource Presentations</h2>
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" width="100%" height="800">
+<iframe src="https://buffalo.app.box.com/embed/s/74r8gc4r9j8ly3ncx9kyt2xsxw0uaaiu?sortColumn=date&amp;view=list" width="800" height="550" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen>
 </iframe>
-<p><a
-href="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true">source</a></p>
+<p>” width=“100%” height=“800”&gt; <a
+href="https://buffalo.app.box.com/embed/s/74r8gc4r9j8ly3ncx9kyt2xsxw0uaaiu?sortColumn=date&amp;view=list">source</a></p>
 </section>
 <section id="case-study-presentations---lets-pick-a-winner"
 class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
-<iframe src="https://wheelofnames.com/4tc-n5n" width="100%" height="500">
+<iframe src="https://wheelofnames.com/bw4-gdt" width="100%" height="500">
 </iframe>
-<iframe src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&amp;single=true" style="height: 800px; width: 100%;">
+<iframe src="https://buffalo.app.box.com/embed/s/74r8gc4r9j8ly3ncx9kyt2xsxw0uaaiu?sortColumn=date&amp;view=list" width="800" height="550" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen>
 </iframe>
 </section>
 <section id="next-weeks-case-study" class="slide level2">
@@ -820,13 +820,13 @@ for the system.</p>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">.combine=</span><span class="st">&#39;c&#39;</span>) <span class="sc">%do%</span> </span>
 <span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  i<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code></pre></div>
-<pre><code>## 0.005 sec elapsed</code></pre>
+<pre><code>## 0.004 sec elapsed</code></pre>
 <div class="sourceCode" id="cb18"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="do">## Parallel</span></span>
 <span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
 <span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">.combine=</span><span class="st">&#39;c&#39;</span>) <span class="sc">%dopar%</span> </span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  i<span class="sc">^</span><span class="dv">2</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code></pre></div>
-<pre><code>## 0.051 sec elapsed</code></pre>
+<pre><code>## 0.04 sec elapsed</code></pre>
 </section>
 <section id="test-the-relative-speed-1" class="slide level2">
 <h2>Test the relative speed</h2>
@@ -841,7 +841,7 @@ for the system.</p>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">foreach</span>(<span class="at">i=</span><span class="dv">1</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">.combine=</span><span class="st">&#39;c&#39;</span>) <span class="sc">%dopar%</span> </span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">Sys.sleep</span>(<span class="dv">3</span>)</span>
 <span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code></pre></div>
-<pre><code>## 3.085 sec elapsed</code></pre>
+<pre><code>## 3.103 sec elapsed</code></pre>
 </section>
 <section id="nested-foreach-loops" class="slide level2">
 <h2>Nested foreach loops</h2>
@@ -937,11 +937,11 @@ href="https://multidplyr.tidyverse.org/articles/multidplyr.html">source</a></p>
 <div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>result1<span class="ot">=</span><span class="fu">calc</span>(r,fn)</span>
 <span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code></pre></div>
-<pre><code>## 0.057 sec elapsed</code></pre>
+<pre><code>## 0.006 sec elapsed</code></pre>
 <div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tic</span>()</span>
 <span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>result2<span class="ot">=</span><span class="fu">clusterR</span>(r, fn, <span class="at">verbose=</span>T)</span>
 <span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="fu">toc</span>()</span></code></pre></div>
-<pre><code>## 0.516 sec elapsed</code></pre>
+<pre><code>## 0.435 sec elapsed</code></pre>
 <div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">identical</span>(result1,result2)</span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>
 <div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">endCluster</span>()</span></code></pre></div>

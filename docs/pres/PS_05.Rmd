@@ -294,7 +294,7 @@ world_sp %>%
   no applicable method for 'filter_' applied to an object of class "c('SpatialPolygonsDataFrame', 'SpatialPolygons', 'Spatial', 'SpatialPolygonsNULL', 'SpatialVector')"`
 
 ---
-```{r, eval = F}
+```{r, eval = T}
 world %>% 
   filter(name_long == "United Kingdom")%>%
   ggplot()+geom_sf()
@@ -402,7 +402,7 @@ It's a big topic which includes:
 - Spatial geometry modification
 - Raster operations (map algebra)
 
-See [Chapter 4](http://robinlovelace.net/geocompr/spatial-data-operations.html#spatial-operations-on-raster-data) of *Geocomputation with R* 
+See [Chapter 4](https://geocompr.robinlovelace.net/spatial-operations.html) of *Geocomputation with R* 
 
 ## CRS
 
@@ -498,7 +498,7 @@ saveWidget(l, file = "leaflet.html",selfcontained = T)
 
 Raster data is not yet closely connected to the **tidyverse**, however:
 
-- Some functions from the **raster** package works well in `pipes`
+- Some functions from the **raster** and **terra** packages work well in `pipes`
 - You can convert vector data to the `Spatial*` form using `as(my_vector, "Spatial")`before working on raster-vector interactions
 - There are some initial efforts to bring raster data closer to the **tidyverse**, such as [tabularaster](https://github.com/hypertidy/tabularaster), [sfraster](https://github.com/mdsumner/sfraster), or [fasterize](https://github.com/ecohealthalliance/fasterize)
 - The development of the [stars](https://github.com/r-spatial/stars), package focused on multidimensional, large datasets should start soon. It will allow pipe-based workflows
