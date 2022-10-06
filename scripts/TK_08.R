@@ -47,7 +47,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #' 
 #' Steps:
 #' 
-#' 1. Click on [this link](https://classroom.github.com/a/ofNd8maP) to make a copy of the project template.  
+#' 1. Click on [this link](https://classroom.github.com/a/DjIiAjsc) to make a copy of the project template.  
 #' 2. Open your new repository in GitHub.  It will look something like [https://github.com/GEO511-2021/2021_project-adammwilson](https://github.com/GEO511-2021/2021_project-adammwilson)
 #' 3. Click the green button "Clone or Download" and copy the URL.
 #' 
