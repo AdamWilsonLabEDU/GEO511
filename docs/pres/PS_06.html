@@ -606,8 +606,8 @@ href="https://github.com/hypertidy/tabularaster">tabularaster</a>, <a
 href="https://github.com/mdsumner/sfraster">sfraster</a>, <a
 href="https://github.com/ecohealthalliance/fasterize">fasterize</a>, and
 <a href="https://github.com/r-spatial/stars">stars</a>
-(multidimensional, large datasets). <a
-href="https://rspatial.org/terra/">terra</a> designed to replace
+(multidimensional, large datasets).</li>
+<li><a href="https://rspatial.org/terra/">terra</a> designed to replace
 raster</li>
 </ul>
 </section>
@@ -808,6 +808,38 @@ available</h3>
 <span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_viridis_c</span>()</span></code></pre></div>
 <p><img
 data-src="PS_06_files/figure-revealjs/unnamed-chunk-18-1.png" /></p>
+</section>
+<section class="slide level2">
+
+<h3 id="switching-to-terra">Switching to Terra?</h3>
+<p>Mostly minor differences…</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(terra)</span></code></pre></div>
+<pre><code>## terra 1.5.21</code></pre>
+<pre><code>## 
+## Attaching package: &#39;terra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     src</code></pre>
+<pre><code>## The following object is masked from &#39;package:tidyr&#39;:
+## 
+##     extract</code></pre>
+<pre><code>## The following object is masked from &#39;package:ggplot2&#39;:
+## 
+##     arrow</code></pre>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>elev_terra <span class="ot">&lt;-</span> <span class="fu">rast</span>(elev)</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>elev_raster <span class="ot">&lt;-</span> <span class="fu">raster</span>(elev_terra)</span></code></pre></div>
+</section>
+<section class="slide level2">
+
+<h3 id="extent">Extent</h3>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">extent</span>(elev_raster)</span></code></pre></div>
+<pre><code>## class      : Extent 
+## xmin       : -1.5 
+## xmax       : 1.5 
+## ymin       : -1.5 
+## ymax       : 1.5</code></pre>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ext</span>(elev_terra)</span></code></pre></div>
+<pre><code>## SpatExtent : -1.5, 1.5, -1.5, 1.5 (xmin, xmax, ymin, ymax)</code></pre>
 </section></section>
     </div>
   </div>

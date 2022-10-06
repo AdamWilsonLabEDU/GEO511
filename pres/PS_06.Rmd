@@ -73,7 +73,7 @@ Raster data is not yet closely connected to the **tidyverse**, however:
 - Some functions from `raster` work well in `pipes`
 - Convert vector data to `Spatial*` form using `as(my_vector, "Spatial")` for raster-vector interactions
 - Some early efforts to bring raster data into the **tidyverse**, including [tabularaster](https://github.com/hypertidy/tabularaster), [sfraster](https://github.com/mdsumner/sfraster), [fasterize](https://github.com/ecohealthalliance/fasterize), and [stars](https://github.com/r-spatial/stars) (multidimensional, large datasets).
-[terra](https://rspatial.org/terra/) designed to replace raster
+- [terra](https://rspatial.org/terra/) designed to replace raster
 
 ## Raster Package
 ```{r message=F,warning=F}
@@ -201,4 +201,23 @@ gplot(elev)+
   scale_fill_viridis_c()
 ```
 
+---
 
+### Switching to Terra?
+
+Mostly minor differences...
+
+```{r}
+library(terra)
+elev_terra <- rast(elev)
+elev_raster <- raster(elev_terra)
+```
+
+---
+
+### Extent
+
+```{r}
+extent(elev_raster)
+ext(elev_terra)
+```
