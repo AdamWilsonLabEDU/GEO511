@@ -391,8 +391,8 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Find hottest country on each continent</h1>
-<h3 class="subtitle">Use sf and raster to quantify maximum temperature
-for each country and then identify the hottest one on each
+<h3 class="subtitle">Use sf and raster to quantify mean annual
+temperature for each country and then identify the hottest one on each
 continent.</h3>
 
 </div>
@@ -421,11 +421,12 @@ src="https://geocompr.robinlovelace.net/05-geometry-operations_files/figure-html
 across multiple pixels (such as the buffered points above, a transect,
 or within a polygon). For example, you might be interested in the mean
 elevation within the entire polygon in the above figure.</p>
-<p>In this case study we’ll work with a timeseries of temperature data
-from <a href="http://worldclim.org">WorldClim</a>. These are near-global
-rasters of various climatic variables available at several resolutions.
-For convenience, we’ll work with the very coarse data (0.5 degree, which
-is about 50km), but much finer data are available (~1km).</p>
+<p>In this case study we’ll work with a <a
+href="https://crudata.uea.ac.uk/cru/data/temperature/">HadCRUT
+temperature data</a> from the <a
+href="https://www.uea.ac.uk/groups-and-centres/climatic-research-unit">Climatic
+Research Unit at the University of East Anglia</a>. These are
+near-global rasters of surface temperature on a five degree grid.</p>
 </div>
 <div id="objective" class="section level1">
 <h1>Objective</h1>
@@ -470,22 +471,18 @@ safely ignore this message.</p>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
-<p>Download monthly WorldClim data</p>
-<pre class="r"><code>data(world)  #load &#39;world&#39; data from spData package
-tmax_monthly &lt;- getData(name = &quot;worldclim&quot;, var=&quot;tmax&quot;, res=10)</code></pre>
-<p>If the Worldclim website is down (e.g. you get an error above), you
-can get similar long term mean temperature data from the <a
+<p>Download the mean annual temperatures over the reference period
+1961-1990 <a
 href="https://crudata.uea.ac.uk/cru/data/temperature/">Climatic Research
-Unit (CRU) here</a>. Download these data in netcdf format using the code
-below:</p>
+Unit data (CRU) here</a>. Absolute temperatures for the base period
+1961-90 on a 5° by 5° grid. Download these data in netcdf format using
+the code below:</p>
 <pre class="r"><code>library(ncdf4)
 download.file(&quot;https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc&quot;,&quot;crudata.nc&quot;)
 tmean=raster(&quot;crudata.nc&quot;)</code></pre>
-<p>Note: If you use the CRU data instead of the WorldClim data, you will
-have to edit/adjust the steps below accordingly. Note #2: If the above
-code returns an error about <code>nc_open()</code>, try adding
-<code>method="curl"</code> at the end of the
-<code>download.file()</code> command.</p>
+<p>Note: If the above code returns an error about
+<code>nc_open()</code>, try adding <code>method="curl"</code> at the end
+of the <code>download.file()</code> command.</p>
 </div>
 <div id="steps" class="section level2">
 <h2>Steps</h2>
@@ -501,29 +498,19 @@ does not have data there.</li>
 </ol></li>
 <li>Prepare Climate Data
 <ol style="list-style-type: decimal">
-<li>Download and load the WorldClim maximum temperature dataset at the
-lowest resolution (10 degrees) using the code above
-(<code>tmax_monthly=getData(...)</code>).</li>
-<li>Inspect the new <code>tmax_monthly</code> object (you can start by
-just typing it’s name <code>tmax_monthly</code>, then perhaps making a
+<li>Download and load the CRU data using the code above
+(<code>tmean=raster("crudata.nc")</code>).</li>
+<li>Inspect the new <code>tmean</code> object (you can start by just
+typing it’s name <code>tmean</code>, then perhaps making a
 <code>plot()</code>). How many layers does it have? What do these
 represent? You can read more about the data <a
 href="https://www.worldclim.org/data/worldclim21.html">here</a></li>
-<li>The WorldClim data are stored as hundreths of degrees C. So a real
-value of 15.5 C would be stored as 155. This saves disk space because
-they can be stored as integers instead of floating point numbers. This
-means each value needs to be multiplied by 0.1 to convert back to
-degrees C. You can do this with <code>gain()</code>.</li>
-<li>Create a new object called <code>tmax_annual</code> that is the
-annual maximum temperature in each pixel of the raster stack using
-<code>max()</code>. This will find the maximum temperature in each
-location across all months. Note that if you use the crudata, the mean
-annual temperature has already been calculated and can be used
-directly.</li>
-<li>Use <code>names(tmax_annual) &lt;- "tmax"</code> to change the name
-of the layer in the new <code>tmax_annual</code> object to
-<code>tmax</code>. This makes the later code more intuitive than keeping
-the default name <code>layer</code>.</li>
+<li>The CRU data are stored as degrees C.<br />
+</li>
+<li>Use <code>names(tmean) &lt;- "tmean"</code> to change the name of
+the layer in the new <code>tmean</code> object to <code>tmax</code>.
+This makes the later code more intuitive than keeping the default name
+<code>layer</code>.</li>
 </ol></li>
 <li>Calculate the maximum temperature observed in each country.
 <ol style="list-style-type: decimal">
@@ -560,7 +547,7 @@ to drop the geometry column (if desired). Save this table as
 </div>
 </div>
 <p>Your final result should look something like this:</p>
-<p><img src="CS_06_files/figure-html/unnamed-chunk-4-1.png" width="2100" /></p>
+<p><img src="CS_06_files/figure-html/unnamed-chunk-3-1.png" width="2100" /></p>
 And the summary table will look like this:
 <table>
 <thead>
@@ -572,44 +559,11 @@ name_long
 continent
 </th>
 <th style="text-align:right;">
-tmax
+tmean
 </th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Algeria
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-48.9
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Iran
-</td>
-<td style="text-align:left;">
-Asia
-</td>
-<td style="text-align:right;">
-46.7
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-United States
-</td>
-<td style="text-align:left;">
-North America
-</td>
-<td style="text-align:right;">
-44.8
-</td>
-</tr>
 <tr>
 <td style="text-align:left;">
 Australia
@@ -618,29 +572,62 @@ Australia
 Oceania
 </td>
 <td style="text-align:right;">
-41.8
+32.0
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Argentina
+Somalia
+</td>
+<td style="text-align:left;">
+Africa
+</td>
+<td style="text-align:right;">
+27.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Paraguay
 </td>
 <td style="text-align:left;">
 South America
 </td>
 <td style="text-align:right;">
-36.5
+27.7
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Spain
+Timor-Leste
+</td>
+<td style="text-align:left;">
+Asia
+</td>
+<td style="text-align:right;">
+27.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Costa Rica
+</td>
+<td style="text-align:left;">
+North America
+</td>
+<td style="text-align:right;">
+26.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Albania
 </td>
 <td style="text-align:left;">
 Europe
 </td>
 <td style="text-align:right;">
-36.1
+12.5
 </td>
 </tr>
 <tr>
@@ -651,7 +638,7 @@ French Southern and Antarctic Lands
 Seven seas (open ocean)
 </td>
 <td style="text-align:right;">
-11.8
+7.1
 </td>
 </tr>
 </tbody>

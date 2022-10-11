@@ -2,11 +2,11 @@
 #' title: Find hottest country on each continent
 #' week: 6
 #' type: Case Study
-#' subtitle: Use sf and raster to quantify maximum temperature for each country and then identify the hottest one on each continent.
+#' subtitle: Use sf and raster to quantify mean annual temperature for each country and then identify the hottest one on each continent.
 #' reading:
 #'    - Raster Vector Interactions [GCR](https://geocompr.robinlovelace.net/geometric-operations.html#raster-vector){target='blank'}
 #' tasks:
-#'    - Calculate annual maximum temperatures from a monthly spatio-temporal dataset
+#'    - Calculate annual mean temperatures from a monthly spatio-temporal dataset
 #'    - Remove Antarctica from the `world` dataset
 #'    - Summarize raster values within polygons
 #'    - Generate a summary figure and table.
@@ -27,7 +27,7 @@
 #' 
 #' You could also be interested in some summary of the raster data across multiple pixels (such as the buffered points above, a transect, or within a polygon).  For example, you might be interested in the mean elevation within the entire polygon in the above figure.
 #' 
-#' In this case study we'll work with a timeseries of temperature data from [WorldClim](http://worldclim.org).  These are near-global rasters of various climatic variables available at several resolutions.  For convenience, we'll work with the very coarse data (0.5 degree, which is about 50km), but much finer data are available (~1km).  
+#' In this case study we'll work with a [HadCRUT temperature data](https://crudata.uea.ac.uk/cru/data/temperature/) from the [Climatic Research Unit at the University of East Anglia](https://www.uea.ac.uk/groups-and-centres/climatic-research-unit).  These are near-global rasters of surface temperature on a five degree grid.    
 #' 
 #' # Objective
 #' > Identify the hottest country on each continent (not counting Antarctica) by intersecting a set of polygons with a raster image and calculating the maximum raster value in each polygon.
@@ -56,32 +56,23 @@ library(sf)
 #' Loading the `spData()` package may return a warning: `To access larger datasets...install spDataLarge...`.  This is not required - you can use the standard lower resolution files and safely ignore this message.
 #' 
 #' ## Data
-#' Download monthly WorldClim data
-## ----message=F----------------------------------------------------------------
-data(world)  #load 'world' data from spData package
-tmax_monthly <- getData(name = "worldclim", var="tmax", res=10)
-
-#' 
-#' 
-#' If the Worldclim website is down (e.g. you get an error above), you can get similar long term mean temperature data from the [Climatic Research Unit (CRU) here](https://crudata.uea.ac.uk/cru/data/temperature/).  Download these data in netcdf format using the code below: 
+#' Download the mean annual temperatures over the reference period 1961-1990 [Climatic Research Unit data (CRU) here](https://crudata.uea.ac.uk/cru/data/temperature/).  Absolute temperatures for the base period 1961-90 on a 5° by 5° grid. Download these data in netcdf format using the code below: 
 ## -----------------------------------------------------------------------------
 library(ncdf4)
 download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crudata.nc")
 tmean=raster("crudata.nc")
 
-#' Note:  If you use the CRU data instead of the WorldClim data, you will have to edit/adjust the steps below accordingly.
-#' Note #2: If the above code returns an error about `nc_open()`, try adding `method="curl"` at the end of the `download.file()` command.
+#' Note:  If the above code returns an error about `nc_open()`, try adding `method="curl"` at the end of the `download.file()` command.
 #' 
 #' ## Steps
 #' 1. Prepare country polygon data (the `world` object).
 #'     1. Remove "Antarctica" with `filter()` because WorldClim does not have data there.
 #'     2. Convert the `world` object to `sp` format (the 'old' format) because the `raster` package doesn't accept `sf` objects.  you can do this with `as(world,"Spatial")`.
 #' 2. Prepare Climate Data 
-#'     1. Download and load the WorldClim maximum temperature dataset at the lowest resolution (10 degrees) using the code above (`tmax_monthly=getData(...)`).
-#'     2. Inspect the new `tmax_monthly` object (you can start by just typing it's name `tmax_monthly`, then perhaps making a `plot()`).  How many layers does it have?  What do these represent?  You can read more about the data [here](https://www.worldclim.org/data/worldclim21.html)
-#'     3. The WorldClim data are stored as hundreths of degrees C.  So a real value of 15.5 C would be stored as 155.  This saves disk space because they can be stored as integers instead of floating point numbers.  This means each value needs to be multiplied by 0.1 to convert back to degrees C.  You can do this with `gain()`.
-#'     3. Create a new object called `tmax_annual` that is the annual maximum temperature in each pixel of the raster stack using `max()`.  This will find the maximum temperature in each location across all months. Note that if you use the crudata, the mean annual temperature has already been calculated and can be used directly.
-#'     4. Use `names(tmax_annual) <- "tmax"` to change the name of the layer in the new `tmax_annual` object to `tmax`. This makes the later code more intuitive than keeping the default name `layer`.
+#'     1. Download and load the CRU data using the code above (`tmean=raster("crudata.nc")`).
+#'     2. Inspect the new `tmean` object (you can start by just typing it's name `tmean`, then perhaps making a `plot()`).  How many layers does it have?  What do these represent?  You can read more about the data [here](https://www.worldclim.org/data/worldclim21.html)
+#'     3. The CRU data are stored as degrees C.  
+#'     4. Use `names(tmean) <- "tmean"` to change the name of the layer in the new `tmean` object to `tmax`. This makes the later code more intuitive than keeping the default name `layer`.
 #' 2. Calculate the maximum temperature observed in each country.
 #'     1. use `raster::extract()` to identify the maximum temperature observed in each country (`fun=max`). Also set `na.rm=T, small=T, sp=T` to 1) handle missing data along coastlines, 2) account for small countries that may not have a full 0.5 degree pixel in them, and 3) return a spatial polygon object instead of just a vector of values.
 #'     2. convert the results of the previous step to `sf` format with `st_as_sf()`.  Now you have an updated polygon object with a new column of maximium temperature.  Cool!
