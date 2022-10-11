@@ -72,7 +72,7 @@ tmean=raster("crudata.nc")
 #'     1. Download and load the CRU data using the code above (`tmean=raster("crudata.nc")`).
 #'     2. Inspect the new `tmean` object (you can start by just typing it's name `tmean`, then perhaps making a `plot()`).  How many layers does it have?  What do these represent?  You can read more about the data [here](https://www.worldclim.org/data/worldclim21.html)
 #'     3. The CRU data are stored as degrees C.  
-#'     4. Use `names(tmean) <- "tmean"` to change the name of the layer in the new `tmean` object to `tmax`. This makes the later code more intuitive than keeping the default name `layer`.
+#'     4. Use `names(tmean)` to see the current name of the data layer.  Then, update it to 'tmean' by running `names(tmean)<- "tmean"` make the later code more intuitive than keeping the default name `CRU_Global_1961.1990_Mean_Monthly_Surface_Temperature_Climatology`.
 #' 2. Calculate the maximum temperature observed in each country.
 #'     1. use `raster::extract()` to identify the maximum temperature observed in each country (`fun=max`). Also set `na.rm=T, small=T, sp=T` to 1) handle missing data along coastlines, 2) account for small countries that may not have a full 0.5 degree pixel in them, and 3) return a spatial polygon object instead of just a vector of values.
 #'     2. convert the results of the previous step to `sf` format with `st_as_sf()`.  Now you have an updated polygon object with a new column of maximium temperature.  Cool!
