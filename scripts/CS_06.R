@@ -70,6 +70,7 @@ download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crud
 tmean=raster("crudata.nc")
 
 #' Note:  If you use the CRU data instead of the WorldClim data, you will have to edit/adjust the steps below accordingly.
+#' Note #2: If the above code returns an error about `nc_open()`, try adding `method="curl"` at the end of the `download.file()` command.
 #' 
 #' ## Steps
 #' 1. Prepare country polygon data (the `world` object).
@@ -79,7 +80,7 @@ tmean=raster("crudata.nc")
 #'     1. Download and load the WorldClim maximum temperature dataset at the lowest resolution (10 degrees) using the code above (`tmax_monthly=getData(...)`).
 #'     2. Inspect the new `tmax_monthly` object (you can start by just typing it's name `tmax_monthly`, then perhaps making a `plot()`).  How many layers does it have?  What do these represent?  You can read more about the data [here](https://www.worldclim.org/data/worldclim21.html)
 #'     3. The WorldClim data are stored as hundreths of degrees C.  So a real value of 15.5 C would be stored as 155.  This saves disk space because they can be stored as integers instead of floating point numbers.  This means each value needs to be multiplied by 0.1 to convert back to degrees C.  You can do this with `gain()`.
-#'     3. Create a new object called `tmax_annual` that is the annual maximum temperature in each pixel of the raster stack using `max()`.  This will find the maximum temperature in each location across all months.
+#'     3. Create a new object called `tmax_annual` that is the annual maximum temperature in each pixel of the raster stack using `max()`.  This will find the maximum temperature in each location across all months. Note that if you use the crudata, the mean annual temperature has already been calculated and can be used directly.
 #'     4. Use `names(tmax_annual) <- "tmax"` to change the name of the layer in the new `tmax_annual` object to `tmax`. This makes the later code more intuitive than keeping the default name `layer`.
 #' 2. Calculate the maximum temperature observed in each country.
 #'     1. use `raster::extract()` to identify the maximum temperature observed in each country (`fun=max`). Also set `na.rm=T, small=T, sp=T` to 1) handle missing data along coastlines, 2) account for small countries that may not have a full 0.5 degree pixel in them, and 3) return a spatial polygon object instead of just a vector of values.

@@ -482,7 +482,10 @@ below:</p>
 download.file(&quot;https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc&quot;,&quot;crudata.nc&quot;)
 tmean=raster(&quot;crudata.nc&quot;)</code></pre>
 <p>Note: If you use the CRU data instead of the WorldClim data, you will
-have to edit/adjust the steps below accordingly.</p>
+have to edit/adjust the steps below accordingly. Note #2: If the above
+code returns an error about <code>nc_open()</code>, try adding
+<code>method="curl"</code> at the end of the
+<code>download.file()</code> command.</p>
 </div>
 <div id="steps" class="section level2">
 <h2>Steps</h2>
@@ -514,7 +517,9 @@ degrees C. You can do this with <code>gain()</code>.</li>
 <li>Create a new object called <code>tmax_annual</code> that is the
 annual maximum temperature in each pixel of the raster stack using
 <code>max()</code>. This will find the maximum temperature in each
-location across all months.</li>
+location across all months. Note that if you use the crudata, the mean
+annual temperature has already been calculated and can be used
+directly.</li>
 <li>Use <code>names(tmax_annual) &lt;- "tmax"</code> to change the name
 of the layer in the new <code>tmax_annual</code> object to
 <code>tmax</code>. This makes the later code more intuitive than keeping
