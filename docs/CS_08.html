@@ -492,13 +492,14 @@ desired file types as noted above.</li>
 href="https://www.esrl.noaa.gov/gmd/ccgg/trends/data.html">this
 website</a>.
 <ul>
-<li>check out <code>tidyverse::read_table()</code> or similar to import
-the dataset into R directly from the URL (<a
+<li>check out <code>readr</code>::read_table()` or similar to import the
+dataset into R directly from the URL (<a
 href="ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt"
 class="uri">ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt</a>)</li>
-<li>after you look at the format of the text file, you will want to
-check out the <code>skip</code> parameter of
-<code>read_table()</code></li>
+<li>after you look at the format of the text file, you may want to check
+out the <code>skip</code> parameter of <code>read_table()</code> or
+potentially use the comment character <code>#</code>. You can also use
+<code>col_names</code> to name the columns correctly.</li>
 </ul></li>
 <li>Use ggplot to plot a time series of CO2 levels through time</li>
 <li>Add an additional table below the graph and format it nicely with
@@ -517,9 +518,9 @@ this:</li>
 <pre><code>data %&gt;% 
   kable() %&gt;% 
   as_image(width = 10,file = &quot;table.png&quot;)</code></pre>
-<ol start="7" style="list-style-type: decimal">
-<li>Save the outputs in your repository.</li>
-</ol>
+<p>You may want to play with the <code>kable_styling()</code> function
+to adjust the table’s appearance. 7. Save the outputs in your
+repository.</p>
 </div>
 </div>
 </div>
