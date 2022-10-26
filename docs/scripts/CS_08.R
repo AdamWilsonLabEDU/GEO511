@@ -91,6 +91,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #'   kable() %>% 
 #'   as_image(width = 10,file = "table.png")
 #' ```  
+#' You may want to play with the `kable_styling()` function to adjust the table's appearance.
 #' 7. Save the outputs in your repository.
 #' </div>
 #' </div>

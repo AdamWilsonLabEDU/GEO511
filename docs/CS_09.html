@@ -35,6 +35,8 @@
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <link href="site_libs/highlightjs-9.12.0/textmate.css" rel="stylesheet" />
 <script src="site_libs/highlightjs-9.12.0/highlight.js"></script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
 <link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
@@ -437,12 +439,66 @@ dataurl=&quot;https://www.ncei.noaa.gov/data/international-best-track-archive-fo
 
 tdir=tempdir()
 download.file(dataurl,destfile=file.path(tdir,&quot;temp.zip&quot;))
-unzip(file.path(tdir,&quot;temp.zip&quot;),exdir = tdir)
-list.files(tdir)
+unzip(file.path(tdir,&quot;temp.zip&quot;),exdir = tdir) #unzip the compressed folder
 storm_data &lt;- read_sf(list.files(tdir,pattern=&quot;.shp&quot;,full.names = T))</code></pre>
-<p>Your desired figure looks something like the following:</p>
-<p>Calculate a table of the five states that have experienced the most
-storms.</p>
+<p>Your desired figure looks something like the following:
+<img src="CS_09_files/figure-html/unnamed-chunk-4-1.png" width="4500" /></p>
+Calculate a table of the five states that have experienced the most
+storms.
+<table class="table" style="margin-left: auto; margin-right: auto;">
+<thead>
+<tr>
+<th style="text-align:left;">
+state
+</th>
+<th style="text-align:right;">
+storms
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Florida
+</td>
+<td style="text-align:right;">
+86
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+North Carolina
+</td>
+<td style="text-align:right;">
+66
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Georgia
+</td>
+<td style="text-align:right;">
+58
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Texas
+</td>
+<td style="text-align:right;">
+54
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Louisiana
+</td>
+<td style="text-align:right;">
+52
+</td>
+</tr>
+</tbody>
+</table>
 <div class="well">
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo1">
 Show Hints
@@ -514,6 +570,7 @@ Extra time? Try this…
 <div id="extras" class="collapse">
 <p>Try to replicate the following graphic using the data you transformed
 above.</p>
+<p><img src="CS_09_files/figure-html/unnamed-chunk-6-1.png" width="3000" /></p>
 <p>Can you sort the rows (states) in order of storm frequency (instead
 of alphabetical)?</p>
 </div>

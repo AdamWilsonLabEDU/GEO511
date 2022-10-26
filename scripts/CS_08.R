@@ -79,8 +79,8 @@ md_bullet(rmarkdown::metadata$tasks)
 #' 1.  Create a new RMarkdown Document (possibly starting with the template in `File -> New File -> R Markdown`
 #' 2. Edit the YAML header at the top of the .Rmd file to specify the desired file types as noted above.
 #' 3. Write code to read the "Mauna Loa CO2 annual mean data" from [this website](https://www.esrl.noaa.gov/gmd/ccgg/trends/data.html). 
-#'    * check out `tidyverse::read_table()` or similar to import the dataset into R directly from the URL (ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt)
-#'    * after you look at the format of the text file, you will want to check out the `skip` parameter of `read_table()`
+#'    * check out `readr`::read_table()` or similar to import the dataset into R directly from the URL (ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt)
+#'    * after you look at the format of the text file, you may want to check out the `skip` parameter of `read_table()` or potentially use the comment character `#`.  You can also use `col_names` to name the columns correctly.
 #' 4. Use ggplot to plot a time series of CO2 levels through time
 #' 5. Add an additional table below the graph and format it nicely with `knitr::kable()` or similar.  
 #' 6. Use `rmarkdown::render(file, output_format = "all")` to render all the outputs specified in the YAML.
@@ -91,6 +91,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #'   kable() %>% 
 #'   as_image(width = 10,file = "table.png")
 #' ```  
+#' You may want to play with the `kable_styling()` function to adjust the table's appearance.
 #' 7. Save the outputs in your repository.
 #' </div>
 #' </div>
