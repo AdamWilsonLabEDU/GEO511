@@ -23,7 +23,7 @@ library(knitr)
 
 ## Final Projects
 
-* Only 14 folks have published their sites...
+* Only 12 folks have published their sites...
 * Start moving your project proposal content into your website
   * Title
   * Introduction
@@ -141,13 +141,13 @@ The URL you will request information from.
 ## Some R Packages for specific APIs
 
 ## Census data
-```{r, census, results='hide', eval=F, message=F}
+```{r, census, results='hide', eval=F, message=F,warning=F}
 library(tidycensus)
 
 net_migration <- get_estimates(geography = "county",
                                variables = "RNETMIG",
-                               geometry = TRUE,
-                               shift_geo = TRUE)
+                               geometry = TRUE) %>% 
+                               tigris::shift_geometry()
 
 
 net_migration <- net_migration %>%
@@ -163,8 +163,8 @@ ggplot() +
   geom_sf(data = net_migration, aes(fill = groups, color = groups), lwd = 0.1) +
   geom_sf(data = tidycensus::state_laea, fill = NA, color = "black", lwd = 0.1) +
   scale_fill_brewer(palette = "PuOr", direction = -1) +
-  scale_color_brewer(palette = "PuOr", direction = -1, guide = FALSE) +
-  coord_sf(datum = NA) +
+  scale_color_brewer(palette = "PuOr", direction = -1, guide = "none") +
+  coord_sf() +
   labs(title = "Net migration per 1000 residents by county",
        subtitle = "US Census Bureau 2017 Population Estimates",
        fill = "Rate",
@@ -193,7 +193,7 @@ df <- nassqs_acres(
   filter(short_desc=="CORN - ACRES PLANTED") %>% 
   dplyr::select(year, Value) %>%
   transmute(
-    year,
+    year = as.numeric(gsub(",", "", year)),
     value = as.numeric(gsub(",", "", Value)))
 ```
 
