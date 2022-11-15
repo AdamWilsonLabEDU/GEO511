@@ -41,14 +41,14 @@ Plan to spend at least 1 hour for each review (2 hours total). The objectives fo
 
 ### Selecting a project to evaluate
 
-1. Browse the [current drafts of projects here](https://github.com/geo511-2021?q=project&type=&language=).  
+1. Browse the [current drafts of projects here](https://github.com/geo511-2022?q=project&type=&language=).  
 2. Select two repositories and evaluate them according to the instructions listed in the [Project First Draft task](TK_11.html) 
 
 ![](project_assets/project_evaluation.png)
 
 ### Download and reproduce the project
 
-1) Explore the final projects in the [class repository](https://github.com/geo511-2021?q=project&type=&language=)
+1) Explore the final projects in the [class repository](https://github.com/geo511-2022?q=project&type=&language=)
 2) Select two projects that do not already have three evaluations (pull requests). For example, in the image above, there are 0 pull requests, so this repository would be available for you to review.  If there are already 3 pull requests, select another repository.
 2) Browse the code (mostly `index.Rmd`)
 3) Browse the project website (should be linked in the upper right corner of the repository page on GitHub).
@@ -72,4 +72,6 @@ The following video will walk you through the steps of providing feedback via a 
 6) Click on the button "Files Changed #1" near the middle of the next page
 7) Hover over lines you would like to comment on and click the little blue plus button.  Then enter your comment and select "Add single comment"
 6) Repeat steps 2-6 for any additional files you want to comment on 
+
+**While writing your comments, please be nice.  Constructive comments are much more helpful than simply critical ones.  If you have an idea of how to improve an analysis, make positive suggestions of improvements rather than focusing on problems.**
 
