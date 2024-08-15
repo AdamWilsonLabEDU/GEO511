@@ -50,7 +50,7 @@ getDoParWorkers() # check registered cores
 #' 
 #' To use the tidycensus package, you will need to load the package and set your Census API key. A key can be obtained from http://api.census.gov/data/key_signup.html. You will only need to do that once (unless you delete your .Renviron file or move to a different computer).
 #' 
-## ---- eval=F------------------------------------------------------------------
+## ----eval=F-------------------------------------------------------------------
 ## # go to  http://api.census.gov/data/key_signup.html and get a key, then run the line below with your key.  Don't push your key to github!
 ## library(tidycensus)
 ## census_api_key("YOUR API KEY GOES HERE")
@@ -65,7 +65,7 @@ getDoParWorkers() # check registered cores
 #' Write an Rmd script that:
 #' 
 #' * Downloads block-level data on population by race in each census block in Buffalo using `get_dicennial()` function of the `tidycensus` package.  You can use the following code:
-## ---- message=F---------------------------------------------------------------
+## ----message=F----------------------------------------------------------------
 library(tidycensus)
 racevars <- c(White = "P005003", 
               Black = "P005004", 

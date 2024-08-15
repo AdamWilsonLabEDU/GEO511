@@ -25,7 +25,6 @@
 ## ----results='hide',message=FALSE, warning=F----------------------------------
 library(raster)
 library(rasterVis)
-library(rgdal)
 library(ggmap)
 library(tidyverse)
 library(knitr)
@@ -45,7 +44,7 @@ library(ncdf4) # to import data from netcdf format
 #' 
 #' ## Land Use Land Cover
 #' 
-## ---- eval=F, warning=F-------------------------------------------------------
+## ----eval=F, warning=F--------------------------------------------------------
 ## # Create afolder to hold the downloaded data
 ## dir.create("data",showWarnings = F) #create a folder to hold the data
 ## 
@@ -62,7 +61,7 @@ library(ncdf4) # to import data from netcdf format
 #' 
 #' 
 #' ## Load data into R
-## ---- warning=F, message=F, results="hide"------------------------------------
+## ----warning=F, message=F, results="hide"-------------------------------------
 lulc=stack("data/MCD12Q1.051_aid0001.nc",varname="Land_Cover_Type_1")
 lst=stack("data/MOD11A2.006_aid0001.nc",varname="LST_Day_1km")
 
@@ -79,13 +78,13 @@ lst=stack("data/MOD11A2.006_aid0001.nc",varname="LST_Day_1km")
 #' 
 #' 
 #' ## Explore LULC data
-## ---- warning=F, message=FALSE,results='hide'---------------------------------
+## ----warning=F, message=FALSE,results='hide'----------------------------------
 plot(lulc)
 
 #'  
 #' 
 #' We'll just pick one year to work with to keep this simple:
-## ---- warning=F---------------------------------------------------------------
+## ----warning=F----------------------------------------------------------------
 lulc=lulc[[13]]
 plot(lulc)
 

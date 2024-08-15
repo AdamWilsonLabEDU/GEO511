@@ -15,7 +15,7 @@ single sentence.
 
 # Inspiring Examples
 
-Include links and screenshots (or embedded images) of a few (\~3-5)
+Include links and screenshots (or embedded images) of a few (~3-5)
 example graphics found on the internet that convey what you want to do.
 Include a few sentences about why you selected each link.
 

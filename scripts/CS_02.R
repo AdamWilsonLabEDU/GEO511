@@ -38,7 +38,7 @@ md_bullet(rmarkdown::metadata$reading)
 #' 
 #' If you explore the [NASA GISS website](https://www.giss.nasa.gov/) for a station ([Buffalo, NY website](https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&ds=14&dt=1)), you'll find they provide a link to download the data directly as a comma-separated-values (CSV) file.  CSV files are simple text files with commas in between the values.  They are a common format for storing and sharing relatively small tabular datasets because they are so simple that many different software can open them, from Excel to ArcGIS.
 #' 
-## ---- message=F---------------------------------------------------------------
+## ----message=F----------------------------------------------------------------
 library(tidyverse)
 
 # define the link to the data - you can try this in your browser too.  Note that the URL ends in .txt.
@@ -48,7 +48,7 @@ dataurl="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/
 #' 
 #' This url points to a CSV file with monthly mean temperatures from the GISS dataset.  You can [check out the file here](`r dataurl`).  Now use `read_table()` to download and import the table directly from the website (cool, huh!?).
 #' 
-## ---- message=F, eval=T-------------------------------------------------------
+## ----message=F, eval=T--------------------------------------------------------
 #the next line tells the NASA site to create the temporary file
 httr::GET("https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&ds=14&dt=1")
 # the next lines download the data
@@ -78,7 +78,7 @@ temp=read_table(dataurl,
 #' 
 
 #' 
-## ---- eval=F,echo=F-----------------------------------------------------------
+## ----eval=F,echo=F------------------------------------------------------------
 ## png("CS_02_img/buffalo.png")
 ## p1
 ## dev.off()

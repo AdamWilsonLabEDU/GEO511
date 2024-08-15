@@ -1,6 +1,5 @@
 library(raster)
 library(rasterVis)
-library(rgdal)
 library(ggmap)
 library(tidyverse)
 library(knitr)

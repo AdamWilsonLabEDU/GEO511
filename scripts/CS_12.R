@@ -44,7 +44,7 @@ library(widgetframe)
 #' 
 #' First use the following code to download the daily weather data.
 #' 
-## ---- messages=F, warning=F, results="hide"-----------------------------------
+## ----messages=F, warning=F, results="hide"------------------------------------
 library(tidyverse)
 library(rnoaa)
 library(xts)

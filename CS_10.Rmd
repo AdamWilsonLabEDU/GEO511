@@ -31,7 +31,6 @@ md_bullet(rmarkdown::metadata$tasks)
 ```{r,results='hide',message=FALSE, warning=F}
 library(raster)
 library(rasterVis)
-library(rgdal)
 library(ggmap)
 library(tidyverse)
 library(knitr)

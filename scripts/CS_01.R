@@ -29,7 +29,7 @@ md_bullet(rmarkdown::metadata$reading)
 #' 
 #' It looks like this:
 #' 
-## ---- echo=F------------------------------------------------------------------
+## ----echo=F-------------------------------------------------------------------
 data(iris)
 kable(iris) %>%
   kable_styling() %>%
