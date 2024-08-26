@@ -157,7 +157,7 @@ Plan to spend approximately 5-11 hours each week:
 ## Group Leader Sign ups
 
 <iframe
-  src="https://docs.google.com/spreadsheets/d/e/2PACX-1vQJhWvxt2xNq8t0SWWfUKM5Th3aT_bJWfL71Zoyf1JbysDknpfGfInw8_SonjhivIyRMC3DPfa-1fLm/pubhtml?gid=868447735&single=true"
+  src="https://buffalo.box.com/s/wtqkvrgosj6xmtcuwa5oppsj04ttymjk"
   width="100%" height="800">
 </iframe>
 
@@ -226,7 +226,7 @@ R is a dialect of the S language  developed at Bell Laboratories (formerly AT&T)
 
 ## Spatial Data Processing in R
 
-Packages: `sf, sp, maptools, rgeos, raster, terra, ggmap`
+Packages: `sf, maptools, rgeos, raster, terra, ggmap`
 
 R can perform many GIS functions and workflows (often better than a GIS!).
 
@@ -266,9 +266,9 @@ Mac, Windows, Linux, and over the web…
 
 
 ## Scholarly Articles
-![](https://i1.wp.com/r4stats.com/wp-content/uploads/2019/03/Fig_2a_ScholarlyImpact2018-1.png?w=650)
+![](https://cdn-0.r4stats.com/wp-content/uploads/2023/06/Fig_2a_ScholarlyImpact2022-6.png)
 
-Number of scholarly articles found in the most recent complete year (2018) for the more popular data science software. To be included, software must be used in at least 750 scholarly articles.
+Number of scholarly articles found in the most recent complete year (2022) for the more popular data science software. To be included, software must be used in at least 4,500 scholarly articles.
 
 ## Interface to R
 ![](PS_01_img/rexer_interface.png)
