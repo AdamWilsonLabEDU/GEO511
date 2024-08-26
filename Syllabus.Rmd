@@ -7,8 +7,11 @@ title: "GEO 511 Spatial Data Science"
 This course introduces students to the fundamentals of spatial data science. The first part of the course introduces students to a high-level programming language (currently R).  The second part covers methods to incorporate spatial data into data science workflows. The third part addresses the generation of dynamic, reproducible research output including figures, maps, manuscripts, and websites. The course includes a project for students to conduct spatial analysis related to their research. Familiarity with basic GIS concepts (raster, vector, geographic projection, etc.) will be assumed, but no prior coding experience is required.  
 
 # Logistics
+
 Professor Adam M. Wilson ([http://wilsonlab.io](wilsonlab.io))
-Office Hours: Thursdays 12:30-1:30pm
+
+Office Hours: Thursdays 8:30-9:30pm or by appointment in Wilkeson 120
+
 3 Credit Hours
 
 ## Schedule 
@@ -162,22 +165,36 @@ If you miss a class session, you are still responsible for completing the class 
 
 See the University website for cancellations/delays due to weather or other unforeseen events (http://emergency.buffalo.edu/).
 
-## Academic Integrity 
+## Academic Integrity & Generative AI
 
-[Academic integrity](https://academicintegrity.buffalo.edu/) is critical to the learning process. It is your responsibility as a student to complete your work in an honest fashion, upholding the expectations your individual instructors have for you in this regard. The ultimate goal is to ensure that you learn the content in your courses in accordance with UB’s academic integrity principles, regardless of whether instruction is in-person or remote.  Thank you for upholding your own personal integrity and ensuring UB’s tradition of academic excellence. Examples of academic dishonesty include: submitting work from another course, plagiarism, cheating, falsification, misrepresentation, and usage of confidential documents. 
+Academic integrity is a fundamental university value. Through the honest completion of academic work, students sustain the integrity of the university and of themselves while facilitating the university's imperative for the transmission of knowledge and culture based upon the generation of new and innovative ideas. For more information, please refer to the [Graduate Academic Integrity policy](https://www.buffalo.edu/grad/succeed/current-students/policy-library.html#academic-integrity). Examples of academic dishonesty include: submitting work from another course, plagiarism, cheating, falsification, misrepresentation, and usage of confidential documents. 
+Writing computer code often involves use of existing code chunks (e.g. copying an example from the documentation) or, more recently, using generative AI tools (such as chatGPT) to complete tasks.  In an academic setting, this complicates the identification and definition of academic dishonesty. The primary goal of the course is to learn how to **program and think** as a data scientist concerning data wrangling and visualization.  I want you to use your time as efficiently as possible to meet this goal.  
 
-Writing computer code often involves use of existing code chunks (e.g. copying an example from the documentation) which complicates identification/definition of academic dishonesty. The primary goal of the course is to learn how to **program and think** as a data scientist concerning data wrangling and visualization.  I want you to use your time as efficiently as possible to meet this goal.  With this goal in mind here are some guiding principles.
+Use of generative AI tools such as ChatGPT _is_ allowed in this course. However, you are responsible for understanding and _being able to reproduce all code you submit without the use of these tools_. This means that you can use AI-tools to learn how to do something, but you can't use them to do tasks for you.  There is a fine line between these two uses, so here are some examples to help guide you:
 
-* You can see others code in the classroom repositories on [Github](https://github.com). Think of your classmate's code as a resource but not a crutch.  
-    * If you look at other's code to get help solving a problem, you need help with then that is ok.  Just put `# Got help for the next three lines of code from Jason's Task 12 script` where you copied code.
-    * If you copy and paste other's code to complete a task and can't recreate the script on your own or understand what it is doing **you are cheating**.
+### Examples
 
-If there is reason to believe that submitted code was simply copied from elsewhere, the student will be asked to verbally (and specifically) explain the code used in the analysis to ensure comprehension. 
+* Sam uses chatGPT to generate examples of how to write a `for` loop and then writes their own `for` loop for the assignment.  Sam did not violate the Academic Integrity policy.
+* Alex pasted the assignment into chatGPT and then submitted the response in class.  They did not understand the code and could not reproduce it on her own.  Alex violated the Academic Integrity policy.
+* Mohammed pasted the assignment into chatCPT and then used the response to learn which functions he could use and how the functions work. He submitted a version that was very similar (or identical) to chatGPT's response, but he understood how it worked and was able to reproduce the code without AI when asked.  Mohammed did not violate the Academic Integrity policy.  
+* Jon found his classmate's repositories on [Github](https://github.com) and copy-pasted their code into his assignment and didn't understand a few parts of it.  Jon violated the policy.
+* Sumaiya was stuck on a problem and reviewed a classmate's code for ideas.  She used a few functions from the code but understood how it worked and was able to reproduce it later.  She did not violate the policy. 
+
+
+### Guidelines
+
+With this in mind here are some guiding principles.
+
+* You may use AI tools (and classmates code) to _learn_ how to do something, but you cannot simply copy/paste and submit code you didn't write as your own.  If you copy and paste code from another person or AI to complete a task and can't recreate the script on your own or understand what it is doing **you are cheating**.   
+* If you look at others' code or use AI to get help solving a problem you must add comments to your code indicating what you did. For example, `# Got help for the next three lines of code from Jason's Task 12 script`.  If you used extensive AI prompts to figure something out, paste the full prompt as a comment.  This will also help you learn how to write a good prompt.
+
+If there is reason to believe that submitted code was simply copied from elsewhere, the student will be asked to verbally (and specifically) explain the code used in the analysis to ensure comprehension. They may also be asked to complete a coding challenge to demonstrate their abilities.
 
 If a student is suspected of academic dishonesty, then a three-step consultative resolution will be employed. First, the instructor will notify the student of the incident and arrange a meeting. Second, the instructor will orally inform the student of the sanction, which could include: warning, revision, reduction in grade, or failure of course. Third, the instructor will provide the student with a written copy of the decision.  See the university policy for more information (https://catalog.buffalo.edu/policies/integrity.html). Please review it and ask if you have any questions.  
 
 ## Accessibility Resources
 If you have any disability which requires reasonable accommodations to enable you to participate in this course, please contact the Office of Accessibility Resources in 60 Capen Hall, 716-645-2608 and also the instructor of this course during the first week of class. The office will provide you with information and review appropriate arrangements for reasonable accommodations, which can be found on the web at: http://www.buffalo.edu/studentlife/who-we-are/departments/accessibility.html.
+
 
 # Course Content
 Course content is designed to be flexible to accommodate student interest and abilities.  The order and timing of course topics may change as the semester progresses.  See the [course schedule on the website for detailed course content](Schedule.html).
