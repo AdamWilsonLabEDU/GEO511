@@ -10,7 +10,7 @@ This course introduces students to the fundamentals of spatial data science. The
 
 Professor Adam M. Wilson ([http://wilsonlab.io](wilsonlab.io))
 
-Office Hours: Thursdays 8:30-9:30pm or by appointment in Wilkeson 120
+Office Hours: Thursdays 8:30-9:30am or by appointment in Wilkeson 120
 
 3 Credit Hours
 
