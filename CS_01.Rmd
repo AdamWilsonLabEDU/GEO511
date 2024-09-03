@@ -44,7 +44,7 @@ kable(iris) %>%
 
 To work with only one column in the `iris` dataset, try typing `iris$Sepal.Length`.  What does the `$` do?  
 
-For the histogram, you can either use the basic `hist()` function (easier but less powerful) or try to use the `geom_hist()` function in ggplot (more complicated but much more powerful).  See the reading list for hints on these two functions.
+For the histogram, you can either use the basic `hist()` function (easier but less powerful) or try to use the `geom_histogram()` function in ggplot (more complicated but much more powerful).  See the reading list for hints on these two functions.
 
 When you complete this task, you will have done some 'reproducible research' resulting in a script that calculates a statistic and makes a graph.  In future lessons we'll cover how to save the graphic to your hardrive (if you are curious, check out the examples in `?png`)
 
@@ -56,7 +56,7 @@ md_bullet(rmarkdown::metadata$tasks)
 
 If you have extra time, here are some things to explore:
 
-* Try using `geom_hist()` instead of `hist()`
+* Try using the `ggplot2` library and `geom_histogram()` instead of `hist()`. You'll need to install the `ggplot2` library (perhaps with `install.packages(ggplot2)`), load it with `library(ggplot2)`, and then use both `ggplot` and `geom_histogram` functions. Check the help for examples.
 * go back and add comments on lines beginning with `#` to communicate what each line does
 * use `summary()` to generate a summary table of each column
 * think of other summary statistics or visualizations to communicate this data set.

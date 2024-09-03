@@ -2994,8 +2994,8 @@ typing <code>iris$Sepal.Length</code>. What does the <code>$</code>
 do?</p>
 <p>For the histogram, you can either use the basic <code>hist()</code>
 function (easier but less powerful) or try to use the
-<code>geom_hist()</code> function in ggplot (more complicated but much
-more powerful). See the reading list for hints on these two
+<code>geom_histogram()</code> function in ggplot (more complicated but
+much more powerful). See the reading list for hints on these two
 functions.</p>
 <p>When you complete this task, you will have done some ‘reproducible
 research’ resulting in a script that calculates a statistic and makes a
@@ -3023,8 +3023,12 @@ end</li>
 </ul>
 <p>If you have extra time, here are some things to explore:</p>
 <ul>
-<li>Try using <code>geom_hist()</code> instead of
-<code>hist()</code></li>
+<li>Try using the <code>ggplot2</code> library and
+<code>geom_histogram()</code> instead of <code>hist()</code>. You’ll
+need to install the <code>ggplot2</code> library (perhaps with
+<code>install.packages(ggplot2)</code>), load it with
+<code>library(ggplot2)</code>, and then use both <code>ggplot</code> and
+<code>geom_histogram</code> functions. Check the help for examples.</li>
 <li>go back and add comments on lines beginning with <code>#</code> to
 communicate what each line does</li>
 <li>use <code>summary()</code> to generate a summary table of each
