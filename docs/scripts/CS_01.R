@@ -46,3 +46,12 @@ kable(iris) %>%
 ## ----tasks,results='asis',echo=F----------------------------------------------
 md_bullet(rmarkdown::metadata$tasks)
 
+#' 
+#' 
+#' If you have extra time, here are some things to explore:
+#' 
+#' * Try using `geom_hist()` instead of `hist()`
+#' * go back and add comments on lines beginning with `#` to communicate what each line does
+#' * use `summary()` to generate a summary table of each column
+#' * think of other summary statistics or visualizations to communicate this data set.
+#' 
