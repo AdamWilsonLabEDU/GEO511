@@ -430,19 +430,19 @@ ArcGIS.</p>
 <pre class="r"><code>library(tidyverse)
 
 # define the link to the data - you can try this in your browser too.  Note that the URL ends in .txt.
-dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt&quot;</code></pre>
+dataurl=&quot;https://data.giss.nasa.gov/tmp/gistemp/STATIONS_v4/tmp_USW00014733_14_0_1/station.csv&quot;</code></pre>
 <p>This url points to a CSV file with monthly mean temperatures from the
 GISS dataset. You can <a
-href="https://data.giss.nasa.gov/tmp/gistemp/STATIONS/tmp_USW00014733_14_0_1/station.txt">check
+href="https://data.giss.nasa.gov/tmp/gistemp/STATIONS_v4/tmp_USW00014733_14_0_1/station.csv">check
 out the file here</a>. Now use <code>read_table()</code> to download and
 import the table directly from the website (cool, huh!?).</p>
 <pre class="r"><code>#the next line tells the NASA site to create the temporary file
 httr::GET(&quot;https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1&quot;)</code></pre>
 <pre><code>## Response [https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id=USW00014733&amp;ds=14&amp;dt=1]
-##   Date: 2022-09-16 17:24
+##   Date: 2024-09-05 16:19
 ##   Status: 200
 ##   Content-Type: text/html
-##   Size: 50.2 kB
+##   Size: 51.5 kB
 ## 
 ## &lt;!DOCTYPE HTML&gt;&lt;html lang=&quot;en&quot;&gt;
 ## 
@@ -455,9 +455,9 @@ httr::GET(&quot;https://data.giss.nasa.gov/cgi-bin/gistemp/stdata_show_v4.cgi?id
 ## &lt;/title&gt;
 ## ...</code></pre>
 <pre class="r"><code># the next lines download the data
-temp=read_table(dataurl,
-              skip=3, #skip the first line which has column names
+temp=read_csv(dataurl, 
               na=&quot;999.90&quot;, # tell R that 999.90 means missing in this dataset
+              skip=1, # we will use our own column names as below so we&#39;ll skip the first row
               col_names = c(&quot;YEAR&quot;,&quot;JAN&quot;,&quot;FEB&quot;,&quot;MAR&quot;, # define column names 
                             &quot;APR&quot;,&quot;MAY&quot;,&quot;JUN&quot;,&quot;JUL&quot;,  
                             &quot;AUG&quot;,&quot;SEP&quot;,&quot;OCT&quot;,&quot;NOV&quot;,  

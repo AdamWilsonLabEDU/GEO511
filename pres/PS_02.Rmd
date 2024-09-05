@@ -66,6 +66,29 @@ Recommended Deadlines
 ```
 
 
+## Writing Code
+
+You are doing two things at the same time:
+
+1. accomplishing some task _now_
+2. collaborating with your future self (or someone else) 
+
+SO:
+
+1. Include lots of comments to understand and repeat what you did
+2. Remember to clean up your code when you've finished!
+3. Consider the style guide...
+
+
+## Style Guide
+
+<iframe
+  src="https://style.tidyverse.org/"
+  width="100%" height="800">
+</iframe>
+[source](https://style.tidyverse.org/)
+
+
 ## Next Week's Case Study
 
 
