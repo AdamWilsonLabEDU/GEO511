@@ -26,12 +26,12 @@ week: 2
 
 Infographic/Poster
 
-* Week 4 (9/23) Rough Project Idea to Slack
-* Week 7 (10/11)  Project proposal due
-* Week 8 (10/20) Set up Project Website
+* Week 4 (9/23) Rough Project Idea to UBLearns Discussion
+* Week 7 (10/14)  Project proposal due
+* Week 8 (10/21) Set up Project Website
 * Week 11 (11/11) First Draft
 * Week 12 (11/18) Peer review of final projects
-* Week 15 (11/29) Final Presentations
+* Week 15 (12/6) Final Project
 
 ## Project Requirements
 
