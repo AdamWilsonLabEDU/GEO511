@@ -7,11 +7,11 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
-  <link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/reveal.css"/>
+  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
 
 
 
-<link rel="stylesheet" href="externals/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
 
 
   <!-- some tweaks to reveal css -->
@@ -443,11 +443,11 @@ style.innerHTML = style_script;
 document.getElementsByTagName('head')[0].appendChild(style);
 </script>
 
-    <script src="externals/header-attrs/header-attrs.js"></script>
-    <link href="externals/font-awesome/css/all.css" rel="stylesheet" />
-    <link href="externals/font-awesome/css/v4-shims.css" rel="stylesheet" />
-    <script src="externals/kePrint/kePrint.js"></script>
-    <link href="externals/lightable/lightable.css" rel="stylesheet" />
+    <script src="site_libs/header-attrs-2.27/header-attrs.js"></script>
+    <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+    <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+    <script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+    <link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
 </head>
 <body>
   <div class="reveal">
@@ -474,18 +474,19 @@ document.getElementsByTagName('head')[0].appendChild(style);
 </section>
 <section id="resource-presentations" class="slide level2">
 <h2>Resource Presentations</h2>
-<iframe src="https://buffalo.app.box.com/embed/s/74r8gc4r9j8ly3ncx9kyt2xsxw0uaaiu?sortColumn=date&amp;view=list" width="800" height="550" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen>
-</iframe>
-<p>” width=“100%” height=“800”&gt; <a
-href="https://buffalo.app.box.com/embed/s/74r8gc4r9j8ly3ncx9kyt2xsxw0uaaiu?sortColumn=date&amp;view=list">source</a></p>
+<p><a href=https://buffalo.box.com/s/wtqkvrgosj6xmtcuwa5oppsj04ttymjk">
+<img src="PS_01_img/Case_Study_Form.png" > </a></p>
+<p><a
+href="https://buffalo.box.com/s/wtqkvrgosj6xmtcuwa5oppsj04ttymjk">source</a></p>
 </section>
 <section id="case-study-presentations---lets-pick-a-winner"
 class="slide level2">
 <h2>Case Study Presentations - Let’s pick a winner!</h2>
-<iframe src="https://wheelofnames.com/bw4-gdt" width="100%" height="500">
+<iframe src="https://wheelofnames.com/ssm-wwz" width="100%" height="500">
 </iframe>
-<iframe src="https://buffalo.app.box.com/embed/s/74r8gc4r9j8ly3ncx9kyt2xsxw0uaaiu?sortColumn=date&amp;view=list" width="800" height="550" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen>
-</iframe>
+<p><a href=https://buffalo.box.com/s/wtqkvrgosj6xmtcuwa5oppsj04ttymjk">
+show spreadsheet </a></p>
+<!-- <iframe src="https://buffalo.box.com/s/wtqkvrgosj6xmtcuwa5oppsj04ttymjk" width="800" height="100" frameborder="0" allowfullscreen webkitallowfullscreen msallowfullscreen></iframe> -->
 </section>
 <section id="next-weeks-case-study" class="slide level2">
 <h2>Next Week’s Case Study</h2>
@@ -1561,25 +1562,25 @@ class="title-slide slide level1">
 <p><code>base::merge()</code> can perform all four types of joins:</p>
 <table>
 <thead>
-<tr class="header">
+<tr>
 <th>dplyr</th>
 <th>merge</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>inner_join(x, y)</code></td>
 <td><code>merge(x, y)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>left_join(x, y)</code></td>
 <td><code>merge(x, y, all.x = TRUE)</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>right_join(x, y)</code></td>
 <td><code>merge(x, y, all.y = TRUE)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>full_join(x, y)</code></td>
 <td><code>merge(x, y, all.x = TRUE, all.y = TRUE)</code></td>
 </tr>
@@ -1603,25 +1604,25 @@ straightforward:</p>
 <col style="width: 59%" />
 </colgroup>
 <thead>
-<tr class="header">
+<tr>
 <th>dplyr</th>
 <th>SQL</th>
 </tr>
 </thead>
 <tbody>
-<tr class="odd">
+<tr>
 <td><code>inner_join(x, y, by = "z")</code></td>
 <td><code>SELECT * FROM x INNER JOIN y USING (z)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>left_join(x, y, by = "z")</code></td>
 <td><code>SELECT * FROM x LEFT OUTER JOIN y USING (z)</code></td>
 </tr>
-<tr class="odd">
+<tr>
 <td><code>right_join(x, y, by = "z")</code></td>
 <td><code>SELECT * FROM x RIGHT OUTER JOIN y USING (z)</code></td>
 </tr>
-<tr class="even">
+<tr>
 <td><code>full_join(x, y, by = "z")</code></td>
 <td><code>SELECT * FROM x FULL OUTER JOIN y USING (z)</code></td>
 </tr>
@@ -1646,8 +1647,8 @@ y.</li>
     </div>
   </div>
 
-  <script src="externals/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
-  <script src="externals/reveal.js-3.3.0.1/js/reveal.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
 
   <script>
 
@@ -1719,8 +1720,8 @@ y.</li>
 
         // Optional reveal.js plugins
         dependencies: [
-          { src: 'externals/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
-          { src: 'externals/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
         ]
       });
     </script>
