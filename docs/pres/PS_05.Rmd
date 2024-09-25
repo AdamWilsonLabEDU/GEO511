@@ -5,8 +5,6 @@ title: "Spatial data handling"
 ```{r, echo=F,message=F,warning=F}
 library(methods)
 library(spData)
-library(rgdal)
-library(rgeos)
 library(sp)
 library(knitr)
 library(ggplot2)
@@ -38,10 +36,9 @@ library(sf)
 Packages:
 
 * `sp`  First major spatial data package/format
-* `sf` Spatial Features in the 'tidyverse'
-* `rgdal` reading and writing spatial data
-* `rgeos` Interface to open-source geometry engine (GEOS)
 * `raster` raster (gridded) data
+* `terra` raster (gridded) data
+* `sf` Spatial Features in the 'tidyverse'
 * and a few others...
 
 ---
@@ -501,7 +498,45 @@ Raster data is not yet closely connected to the **tidyverse**, however:
 - Some functions from the **raster** and **terra** packages work well in `pipes`
 - You can convert vector data to the `Spatial*` form using `as(my_vector, "Spatial")`before working on raster-vector interactions
 - There are some initial efforts to bring raster data closer to the **tidyverse**, such as [tabularaster](https://github.com/hypertidy/tabularaster), [sfraster](https://github.com/mdsumner/sfraster), or [fasterize](https://github.com/ecohealthalliance/fasterize)
-- The development of the [stars](https://github.com/r-spatial/stars), package focused on multidimensional, large datasets should start soon. It will allow pipe-based workflows
+- The [stars](https://github.com/r-spatial/stars), package focuses on multidimensional, large datasets. 
+
+
+## stars example
+```{r}
+library(stars)
+tif = system.file("tif/L7_ETMs.tif", package = "stars")
+read_stars(tif) |>
+  slice(index = 1, along = "band") |>
+  plot()
+```
+
+## stars example 2
+```{r}
+prec_file = system.file("nc/test_stageiv_xyt.nc", package = "stars")
+prec = read_stars(gdal_subdatasets(prec_file)[[1]])
+
+prec %>% 
+  slice(index = 1:12, along = "time") |>
+  plot()
+
+```
+
+## stars example 3
+```{r}
+sf::read_sf(system.file("gpkg/nc.gpkg", package = "sf"), "nc.gpkg") %>%  
+  st_transform(st_crs(prec)) %>% # transform from NAD27 to WGS84
+  st_geometry() %>% 
+  st_union() ->
+  nc_outline
+
+plot_hook = function() plot(nc_outline, border = 'red', add = TRUE)
+
+prec %>% 
+  slice(index = 1:12, along = "time") |>
+  plot(downsample = c(3, 3, 1), hook = plot_hook)
+```
+
+
 
 ---
 

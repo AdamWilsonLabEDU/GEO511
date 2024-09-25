@@ -141,5 +141,5 @@ wpres2=ifelse(length(wpres)==1,
 
 ## Student Leadership and Presentations
 
-[Click here to view the presentation schedule](https://buffalo.box.com/s/wtqkvrgosj6xmtcuwa5oppsj04ttymjk)
+[See UBLearns to sign up to present](https://ublearns.buffalo.edu)
 
