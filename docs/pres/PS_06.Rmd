@@ -9,7 +9,7 @@ library(sf)
 library(spData)
 library(viridis)
 library(tidyverse)
-library(raster)
+library(terra)
 ```
 
 ```{r child = "course_schedule.Rmd"}
@@ -28,25 +28,20 @@ library(raster)
 ```
 
 
-## Available Spatial Packages
+## Primary Spatial Packages
 
-* `sp`  First major spatial data package/format
-* `rgdal` reading and writing spatial data
-* `rgeos` Interface to open-source geometry engine (GEOS)
 * `sf` Spatial Features in the 'tidyverse'
-* `raster` and `terra` for gridded data (like satellite imagery)
+* `terra` for gridded data (like satellite imagery)
 * and a few others...
 
 ## Common Simple Feature (SF) types
 
-![](https://geocompr.robinlovelace.net/figures/sf-classes.png)
+![](https://r.geocompx.org/images/sf-classes.png)
 
 ## What about grids?
 ```{r echo=F, message=F,warning=F}
-library(raster)
-library(spData)
-data(elev) #load fake data from spData package
-plot(elev) 
+library(terra)
+image(matrix(rnorm(100),10,10))
 ```
 
 
@@ -70,36 +65,35 @@ Most Common:
 
 Raster data is not yet closely connected to the **tidyverse**, however:
 
-- Some functions from `raster` work well in `pipes`
-- Convert vector data to `Spatial*` form using `as(my_vector, "Spatial")` for raster-vector interactions
-- Some early efforts to bring raster data into the **tidyverse**, including [tabularaster](https://github.com/hypertidy/tabularaster), [sfraster](https://github.com/mdsumner/sfraster), [fasterize](https://github.com/ecohealthalliance/fasterize), and [stars](https://github.com/r-spatial/stars) (multidimensional, large datasets).
-- [terra](https://rspatial.org/terra/) designed to replace raster
+- Some functions from `terra` work well in `pipes`
+- Some early efforts to bring raster data into the **tidyverse**, including [tabularaster](https://github.com/hypertidy/tabularaster), [sfraster](https://github.com/mdsumner/sfraster), [fasterize](https://github.com/ecohealthalliance/fasterize), and [stars](https://github.com/r-spatial/stars) (multidimensional, large datasets), and `tidyterra`.
 
-## Raster Package
+## Terra Package
 ```{r message=F,warning=F}
-library(raster)
-library(spData)
-data(elev) #load fake data from spData package
-plot(elev) #load fake data from spData package
+library(terra)
+library(ncdf4)
+download.file("https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc","crudata.nc")
+
+# read in the data using the rast() function from the terra package
+tmean=rast("crudata.nc") %>% mean()
+
 ```
-
-
 
 ## Raster Data Structure
 ```{r}
-elev
+tmean
 ```
 
 ---
 ```{r}
-str(elev)
+plot(tmean)
 ```
 
 ---
 
 ### Arrays with metadata
 ```{r}
-as.array(elev)
+as.array(tmean)
 ```
 Rasters are just arrays / matricies with metadata.
 
@@ -108,33 +102,32 @@ Rasters are just arrays / matricies with metadata.
 ### Cell Stats
 
 ```{r}
-cellStats(elev, stat = mean, na.rm=T)
-cellStats(elev, stat = quantile, na.rm=T)
+global(tmean, fun=mean)
+global(tmean, fun = quantile, na.rm=T)
 ```
 
 ---
 
 ### Raster Data Memory
 ```{r}
-inMemory(elev)
-canProcessInMemory(elev)
+inMemory(tmean)
 ```
-Raster does not try to load or work with large datasets in RAM.  It creates temporary files and processes them in the background.
+Terra does not try to load or work with large datasets in RAM.  It creates temporary files and processes them in the background.
 
 ## Map Algebra
 
 Convert feet to meters
 ```{r}
-elev_m <- elev*0.3048
-plot(elev_m)
+tmean_f <- (tmean*9/5) + 32
+plot(tmean_f)
 ```
 
 ---
 
 ### Simple Filter
 ```{r}
-high_ground <- elev_m>8
-plot(high_ground)
+hot_places <- tmean>20
+plot(hot_places)
 ```
 
 
@@ -144,20 +137,20 @@ plot(high_ground)
 ```{r}
 m <- matrix(1,nrow=3,ncol=3)
 m
-elev_smooth <- focal(elev_m,m,mean)
+tmean_smooth <- focal(tmean,m,mean)
 ```
 ---
 ```{r}
 par(mfrow=c(1,2))
-plot(elev_m)
-plot(elev_smooth)
+plot(tmean)
+plot(tmean_smooth)
 ```
 
 ## Arbitrary functions
 
 ```{r}
-NA16=function(x) ifelse(x == 16,1,NA)
-one_cell <- calc(elev,fun = NA16)
+NA17=function(i) ifelse(i == 17,1,NA)
+one_cell <- app(tmean,fun = NA17)
 plot(one_cell)
 ```
 
@@ -182,12 +175,22 @@ Distance unit is meters if RasterLayer is `+proj=longlat`, map units (typically 
 
 # Visualization
 
-## ggplot
+## rasterVis
 
 ```{r, message=F}
 library(rasterVis)
-gplot(elev)+
-  geom_raster(aes(fill=value))
+gplot(tmean)+
+  geom_raster(aes(fill = value))+
+  coord_equal()
+```
+
+## tidyterra
+
+```{r}
+library(tidyterra)
+ggplot()+
+  geom_spatraster(data=tmean, aes(fill = mean))+
+  scale_fill_viridis_c()
 ```
 
 ---
@@ -195,29 +198,11 @@ gplot(elev)+
 ### All ggplot functionality available
 
 ```{r}
-gplot(elev)+
-  geom_raster(aes(fill=value))+
-  coord_equal()+
-  scale_fill_viridis_c()
-```
+data(world)
 
----
+ggplot()+
+  geom_spatraster(data=tmean, aes(fill = mean))+
+  scale_fill_viridis_c()+
+  geom_sf(data=world,fill="NA")
 
-### Switching to Terra?
-
-Mostly minor differences...
-
-```{r}
-library(terra)
-elev_terra <- rast(elev)
-elev_raster <- raster(elev_terra)
-```
-
----
-
-### Extent
-
-```{r}
-extent(elev_raster)
-ext(elev_terra)
 ```

@@ -388,9 +388,9 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">Find hottest country on each continent</h1>
-<h3 class="subtitle">Use sf and raster to quantify mean annual
-temperature for each country and then identify the hottest one on each
-continent.</h3>
+<h3 class="subtitle">Use sf and terra to process raster data to quantify
+mean annual temperature for each country and then identify the hottest
+one on each continent.</h3>
 
 </div>
 
@@ -399,8 +399,7 @@ continent.</h3>
 <h1>Reading</h1>
 <ul>
 <li>Raster Vector Interactions <a
-href="https://geocompr.robinlovelace.net/geometric-operations.html#raster-vector"
-target="blank">GCR</a></li>
+href="https://r.geocompx.org/raster-vector" target="blank">GCR</a></li>
 </ul>
 </div>
 <div id="background" class="section level1">
@@ -412,8 +411,7 @@ such as elevation, climate, soil, and land cover. We commonly need to
 using a GPS and wanted to know the mean annual temperature at each
 point, you might <code>extract</code> the data from each location in a
 raster-based map of temperature.</p>
-<p><img
-src="https://geocompr.robinlovelace.net/06-raster-vector_files/figure-html/pointextr-1.png" /></p>
+<p><img src="https://r.geocompx.org/figures/pointextr-1.png" /></p>
 <p>You could also be interested in some summary of the raster data
 across multiple pixels (such as the buffered points above, a transect,
 or within a polygon). For example, you might be interested in the mean
@@ -428,15 +426,15 @@ near-global rasters of surface temperature on a five degree grid.</p>
 <div id="objective" class="section level1">
 <h1>Objective</h1>
 <blockquote>
-<p>Identify the hottest country on each continent (not counting
-Antarctica) by intersecting a set of polygons with a raster image and
-calculating the maximum raster value in each polygon.</p>
+<p>Identify the hottest country on each continent by intersecting a set
+of polygons with a raster image and calculating the maximum raster value
+in each polygon.</p>
 </blockquote>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <ul>
-<li>Calculate annual maximum temperatures from a monthly spatio-temporal
+<li>Calculate annual mean temperatures from a monthly spatio-temporal
 dataset</li>
 <li>Remove Antarctica from the <code>world</code> dataset</li>
 <li>Summarize raster values within polygons</li>
@@ -456,8 +454,7 @@ Show Hints
 <div id="libraries" class="section level2">
 <h2>Libraries</h2>
 <p>You will need to load the following packages</p>
-<pre class="r"><code>library(raster)
-library(sp)
+<pre class="r"><code>library(terra)
 library(spData)
 library(tidyverse)
 library(sf)</code></pre>
@@ -476,7 +473,9 @@ Unit data (CRU) here</a>. Absolute temperatures for the base period
 the code below:</p>
 <pre class="r"><code>library(ncdf4)
 download.file(&quot;https://crudata.uea.ac.uk/cru/data/temperature/absolute.nc&quot;,&quot;crudata.nc&quot;)
-tmean=raster(&quot;crudata.nc&quot;)</code></pre>
+
+# read in the data using the rast() function from the terra package
+tmean=rast(&quot;crudata.nc&quot;)</code></pre>
 <p>Note: If the above code returns an error about
 <code>nc_open()</code>, try adding <code>method="curl"</code> at the end
 of the <code>download.file()</code> command.</p>
@@ -484,51 +483,40 @@ of the <code>download.file()</code> command.</p>
 <div id="steps" class="section level2">
 <h2>Steps</h2>
 <ol style="list-style-type: decimal">
-<li>Prepare country polygon data (the <code>world</code> object).
-<ol style="list-style-type: decimal">
-<li>Remove “Antarctica” with <code>filter()</code> because WorldClim
-does not have data there.</li>
-<li>Convert the <code>world</code> object to <code>sp</code> format (the
-‘old’ format) because the <code>raster</code> package doesn’t accept
-<code>sf</code> objects. you can do this with
-<code>as(world,"Spatial")</code>.</li>
-</ol></li>
 <li>Prepare Climate Data
 <ol style="list-style-type: decimal">
 <li>Download and load the CRU data using the code above
-(<code>tmean=raster("crudata.nc")</code>).</li>
+(<code>tmean=rast("crudata.nc")</code>).</li>
 <li>Inspect the new <code>tmean</code> object (you can start by just
 typing it’s name <code>tmean</code>, then perhaps making a
 <code>plot()</code>). How many layers does it have? What do these
 represent? You can read more about the data <a
-href="https://www.worldclim.org/data/worldclim21.html">here</a></li>
+href="https://crudata.uea.ac.uk/cru/data/temperature/">here</a></li>
 <li>The CRU data are stored as degrees C.<br />
 </li>
-<li>Use <code>names(tmean)</code> to see the current name of the data
-layer. Then, update it to ‘tmean’ by running
-<code>names(tmean)&lt;- "tmean"</code> make the later code more
-intuitive than keeping the default name
-<code>CRU_Global_1961.1990_Mean_Monthly_Surface_Temperature_Climatology</code>.</li>
 </ol></li>
 <li>Calculate the maximum temperature observed in each country.
 <ol style="list-style-type: decimal">
-<li>use <code>raster::extract()</code> to identify the maximum
+<li>use <code>max()</code> to calculate the maximum value observed in
+each pixel across all months. You may want to <code>plot()</code> the
+output of this and compare the plot of the original (full) raster. How
+many layers does it have now?</li>
+<li>use <code>terra::extract()</code> to identify the maximum
 temperature observed in each country (<code>fun=max</code>). Also set
-<code>na.rm=T, small=T, sp=T</code> to 1) handle missing data along
-coastlines, 2) account for small countries that may not have a full 0.5
-degree pixel in them, and 3) return a spatial polygon object instead of
-just a vector of values.</li>
-<li>convert the results of the previous step to <code>sf</code> format
-with <code>st_as_sf()</code>. Now you have an updated polygon object
-with a new column of maximium temperature. Cool!</li>
-<li>save this spatial feature as <code>tmax_country</code>.</li>
+<code>na.rm=T, small=T</code> to 1) handle missing data along coastlines
+and 2) account for small countries that may not have a pixel centroid in
+them.</li>
+<li>use <code>bind_cols()</code> to bind the original <code>world</code>
+dataset with the new summary of the temperature data to create a new
+object called <code>world_clim</code> with the outputs from the
+<code>extract()</code> function above.</li>
 </ol></li>
 <li>Communicate your results
 <ol style="list-style-type: decimal">
 <li>use <code>ggplot()</code> and <code>geom_sf()</code> to plot the
 maximum temperature in each country polygon (not the original raster
 layer). To recreate the image below, you will also need
-<code>+scale_fill_viridis_c(name="Annual\nMaximum\nTemperature (C)")</code>.
+<code>+scale_fill_viridis_c(name="Maximum\nTemperature (C)")</code>.
 Note the use of <code>\n</code> to insert a line break in the text
 string. You can move the legend around with
 <code>+theme(legend.position = 'bottom')</code>.</li>
@@ -546,98 +534,65 @@ to drop the geometry column (if desired). Save this table as
 </div>
 <p>Your final result should look something like this:</p>
 <p><img src="CS_06_files/figure-html/unnamed-chunk-3-1.png" width="2100" /></p>
-And the summary table will look like this:
+<p>And the summary table will look like this:</p>
 <table>
 <thead>
-<tr>
-<th style="text-align:left;">
-name_long
-</th>
-<th style="text-align:left;">
-continent
-</th>
-<th style="text-align:right;">
-tmean
-</th>
+<tr class="header">
+<th align="left">name_long</th>
+<th align="left">continent</th>
+<th align="right">max</th>
 </tr>
 </thead>
 <tbody>
-<tr>
-<td style="text-align:left;">
-Australia
-</td>
-<td style="text-align:left;">
-Oceania
-</td>
-<td style="text-align:right;">
-32.0
-</td>
+<tr class="odd">
+<td align="left">Mali</td>
+<td align="left">Africa</td>
+<td align="right">35.7</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Somalia
-</td>
-<td style="text-align:left;">
-Africa
-</td>
-<td style="text-align:right;">
-27.7
-</td>
+<tr class="even">
+<td align="left">Algeria</td>
+<td align="left">Africa</td>
+<td align="right">35.7</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Paraguay
-</td>
-<td style="text-align:left;">
-South America
-</td>
-<td style="text-align:right;">
-27.7
-</td>
+<tr class="odd">
+<td align="left">Kuwait</td>
+<td align="left">Asia</td>
+<td align="right">34.8</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Timor-Leste
-</td>
-<td style="text-align:left;">
-Asia
-</td>
-<td style="text-align:right;">
-27.6
-</td>
+<tr class="even">
+<td align="left">Saudi Arabia</td>
+<td align="left">Asia</td>
+<td align="right">34.8</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Costa Rica
-</td>
-<td style="text-align:left;">
-North America
-</td>
-<td style="text-align:right;">
-26.1
-</td>
+<tr class="odd">
+<td align="left">Australia</td>
+<td align="left">Oceania</td>
+<td align="right">32.0</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-Albania
-</td>
-<td style="text-align:left;">
-Europe
-</td>
-<td style="text-align:right;">
-12.5
-</td>
+<tr class="even">
+<td align="left">United States</td>
+<td align="left">North America</td>
+<td align="right">29.5</td>
 </tr>
-<tr>
-<td style="text-align:left;">
-French Southern and Antarctic Lands
-</td>
-<td style="text-align:left;">
-Seven seas (open ocean)
-</td>
-<td style="text-align:right;">
-7.1
-</td>
+<tr class="odd">
+<td align="left">Brazil</td>
+<td align="left">South America</td>
+<td align="right">28.2</td>
+</tr>
+<tr class="even">
+<td align="left">Albania</td>
+<td align="left">Europe</td>
+<td align="right">25.0</td>
+</tr>
+<tr class="odd">
+<td align="left">French Southern and Antarctic Lands</td>
+<td align="left">Seven seas (open ocean)</td>
+<td align="right">7.5</td>
+</tr>
+<tr class="even">
+<td align="left">Antarctica</td>
+<td align="left">Antarctica</td>
+<td align="right">-2.0</td>
 </tr>
 </tbody>
 </table>
