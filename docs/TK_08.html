@@ -440,11 +440,11 @@ library(knitr)</code></pre>
 <h2>Create a copy of the project template.</h2>
 <p>Steps:</p>
 <ol style="list-style-type: decimal">
-<li>Click on <a href="https://classroom.github.com/a/DjIiAjsc">this
+<li>Click on <a href="https://classroom.github.com/a/SdzDxd99">this
 link</a> to make a copy of the project template.<br />
 </li>
 <li>Open your new repository in GitHub. It will look something like <a
-href="https://github.com/GEO511-2021/2021_project-adammwilson">https://github.com/GEO511-2021/2021_project-adammwilson</a></li>
+href="https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/">https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/</a></li>
 <li>Click the green button “Clone or Download” and copy the URL.</li>
 </ol>
 </div>
@@ -460,8 +460,8 @@ Git</strong></li>
 </ol>
 <ul>
 <li>URL: paste from above. It will be similar to
-<code>https://adamwilsonlabedu.github.io/geo511_project/</code> but with
-your username.</li>
+<code>https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/</code>
+but with your username.</li>
 <li>Project name: you can rename it if you want or keep the
 default.</li>
 <li>Project as subdirectory of <code>~/Documents</code> or wherever you
@@ -477,10 +477,10 @@ want to put it.</li>
 <ol style="list-style-type: decimal">
 <li>Select the <code>Build</code> tab in the upper right corner of
 RStudio, then click <code>Build Website</code></li>
-<li>Check out the website settings in <code>_site.yml</code>. These
-adjust the appearance, title, etc.</li>
-<li>Check out <code>_navbar.yml</code>. These settings define the menus,
-etc. If you only have one page you probably won’t need to adjust this
+<li>Check out the website settings in <code>_quarto.yml</code>. These
+adjust the appearance, title, etc. You can also change the default menu
+organization if you want to add additional pages or other content. If
+you only have one page you probably won’t need to adjust this
 information.</li>
 </ol>
 </div>
@@ -500,15 +500,15 @@ like “First update to my project materials”</li>
 </ul>
 <ol start="2" style="list-style-type: decimal">
 <li>Now go to your repository website (similar to
-<code>https://adamwilsonlabedu.github.io/geo511_project/</code></li>
+<code>https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/</code></li>
 <li>Publish your website
 <ul>
 <li>Click settings in the upper right, then select the
 <code>Pages</code> section</li>
-<li>Change “Source” to <code>gh-pages / (root) folder</code> and click
+<li>Change “Branch” to <code>gh-pages / (root) folder</code> and click
 Save</li>
 <li>Copy your new site’s URL to your clipboard</li>
-<li>Go back to the ‘Code’ tab for your project respository and find the
+<li>Go back to the ‘Code’ tab for your project repository and find the
 line “No description, website, or topics provided” and click “Edit” on
 the right as shown in the following figure. <img
 src="assets/github_website.png" /></li>
@@ -518,9 +518,7 @@ others to find your website.</li>
 <li>Go to your new project webpage. It can take ~5 minutes to appear
 after enabling.</li>
 <li>Now you can <code>commit</code> and then <code>push</code> your
-updates from RStudio and your website will be updated. If you get tired
-of entering your username and password every time, check out the
-instructions <a href="GitSSHNotes.html">here</a>.</li>
+updates from RStudio and your website will be updated.</li>
 </ol>
 </div>
 <div id="github-actions" class="section level2">
@@ -528,17 +526,25 @@ instructions <a href="GitSSHNotes.html">here</a>.</li>
 <p>The template is set up to compile remotely using GitHub actions. This
 will make sure that your code is reproducible.</p>
 </div>
-<div id="explore-markdown-functions" class="section level2">
-<h2>Explore markdown functions</h2>
+<div id="renv" class="section level2">
+<h2>RENV</h2>
+<p>The website is set up to use RENV to manage packages needed to run
+your code. If you add any packages, you will also need to update the
+renv file by running <code>renv::snapshot()</code> and pushing the
+changes to github. See <a
+href="https://rstudio.github.io/renv/articles/ci.html">https://rstudio.github.io/renv/articles/ci.html</a>
+for me.</p>
+</div>
+<div id="explore-quarto-functions" class="section level2">
+<h2>Explore quarto functions</h2>
 <ol style="list-style-type: decimal">
-<li>Use the Cheatsheet to add sections and some example narrative.<br />
-</li>
+<li>Use the <a
+href="https://rstudio.github.io/cheatsheets/html/quarto.html">Cheatsheet</a>
+to explore functionality of quarto.</li>
 <li>Add more figures or different versions of a figure</li>
 <li>Check out the <code>kable()</code> function for tables
 (e.g. <code>kable(head(d))</code>)</li>
 </ol>
-<p><a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf">
-<img src="https://d33wubrfki0l68.cloudfront.net/6c48bf42c4571dc3e47a30c4d46c9472ee3fa9b9/3b49b/lesson-images/cheatsheets-1-cheatsheet.png" alt="alt text" width="400"></a></p>
 <blockquote>
 <p>Abandoning the habit of secrecy in favor of process transparency and
 peer review was the crucial step by which alchemy became

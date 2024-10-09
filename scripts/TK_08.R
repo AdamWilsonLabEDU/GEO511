@@ -47,8 +47,8 @@ md_bullet(rmarkdown::metadata$tasks)
 #' 
 #' Steps:
 #' 
-#' 1. Click on [this link](https://classroom.github.com/a/DjIiAjsc) to make a copy of the project template.  
-#' 2. Open your new repository in GitHub.  It will look something like [https://github.com/GEO511-2021/2021_project-adammwilson](https://github.com/GEO511-2021/2021_project-adammwilson)
+#' 1. Click on [this link](https://classroom.github.com/a/SdzDxd99) to make a copy of the project template.  
+#' 2. Open your new repository in GitHub.  It will look something like [https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/](https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/)
 #' 3. Click the green button "Clone or Download" and copy the URL.
 #' 
 #' ## Clone the project template to your computer
@@ -56,7 +56,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #' 
 #' 1. Open RStudio
 #' 2. **File -> New Project -> Version Control -> Git**
-#'   * URL: paste from above.  It will be similar to  `https://adamwilsonlabedu.github.io/geo511_project/` but with your username.
+#'   * URL: paste from above.  It will be similar to  `https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/` but with your username.
 #'   * Project name: you can rename it if you want or keep the default.
 #'   * Project as subdirectory of `~/Documents` or wherever you want to put it.
 #' 3.  It should download the project to your computer then open it to the `index.Rmd` file.
@@ -64,8 +64,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #' ## Play with the project template
 #' 
 #' 1. Select the `Build` tab in the upper right corner of RStudio, then click `Build Website`
-#' 2. Check out the website settings in `_site.yml`.  These adjust the appearance, title, etc.
-#' 3. Check out `_navbar.yml`.  These settings define the menus, etc.  If you only have one page you probably won't need to adjust this information.  
+#' 2. Check out the website settings in `_quarto.yml`.  These adjust the appearance, title, etc. You can also change the default menu organization if you want to add additional pages or other content. If you only have one page you probably won't need to adjust this information.  
 #' 
 #' ## Push to GitHub and enable the website
 #' 1. Select the `Git` tab in the upper right and notice how it keeps track of any changes.
@@ -73,28 +72,32 @@ md_bullet(rmarkdown::metadata$tasks)
 #'   *  Type in a brief message about the changes you made.  Maybe something like "First update to my project materials"
 #'   * Click `Commit`, then `close`.
 #'   * Click `Push` to push it back up to GitHub.
-#' 2. Now go to your repository website (similar to `https://adamwilsonlabedu.github.io/geo511_project/`
+#' 2. Now go to your repository website (similar to `https://adamwilsonlabedu.github.io/GEO511_QuartoProjectTemplate/`
 #' 3. Publish your website
 #'    * Click settings in the upper right, then select the `Pages` section
-#'    * Change "Source" to `gh-pages / (root) folder` and click Save
+#'    * Change "Branch" to `gh-pages / (root) folder` and click Save
 #'    * Copy your new site's URL to your clipboard
-#'    * Go back to the 'Code' tab for your project respository and find the line "No description, website, or topics provided" and click "Edit" on the right as shown in the following figure.
+#'    * Go back to the 'Code' tab for your project repository and find the line "No description, website, or topics provided" and click "Edit" on the right as shown in the following figure.
 #'    ![](assets/github_website.png)
 #'    * Paste the URL in the "Website" box. This will make it easier for others to find your website.
 #' 4. Go to your new project webpage. It can take ~5 minutes to appear after enabling.
-#' 5.  Now you can `commit` and then `push` your updates from RStudio and your website will be updated.  If you get tired of entering your username and password every time, check out the instructions [here](GitSSHNotes.html).  
+#' 5.  Now you can `commit` and then `push` your updates from RStudio and your website will be updated.  
 #' 
 #' ## GitHub actions
 #' 
 #' The template is set up to compile remotely using GitHub actions. This will make sure that your code is reproducible.  
 #' 
-#' ## Explore markdown functions
 #' 
-#' 1. Use the Cheatsheet to add sections and some example narrative.  
+#' ## RENV
+#' 
+#' The website is set up to use RENV to manage packages needed to run your code.  If you add any packages, you will also need to update the renv file by running `renv::snapshot()` and pushing the changes to github.  See [https://rstudio.github.io/renv/articles/ci.html](https://rstudio.github.io/renv/articles/ci.html) for me.
+#' 
+#' ## Explore quarto functions
+#' 
+#' 1. Use the [Cheatsheet](https://rstudio.github.io/cheatsheets/html/quarto.html) to explore functionality of quarto.
 #' 2. Add more figures or different versions of a figure
 #' 3. Check out the `kable()` function for tables (e.g. `kable(head(d))`)
 #' 
-#' <a href="http://www.rstudio.com/wp-content/uploads/2016/03/rmarkdown-cheatsheet-2.0.pdf"> <img src="https://d33wubrfki0l68.cloudfront.net/6c48bf42c4571dc3e47a30c4d46c9472ee3fa9b9/3b49b/lesson-images/cheatsheets-1-cheatsheet.png" alt="alt text" width="400"></a>
 #' 
 #' > Abandoning the habit of secrecy in favor of process transparency and peer review was the crucial step by which alchemy became chemistry.<small>Raymond, E. S., 2004, The art of UNIX programming: Addison-Wesley.</small>
 #' 

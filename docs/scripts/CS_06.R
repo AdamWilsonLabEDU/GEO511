@@ -76,7 +76,7 @@ tmean=rast("crudata.nc")
 #'     2. use `bind_cols()` to bind the original `world` dataset with the new summary of the temperature data to create a new object called `world_clim` with the outputs from the `extract()` function above. 
 #' 3. Communicate your results
 #'     1. use `ggplot()` and `geom_sf()` to plot the maximum temperature in each country polygon (not the original raster layer).  To recreate the image below, you will also need `+scale_fill_viridis_c(name="Maximum\nTemperature (C)")`.  Note the use of `\n` to insert a line break in the text string. You can move the legend around with `+theme(legend.position = 'bottom')`.
-#'     2. use `dplyr` tools to find the hottest country in each continent. You may need `group_by()` and `top_n`.  To create a nice looking table, you may also want to use `select()` to keep only the desired columns, `arrange()` to sort them, `st_set_geometry(NULL)` to drop the geometry column (if desired).  Save this table as `hottest_continents`.
+#'     2. use `dplyr` tools to find the hottest country in each continent. You may need `group_by()` and `slice_max`.  To create a nice looking table, you may also want to use `select()` to keep only the desired columns, `arrange()` to sort them, `st_set_geometry(NULL)` to drop the geometry column (if desired).  Save this table as `hottest_continents`.
 #' </div>
 #' </div>
 #' 

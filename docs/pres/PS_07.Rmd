@@ -202,13 +202,13 @@ Possible explanations:
 ---
 
 ```{r,message=F,fig.height=1}
-library(spData); library(rasterVis)
-data(elev)
+library(spData); library(rasterVis); library(terra)
+elev=rast(system.file("raster/elev.tif", package = "spData"))
 # change values!=20 to NA
 elev=mask(elev,mask = elev==20, maskvalue=0) 
 gplot(elev)+geom_raster(aes(fill=value))
 distance_to_20=distance(elev)  #works fine
-data(elev)
+elev=rast(system.file("raster/elev.tif", package = "spData"))
 gplot(distance_to_20)+ geom_raster(aes(fill=value))
 ```
 ```{r eval=F}

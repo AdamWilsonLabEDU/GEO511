@@ -521,9 +521,9 @@ Note the use of <code>\n</code> to insert a line break in the text
 string. You can move the legend around with
 <code>+theme(legend.position = 'bottom')</code>.</li>
 <li>use <code>dplyr</code> tools to find the hottest country in each
-continent. You may need <code>group_by()</code> and <code>top_n</code>.
-To create a nice looking table, you may also want to use
-<code>select()</code> to keep only the desired columns,
+continent. You may need <code>group_by()</code> and
+<code>slice_max</code>. To create a nice looking table, you may also
+want to use <code>select()</code> to keep only the desired columns,
 <code>arrange()</code> to sort them, <code>st_set_geometry(NULL)</code>
 to drop the geometry column (if desired). Save this table as
 <code>hottest_continents</code>.</li>

@@ -7,10 +7,10 @@ presentation: PS_07_help.html
 reading:
   - Chapters [3-4 in GCR](https://geocompr.robinlovelace.net/) 
 tasks:
-  - Write your project proposal in a .Rmd file
-  - Compile the .Rmd to .md using the "Knit" button
-  - Push both the .Rmd and .md to Github
-  - Post links to your project proposal .md file in the Projects Channel on Slack.
+  - Write your project proposal in a .qmd file
+  - Compile the .qmd to .md using the "render" button
+  - Push both the .qmd and .md to Github
+  - Upload the file to UBlearns and post links to your project proposal .md file on slack.
 ---
 
 # Reading
