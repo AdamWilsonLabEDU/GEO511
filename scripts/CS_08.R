@@ -39,7 +39,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #' This takes the employee about 3 hours every week.  You are a new member of the team and you confidently declare you could automate the procedure using R and Quarto (and that you could complete the automation in less than three hours!).  The team looks at you with wide eyes.  You realize you better get working.
 #' 
 #' ## Specifying multiple outputs with Quarto
-#' You can specify that RMarkdown should produce multiple outputs using the following syntax in the YAML header:
+#' You can specify that Quarto should produce multiple outputs using the following syntax in the YAML header:
 #' 
 #' ```
 #' format:
