@@ -1,11 +1,12 @@
 ---
 title: "Carbon Dioxide Concentrations at Mona Loa Observatory"
 author: "Adam M. Wilson"
-output:
-  html_document: default
-  github_document: default
-  powerpoint_presentation: default
-  word_document: default
+toc: true
+format:
+  html: default # Website
+  gfm: default  # Github Flavored Markdown
+  pptx: default # Powerpoint
+  docx: default # MS Word
 ---
 
 ```{r setup, include=FALSE}
@@ -34,7 +35,7 @@ data=read_table("ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.tx
 # Annual Mean Carbon Dioxide Concentrations 1959-Present
 ```{r pressure, echo=FALSE}
 ggplot(data,aes(x=year,y=mean))+
-         geom_line(col="red",size=2)+
+         geom_line(col="red",linewidth=2)+
   ylab("Mauna Loa Annual Mean CO_2 (ppm)")+
   xlab("Year")
 ```

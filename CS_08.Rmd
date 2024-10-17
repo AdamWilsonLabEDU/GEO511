@@ -1,13 +1,12 @@
 ---
 title:  One Script, Many Products
-subtitle: RMarkdown to create dynamic research outputs.  Publishing to github/word/html/etc
+subtitle: Quarto to create dynamic research outputs.  Publishing to github/word/html/etc
 week: 8
 type: Case Study
 reading:
-  - Browse website about [RMarkdown](https://rmarkdown.rstudio.com/index.html)
-  - Browse [R Markdown, the Definitive Guide](https://bookdown.org/yihui/rmarkdown/)
+  - Browse website about [Quarto](https://quarto.org/)
 tasks:
-   - Build a RMarkdown document that downloads a dataset, produces one graph and one table, and exports to four different formats (HTML, GitHub Markdown, Word, Powerpoint).
+   - Build a Quarto document that downloads a dataset, produces one graph and one table, and exports to four different formats (HTML, GitHub Markdown, Word, Powerpoint).
 ---
 
 ```{r, echo=FALSE, message=FALSE, results='hide', purl=FALSE}
@@ -40,25 +39,25 @@ You are working on a team that needs to provide regular updates about a dataset 
    * Word document that is included in company reports
    * A PDF document for downloading/printing
    
-This takes the employee about 3 hours every week.  You are a new member of the team and you confidently declare you could automate the procedure using R and RMarkdown (and that you could complete the automation in less than three hours!).  The team looks at you with wide eyes.  You realize you better get working.
+This takes the employee about 3 hours every week.  You are a new member of the team and you confidently declare you could automate the procedure using R and Quarto (and that you could complete the automation in less than three hours!).  The team looks at you with wide eyes.  You realize you better get working.
 
-## Specifying multiple outputs with RMarkdown
+## Specifying multiple outputs with Quarto
 You can specify that RMarkdown should produce multiple outputs using the following syntax in the YAML header:
 
 ```
-output:
-  html_document: default
-  github_document: default
-  powerpoint_presentation: default
-  word_document: default
+format:
+  html: default
+  github: default
+  pptx: default
+  docx: default
 ```
 
-You can read more about the YAML header and all the options [here](https://bookdown.org/yihui/rmarkdown/html-document.html).  Note that you can specify many options for each output format to change the theme, structure, etc.
+You can read more about the YAML header and all the options [here](https://quarto.org/docs/authoring/front-matter.html).  Note that you can specify many options for each output format to change the theme, structure, etc.
 
-However, if you click the "Knit" button in RStudio, it will only make one output.  To 'render' all of them, you have to use a command like this in the R Console.
+However, if you click the "Render" button in RStudio, it will only make one output.  To 'render' all of them, you have to use a command like this in the R Console.
 
 ```
-rmarkdown::render("path/to/file.Rmd",output_format = "all")
+quarto::quarto_render("path/to/file.qmd",output_format = "all")
 ```
 
 ## Data
@@ -79,14 +78,14 @@ The document should:
 <div id="demo1" class="collapse">
 
 ## Hints
-1.  Create a new RMarkdown Document (possibly starting with the template in `File -> New File -> R Markdown`
-2. Edit the YAML header at the top of the .Rmd file to specify the desired file types as noted above.
+1.  Create a new Quarto Document (possibly starting with the template in `File -> New File -> Quarto Document`)
+2. Edit the YAML header at the top of the .qmd file to specify the desired file types as noted above.
 3. Write code to read the "Mauna Loa CO2 annual mean data" from [this website](https://www.esrl.noaa.gov/gmd/ccgg/trends/data.html). 
    * check out `readr`::read_table()` or similar to import the dataset into R directly from the URL (ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.txt)
    * after you look at the format of the text file, you may want to check out the `skip` parameter of `read_table()` or potentially use the comment character `#`.  You can also use `col_names` to name the columns correctly.
 4. Use ggplot to plot a time series of CO2 levels through time
 5. Add an additional table below the graph and format it nicely with `knitr::kable()` or similar.  
-6. Use `rmarkdown::render(file, output_format = "all")` to render all the outputs specified in the YAML.
+6. Use `quarto::render("path/to/file.qmd",output_format = "all")` to render all the outputs specified in the YAML.
 7. Consider changing the 'chunk' settings so that the underlying code (and any messages) are hidden in the output documents.  For example, consider `results='hide',message=FALSE, echo=F`.
 8. Tables can be a little tricky to embed in multiple formats.  One approach is to use `as_image()` in kableExtra package which generates a png file that is easy to embed.  You can use it like this:
 ```

@@ -7,7 +7,6 @@ reading:
    - Raster Vector Interactions [GCR](https://r.geocompx.org/raster-vector){target='blank'}
 tasks:
    - Calculate annual mean temperatures from a monthly spatio-temporal dataset
-   - Remove Antarctica from the `world` dataset
    - Summarize raster values within polygons
    - Generate a summary figure and table.
    - Save your script as a .R or .Rmd in your course repository

@@ -40,12 +40,7 @@ week: 8
 [source](https://cran.r-project.org/web/packages/viridis/vignettes/intro-to-viridis.html)
 
 
-# RMarkdown 
-
-## The goal of reproducible research
-
-> "The goal of reproducible research is to tie specific instructions to data analysis and experimental data so that scholarship can be recreated, better understood and verified."  <small> Max Kuhn, CRAN Task View: Reproducible Research </small>
-
+# Markdown & Quarto
 
 ## Reproducible Research
 
@@ -201,7 +196,7 @@ The human-readable part:
 
 ## Dynamic documents in R  {.columns-2}
 
-`knitr` - descendant of Sweave  
+RMarkdown & Quarto
 
 Engine for dynamic report generation in R
 
@@ -212,6 +207,15 @@ Engine for dynamic report generation in R
 - Data treated as 'read only'
 - Output treated as disposable
 
+## Quarto (by RStudio)
+
+<iframe
+  src="https://quarto.org/"
+  width="100%" height="800">
+</iframe>
+[source](https://quarto.org/)
+
+
 ## Pandoc: document converter  {.columns-2}
 
 <img src="PS_12_img/pandoc-workflow-rmd-md.png" alt="alt text" height="500px">
@@ -221,19 +225,9 @@ Engine for dynamic report generation in R
 
 A universal document converter, open source, cross-platform
 
-* Write code and narrative in rmarkdown   
-* knitr->markdown (with computation)   
+* Write code and narrative in quarto + markdown   
 * use pandoc to get HTML/PDF/DOCX
 
-## Quarto (by RStudio)
-
-New development focused on R + Python
-
-<iframe
-  src="https://quarto.org/"
-  width="100%" height="800">
-</iframe>
-[source](https://quarto.org/)
 
  
 ##  Final

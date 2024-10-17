@@ -388,7 +388,7 @@ div.tocify {
 
 
 <h1 class="title toc-ignore">One Script, Many Products</h1>
-<h3 class="subtitle">RMarkdown to create dynamic research outputs.
+<h3 class="subtitle">Quarto to create dynamic research outputs.
 Publishing to github/word/html/etc</h3>
 
 </div>
@@ -431,27 +431,27 @@ make a particular set of graphs</li>
 </ol>
 <p>This takes the employee about 3 hours every week. You are a new
 member of the team and you confidently declare you could automate the
-procedure using R and RMarkdown (and that you could complete the
-automation in less than three hours!). The team looks at you with wide
-eyes. You realize you better get working.</p>
-<div id="specifying-multiple-outputs-with-rmarkdown"
+procedure using R and Quarto (and that you could complete the automation
+in less than three hours!). The team looks at you with wide eyes. You
+realize you better get working.</p>
+<div id="specifying-multiple-outputs-with-quarto"
 class="section level2">
-<h2>Specifying multiple outputs with RMarkdown</h2>
+<h2>Specifying multiple outputs with Quarto</h2>
 <p>You can specify that RMarkdown should produce multiple outputs using
 the following syntax in the YAML header:</p>
-<pre><code>output:
-  html_document: default
-  github_document: default
-  powerpoint_presentation: default
-  word_document: default</code></pre>
+<pre><code>format:
+  html: default
+  github: default
+  pptx: default
+  docx: default</code></pre>
 <p>You can read more about the YAML header and all the options <a
-href="https://bookdown.org/yihui/rmarkdown/html-document.html">here</a>.
+href="https://quarto.org/docs/authoring/front-matter.html">here</a>.
 Note that you can specify many options for each output format to change
 the theme, structure, etc.</p>
-<p>However, if you click the “Knit” button in RStudio, it will only make
-one output. To ‘render’ all of them, you have to use a command like this
-in the R Console.</p>
-<pre><code>rmarkdown::render(&quot;path/to/file.Rmd&quot;,output_format = &quot;all&quot;)</code></pre>
+<p>However, if you click the “Render” button in RStudio, it will only
+make one output. To ‘render’ all of them, you have to use a command like
+this in the R Console.</p>
+<pre><code>quarto::quarto_render(&quot;path/to/file.qmd&quot;,output_format = &quot;all&quot;)</code></pre>
 </div>
 <div id="data" class="section level2">
 <h2>Data</h2>
@@ -481,9 +481,9 @@ Show Hints
 <div id="hints" class="section level2">
 <h2>Hints</h2>
 <ol style="list-style-type: decimal">
-<li>Create a new RMarkdown Document (possibly starting with the template
-in <code>File -&gt; New File -&gt; R Markdown</code></li>
-<li>Edit the YAML header at the top of the .Rmd file to specify the
+<li>Create a new Quarto Document (possibly starting with the template in
+<code>File -&gt; New File -&gt; Quarto Document</code>)</li>
+<li>Edit the YAML header at the top of the .qmd file to specify the
 desired file types as noted above.</li>
 <li>Write code to read the “Mauna Loa CO2 annual mean data” from <a
 href="https://www.esrl.noaa.gov/gmd/ccgg/trends/data.html">this
@@ -502,7 +502,8 @@ potentially use the comment character <code>#</code>. You can also use
 <li>Add an additional table below the graph and format it nicely with
 <code>knitr::kable()</code> or similar.<br />
 </li>
-<li>Use <code>rmarkdown::render(file, output_format = "all")</code> to
+<li>Use
+<code>quarto::render("path/to/file.qmd",output_format = "all")</code> to
 render all the outputs specified in the YAML.</li>
 <li>Consider changing the ‘chunk’ settings so that the underlying code
 (and any messages) are hidden in the output documents. For example,
