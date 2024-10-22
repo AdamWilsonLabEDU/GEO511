@@ -9,7 +9,9 @@ format:
   docx: default # MS Word
 ---
 
+
 ```{r setup, include=FALSE}
+
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
 library(tidyverse)
 library(knitr)

@@ -44,7 +44,7 @@ md_bullet(rmarkdown::metadata$tasks)
 #' ```
 #' format:
 #'   html: default
-#'   github: default
+#'   gfm: default
 #'   pptx: default
 #'   docx: default
 #' ```

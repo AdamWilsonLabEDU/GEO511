@@ -47,7 +47,7 @@ You can specify that Quarto should produce multiple outputs using the following 
 ```
 format:
   html: default
-  github: default
+  gfm: default
   pptx: default
   docx: default
 ```
