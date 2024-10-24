@@ -28,7 +28,7 @@ library(broom)
 
 ## Final Projects
 
-* Only 12 folks have published their sites...
+* Only 9 folks have published their sites...
 * Start moving your project proposal content into your website
   * Title
   * Introduction
@@ -317,7 +317,7 @@ gplot(DAYMET$tmax[[1:10]])+
 ---
 
 ### NOAA GHCN-daily
-```{r GHCN-precipitation, message=FALSE}
+```{r GHCN-tmax, message=FALSE}
 # Get the daily GHCN data (GLOBAL)
 # Returns a list: the first element is the spatial locations of stations,
 # and the second is a list of the stations and their daily data
@@ -336,8 +336,10 @@ leaflet() %>%
 ```
 
 
+---
+
 ### Reshape daily data
-```{r}
+```{r, warning=F}
 kable(head(GHCN.tmax$tabular$USW00014733$TMAX))
 
 daily <- GHCN.tmax$tabular$USW00014733$TMAX |>
@@ -362,7 +364,7 @@ ggplot(daily,
 
 ---
 
-Limit to a few years and plot the daily range and average temperatures.
+Limit to a few years
 ```{r, fig.height=6,warning=F}
 daily_recent=filter(daily,date>as.Date("2020-01-01"))
 
@@ -519,8 +521,8 @@ daily2%>%
 ```
 
 
-## Look for specific events: was 2023 unusually hot in Buffalo, NY?
-Let's compare 2023 with all the previous years in the dataset.  First add 'day of year' to the data to facilitate showing all years on the same plot.
+## Look for specific events: was 2024 unusually hot in Buffalo, NY?
+Let's compare 2024 with all the previous years in the dataset.  First add 'day of year' to the data to facilitate showing all years on the same plot.
 ```{r, warning=F}
 df=daily2%>%
   mutate(doy=as.numeric(format(date,"%j")),
@@ -553,7 +555,7 @@ ggplot(df,aes(x=doydate,y=tmax,group=year))+
 
 
 ## Summarize by season
-```{r, warning=F,fig.height=12}
+```{r, warning=F,fig.height=12,message=F}
 seasonal=daily2%>%
   group_by(year,season)%>%
   summarize(n=n(),
