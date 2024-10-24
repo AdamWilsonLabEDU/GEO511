@@ -399,7 +399,7 @@ div.tocify {
 <h1>Reading</h1>
 <ul>
 <li>Overview of the <a
-href="https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data-access">International
+href="https://www.ncei.noaa.gov/products/international-best-track-archive">International
 Best Track Archive for Climate Stewardship (IBTrACS)</a></li>
 <li>Performing <a
 href="https://r-spatial.github.io/sf/reference/st_join.html">Spatial
@@ -418,7 +418,6 @@ the database have hit each state.</li>
 <pre class="r"><code>library(sf)
 library(tidyverse)
 library(ggmap)
-library(rnoaa)
 library(spData)
 data(world)
 data(us_states)</code></pre>
@@ -431,13 +430,20 @@ States. This will require you to use a spatial join
 (<code>st_join</code>).</p>
 <div id="your-goal" class="section level3">
 <h3>Your goal</h3>
-<pre class="r"><code># Download zipped data from noaa with storm track information
-dataurl=&quot;https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r00/access/shapefile/IBTrACS.NA.list.v04r00.points.zip&quot;
+<pre class="r"><code># Download a csv from noaa with storm track information
+dataurl=&quot;https://www.ncei.noaa.gov/data/international-best-track-archive-for-climate-stewardship-ibtracs/v04r01/access/csv/ibtracs.NA.list.v04r01.csv&quot;
 
-tdir=tempdir()
-download.file(dataurl,destfile=file.path(tdir,&quot;temp.zip&quot;))
-unzip(file.path(tdir,&quot;temp.zip&quot;),exdir = tdir) #unzip the compressed folder
-storm_data &lt;- read_sf(list.files(tdir,pattern=&quot;.shp&quot;,full.names = T))</code></pre>
+storm_data &lt;- read_csv(dataurl)</code></pre>
+<pre><code>## Rows: 127009 Columns: 174
+## ── Column specification ────────────────────────────────────────────────────────
+## Delimiter: &quot;,&quot;
+## chr  (149): SID, SEASON, BASIN, SUBBASIN, NAME, NATURE, LAT, LON, WMO_WIND, ...
+## dbl   (12): NUMBER, USA_SSHS, TOKYO_GRADE, TOKYO_LAND, CMA_CAT, NEWDELHI_CI,...
+## lgl   (12): TOKYO_R50_DIR, TOKYO_R30_DIR, HKO_CAT, KMA_CAT, KMA_R50_DIR, KMA...
+## dttm   (1): ISO_TIME
+## 
+## ℹ Use `spec()` to retrieve the full column specification for this data.
+## ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 <p>Your desired figure looks something like the following:
 <img src="CS_09_files/figure-html/unnamed-chunk-4-1.png" width="4500" /></p>
 Calculate a table of the five states that have experienced the most
@@ -459,7 +465,7 @@ storms
 Florida
 </td>
 <td style="text-align:right;">
-86
+89
 </td>
 </tr>
 <tr>
@@ -467,7 +473,7 @@ Florida
 North Carolina
 </td>
 <td style="text-align:right;">
-66
+67
 </td>
 </tr>
 <tr>
@@ -475,7 +481,7 @@ North Carolina
 Georgia
 </td>
 <td style="text-align:right;">
-58
+61
 </td>
 </tr>
 <tr>
@@ -483,7 +489,7 @@ Georgia
 Texas
 </td>
 <td style="text-align:right;">
-54
+56
 </td>
 </tr>
 <tr>
@@ -491,7 +497,7 @@ Texas
 Louisiana
 </td>
 <td style="text-align:right;">
-52
+53
 </td>
 </tr>
 </tbody>
@@ -508,6 +514,9 @@ Show Hints
 called <code>storm_data</code></li>
 <li>Wrangle the data
 <ul>
+<li>Create a new column with just the year using
+<code>year(ISO_TIME)</code> (<code>year</code> is in the lubridate
+package)</li>
 <li>Filter to storms 1950-present with <code>filter()</code></li>
 <li>Use <code>mutate_if()</code> to convert <code>-999.0</code> to
 <code>NA</code> in all numeric columns with the following command from
@@ -515,6 +524,8 @@ the <code>dplyr</code> package: <code>mutate_if(is.numeric,</code>
 <code>function(x) ifelse(x==-999.0,NA,x))</code></li>
 <li>Use the following command to add a column for decade:
 <code>mutate(decade=(floor(year/10)*10))</code></li>
+<li>Convert the data to a sf object with
+<code>st_as_sf(coords=c("LON","LAT"),crs=4326)</code></li>
 <li>Use <code>st_bbox()</code> to identify the bounding box of the storm
 data and save this as an object called <code>region</code>.</li>
 </ul></li>
@@ -545,7 +556,7 @@ a CRS from a sf object with <code>st_crs(storms)</code></li>
 <code>select(state=NAME)</code></li>
 <li>Perform a spatial join between the storm database and the states
 object with: <code>storm_states &lt;- st_join(storms, states,</code>
-<code>join = st_intersects,left = F)</code>. This will ’add` the state
+<code>join = st_intersects,left = F)</code>. This will ‘add’ the state
 to any storm that was recorded within that state.</li>
 <li>Use <code>group_by(state)</code> to group the next step by US
 state</li>

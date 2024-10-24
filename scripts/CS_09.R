@@ -4,7 +4,7 @@
 #' week: 9
 #' type: Case Study
 #' reading:
-#'    - Overview of the [International Best Track Archive for Climate Stewardship (IBTrACS)](https://www.ncdc.noaa.gov/ibtracs/index.php?name=ibtracs-data-access)
+#'    - Overview of the [International Best Track Archive for Climate Stewardship (IBTrACS)](https://www.ncei.noaa.gov/products/international-best-track-archive)
 #'    - Performing [Spatial Joins with sf](https://r-spatial.github.io/sf/reference/st_join.html)
 #' tasks:
 #'    - Write a .Rmd script to perform the following tasks
@@ -31,7 +31,6 @@ md_bullet(rmarkdown::metadata$tasks)
 library(sf)
 library(tidyverse)
 library(ggmap)
-library(rnoaa)
 library(spData)
 data(world)
 data(us_states)
@@ -62,9 +61,11 @@ data(us_states)
 #' 
 #' 1. Use the code above to download the storm data and create an object called `storm_data`
 #' 2. Wrangle the data
+#'    * Create a new column with just the year using `year(ISO_TIME)` (`year` is in the lubridate package)
 #'    * Filter to storms 1950-present with `filter()`
 #'    * Use `mutate_if()` to convert `-999.0` to `NA` in all numeric columns with the following command from the `dplyr` package: `mutate_if(is.numeric,` `function(x) ifelse(x==-999.0,NA,x))`
 #'    * Use the following command to add a column for decade: `mutate(decade=(floor(year/10)*10))`
+#'    * Convert the data to a sf object with `st_as_sf(coords=c("LON","LAT"),crs=4326)`
 #'    * Use `st_bbox()` to identify the bounding box of the storm data and save this as an object called `region`.
 #' 3.  Make the first plot
 #'    * Use `ggplot()` to plot the `world` polygon layer and add the following:
@@ -81,7 +82,7 @@ data(us_states)
 #'    * use `st_transform` to reproject `us_states` to the reference system of the `storms` object (you can extract a CRS from a sf object with `st_crs(storms)`
 #'    * Rename the `NAME` column in the state data to `state` to avoid confusion with storm name using `select(state=NAME)`
 #'    * Perform a spatial join between the storm database and the states object with: `storm_states <- st_join(storms, states, `
-#'    `join = st_intersects,left = F)`.  This will 'add` the state to any storm that was recorded within that state.
+#'    `join = st_intersects,left = F)`.  This will 'add' the state to any storm that was recorded within that state.
 #'    * Use `group_by(state)` to group the next step by US state
 #'    * use `summarize(storms=length(unique(NAME)))` to count how many unique storms occurred in each state.
 #'    * use `arrange(desc(storms))` to sort by the number of storms in each state
