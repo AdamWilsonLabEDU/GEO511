@@ -43,15 +43,14 @@ library(knitr)
 * MODIS data processing
 
 
-## Active Earth Observing Satellites (EOS) (as of 8/31/2015)
+## Active Earth Observing Satellites (EOS) (as of 5/1/2023)
 
-* Total number of operating satellites: 2,062
-    * United States: 901
-    * China: 299
-    * Russia: 153
-* Total Earth Observing Satellites (EOS): 710
+* Total number of operating satellites: 7,560
+    * United States: 5,184
+    * China: 628
+    * Russia: 181
 
-From the [Union of Concerned Scientists Satellite Database](http://www.ucsusa.org/nuclear-weapons/space-weapons/satellite-database.html#.VjzlnoS98VQ) and [Pixalytics Blog](http://www.pixalytics.com/blog/)
+From the [Union of Concerned Scientists Satellite Database](http://www.ucsusa.org/nuclear-weapons/space-weapons/satellite-database.html) and [Pixalytics Blog](http://www.pixalytics.com/blog/)
 
 ## Debris & Satellites in low Earth orbit
 
@@ -85,17 +84,17 @@ Datasets, news, articles, information
 
 # Image Processing in R
 
-## Raster Package
+## Terra Package
 ```{r load_files, message=F}
-library(raster)
+library(terra)
 # Blue
-b2 <- raster('data/rs/LC08_044034_20170614_B2.tif')
+b2 <- rast('data/rs/LC08_044034_20170614_B2.tif')
 # Green
-b3 <- raster('data/rs/LC08_044034_20170614_B3.tif')
+b3 <- rast('data/rs/LC08_044034_20170614_B3.tif')
 # Red
-b4 <- raster('data/rs/LC08_044034_20170614_B4.tif')
+b4 <- rast('data/rs/LC08_044034_20170614_B4.tif')
 # Near Infrared (NIR)
-b5 <- raster('data/rs/LC08_044034_20170614_B5.tif')
+b5 <- rast('data/rs/LC08_044034_20170614_B5.tif')
 b2
 ```
 
@@ -110,14 +109,14 @@ dim(b2)
 # spatial resolution
 res(b2)
 # Number of bands
-nlayers(b2)
+nlyr(b2)
 # Do the bands have the same extent, number of rows and columns, projection, resolution, and origin 
-compareRaster(b2,b3)
+compareGeom(b2,b3)
 ```
 
-## Check the properties of the RasterStack
+## Check the properties of the SpatRast
 ```{r}
-s <- stack(b5, b4, b3)
+s <- c(b5, b4, b3)
 s
 ```
 
@@ -126,7 +125,7 @@ s
 filenames <- paste0('data/rs/LC08_044034_20170614_B', 1:11, ".tif")
 filenames
 
-landsat <- stack(filenames)
+landsat <- rast(filenames)
 landsat
 ```
 
@@ -140,12 +139,12 @@ plot(b5, main = "NIR", col = gray(0:100 / 100))
 
 ## Plotting
 ```{r}
-landsatRGB <- stack(b4, b3, b2)
+landsatRGB <- c(b4, b3, b2)
 
 par(mfrow = c(1,2))
 plotRGB(landsatRGB, axes=TRUE, stretch="lin", main="Landsat True Color")
 
-landsatFCC <- stack(b5, b4, b3)
+landsatFCC <- c(b5, b4, b3)
 plotRGB(landsatFCC, axes=TRUE, stretch="lin", main="Landsat False Color")
 ```
 
@@ -155,10 +154,10 @@ par(mfrow = c(1,1))
 ```
 
 ```{r}
-fndvi <- function(x, y) {
+fndvi <- function(x, y) { # NDVI
     (x - y) / (x + y)
 }
-ndvi <- overlay(landsat[[5]], landsat[[4]], fun=fndvi)
+ndvi <- lapp(landsat[[c(5,4)]], fun=fndvi) # NIR, Red
 plot(ndvi, col=rev(terrain.colors(10)), main="Landsat-NDVI")
 ```
 
@@ -277,16 +276,16 @@ Most NASA EOS data distributed as HDF files, which are very similar to netCDF.
 
 ## Reading EO Data
 
-`raster` package functions can read NetCDF/HDF files if `ncdf4` package is installed.
+`terra` package functions can read NetCDF/HDF files if `ncdf4` package is installed.
 ```{r, warning=F, message=F}
 ncfile="data/MOD11A2.006_aid0001.nc"
 nc=ncdf4::nc_open(ncfile,verbose = F)
 str(nc$var)
 ```
 
-## Read NetCDF with raster()
+## Read NetCDF with rast()
 ```{r, warning=F, message=F, results="hide"}
-lst=stack(ncfile,varname="LST_Day_1km")
+lst=rast(ncfile,subds="LST_Day_1km")
 ```
 ```{r}
 lst

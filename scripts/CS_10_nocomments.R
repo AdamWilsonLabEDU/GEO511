@@ -1,9 +1,9 @@
-library(raster)
+library(terra)
 library(rasterVis)
 library(ggmap)
 library(tidyverse)
 library(knitr)
-
+library(sf)
 # New Packages
 library(ncdf4) # to import data from netcdf format
 
@@ -17,8 +17,8 @@ library(ncdf4) # to import data from netcdf format
 ## download.file(lulc_url,destfile="data/MCD12Q1.051_aid0001.nc", mode="wb")
 ## download.file(lst_url,destfile="data/MOD11A2.006_aid0001.nc", mode="wb")
 
-lulc=stack("data/MCD12Q1.051_aid0001.nc",varname="Land_Cover_Type_1")
-lst=stack("data/MOD11A2.006_aid0001.nc",varname="LST_Day_1km")
+lulc=rast("data/MCD12Q1.051_aid0001.nc",subds="Land_Cover_Type_1")
+lst=rast("data/MOD11A2.006_aid0001.nc",subds="LST_Day_1km")
 
 plot(lulc)
 
@@ -49,7 +49,9 @@ plot(lulc)
 lcd=data.frame(
   ID=Land_Cover_Type_1,
   landcover=names(Land_Cover_Type_1),
-  col=c("#000080","#008000","#00FF00", "#99CC00","#99FF99", "#339966", "#993366", "#FFCC99", "#CCFFCC", "#FFCC00", "#FF9900", "#006699", "#FFFF00", "#FF0000", "#999966", "#FFFFFF", "#808080", "#000000", "#000000"),
+  col=c("#000080","#008000","#00FF00", "#99CC00","#99FF99", "#339966", "#993366", "#FFCC99", 
+        "#CCFFCC", "#FFCC00", "#FF9900", "#006699", "#FFFF00", "#FF0000", "#999966", "#FFFFFF", 
+        "#808080", "#000000", "#000000"),
   stringsAsFactors = F)
 # colors from https://lpdaac.usgs.gov/about/news_archive/modisterra_land_cover_types_yearly_l3_global_005deg_cmg_mod12c1
 kable(head(lcd))
@@ -58,14 +60,15 @@ kable(head(lcd))
 lulc=as.factor(lulc)
 
 # update the RAT with a left join
-levels(lulc)=left_join(levels(lulc)[[1]],lcd)
+#levels(lulc)=left_join(levels(lulc)[[1]],lcd)[-1,]
+#activeCat(lulc)=1
 
 
 
 
 
 
-offs(lst)=-273.15
+scoff(lst)=cbind(0.02,-273.15)
 plot(lst[[1:10]])
 
 
@@ -87,15 +90,6 @@ plot(lst[[1:10]])
 
 
 
-
-
-
-tdates=names(lst)%>%
-  sub(pattern="X",replacement="")%>%
-  as.Date("%Y.%m.%d")
-
-names(lst)=1:nlayers(lst)
-lst=setZ(lst,tdates)
 
 
 

@@ -9,7 +9,6 @@ format:
   docx: default # MS Word
 ---
 
-
 ```{r setup, include=FALSE}
 
 knitr::opts_chunk$set(echo = TRUE, cache = TRUE)
@@ -35,6 +34,7 @@ data=read_table("ftp://aftp.cmdl.noaa.gov/products/trends/co2/co2_annmean_mlo.tx
 ```
 
 # Annual Mean Carbon Dioxide Concentrations 1959-Present
+
 ```{r pressure, echo=FALSE}
 ggplot(data,aes(x=year,y=mean))+
          geom_line(col="red",linewidth=2)+
@@ -43,17 +43,9 @@ ggplot(data,aes(x=year,y=mean))+
 ```
 
 # Top Five Annual Mean Carbon Dioxide Concentrations at Mona Loa
-```{r, echo=F, warning=FALSE}
-data %>% 
-  arrange(desc(mean)) %>% 
-  select(year,mean) %>% 
-  slice(1:5) %>% 
-  kable(digits=1, align="l") %>% 
-  kable_styling("striped") %>%
-  row_spec(1, color = "red") %>%
-  as_image(width = 10,file = "table.png")
-```
 
+```{r, echo=F, warning=FALSE}
+ ```
 
 ```{r, eval=F, echo=F}
 rmarkdown::render("CS_08_template/CS_08_template.Rmd",output_format = "all")

@@ -23,12 +23,12 @@
 #' ### Libraries
 #' 
 ## ----results='hide',message=FALSE, warning=F----------------------------------
-library(raster)
+library(terra)
 library(rasterVis)
 library(ggmap)
 library(tidyverse)
 library(knitr)
-
+library(sf)
 # New Packages
 library(ncdf4) # to import data from netcdf format
 
@@ -62,11 +62,11 @@ library(ncdf4) # to import data from netcdf format
 #' 
 #' ## Load data into R
 ## ----warning=F, message=F, results="hide"-------------------------------------
-lulc=stack("data/MCD12Q1.051_aid0001.nc",varname="Land_Cover_Type_1")
-lst=stack("data/MOD11A2.006_aid0001.nc",varname="LST_Day_1km")
+lulc=rast("data/MCD12Q1.051_aid0001.nc",subds="Land_Cover_Type_1")
+lst=rast("data/MOD11A2.006_aid0001.nc",subds="LST_Day_1km")
 
 #' 
-#' You will probably see some errors about 
+#' You may see some errors about 
 #' 
 #' ```
 #' >>>> WARNING <<<  attribute longitude_of_projection_origin is an 8-byte value, but R"
@@ -118,7 +118,9 @@ plot(lulc)
 lcd=data.frame(
   ID=Land_Cover_Type_1,
   landcover=names(Land_Cover_Type_1),
-  col=c("#000080","#008000","#00FF00", "#99CC00","#99FF99", "#339966", "#993366", "#FFCC99", "#CCFFCC", "#FFCC00", "#FF9900", "#006699", "#FFFF00", "#FF0000", "#999966", "#FFFFFF", "#808080", "#000000", "#000000"),
+  col=c("#000080","#008000","#00FF00", "#99CC00","#99FF99", "#339966", "#993366", "#FFCC99", 
+        "#CCFFCC", "#FFCC00", "#FF9900", "#006699", "#FFFF00", "#FF0000", "#999966", "#FFFFFF", 
+        "#808080", "#000000", "#000000"),
   stringsAsFactors = F)
 # colors from https://lpdaac.usgs.gov/about/news_archive/modisterra_land_cover_types_yearly_l3_global_005deg_cmg_mod12c1
 kable(head(lcd))
@@ -130,7 +132,8 @@ kable(head(lcd))
 lulc=as.factor(lulc)
 
 # update the RAT with a left join
-levels(lulc)=left_join(levels(lulc)[[1]],lcd)
+#levels(lulc)=left_join(levels(lulc)[[1]],lcd)[-1,]
+#activeCat(lulc)=1
 
 
 #' 
@@ -140,10 +143,10 @@ levels(lulc)=left_join(levels(lulc)[[1]],lcd)
 
 #' 
 #' ## Convert LST to Degrees C 
-#' You can convert LST from Degrees Kelvin (K) to Celcius (C) with `offs()`.
+#' You can convert LST from Degrees Kelvin (K) to Celcius (C) with `scoff()`.
 #' 
 ## -----------------------------------------------------------------------------
-offs(lst)=-273.15
+scoff(lst)=cbind(0.02,-273.15)
 plot(lst[[1:10]])
 
 #' 
@@ -221,23 +224,6 @@ plot(lst[[1:10]])
 #' 
 #' 
 #' 
-#' ## Add Dates to Z (time) dimension
-#' 
-#' The default layer names of the LST file include the date as follows:
-#' 
-
-#' 
-#' Convert those values to a proper R Date format by dropping the "X" and using `as.Date()`.
-## -----------------------------------------------------------------------------
-tdates=names(lst)%>%
-  sub(pattern="X",replacement="")%>%
-  as.Date("%Y.%m.%d")
-
-names(lst)=1:nlayers(lst)
-lst=setZ(lst,tdates)
-
-#' 
-#' 
 #' ## Part 1: Extract timeseries for a point
 #' 
 #' Extract LST values for a single point and plot them.
@@ -246,12 +232,12 @@ lst=setZ(lst,tdates)
 #' <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo2">Show Hints</button>
 #' <div id="demo2" class="collapse">
 #' 
-#' 1. Use `lw=SpatialPoints(data.frame(x= -78.791547,y=43.007211))` to define a new Spatial Point at that location.
-#' 2. Set the projection of your point with `projection()` to `"+proj=longlat"`.
-#' 3. Transform the point to the projection of the raster using `spTransform()`.
-#' 4. Extract the LST data for that location with: `extract(lst,lw,buffer=1000,fun=mean,na.rm=T)`.  You may want to transpose them with `t()` to convert it from a wide matrix to long vector.
-#' 5. Extract the dates for each layer with `getZ(lst)` and combine them into a data.frame with the transposed raster values.  You could use `data.frame()`, `cbind.data.frame()` or `bind_cols()` to do this. The goal is to make a single dataframe with the dates and lst values in columns.
-#' 6. Plot it with `ggplot()` including points for the raw data and a smooth version as a line.  You will probably want to adjust both `span` and `n` in `geom_smooth`.
+#' 1. Use `lw= data.frame(x= -78.791547,y=43.007211) %>% st_as_sf(coords=c("x","y"),crs=4326)` to define a new sf point.
+#' 2. Transform the point to the projection of the raster using `st_transform()`.  You'll need to get the projection of the raster with `st_crs()`.
+#' 3. Extract the LST data for that location with: `extract(lst,lw,buffer=1000,fun=mean,na.rm=T)`.  You may want to transpose them with `t()` to convert it from a wide matrix to long vector. You may also need to drop the first column with `[-1]` becauase the first column is the ID.
+#' 4. Extract the dates for each layer with `time(lst)`
+#' 5. Combine the dates and transposed raster values into a data.frame.  You could use `data.frame()`, `cbind.data.frame()` or `bind_cols()` to do this. The goal is to make a single dataframe with the dates and lst values in columns.
+#' 5. Plot it with `ggplot()` including points for the raw data and a smooth version as a line.  You will probably want to adjust both `span` and `n` in `geom_smooth`.
 #' 
 #' </div>
 #' </div>
@@ -272,11 +258,10 @@ lst=setZ(lst,tdates)
 #' 
 #' Hints:
 #' 
-#' 1. First make a variable called `tmonth` by converting the dates to months using `as.numeric(format(getZ(lst),"%m"))`
-#' 2. Use `stackApply()` to summarize the mean value per month (using the `tmonth` variable you just created) and save the results as `lst_month`.
-#' 3. Set the names of the layers to months with `names(lst_month)=month.name`
-#' 4. Plot the map for each month with `gplot()` in the RasterVis Package.
-#' 5. Calculate the monthly mean for the entire image with `cellStats(lst_month,mean)`
+#' 1. Use `tapp()` to summarize the mean value per month (using `index='month'`) and save the results as `lst_month`.
+#' 2. Set the names of the layers to months with `names(lst_month)=month.name[as.numeric(str_replace(names(lst_month),"m_",""))]`. This will convert `m_01` to `January`, etc.
+#' 3. Plot the map for each month with `gplot()` in the RasterVis Package.
+#' 4. Calculate the monthly mean for the entire image with `global(lst_month,mean,na.rm=T)`
 #' 
 #' </div>
 #' </div>
@@ -297,7 +282,7 @@ lst=setZ(lst,tdates)
 #' <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo4">Show Hints</button>
 #' <div id="demo4" class="collapse">
 #' 
-#' 1. Resample `lc` to `lst` grid using `resample()` with `method=ngb`.
+#' 1. Resample `lulc` to `lst` grid using `resample()` with `method=near` to create a new object called lulc2.
 #' 2. Extract the values from `lst_month` and `lulc2` into a data.frame as follows:
 #'    ``` 
 #'    lcds1=cbind.data.frame(
@@ -305,8 +290,8 @@ lst=setZ(lst,tdates)
 #'    ID=values(lulc2[[1]]))%>%
 #'    na.omit()
 #'    ```
-#' 3. Gather the data into a 'tidy' format using `gather(key='month',value='value,-ID)`. 
-#' 4. Use `mutate()` to convert ID to numeric (e.g. `ID=as.numeric(ID)` and month to an _ordered_ factor with `month=factor(month,levels=month.name,ordered=T)`.
+#' 3. Gather the data into a 'tidy' format using `gather(key='month',value='value',-Land_Cover_Type_1_13)`. 
+#' 4. Use `mutate()` to convert ID to numeric (e.g. `ID=as.numeric(Land_Cover_Type_1_13)` and month to an _ordered_ factor with `month=factor(month,levels=month.name,ordered=T)`.
 #' 5. do a left join with the `lcd` table you created at the beginning.
 #' 6. Use `filter()` to keep only `landcover%in%c("Urban & built-up","Deciduous Broadleaf forest")`
 #' 7. Develop a ggplot to illustrate the monthly variability in LST between the two land cover types.  The exact form of plot is up to you.  Experiment with different geometries, etc.

@@ -411,12 +411,12 @@ like, you can download this file and open it (or copy-paste into a new
 script) with RStudio so you can follow along.</p>
 <div id="libraries" class="section level3">
 <h3>Libraries</h3>
-<pre class="r"><code>library(raster)
+<pre class="r"><code>library(terra)
 library(rasterVis)
 library(ggmap)
 library(tidyverse)
 library(knitr)
-
+library(sf)
 # New Packages
 library(ncdf4) # to import data from netcdf format</code></pre>
 </div>
@@ -448,9 +448,9 @@ git from adding these files.</p>
 </div>
 <div id="load-data-into-r" class="section level2">
 <h2>Load data into R</h2>
-<pre class="r"><code>lulc=stack(&quot;data/MCD12Q1.051_aid0001.nc&quot;,varname=&quot;Land_Cover_Type_1&quot;)
-lst=stack(&quot;data/MOD11A2.006_aid0001.nc&quot;,varname=&quot;LST_Day_1km&quot;)</code></pre>
-<p>You will probably see some errors about</p>
+<pre class="r"><code>lulc=rast(&quot;data/MCD12Q1.051_aid0001.nc&quot;,subds=&quot;Land_Cover_Type_1&quot;)
+lst=rast(&quot;data/MOD11A2.006_aid0001.nc&quot;,subds=&quot;LST_Day_1km&quot;)</code></pre>
+<p>You may see some errors about</p>
 <pre><code>&gt;&gt;&gt;&gt; WARNING &lt;&lt;&lt;  attribute longitude_of_projection_origin is an 8-byte value, but R&quot;
 [1] &quot;does not support this data type. I am returning a double precision&quot;
 [1] &quot;floating point, but you must be aware that this could lose precision!&quot;</code></pre>
@@ -493,7 +493,9 @@ website</a></p>
 lcd=data.frame(
   ID=Land_Cover_Type_1,
   landcover=names(Land_Cover_Type_1),
-  col=c(&quot;#000080&quot;,&quot;#008000&quot;,&quot;#00FF00&quot;, &quot;#99CC00&quot;,&quot;#99FF99&quot;, &quot;#339966&quot;, &quot;#993366&quot;, &quot;#FFCC99&quot;, &quot;#CCFFCC&quot;, &quot;#FFCC00&quot;, &quot;#FF9900&quot;, &quot;#006699&quot;, &quot;#FFFF00&quot;, &quot;#FF0000&quot;, &quot;#999966&quot;, &quot;#FFFFFF&quot;, &quot;#808080&quot;, &quot;#000000&quot;, &quot;#000000&quot;),
+  col=c(&quot;#000080&quot;,&quot;#008000&quot;,&quot;#00FF00&quot;, &quot;#99CC00&quot;,&quot;#99FF99&quot;, &quot;#339966&quot;, &quot;#993366&quot;, &quot;#FFCC99&quot;, 
+        &quot;#CCFFCC&quot;, &quot;#FFCC00&quot;, &quot;#FF9900&quot;, &quot;#006699&quot;, &quot;#FFFF00&quot;, &quot;#FF0000&quot;, &quot;#999966&quot;, &quot;#FFFFFF&quot;, 
+        &quot;#808080&quot;, &quot;#000000&quot;, &quot;#000000&quot;),
   stringsAsFactors = F)
 # colors from https://lpdaac.usgs.gov/about/news_archive/modisterra_land_cover_types_yearly_l3_global_005deg_cmg_mod12c1
 kable(head(lcd))</code></pre>
@@ -552,16 +554,17 @@ is a bit of manual process as follows.</p>
 lulc=as.factor(lulc)
 
 # update the RAT with a left join
-levels(lulc)=left_join(levels(lulc)[[1]],lcd)</code></pre>
-<pre><code>## Joining with `by = join_by(ID)`</code></pre>
+#levels(lulc)=left_join(levels(lulc)[[1]],lcd)[-1,]
+#activeCat(lulc)=1</code></pre>
 <pre class="r"><code># plot it
 gplot(lulc)+
   geom_raster(aes(fill=as.factor(value)))+
-  scale_fill_manual(values=levels(lulc)[[1]]$col,
-                    labels=levels(lulc)[[1]]$landcover,
+  scale_fill_manual(values=setNames(lcd$col,lcd$ID),
+                    labels=lcd$landcover,
+                    breaks=lcd$ID,
                     name=&quot;Landcover Type&quot;)+
   coord_equal()+
-  theme(legend.position = &quot;bottom&quot;)+
+  theme(legend.position = &quot;right&quot;)+
   guides(fill=guide_legend(ncol=1,byrow=TRUE))</code></pre>
 <p><img src="CS_10_files/figure-html/unnamed-chunk-9-1.png" width="2100" /></p>
 </div>
@@ -574,8 +577,8 @@ gplot(lulc)+
 <div id="convert-lst-to-degrees-c" class="section level2">
 <h2>Convert LST to Degrees C</h2>
 <p>You can convert LST from Degrees Kelvin (K) to Celcius (C) with
-<code>offs()</code>.</p>
-<pre class="r"><code>offs(lst)=-273.15
+<code>scoff()</code>.</p>
+<pre class="r"><code>scoff(lst)=cbind(0.02,-273.15)
 plot(lst[[1:10]])</code></pre>
 <p><img src="CS_10_files/figure-html/unnamed-chunk-11-1.png" width="2100" /></p>
 </div>
@@ -600,7 +603,7 @@ class="section level2">
 <p><a
 href="https://lpdaac.usgs.gov/dataset_discovery/modis/modis_products_table/mod11a2">MOD11A2
 QC Layer table</a></p>
-<pre class="r"><code>lstqc=stack(&quot;data/MOD11A2.006_aid0001.nc&quot;,varname=&quot;QC_Day&quot;)
+<pre class="r"><code>lstqc=rast(&quot;data/MOD11A2.006_aid0001.nc&quot;,subds=&quot;QC_Day&quot;)
 plot(lstqc[[1:2]])</code></pre>
 <p><img src="CS_10_files/figure-html/unnamed-chunk-12-1.png" width="2100" /></p>
 <div id="lst-qc-data" class="section level3">
@@ -999,7 +1002,7 @@ class="section level3">
 <h3>Filter the LST Data keeping only <code>keepvals</code></h3>
 <p>These steps take a couple minutes.</p>
 <p>Make logical flag to use for mask</p>
-<pre class="r"><code>lstkeep=calc(lstqc,function(x) x%in%keepvals)</code></pre>
+<pre class="r"><code>lstkeep=app(lstqc,function(x) x%in%keepvals)</code></pre>
 <p>Plot the mask</p>
 <pre class="r"><code>gplot(lstkeep[[4:8]])+
   geom_raster(aes(fill=as.factor(value)))+
@@ -1015,21 +1018,6 @@ data.</p>
 </div>
 </div>
 </div>
-<div id="add-dates-to-z-time-dimension" class="section level2">
-<h2>Add Dates to Z (time) dimension</h2>
-<p>The default layer names of the LST file include the date as
-follows:</p>
-<pre class="r"><code>names(lst)[1:5]</code></pre>
-<pre><code>## [1] &quot;X2000.02.18&quot; &quot;X2000.02.26&quot; &quot;X2000.03.05&quot; &quot;X2000.03.13&quot; &quot;X2000.03.21&quot;</code></pre>
-<p>Convert those values to a proper R Date format by dropping the “X”
-and using <code>as.Date()</code>.</p>
-<pre class="r"><code>tdates=names(lst)%&gt;%
-  sub(pattern=&quot;X&quot;,replacement=&quot;&quot;)%&gt;%
-  as.Date(&quot;%Y.%m.%d&quot;)
-
-names(lst)=1:nlayers(lst)
-lst=setZ(lst,tdates)</code></pre>
-</div>
 <div id="part-1-extract-timeseries-for-a-point" class="section level2">
 <h2>Part 1: Extract timeseries for a point</h2>
 <p>Extract LST values for a single point and plot them.</p>
@@ -1040,20 +1028,20 @@ Show Hints
 <div id="demo2" class="collapse">
 <ol style="list-style-type: decimal">
 <li>Use
-<code>lw=SpatialPoints(data.frame(x= -78.791547,y=43.007211))</code> to
-define a new Spatial Point at that location.</li>
-<li>Set the projection of your point with <code>projection()</code> to
-<code>"+proj=longlat"</code>.</li>
+<code>lw= data.frame(x= -78.791547,y=43.007211) %&gt;% st_as_sf(coords=c("x","y"),crs=4326)</code>
+to define a new sf point.</li>
 <li>Transform the point to the projection of the raster using
-<code>spTransform()</code>.</li>
+<code>st_transform()</code>. You’ll need to get the projection of the
+raster with <code>st_crs()</code>.</li>
 <li>Extract the LST data for that location with:
 <code>extract(lst,lw,buffer=1000,fun=mean,na.rm=T)</code>. You may want
 to transpose them with <code>t()</code> to convert it from a wide matrix
-to long vector.</li>
-<li>Extract the dates for each layer with <code>getZ(lst)</code> and
-combine them into a data.frame with the transposed raster values. You
-could use <code>data.frame()</code>, <code>cbind.data.frame()</code> or
-<code>bind_cols()</code> to do this. The goal is to make a single
+to long vector. You may also need to drop the first column with
+<code>[-1]</code> becauase the first column is the ID.</li>
+<li>Extract the dates for each layer with <code>time(lst)</code></li>
+<li>Combine the dates and transposed raster values into a data.frame.
+You could use <code>data.frame()</code>, <code>cbind.data.frame()</code>
+or <code>bind_cols()</code> to do this. The goal is to make a single
 dataframe with the dates and lst values in columns.</li>
 <li>Plot it with <code>ggplot()</code> including points for the raw data
 and a smooth version as a line. You will probably want to adjust both
@@ -1062,7 +1050,7 @@ and a smooth version as a line. You will probably want to adjust both
 </div>
 </div>
 <p>Your graph should look like this:
-<img src="CS_10_files/figure-html/unnamed-chunk-24-1.png" width="2100" /></p>
+<img src="CS_10_files/figure-html/unnamed-chunk-22-1.png" width="2100" /></p>
 <p>See the <code>library(rts)</code> for more timeseries related
 functions.</p>
 </div>
@@ -1078,23 +1066,21 @@ Show Hint
 <div id="demo3" class="collapse">
 <p>Hints:</p>
 <ol style="list-style-type: decimal">
-<li>First make a variable called <code>tmonth</code> by converting the
-dates to months using
-<code>as.numeric(format(getZ(lst),"%m"))</code></li>
-<li>Use <code>stackApply()</code> to summarize the mean value per month
-(using the <code>tmonth</code> variable you just created) and save the
-results as <code>lst_month</code>.</li>
+<li>Use <code>tapp()</code> to summarize the mean value per month (using
+<code>index='month'</code>) and save the results as
+<code>lst_month</code>.</li>
 <li>Set the names of the layers to months with
-<code>names(lst_month)=month.name</code></li>
+<code>names(lst_month)=month.name[as.numeric(str_replace(names(lst_month),"m_",""))]</code>.
+This will convert <code>m_01</code> to <code>January</code>, etc.</li>
 <li>Plot the map for each month with <code>gplot()</code> in the
 RasterVis Package.</li>
 <li>Calculate the monthly mean for the entire image with
-<code>cellStats(lst_month,mean)</code></li>
+<code>global(lst_month,mean,na.rm=T)</code></li>
 </ol>
 </div>
 </div>
 <p>A plot of the monthly climatologies will look like this:
-<img src="CS_10_files/figure-html/unnamed-chunk-25-1.png" width="2100" /></p>
+<img src="CS_10_files/figure-html/unnamed-chunk-23-1.png" width="2100" /></p>
 And the table should be as follows:
 <table class="table" style="margin-left: auto; margin-right: auto;">
 <thead>
@@ -1109,18 +1095,10 @@ Mean
 <tbody>
 <tr>
 <td style="text-align:left;">
-January
-</td>
-<td style="text-align:right;">
-271.02
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 February
 </td>
 <td style="text-align:right;">
-281.86
+-2.13
 </td>
 </tr>
 <tr>
@@ -1128,7 +1106,7 @@ February
 March
 </td>
 <td style="text-align:right;">
-291.32
+8.71
 </td>
 </tr>
 <tr>
@@ -1136,7 +1114,7 @@ March
 April
 </td>
 <td style="text-align:right;">
-296.32
+18.17
 </td>
 </tr>
 <tr>
@@ -1144,7 +1122,7 @@ April
 May
 </td>
 <td style="text-align:right;">
-300.14
+23.17
 </td>
 </tr>
 <tr>
@@ -1152,7 +1130,7 @@ May
 June
 </td>
 <td style="text-align:right;">
-301.99
+26.99
 </td>
 </tr>
 <tr>
@@ -1160,7 +1138,7 @@ June
 July
 </td>
 <td style="text-align:right;">
-300.51
+28.84
 </td>
 </tr>
 <tr>
@@ -1168,7 +1146,7 @@ July
 August
 </td>
 <td style="text-align:right;">
-296.08
+27.36
 </td>
 </tr>
 <tr>
@@ -1176,7 +1154,7 @@ August
 September
 </td>
 <td style="text-align:right;">
-288.63
+22.93
 </td>
 </tr>
 <tr>
@@ -1184,7 +1162,7 @@ September
 October
 </td>
 <td style="text-align:right;">
-281.48
+15.48
 </td>
 </tr>
 <tr>
@@ -1192,7 +1170,7 @@ October
 November
 </td>
 <td style="text-align:right;">
-273.74
+8.33
 </td>
 </tr>
 <tr>
@@ -1200,7 +1178,15 @@ November
 December
 </td>
 <td style="text-align:right;">
-268.40
+0.59
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+January
+</td>
+<td style="text-align:right;">
+-4.75
 </td>
 </tr>
 </tbody>
@@ -1217,8 +1203,9 @@ Show Hints
 </button>
 <div id="demo4" class="collapse">
 <ol style="list-style-type: decimal">
-<li><p>Resample <code>lc</code> to <code>lst</code> grid using
-<code>resample()</code> with <code>method=ngb</code>.</p></li>
+<li><p>Resample <code>lulc</code> to <code>lst</code> grid using
+<code>resample()</code> with <code>method=near</code> to create a new
+object called lulc2.</p></li>
 <li><p>Extract the values from <code>lst_month</code> and
 <code>lulc2</code> into a data.frame as follows:</p>
 <pre><code>lcds1=cbind.data.frame(
@@ -1226,10 +1213,10 @@ values(lst_month),
 ID=values(lulc2[[1]]))%&gt;%
 na.omit()</code></pre></li>
 <li><p>Gather the data into a ‘tidy’ format using
-<code>gather(key='month',value='value,-ID)</code>.</p></li>
+<code>gather(key='month',value='value',-Land_Cover_Type_1_13)</code>.</p></li>
 <li><p>Use <code>mutate()</code> to convert ID to numeric
-(e.g. <code>ID=as.numeric(ID)</code> and month to an <em>ordered</em>
-factor with
+(e.g. <code>ID=as.numeric(Land_Cover_Type_1_13)</code> and month to an
+<em>ordered</em> factor with
 <code>month=factor(month,levels=month.name,ordered=T)</code>.</p></li>
 <li><p>do a left join with the <code>lcd</code> table you created at the
 beginning.</p></li>
@@ -1242,7 +1229,7 @@ Experiment with different geometries, etc.</p></li>
 </div>
 </div>
 <p>One potential plot is as follows:</p>
-<p><img src="CS_10_files/figure-html/unnamed-chunk-28-1.png" width="2100" /></p>
+<p><img src="CS_10_files/figure-html/unnamed-chunk-26-1.png" width="2100" /></p>
 <div class="well">
 <p>If you have extra time, try to reproduce the table in this box.</p>
 <button data-toggle="collapse" class="btn btn-primary btn-sm round" data-target="#demo5">
@@ -1278,10 +1265,10 @@ Urban &amp; built-up
 January
 </td>
 <td style="text-align:left;">
-295.66(±0.92)
+18.53 (±0.82)
 </td>
 <td style="text-align:left;">
-299.07(±3.05)
+20.14 (±3.36)
 </td>
 </tr>
 <tr>
@@ -1289,10 +1276,10 @@ January
 February
 </td>
 <td style="text-align:left;">
-294.85(±0.73)
+25.66 (±1.1)
 </td>
 <td style="text-align:left;">
-297.98(±1.75)
+29.84 (±2.44)
 </td>
 </tr>
 <tr>
@@ -1300,10 +1287,10 @@ February
 March
 </td>
 <td style="text-align:left;">
-267.47(±1.02)
+0.18 (±0.51)
 </td>
 <td style="text-align:left;">
-268.82(±0.85)
+0.7 (±0.62)
 </td>
 </tr>
 <tr>
@@ -1311,10 +1298,10 @@ March
 April
 </td>
 <td style="text-align:left;">
-281.51(±0.84)
+-2.72 (±0.55)
 </td>
 <td style="text-align:left;">
-283.75(±2.54)
+-1.3 (±0.86)
 </td>
 </tr>
 <tr>
@@ -1322,10 +1309,10 @@ April
 May
 </td>
 <td style="text-align:left;">
-270.39(±0.57)
+-5.63 (±0.98)
 </td>
 <td style="text-align:left;">
-271.89(±0.85)
+-4.3 (±0.86)
 </td>
 </tr>
 <tr>
@@ -1333,10 +1320,10 @@ May
 June
 </td>
 <td style="text-align:left;">
-298.71(±1.07)
+27.22 (±1.17)
 </td>
 <td style="text-align:left;">
-303.13(±2.29)
+31.52 (±2.81)
 </td>
 </tr>
 <tr>
@@ -1344,10 +1331,10 @@ June
 July
 </td>
 <td style="text-align:left;">
-300.23(±1.11)
+25.68 (±1.17)
 </td>
 <td style="text-align:left;">
-304.84(±2.63)
+29.77 (±3.16)
 </td>
 </tr>
 <tr>
@@ -1355,10 +1342,10 @@ July
 August
 </td>
 <td style="text-align:left;">
-291.66(±0.77)
+8.4 (±0.88)
 </td>
 <td style="text-align:left;">
-293.51(±3.05)
+10.43 (±2.73)
 </td>
 </tr>
 <tr>
@@ -1366,10 +1353,10 @@ August
 September
 </td>
 <td style="text-align:left;">
-298.7(±1.11)
+22.61 (±1.02)
 </td>
 <td style="text-align:left;">
-303.12(±2.93)
+25.7 (±3.34)
 </td>
 </tr>
 <tr>
@@ -1377,10 +1364,10 @@ September
 October
 </td>
 <td style="text-align:left;">
-273.36(±0.56)
+8.23 (±0.55)
 </td>
 <td style="text-align:left;">
-273.83(±0.61)
+8.59 (±0.81)
 </td>
 </tr>
 <tr>
@@ -1388,10 +1375,10 @@ October
 November
 </td>
 <td style="text-align:left;">
-281.42(±0.54)
+14.82 (±0.55)
 </td>
 <td style="text-align:left;">
-281.78(±0.77)
+16.53 (±1.2)
 </td>
 </tr>
 <tr>
@@ -1399,10 +1386,10 @@ November
 December
 </td>
 <td style="text-align:left;">
-287.9(±0.57)
+21.73 (±0.72)
 </td>
 <td style="text-align:left;">
-289.74(±1.15)
+24.72 (±1.86)
 </td>
 </tr>
 </tbody>
