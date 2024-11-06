@@ -73,18 +73,26 @@ census_api_key("YOUR API KEY GOES HERE")
 Write an Rmd script that:
 
 * Downloads block-level data on population by race in each census block in Buffalo using `get_dicennial()` function of the `tidycensus` package.  You can use the following code:
-```{r, message=F}
+```{r, message=T}
 library(tidycensus)
-racevars <- c(White = "P005003", 
-              Black = "P005004", 
-              Asian = "P005006", 
-              Hispanic = "P004003")
+race_vars <- c(
+  "Total Population" = "P1_001N",
+  "White alone" = "P1_003N",
+  "Black or African American alone" = "P1_004N",
+  "American Indian and Alaska Native alone" = "P1_005N",
+  "Asian alone" = "P1_006N",
+  "Native Hawaiian and Other Pacific Islander alone" = "P1_007N",
+  "Some Other Race alone" = "P1_008N",
+  "Two or More Races" = "P1_009N"
+)
+
 
 options(tigris_use_cache = TRUE)
-erie <- get_decennial(geography = "block", variables = racevars, 
+erie <- get_decennial(geography = "block", variables = race_vars, year=2020,
                   state = "NY", county = "Erie County", geometry = TRUE,
-                  summary_var = "P001001", cache_table=T) 
+                  sumfile = "pl", cache_table=T) 
 ```
+
 * Crop the county-level data to `c(xmin=-78.9,xmax=-78.85,ymin=42.888,ymax=42.92)` to reduce the computational burdern. Feel free to enlarge this area if your computer is fast (or you are patient).
 * Write a foreach loop that does the following steps _for each racial group_ in the `variable` column of the `erie` dataset and `rbind`s the results (e.g. `.combine=rbind`) into a single `sf` object.  You may want to convert the variable column into a factor and use `levels()` or use `unique()`.
    * filter the the data to include only one race at time
@@ -147,7 +155,6 @@ Extra time? Try this...
 
 Update the map to include:
 
-* Other racial groups
 * Adjust colors to match the original
 * Summarize the data in different ways (e.g. plot the polygon data, calculate indices, etc.)
 

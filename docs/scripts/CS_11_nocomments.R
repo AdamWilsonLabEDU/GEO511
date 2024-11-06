@@ -14,12 +14,19 @@ getDoParWorkers() # check registered cores
 ## census_api_key("YOUR API KEY GOES HERE")
 
 library(tidycensus)
-racevars <- c(White = "P005003", 
-              Black = "P005004", 
-              Asian = "P005006", 
-              Hispanic = "P004003")
+race_vars <- c(
+  "Total Population" = "P1_001N",
+  "White alone" = "P1_003N",
+  "Black or African American alone" = "P1_004N",
+  "American Indian and Alaska Native alone" = "P1_005N",
+  "Asian alone" = "P1_006N",
+  "Native Hawaiian and Other Pacific Islander alone" = "P1_007N",
+  "Some Other Race alone" = "P1_008N",
+  "Two or More Races" = "P1_009N"
+)
+
 
 options(tigris_use_cache = TRUE)
-erie <- get_decennial(geography = "block", variables = racevars, 
+erie <- get_decennial(geography = "block", variables = race_vars, year=2020,
                   state = "NY", county = "Erie County", geometry = TRUE,
-                  summary_var = "P001001", cache_table=T) 
+                  sumfile = "pl", cache_table=T) 
