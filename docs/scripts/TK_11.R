@@ -5,7 +5,7 @@
 #' type: Task
 #' presentation: PS_11_ParallelProcessing.html
 #' reading:
-#'   - Documentation for [RMarkdown Websites](https://rmarkdown.rstudio.com/rmarkdown_websites.htm)
+#'   - Documentation for [Quarto Websites](https://quarto.org/docs/websites/)
 #' tasks:
 #'    - Commit your first draft of your project to GitHub
 #' ---

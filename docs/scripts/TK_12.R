@@ -38,16 +38,16 @@ md_bullet(rmarkdown::metadata$tasks)
 #' 
 #' ### Selecting a project to evaluate
 #' 
-#' 1. Browse the [current drafts of projects here](https://github.com/geo511-2022?q=project&type=&language=).  
+#' 1. Browse the [current drafts of projects here](https://github.com/orgs/AdamWilsonLabEDU/repositories?q=final-project-+2024).  
 #' 2. Select two repositories and evaluate them according to the instructions listed in the [Project First Draft task](TK_11.html) 
 #' 
 #' ![](project_assets/project_evaluation.png)
 #' 
 #' ### Review the project
 #' 
-#' 1) Explore the final projects in the [class repository](https://github.com/geo511-2022?q=project&type=&language=)
+#' 1) Explore the final projects in the [class repository](https://github.com/orgs/AdamWilsonLabEDU/repositories?q=final-project-+2024)
 #' 2) Select two projects that do not already have three evaluations (pull requests). For example, in the image above, there are 0 pull requests, so this repository would be available for you to review.  If there are already 3 pull requests, select another repository.
-#' 2) Browse the code (mostly `index.Rmd`)
+#' 2) Browse the code (mostly `index.qmd`)
 #' 3) Browse the project website (should be linked in the upper right corner of the repository page on GitHub - if it's not there, look in settings->pages for the URL).
 #' 4) Evaluate whether the project meets the specifications listed in the [Project First Draft task](TK_11.html)
 #' 

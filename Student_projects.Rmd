@@ -12,6 +12,71 @@ Each student wrote a script (using the [R](https://www.r-project.org/) programmi
 ## Student Project Gallery
 
 You are invited to explore the student projects below (click on a title to visit their website).  Each projects includes the embedded code in addition to their narrative and graphical stories.   If you find something interesting, you are free to download and re-run the script to reproduce the entire analysis (including generating the tables/figures and even the webpage itself).
+## 2024
+
+```{r,echo=F, warning=F, message=F, eval=T}
+library(tidyverse)
+library(knitr)
+library(rvest)
+library(fontawesome)
+
+update=F
+
+if(update){
+d=data.frame(url=
+  paste0("https://adamwilsonlabedu.github.io/",c(
+  "final-project-andreaharder",
+  "final-project-bsatyavs",
+  "final-project-cnspauld",
+  "final-project-drumondd1",
+  "final-project-embyrne0",
+  "final-project-enochyel",
+  "final-project-IListon",
+  "final-project-Logan-can",
+  "final-project-NicholasGenco571",
+  "final-project-ozzyzhou99",
+  "final-project-SwethaSakhamuri",
+  "final-project-tinan2001",
+  "final-project-yingzhou95"
+  )),
+#  group=c(rep(1,8),rep(2,9)),
+  stringsAsFactors = F)
+
+d=d%>%mutate(user=sub("/","",
+      sub("https://adamwilsonlabedu.github.io/final-project-","",url,
+                          ignore.case = T)))
+for(i in 1:nrow(d)) {
+#  print(i)
+  d$title[i] <- ifelse(
+    is.na(tryCatch(read_html(d$url[i], verbose=T), 
+                   error = function(e){NA})),
+         NA,
+         read_html(d$url[i]) %>% html_nodes("h1")%>%html_text()%>%first()
+  )
+}
+save(d,file="2024_Student_projects_data.Rdata")
+}
+```
+
+
+```{r, echo=F, message=F, results='hide', eval=T}
+load("2024_Student_projects_data.Rdata")
+```
+
+
+```{r,asis=T, echo=F, eval=T}
+
+#https://github.com/AdamWilsonLabEDU/final-project-IListon/actions/workflows/publish_github_actions.yml/badge.svg
+
+d%>%
+  arrange(user)%>%
+  mutate(github_url=sub("https://adamwilsonlabedu.github.io/","https://github.com/AdamWilsonLabEDU/",url),
+         Title=paste0("[",title,"](",url,")"),
+         Status=paste0("![](",github_url,"/actions/workflows/publish_github_actions.yml/badge.svg)"),
+         GitHub=paste("<a href=",github_url,"><i>",fa('github',fill ="#2780E3"),"</i></a>"))%>%
+  dplyr::select(Student=user,Title,Status,GitHub)%>%
+    kable()
+```
 
 ## 2021
 ```{r,echo=F, warning=F, message=F, eval=T}
