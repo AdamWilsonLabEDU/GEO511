@@ -20,7 +20,7 @@ library(knitr)
 library(rvest)
 library(fontawesome)
 
-update=F
+update=T
 
 if(update){
 d=data.frame(url=
