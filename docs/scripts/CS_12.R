@@ -56,9 +56,9 @@ d<- weather_history(c(43.00923265935055, -78.78494250958327),start = "2023-01-01
 #' 
 #' Remaining steps:
 #' 
-#' 1. Convert `d`. into an `xts` time series object using `xts()`.  By default, dygraph will plot all non-date columns in the table so you may need to use `select()` first to subset only the columns you need. You will need to specify which column has the data (`d$daily_temperature_2m_max`) and `order.by=d$date`.   See `?xts` for help. 
-#' 2. Use `dygraph()` to draw the plot. If you want to do the ribbon plot below (showing min, max, and mean temps), you will need `dySeries()` as well.  Check out the help and examples to see how that's used.
-#' 3. Set the title of the dygraph to be `main="Daily Maximum Temperature in Buffalo, NY"`
+#' 1. Convert `d`. into an `xts` time series object using `xts()`.  By default, dygraph will plot all non-date columns in the table so you may need to use `select()` first to subset only the columns you need. You will need to specify which columns have the data you want (e.g. `d$daily_temperature_2m_max`) and which column has the date with `order.by=d$date`.   See `?xts` for help. 
+#' 2. Set the title of the dygraph to be `main="Daily Maximum Temperature in Buffalo, NY"`
+#' 3. Use `dygraph()` to draw the plot. If you want to do the ribbon plot below (showing min, max, and mean temps), you will need to use `dySeries()` as well.  Check out the help and examples to see how that's used.
 #' 4. Add a `dyRangeSelector()` with a `dateWindow` of `c("2023-01-01", "2024-10-31")`
 #' 5. Explore other options.  You could download another variable (precipitation?) and add it to the plot. Or imagine another way to visualize the data using one of the other interactive libraries.  In the version below, the two graphs are linked so they pan/zoom together.  Can you figure that out?
 #' 

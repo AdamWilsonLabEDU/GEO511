@@ -49,7 +49,7 @@ If you don't have the packages above, install them in the package manager or by 
 
 First use the following code to download recent daily weather data for UB.
 
-```{r, messages=F, warning=F, results="hide", include = F}
+```{r, messages=F, warning=F, results="hide", include = T}
 library(xts)
 library(dygraphs)
 library(openmeteo)

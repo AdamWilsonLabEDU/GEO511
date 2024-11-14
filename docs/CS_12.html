@@ -451,14 +451,16 @@ for UB.</p>
 using <code>xts()</code>. By default, dygraph will plot all non-date
 columns in the table so you may need to use <code>select()</code> first
 to subset only the columns you need. You will need to specify which
-column has the data (<code>d$daily_temperature_2m_max</code>) and
-<code>order.by=d$date</code>. See <code>?xts</code> for help.</li>
-<li>Use <code>dygraph()</code> to draw the plot. If you want to do the
-ribbon plot below (showing min, max, and mean temps), you will need
-<code>dySeries()</code> as well. Check out the help and examples to see
-how that’s used.</li>
+columns have the data you want
+(e.g. <code>d$daily_temperature_2m_max</code>) and which column has the
+date with <code>order.by=d$date</code>. See <code>?xts</code> for
+help.</li>
 <li>Set the title of the dygraph to be
 <code>main="Daily Maximum Temperature in Buffalo, NY"</code></li>
+<li>Use <code>dygraph()</code> to draw the plot. If you want to do the
+ribbon plot below (showing min, max, and mean temps), you will need to
+use <code>dySeries()</code> as well. Check out the help and examples to
+see how that’s used.</li>
 <li>Add a <code>dyRangeSelector()</code> with a <code>dateWindow</code>
 of <code>c("2023-01-01", "2024-10-31")</code></li>
 <li>Explore other options. You could download another variable
