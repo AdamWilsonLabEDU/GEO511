@@ -14,6 +14,7 @@ system("cp .nojekyll docs/.nojekyll")
 
 system("cp pres/leaflet.html docs/pres/leaflet.html")
 system("cp pres/table.png docs/pres/table.png")
+system("cp pres/gganimate-1.gif docs/pres/gganimate-1.gif")
 }
 
 if(F){

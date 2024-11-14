@@ -62,7 +62,7 @@ getDoParWorkers() # check registered cores
 #' 
 #' ## Steps
 #' 
-#' Write an Rmd script that:
+#' Write an qmd script that:
 #' 
 #' * Downloads block-level data on population by race in each census block in Buffalo using `get_dicennial()` function of the `tidycensus` package.  You can use the following code:
 ## ----message=T----------------------------------------------------------------

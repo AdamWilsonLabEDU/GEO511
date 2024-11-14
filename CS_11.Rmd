@@ -127,6 +127,7 @@ buffalo_dots=
    drop_outliers() %>% # drop outliers
    mutate(variable=r) #add the variable onto the points
    }
+
 ```
 
 
