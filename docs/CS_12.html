@@ -445,6 +445,14 @@ etc.</p>
 <h2>Detailed Steps</h2>
 <p>First use the following code to download recent daily weather data
 for UB.</p>
+<pre class="r"><code>library(xts)
+library(dygraphs)
+library(openmeteo)
+
+
+d&lt;- weather_history(c(43.00923265935055, -78.78494250958327),start = &quot;2023-01-01&quot;,end=today(),
+                  daily=list(&quot;temperature_2m_max&quot;,&quot;temperature_2m_min&quot;,&quot;precipitation_sum&quot;)) %&gt;% 
+  mutate(daily_temperature_2m_mean=(daily_temperature_2m_max+daily_temperature_2m_min)/2)</code></pre>
 <p>Remaining steps:</p>
 <ol style="list-style-type: decimal">
 <li>Convert <code>d</code>. into an <code>xts</code> time series object
