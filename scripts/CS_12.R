@@ -42,7 +42,7 @@ library(widgetframe)
 #' 
 #' First use the following code to download recent daily weather data for UB.
 #' 
-## ----messages=F, warning=F, results="hide", include = F-----------------------
+## ----messages=F, warning=F----------------------------------------------------
 library(xts)
 library(dygraphs)
 library(openmeteo)

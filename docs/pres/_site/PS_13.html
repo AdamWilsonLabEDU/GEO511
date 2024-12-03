@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <title>Modeling</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/reveal.css"/>
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  background-color: #f8f8f8; }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ef2929; } /* Alert */
+code span.an { color: #8f5902; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #204a87; } /* Attribute */
+code span.bn { color: #0000cf; } /* BaseN */
+code span.cf { color: #204a87; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4e9a06; } /* Char */
+code span.cn { color: #8f5902; } /* Constant */
+code span.co { color: #8f5902; font-style: italic; } /* Comment */
+code span.cv { color: #8f5902; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #8f5902; font-weight: bold; font-style: italic; } /* Documentation */
+code span.dt { color: #204a87; } /* DataType */
+code span.dv { color: #0000cf; } /* DecVal */
+code span.er { color: #a40000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #0000cf; } /* Float */
+code span.fu { color: #204a87; font-weight: bold; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #8f5902; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #204a87; font-weight: bold; } /* Keyword */
+code span.op { color: #ce5c00; font-weight: bold; } /* Operator */
+code span.ot { color: #8f5902; } /* Other */
+code span.pp { color: #8f5902; font-style: italic; } /* Preprocessor */
+code span.sc { color: #ce5c00; font-weight: bold; } /* SpecialChar */
+code span.ss { color: #4e9a06; } /* SpecialString */
+code span.st { color: #4e9a06; } /* String */
+code span.va { color: #000000; } /* Variable */
+code span.vs { color: #4e9a06; } /* VerbatimString */
+code span.wa { color: #8f5902; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="site_libs/reveal.js-3.3.0.1/css/theme/sky.css" id="theme">
+
+
+  <!-- some tweaks to reveal css -->
+  <style type="text/css">
+    .reveal h1 { font-size: 2.0em; }
+    .reveal h2 { font-size: 1.5em;  }
+    .reveal h3 { font-size: 1.25em;	}
+    .reveal h4 { font-size: 1em;	}
+
+    .reveal .slides>section,
+    .reveal .slides>section>section {
+      padding: 0px 0px;
+    }
+
+
+
+    .reveal table {
+      border-width: 1px;
+      border-spacing: 2px;
+      border-style: dotted;
+      border-color: gray;
+      border-collapse: collapse;
+      font-size: 0.7em;
+    }
+
+    .reveal table th {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      font-weight: bold;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+    .reveal table td {
+      border-width: 1px;
+      padding-left: 10px;
+      padding-right: 25px;
+      border-style: dotted;
+      border-color: gray;
+    }
+
+
+  </style>
+
+    <style type="text/css">code{white-space: pre;}</style>
+
+    <link rel="stylesheet" href="reveal.css"/>
+
+<!-- Printing and PDF exports -->
+<script id="paper-css" type="application/dynamic-css">
+
+/* Default Print Stylesheet Template
+   by Rob Glazebrook of CSSnewbie.com
+   Last Updated: June 4, 2008
+
+   Feel free (nay, compelled) to edit, append, and
+   manipulate this file as you see fit. */
+
+
+@media print {
+
+	/* SECTION 1: Set default width, margin, float, and
+	   background. This prevents elements from extending
+	   beyond the edge of the printed page, and prevents
+	   unnecessary background images from printing */
+	html {
+		background: #fff;
+		width: auto;
+		height: auto;
+		overflow: visible;
+	}
+	body {
+		background: #fff;
+		font-size: 20pt;
+		width: auto;
+		height: auto;
+		border: 0;
+		margin: 0 5%;
+		padding: 0;
+		overflow: visible;
+		float: none !important;
+	}
+
+	/* SECTION 2: Remove any elements not needed in print.
+	   This would include navigation, ads, sidebars, etc. */
+	.nestedarrow,
+	.controls,
+	.fork-reveal,
+	.share-reveal,
+	.state-background,
+	.reveal .progress,
+	.reveal .backgrounds {
+		display: none !important;
+	}
+
+	/* SECTION 3: Set body font face, size, and color.
+	   Consider using a serif font for readability. */
+	body, p, td, li, div {
+		font-size: 20pt!important;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		color: #000;
+	}
+
+	/* SECTION 4: Set heading font face, sizes, and color.
+	   Differentiate your headings from your body text.
+	   Perhaps use a large sans-serif for distinction. */
+	h1,h2,h3,h4,h5,h6 {
+		color: #000!important;
+		height: auto;
+		line-height: normal;
+		font-family: Georgia, "Times New Roman", Times, serif !important;
+		text-shadow: 0 0 0 #000 !important;
+		text-align: left;
+		letter-spacing: normal;
+	}
+	/* Need to reduce the size of the fonts for printing */
+	h1 { font-size: 28pt !important;  }
+	h2 { font-size: 24pt !important; }
+	h3 { font-size: 22pt !important; }
+	h4 { font-size: 22pt !important; font-variant: small-caps; }
+	h5 { font-size: 21pt !important; }
+	h6 { font-size: 20pt !important; font-style: italic; }
+
+	/* SECTION 5: Make hyperlinks more usable.
+	   Ensure links are underlined, and consider appending
+	   the URL to the end of the link for usability. */
+	a:link,
+	a:visited {
+		color: #000 !important;
+		font-weight: bold;
+		text-decoration: underline;
+	}
+	/*
+	.reveal a:link:after,
+	.reveal a:visited:after {
+		content: " (" attr(href) ") ";
+		color: #222 !important;
+		font-size: 90%;
+	}
+	*/
+
+
+	/* SECTION 6: more reveal.js specific additions by @skypanther */
+	ul, ol, div, p {
+		visibility: visible;
+		position: static;
+		width: auto;
+		height: auto;
+		display: block;
+		overflow: visible;
+		margin: 0;
+		text-align: left !important;
+	}
+	.reveal pre,
+	.reveal table {
+		margin-left: 0;
+		margin-right: 0;
+	}
+	.reveal pre code {
+		padding: 20px;
+		border: 1px solid #ddd;
+	}
+	.reveal blockquote {
+		margin: 20px 0;
+	}
+	.reveal .slides {
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 0 !important;
+		zoom: 1 !important;
+
+		overflow: visible !important;
+		display: block !important;
+
+		text-align: left !important;
+		-webkit-perspective: none;
+		   -moz-perspective: none;
+		    -ms-perspective: none;
+		        perspective: none;
+
+		-webkit-perspective-origin: 50% 50%;
+		   -moz-perspective-origin: 50% 50%;
+		    -ms-perspective-origin: 50% 50%;
+		        perspective-origin: 50% 50%;
+	}
+	.reveal .slides section {
+		visibility: visible !important;
+		position: static !important;
+		width: auto !important;
+		height: auto !important;
+		display: block !important;
+		overflow: visible !important;
+
+		left: 0 !important;
+		top: 0 !important;
+		margin-left: 0 !important;
+		margin-top: 0 !important;
+		padding: 60px 20px !important;
+		z-index: auto !important;
+
+		opacity: 1 !important;
+
+		page-break-after: always !important;
+
+		-webkit-transform-style: flat !important;
+		   -moz-transform-style: flat !important;
+		    -ms-transform-style: flat !important;
+		        transform-style: flat !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+
+		-webkit-transition: none !important;
+		   -moz-transition: none !important;
+		    -ms-transition: none !important;
+		        transition: none !important;
+	}
+	.reveal .slides section.stack {
+		padding: 0 !important;
+	}
+	.reveal section:last-of-type {
+		page-break-after: avoid !important;
+	}
+	.reveal section .fragment {
+		opacity: 1 !important;
+		visibility: visible !important;
+
+		-webkit-transform: none !important;
+		   -moz-transform: none !important;
+		    -ms-transform: none !important;
+		        transform: none !important;
+	}
+	.reveal section img {
+		display: block;
+		margin: 15px 0px;
+		background: rgba(255,255,255,1);
+		border: 1px solid #666;
+		box-shadow: none;
+	}
+
+	.reveal section small {
+		font-size: 0.8em;
+	}
+
+}  
+</script>
+
+
+<script id="pdf-css" type="application/dynamic-css">
+    
+/**
+ * This stylesheet is used to print reveal.js
+ * presentations to PDF.
+ *
+ * https://github.com/hakimel/reveal.js#pdf-export
+ */
+
+* {
+	-webkit-print-color-adjust: exact;
+}
+
+body {
+	margin: 0 auto !important;
+	border: 0;
+	padding: 0;
+	float: none !important;
+	overflow: visible;
+}
+
+html {
+	width: 100%;
+	height: 100%;
+	overflow: visible;
+}
+
+/* Remove any elements not needed in print. */
+.nestedarrow,
+.reveal .controls,
+.reveal .progress,
+.reveal .playback,
+.reveal.overview,
+.fork-reveal,
+.share-reveal,
+.state-background {
+	display: none !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	text-shadow: 0 0 0 #000 !important;
+}
+
+.reveal pre code {
+	overflow: hidden !important;
+	font-family: Courier, 'Courier New', monospace !important;
+}
+
+ul, ol, div, p {
+	visibility: visible;
+	position: static;
+	width: auto;
+	height: auto;
+	display: block;
+	overflow: visible;
+	margin: auto;
+}
+.reveal {
+	width: auto !important;
+	height: auto !important;
+	overflow: hidden !important;
+}
+.reveal .slides {
+	position: static;
+	width: 100%;
+	height: auto;
+
+	left: auto;
+	top: auto;
+	margin: 0 !important;
+	padding: 0 !important;
+
+	overflow: visible;
+	display: block;
+
+	-webkit-perspective: none;
+	   -moz-perspective: none;
+	    -ms-perspective: none;
+	        perspective: none;
+
+	-webkit-perspective-origin: 50% 50%; /* there isn't a none/auto value but 50-50 is the default */
+	   -moz-perspective-origin: 50% 50%;
+	    -ms-perspective-origin: 50% 50%;
+	        perspective-origin: 50% 50%;
+}
+
+.reveal .slides section {
+	page-break-after: always !important;
+
+	visibility: visible !important;
+	position: relative !important;
+	display: block !important;
+	position: relative !important;
+
+	margin: 0 !important;
+	padding: 0 !important;
+	box-sizing: border-box !important;
+	min-height: 1px;
+
+	opacity: 1 !important;
+
+	-webkit-transform-style: flat !important;
+	   -moz-transform-style: flat !important;
+	    -ms-transform-style: flat !important;
+	        transform-style: flat !important;
+
+	-webkit-transform: none !important;
+	   -moz-transform: none !important;
+	    -ms-transform: none !important;
+	        transform: none !important;
+}
+
+.reveal section.stack {
+	margin: 0 !important;
+	padding: 0 !important;
+	page-break-after: avoid !important;
+	height: auto !important;
+	min-height: auto !important;
+}
+
+.reveal img {
+	box-shadow: none;
+}
+
+.reveal .roll {
+	overflow: visible;
+	line-height: 1em;
+}
+
+/* Slide backgrounds are placed inside of their slide when exporting to PDF */
+.reveal section .slide-background {
+	display: block !important;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+
+/* All elements should be above the slide-background */
+.reveal section>* {
+	position: relative;
+	z-index: 1;
+}
+
+/* Display slide speaker notes when 'showNotes' is enabled */
+.reveal .speaker-notes-pdf {
+	display: block;
+	width: 100%;
+	max-height: none;
+	left: auto;
+	top: auto;
+	z-index: 100;
+}
+
+/* Display slide numbers when 'slideNumber' is enabled */
+.reveal .slide-number-pdf {
+	display: block;
+	position: absolute;
+	font-size: 14px;
+}
+
+</script>
+
+
+<script>
+var style = document.createElement( 'style' );
+style.type = 'text/css';
+var style_script_id = window.location.search.match( /print-pdf/gi ) ? 'pdf-css' : 'paper-css';
+var style_script = document.getElementById(style_script_id).text;
+style.innerHTML = style_script;
+document.getElementsByTagName('head')[0].appendChild(style);
+</script>
+
+    <script src="site_libs/header-attrs-2.28/header-attrs.js"></script>
+    <link href="site_libs/font-awesome-6.4.2/css/all.min.css" rel="stylesheet" />
+    <link href="site_libs/font-awesome-6.4.2/css/v4-shims.min.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Modeling</h1>
+</section>
+
+<section id="course-schedule" class="slide level2">
+<h2>Course Schedule</h2>
+<iframe src="https://geo511.wilsonlab.io/Schedule.html" width="100%" height="800">
+</iframe>
+<p><a href="https://geo511.wilsonlab.io/Schedule.html">source</a></p>
+</section>
+<section>
+<section id="modelling" class="title-slide slide level1">
+<h1>Modelling</h1>
+<p>Now that you are equipped with powerful programming tools we can
+finally return to modelling. You’ll use your new tools of data wrangling
+and programming, to fit many models and understand how they work. The
+focus of this book is on exploration, not confirmation or formal
+inference. But you’ll learn a few basic tools that help you understand
+the variation within your models.</p>
+<p><img src="PS_01_img/data-science.png" width="75%" /></p>
+</section>
+<section id="modeling-goals" class="slide level2">
+<h2>Modeling goals</h2>
+<ul>
+<li>generate low-dimensional summary of a dataset</li>
+<li>generate and/or test hypotheses</li>
+<li>make predictions</li>
+</ul>
+<p>This is not a modelling course - my hope is to build your intuition
+about how statistical models work and provide some useful tools.</p>
+</section>
+<section id="linear-models" class="slide level2">
+<h2>Linear models</h2>
+<ul>
+<li><p>In [model basics], you’ll learn how models work mechanistically,
+focussing on the important family of linear models. You’ll learn general
+tools for gaining insight into what a predictive model tells you about
+your data, focussing on simple simulated datasets.</p></li>
+<li><p>In [model building], you’ll learn how to use models to pull out
+known patterns in real data. Once you have recognised an important
+pattern it’s useful to make it explicit in a model, because then you can
+more easily see the subtler signals that remain.</p></li>
+<li><p>In [many models], you’ll learn how to use many simple models to
+help understand complex datasets. This is a powerful technique, but to
+access it you’ll need to combine modelling and programming
+tools.</p></li>
+</ul>
+<p>These topics are notable because of what they don’t include: any
+tools for quantitatively assessing models. That is deliberate: precisely
+quantifying a model requires a couple of big ideas that we just don’t
+have the space to cover here. For now, you’ll rely on qualitative
+assessment and your natural scepticism. In [Learning more about models],
+we’ll point you to other resources where you can learn more.</p>
+</section>
+<section id="hypothesis-generation-vs.-hypothesis-confirmation"
+class="slide level2">
+<h2>Hypothesis generation vs. hypothesis confirmation</h2>
+<p>In this book, we are going to use models as a tool for exploration,
+completing the trifecta of the tools for EDA that were introduced in
+Part 1. This is not how models are usually taught, but as you will see,
+models are an important tool for exploration. Traditionally, the focus
+of modelling is on inference, or for confirming that an hypothesis is
+true. Doing this correctly is not complicated, but it is hard. There is
+a pair of ideas that you must understand in order to do inference
+correctly:</p>
+<ol type="1">
+<li><p>Each observation can either be used for exploration or
+confirmation, not both.</p></li>
+<li><p>You can use an observation as many times as you like for
+exploration, but you can only use it once for confirmation. As soon as
+you use an observation twice, you’ve switched from confirmation to
+exploration.</p></li>
+</ol>
+<p>This is necessary because to confirm a hypothesis you must use data
+independent of the data that you used to generate the hypothesis.
+Otherwise you will be over optimistic. There is absolutely nothing wrong
+with exploration, but you should never sell an exploratory analysis as a
+confirmatory analysis because it is fundamentally misleading.</p>
+<p>If you are serious about doing an confirmatory analysis, one approach
+is to split your data into three pieces before you begin the
+analysis:</p>
+</section>
+<section id="data-use-in-model-building-and-testing"
+class="slide level2">
+<h2>Data use in model building and testing</h2>
+<ol type="1">
+<li><p>60% of your data: <strong>training</strong> (or exploration) set.
+You’re allowed to do anything you like with this data: visualise it and
+fit tons of models to it.</p></li>
+<li><p>20% <strong>query</strong> set. You can use this data to compare
+models or visualisations by hand, but you’re not allowed to use it as
+part of an automated process.</p></li>
+<li><p>20% <strong>test</strong> set. You can only use this data ONCE,
+to test your final model.</p></li>
+</ol>
+</section>
+<section id="introduction" class="slide level2">
+<h2>Introduction</h2>
+<p>The goal of a model is to provide a simple low-dimensional summary of
+a dataset. In the context of this book we’re going to use models to
+partition data into patterns and residuals. Strong patterns will hide
+subtler trends, so we’ll use models to help peel back layers of
+structure as we explore a dataset.</p>
+<p>However, before we can start using models on interesting, real,
+datasets, you need to understand the basics of how models work. For that
+reason, this chapter of the book is unique because it uses only
+simulated datasets. These datasets are very simple, and not at all
+interesting, but they will help you understand the essence of modelling
+before you apply the same techniques to real data in the next
+chapter.</p>
+<p>There are two parts to a model:</p>
+<ol type="1">
+<li><p>First, you define a <strong>family of models</strong> that
+express a precise, but generic, pattern that you want to capture. For
+example, the pattern might be a straight line, or a quadratic curve. You
+will express the model family as an equation like
+<code>y = a_1 * x + a_2</code> or <code>y = a_1 * x ^ a_2</code>. Here,
+<code>x</code> and <code>y</code> are known variables from your data,
+and <code>a_1</code> and <code>a_2</code> are parameters that can vary
+to capture different patterns.</p></li>
+<li><p>Next, you generate a <strong>fitted model</strong> by finding the
+model from the family that is the closest to your data. This takes the
+generic model family and makes it specific, like
+<code>y = 3 * x + 7</code> or <code>y = 9 * x ^ 2</code>.</p></li>
+</ol>
+<p>It’s important to understand that a fitted model is just the closest
+model from a family of models. That implies that you have the “best”
+model (according to some criteria); it doesn’t imply that you have a
+good model and it certainly doesn’t imply that the model is “true”.
+George Box puts this well in his famous aphorism:</p>
+<blockquote>
+<p>All models are wrong, but some are useful.</p>
+</blockquote>
+<p>It’s worth reading the fuller context of the quote:</p>
+<blockquote>
+<p>Now it would be very remarkable if any system existing in the real
+world could be exactly represented by any simple model. However,
+cunningly chosen parsimonious models often do provide remarkably useful
+approximations. For example, the law PV = RT relating pressure P, volume
+V and temperature T of an “ideal” gas via a constant R is not exactly
+true for any real gas, but it frequently provides a useful approximation
+and furthermore its structure is informative since it springs from a
+physical view of the behavior of gas molecules.</p>
+<p>For such a model there is no need to ask the question “Is the model
+true?”. If “truth” is to be the “whole truth” the answer must be “No”.
+The only question of interest is “Is the model illuminating and
+useful?”.</p>
+</blockquote>
+<p>The goal of a model is not to uncover truth, but to discover a simple
+approximation that is still useful.</p>
+<h3 id="prerequisites">Prerequisites</h3>
+<p>In this chapter we’ll use the modelr package which wraps around base
+R’s modelling functions to make them work naturally in a pipe.</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(modelr)</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="fu">options</span>(<span class="at">na.action =</span> na.warn)</span></code></pre></div>
+</section>
+<section id="a-simple-model" class="slide level2">
+<h2>A simple model</h2>
+<p>Lets take a look at the simulated dataset <code>sim1</code>, included
+with the modelr package. It contains two continuous variables,
+<code>x</code> and <code>y</code>. Let’s plot them to see how they’re
+related:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-4-1.png" /><!-- --></p>
+<p>You can see a strong pattern in the data. Let’s use a model to
+capture that pattern and make it explicit. It’s our job to supply the
+basic form of the model. In this case, the relationship looks linear,
+i.e. <code>y = a_0 + a_1 * x</code>. Let’s start by getting a feel for
+what models from that family look like by randomly generating a few and
+overlaying them on the data. For this simple case, we can use
+<code>geom_abline()</code> which takes a slope and intercept as
+parameters. Later on we’ll learn more general techniques that work with
+any model.</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">a1 =</span> <span class="fu">runif</span>(<span class="dv">250</span>, <span class="sc">-</span><span class="dv">20</span>, <span class="dv">40</span>),</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">a2 =</span> <span class="fu">runif</span>(<span class="dv">250</span>, <span class="sc">-</span><span class="dv">5</span>, <span class="dv">5</span>)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="fu">aes</span>(<span class="at">intercept =</span> a1, <span class="at">slope =</span> a2), <span class="at">data =</span> models, <span class="at">alpha =</span> <span class="dv">1</span><span class="sc">/</span><span class="dv">4</span>) <span class="sc">+</span></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-5-1.png" /><!-- --></p>
+<p>There are 250 models on this plot, but a lot are really bad! We need
+to find the good models by making precise our intuition that a good
+model is “close” to the data. We need a way to quantify the distance
+between the data and a model. Then we can fit the model by finding the
+value of <code>a_0</code> and <code>a_1</code> that generate the model
+with the smallest distance from this data.</p>
+<p>One easy place to start is to find the vertical distance between each
+point and the model, as in the following diagram. (Note that I’ve
+shifted the x values slightly so you can see the individual
+distances.)</p>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-6-1.png" /><!-- --></p>
+<p>This distance is just the difference between the y value given by the
+model (the <strong>prediction</strong>), and the actual y value in the
+data (the <strong>response</strong>).</p>
+<p>To compute this distance, we first turn our model family into an R
+function. This takes the model parameters and the data as inputs, and
+gives values predicted by the model as output:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, data) {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  a[<span class="dv">1</span>] <span class="sc">+</span> data<span class="sc">$</span>x <span class="sc">*</span> a[<span class="dv">2</span>]</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="fu">model1</span>(<span class="fu">c</span>(<span class="dv">7</span>, <span class="fl">1.5</span>), sim1)</span></code></pre></div>
+<pre><code>##  [1]  8.5  8.5  8.5 10.0 10.0 10.0 11.5 11.5 11.5 13.0 13.0 13.0 14.5 14.5 14.5
+## [16] 16.0 16.0 16.0 17.5 17.5 17.5 19.0 19.0 19.0 20.5 20.5 20.5 22.0 22.0 22.0</code></pre>
+<p>Next, we need some way to compute an overall distance between the
+predicted and actual values. In other words, the plot above shows 30
+distances: how do we collapse that into a single number?</p>
+<p>One common way to do this in statistics to use the “root-mean-squared
+deviation”. We compute the difference between actual and predicted,
+square them, average them, and the take the square root. This distance
+has lots of appealing mathematical properties, which we’re not going to
+talk about here. You’ll just have to take my word for it!</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>measure_distance <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, data) {</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> data<span class="sc">$</span>y <span class="sc">-</span> <span class="fu">model1</span>(mod, data)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>(<span class="fu">mean</span>(diff <span class="sc">^</span> <span class="dv">2</span>))</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">measure_distance</span>(<span class="fu">c</span>(<span class="dv">7</span>, <span class="fl">1.5</span>), sim1)</span></code></pre></div>
+<pre><code>## [1] 2.665212</code></pre>
+<p>Now we can use purrr to compute the distance for all the models
+defined above. We need a helper function because our distance function
+expects the model as a numeric vector of length 2.</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>sim1_dist <span class="ot">&lt;-</span> <span class="cf">function</span>(a1, a2) {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">measure_distance</span>(<span class="fu">c</span>(a1, a2), sim1)</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>models <span class="ot">&lt;-</span> models <span class="sc">%&gt;%</span> </span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dist =</span> purrr<span class="sc">::</span><span class="fu">map2_dbl</span>(a1, a2, sim1_dist))</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>models</span></code></pre></div>
+<pre><code>## # A tibble: 250 × 3
+##         a1     a2  dist
+##      &lt;dbl&gt;  &lt;dbl&gt; &lt;dbl&gt;
+##  1  -2.49   2.16   6.50
+##  2  -7.05  -1.58  33.0 
+##  3 -13.0   -0.477 32.0 
+##  4   0.377  3.32   5.28
+##  5  29.7    1.80  24.2 
+##  6 -18.8   -3.13  53.6 
+##  7  15.9   -0.842  9.57
+##  8  13.6   -0.107  7.01
+##  9  25.3   -2.92  15.7 
+## 10 -17.1   -3.37  53.5 
+## # ℹ 240 more rows</code></pre>
+<p>Next, let’s overlay the 10 best models on to the data. I’ve coloured
+the models by <code>-dist</code>: this is an easy way to make sure that
+the best models (i.e. the ones with the smallest distance) get the
+brighest colours.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">intercept =</span> a1, <span class="at">slope =</span> a2, <span class="at">colour =</span> <span class="sc">-</span>dist), </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">filter</span>(models, <span class="fu">rank</span>(dist) <span class="sc">&lt;=</span> <span class="dv">10</span>)</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-10-1.png" /><!-- --></p>
+<p>We can also think about these models as observations, and visualising
+with a scatterplot of <code>a1</code> vs <code>a2</code>, again coloured
+by <code>-dist</code>. We can no longer directly see how the model
+compares to the data, but we can see many models at once. Again, I’ve
+highlighted the 10 best models, this time by drawing red circles
+underneath them.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(models, <span class="fu">aes</span>(a1, a2)) <span class="sc">+</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(models, <span class="fu">rank</span>(dist) <span class="sc">&lt;=</span> <span class="dv">10</span>), <span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="sc">-</span>dist))</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-11-1.png" /><!-- --></p>
+<p>Instead of trying lots of random models, we could be more systematic
+and generate an evenly spaced grid of points (this is called a grid
+search). I picked the parameters of the grid roughly by looking at where
+the best models were in the plot above.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> <span class="fu">expand.grid</span>(</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">a1 =</span> <span class="fu">seq</span>(<span class="sc">-</span><span class="dv">5</span>, <span class="dv">20</span>, <span class="at">length =</span> <span class="dv">25</span>),</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">a2 =</span> <span class="fu">seq</span>(<span class="dv">1</span>, <span class="dv">3</span>, <span class="at">length =</span> <span class="dv">25</span>)</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">dist =</span> purrr<span class="sc">::</span><span class="fu">map2_dbl</span>(a1, a2, sim1_dist))</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>grid <span class="sc">%&gt;%</span> </span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(a1, a2)) <span class="sc">+</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> <span class="fu">filter</span>(grid, <span class="fu">rank</span>(dist) <span class="sc">&lt;=</span> <span class="dv">10</span>), <span class="at">size =</span> <span class="dv">4</span>, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> <span class="sc">-</span>dist)) </span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-12-1.png" /><!-- --></p>
+<p>When you overlay the best 10 models back on the original data, they
+all look pretty good:</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">intercept =</span> a1, <span class="at">slope =</span> a2, <span class="at">colour =</span> <span class="sc">-</span>dist), </span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">filter</span>(grid, <span class="fu">rank</span>(dist) <span class="sc">&lt;=</span> <span class="dv">10</span>)</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-13-1.png" /><!-- --></p>
+<p>You could imagine iteratively making the grid finer and finer until
+you narrowed in on the best model. But there’s a better way to tackle
+that problem: a numerical minimisation tool called Newton-Raphson
+search. The intuition of Newton-Raphson is pretty simple: you pick a
+starting point and look around for the steepest slope. You then ski down
+that slope a little way, and then repeat again and again, until you
+can’t go any lower. In R, we can do that with <code>optim()</code>:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>best <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">0</span>), measure_distance, <span class="at">data =</span> sim1)</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>best<span class="sc">$</span>par</span></code></pre></div>
+<pre><code>## [1] 4.222248 2.051204</code></pre>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size =</span> <span class="dv">2</span>, <span class="at">colour =</span> <span class="st">&quot;grey30&quot;</span>) <span class="sc">+</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_abline</span>(<span class="at">intercept =</span> best<span class="sc">$</span>par[<span class="dv">1</span>], <span class="at">slope =</span> best<span class="sc">$</span>par[<span class="dv">2</span>])</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-14-1.png" /><!-- --></p>
+<p>Don’t worry too much about the details of how <code>optim()</code>
+works. It’s the intuition that’s important here. If you have a function
+that defines the distance between a model and a dataset, an algorithm
+that can minimise that distance by modifying the parameters of the
+model, you can find the best model. The neat thing about this approach
+is that it will work for any family of models that you can write an
+equation for.</p>
+<p>There’s one more approach that we can use for this model, because
+it’s a special case of a broader family: linear models. A linear model
+has the general form
+<code>y = a_1 + a_2 * x_1 + a_3 * x_2 + ... + a_n * x_(n - 1)</code>. So
+this simple model is equivalent to a general linear model where n is 2
+and <code>x_1</code> is <code>x</code>. R has a tool specifically
+designed for fitting linear models called <code>lm()</code>.
+<code>lm()</code> has a special way to specify the model family:
+formulas. Formulas look like <code>y ~ x</code>, which <code>lm()</code>
+will translate to a function like <code>y = a_1 + a_2 * x</code>. We can
+fit the model and look at the output:</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>sim1_mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> sim1)</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">coef</span>(sim1_mod)</span></code></pre></div>
+<pre><code>## (Intercept)           x 
+##    4.220822    2.051533</code></pre>
+<p>These are exactly the same values we got with <code>optim()</code>!
+Behind the scenes <code>lm()</code> doesn’t use <code>optim()</code> but
+instead takes advantage of the mathematical structure of linear models.
+Using some connections between geometry, calculus, and linear algebra,
+<code>lm()</code> actually finds the closest model in a single step,
+using a sophisticated algorithm. This approach is both faster, and
+guarantees that there is a global minimum.</p>
+<h3 id="exercises">Exercises</h3>
+<ol type="1">
+<li><p>One downside of the linear model is that it is sensitive to
+unusual values because the distance incorporates a squared term. Fit a
+linear model to the simulated data below, and visualise the results.
+Rerun a few times to generate different simulated datasets. What do you
+notice about the model?</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>sim1a <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">rep</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>, <span class="at">each =</span> <span class="dv">3</span>),</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> x <span class="sc">*</span> <span class="fl">1.5</span> <span class="sc">+</span> <span class="dv">6</span> <span class="sc">+</span> <span class="fu">rt</span>(<span class="fu">length</span>(x), <span class="at">df =</span> <span class="dv">2</span>)</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div></li>
+<li><p>One way to make linear models more robust is to use a different
+distance measure. For example, instead of root-mean-squared distance,
+you could use mean-absolute distance:</p>
+<div class="sourceCode" id="cb20"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>measure_distance <span class="ot">&lt;-</span> <span class="cf">function</span>(mod, data) {</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> data<span class="sc">$</span>y <span class="sc">-</span> <span class="fu">model1</span>(mod, data)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>(<span class="fu">abs</span>(diff))</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Use <code>optim()</code> to fit this model to the simulated data
+above and compare it to the linear model.</p></li>
+<li><p>One challenge with performing numerical optimisation is that it’s
+only guaranteed to find one local optimum. What’s the problem with
+optimising a three parameter model like this?</p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>model1 <span class="ot">&lt;-</span> <span class="cf">function</span>(a, data) {</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  a[<span class="dv">1</span>] <span class="sc">+</span> data<span class="sc">$</span>x <span class="sc">*</span> a[<span class="dv">2</span>] <span class="sc">+</span> a[<span class="dv">3</span>]</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div></li>
+</ol>
+</section>
+<section id="visualising-models" class="slide level2">
+<h2>Visualising models</h2>
+<p>For simple models, like the one above, you can figure out what
+pattern the model captures by carefully studying the model family and
+the fitted coefficients. And if you ever take a statistics course on
+modelling, you’re likely to spend a lot of time doing just that. Here,
+however, we’re going to take a different tack. We’re going to focus on
+understanding a model by looking at its predictions. This has a big
+advantage: every type of predictive model makes predictions (otherwise
+what use would it be?) so we can use the same set of techniques to
+understand any type of predictive model.</p>
+<p>It’s also useful to see what the model doesn’t capture, the so-called
+residuals which are left after subtracting the predictions from the
+data. Residuals are powerful because they allow us to use models to
+remove striking patterns so we can study the subtler trends that
+remain.</p>
+<h3 id="predictions">Predictions</h3>
+<p>To visualise the predictions from a model, we start by generating an
+evenly spaced grid of values that covers the region where our data lies.
+The easiest way to do that is to use <code>modelr::data_grid()</code>.
+Its first argument is a data frame, and for each subsequent argument it
+finds the unique variables and then generates all combinations:</p>
+<div class="sourceCode" id="cb22"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim1 <span class="sc">%&gt;%</span> </span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(x) </span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>grid</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 1
+##        x
+##    &lt;int&gt;
+##  1     1
+##  2     2
+##  3     3
+##  4     4
+##  5     5
+##  6     6
+##  7     7
+##  8     8
+##  9     9
+## 10    10</code></pre>
+<p>(This will get more interesting when we start to add more variables
+to our model.)</p>
+<p>Next we add predictions. We’ll use
+<code>modelr::add_predictions()</code> which takes a data frame and a
+model. It adds the predictions from the model to a new column in the
+data frame:</p>
+<div class="sourceCode" id="cb24"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> grid <span class="sc">%&gt;%</span> </span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(sim1_mod) </span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>grid</span></code></pre></div>
+<pre><code>## # A tibble: 10 × 2
+##        x  pred
+##    &lt;int&gt; &lt;dbl&gt;
+##  1     1  6.27
+##  2     2  8.32
+##  3     3 10.4 
+##  4     4 12.4 
+##  5     5 14.5 
+##  6     6 16.5 
+##  7     7 18.6 
+##  8     8 20.6 
+##  9     9 22.7 
+## 10    10 24.7</code></pre>
+<p>(You can also use this function to add predictions to your original
+dataset.)</p>
+<p>Next, we plot the predictions. You might wonder about all this extra
+work compared to just using <code>geom_abline()</code>. But the
+advantage of this approach is that it will work with <em>any</em> model
+in R, from the simplest to the most complex. You’re only limited by your
+visualisation skills. For more ideas about how to visualise more complex
+model types, you might try <a
+href="http://vita.had.co.nz/papers/model-vis.html"
+class="uri">http://vita.had.co.nz/papers/model-vis.html</a>.</p>
+<div class="sourceCode" id="cb26"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x)) <span class="sc">+</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">data =</span> grid, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+## ℹ Please use `linewidth` instead.
+## This warning is displayed once every 8 hours.
+## Call `lifecycle::last_lifecycle_warnings()` to see where this warning was
+## generated.</code></pre>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-21-1.png" /><!-- --></p>
+<h3 id="residuals">Residuals</h3>
+<p>The flip-side of predictions are <strong>residuals</strong>. The
+predictions tells you the pattern that the model has captured, and the
+residuals tell you what the model has missed. The residuals are just the
+distances between the observed and predicted values that we computed
+above.</p>
+<p>We add residuals to the data with <code>add_residuals()</code>, which
+works much like <code>add_predictions()</code>. Note, however, that we
+use the original dataset, not a manufactured grid. This is because to
+compute residuals we need actual y values.</p>
+<div class="sourceCode" id="cb28"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>sim1 <span class="ot">&lt;-</span> sim1 <span class="sc">%&gt;%</span> </span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_residuals</span>(sim1_mod)</span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>sim1</span></code></pre></div>
+<pre><code>## # A tibble: 30 × 3
+##        x     y    resid
+##    &lt;int&gt; &lt;dbl&gt;    &lt;dbl&gt;
+##  1     1  4.20 -2.07   
+##  2     1  7.51  1.24   
+##  3     1  2.13 -4.15   
+##  4     2  8.99  0.665  
+##  5     2 10.2   1.92   
+##  6     2 11.3   2.97   
+##  7     3  7.36 -3.02   
+##  8     3 10.5   0.130  
+##  9     3 10.5   0.136  
+## 10     4 12.4   0.00763
+## # ℹ 20 more rows</code></pre>
+<p>There are a few different ways to understand what the residuals tell
+us about the model. One way is to simply draw a frequency polygon to
+help us understand the spread of the residuals:</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(resid)) <span class="sc">+</span> </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_freqpoly</span>(<span class="at">binwidth =</span> <span class="fl">0.5</span>)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-23-1.png" /><!-- --></p>
+<p>This helps you calibrate the quality of the model: how far away are
+the predictions from the observed values? Note that the average of the
+residual will always be 0.</p>
+<p>You’ll often want to recreate plots using the residuals instead of
+the original predictor. You’ll see a lot of that in the next
+chapter.</p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim1, <span class="fu">aes</span>(x, resid)) <span class="sc">+</span> </span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_ref_line</span>(<span class="at">h =</span> <span class="dv">0</span>) <span class="sc">+</span></span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() </span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-24-1.png" /><!-- --></p>
+<p>This looks like random noise, suggesting that our model has done a
+good job of capturing the patterns in the dataset.</p>
+<h3 id="exercises-1">Exercises</h3>
+<ol type="1">
+<li><p>Instead of using <code>lm()</code> to fit a straight line, you
+can use <code>loess()</code> to fit a smooth curve. Repeat the process
+of model fitting, grid generation, predictions, and visualisation on
+<code>sim1</code> using <code>loess()</code> instead of
+<code>lm()</code>. How does the result compare to
+<code>geom_smooth()</code>?</p></li>
+<li><p><code>add_predictions()</code> is paired with
+<code>gather_predictions()</code> and <code>spread_predictions()</code>.
+How do these three functions differ?</p></li>
+<li><p>What does <code>geom_ref_line()</code> do? What package does it
+come from? Why is displaying a reference line in plots showing residuals
+useful and important?</p></li>
+<li><p>Why might you want to look at a frequency polygon of absolute
+residuals? What are the pros and cons compared to looking at the raw
+residuals?</p></li>
+</ol>
+</section>
+<section id="formulas-and-model-families" class="slide level2">
+<h2>Formulas and model families</h2>
+<p>You’ve seen formulas before when using <code>facet_wrap()</code> and
+<code>facet_grid()</code>. In R, formulas provide a general way of
+getting “special behaviour”. Rather than evaluating the values of the
+variables right away, they capture them so they can be interpreted by
+the function.</p>
+<p>The majority of modelling functions in R use a standard conversion
+from formulas to functions. You’ve seen one simple conversion already:
+<code>y ~ x</code> is translated to <code>y = a_1 + a_2 * x</code>. If
+you want to see what R actually does, you can use the
+<code>model_matrix()</code> function. It takes a data frame and a
+formula and returns a tibble that defines the model equation: each
+column in the output is associated with one coefficient in the model,
+the function is always <code>y = a_1 * out1 + a_2 * out_2</code>. For
+the simplest case of <code>y ~ x1</code> this shows us something
+interesting:</p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>y, <span class="sc">~</span>x1, <span class="sc">~</span>x2,</span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>, <span class="dv">2</span>, <span class="dv">5</span>,</span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">5</span>, <span class="dv">1</span>, <span class="dv">6</span></span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, y <span class="sc">~</span> x1)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 2
+##   `(Intercept)`    x1
+##           &lt;dbl&gt; &lt;dbl&gt;
+## 1             1     2
+## 2             1     1</code></pre>
+<p>The way that R adds the intercept to the model is just by having a
+column that is full of ones. By default, R will always add this column.
+If you don’t want, you need to explicitly drop it with
+<code>-1</code>:</p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, y <span class="sc">~</span> x1 <span class="sc">-</span> <span class="dv">1</span>)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 1
+##      x1
+##   &lt;dbl&gt;
+## 1     2
+## 2     1</code></pre>
+<p>The model matrix grows in an unsurprising way when you add more
+variables to the the model:</p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, y <span class="sc">~</span> x1 <span class="sc">+</span> x2)</span></code></pre></div>
+<pre><code>## # A tibble: 2 × 3
+##   `(Intercept)`    x1    x2
+##           &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
+## 1             1     2     5
+## 2             1     1     6</code></pre>
+<p>This formula notation is sometimes called “Wilkinson-Rogers
+notation”, and was initially described in <em>Symbolic Description of
+Factorial Models for Analysis of Variance</em>, by G. N. Wilkinson and
+C. E. Rogers <a href="https://www.jstor.org/stable/2346786"
+class="uri">https://www.jstor.org/stable/2346786</a>. It’s worth digging
+up and reading the original paper if you’d like to understand the full
+details of the modelling algebra.</p>
+<p>The following sections expand on how this formula notation works for
+categorical variables, interactions, and transformation.</p>
+<h3 id="categorical-variables">Categorical variables</h3>
+<p>Generating a function from a formula is straight forward when the
+predictor is continuous, but things get a bit more complicated when the
+predictor is categorical. Imagine you have a formula like
+<code>y ~ sex</code>, where sex could either be male or female. It
+doesn’t make sense to convert that to a formula like
+<code>y = x_0 + x_1 * sex</code> because <code>sex</code> isn’t a number
+- you can’t multiply it! Instead what R does is convert it to
+<code>y = x_0 + x_1 * sex_male</code> where <code>sex_male</code> is one
+if <code>sex</code> is male and zero otherwise:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span> sex, <span class="sc">~</span> response,</span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;male&quot;</span>, <span class="dv">1</span>,</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;female&quot;</span>, <span class="dv">2</span>,</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;male&quot;</span>, <span class="dv">1</span></span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, response <span class="sc">~</span> sex)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   `(Intercept)` sexmale
+##           &lt;dbl&gt;   &lt;dbl&gt;
+## 1             1       1
+## 2             1       0
+## 3             1       1</code></pre>
+<p>You might wonder why R also doesn’t create a <code>sexfemale</code>
+column. The problem is that would create a column that is perfectly
+predictable based on the other columns
+(i.e. <code>sexfemale = 1 - sexmale</code>). Unfortunately the exact
+details of why this is a problem is beyond the scope of this book, but
+basically it creates a model family that is too flexible, and will have
+infinitely many models that are equally close to the data.</p>
+<p>Fortunately, however, if you focus on visualising predictions you
+don’t need to worry about the exact parameterisation. Let’s look at some
+data and models to make that concrete. Here’s the <code>sim2</code>
+dataset from modelr:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim2) <span class="sc">+</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(x, y))</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-29-1.png" /><!-- --></p>
+<p>We can fit a model to it, and generate predictions:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> sim2)</span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim2 <span class="sc">%&gt;%</span> </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(x) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(mod2)</span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>grid</span></code></pre></div>
+<pre><code>## # A tibble: 4 × 2
+##   x      pred
+##   &lt;chr&gt; &lt;dbl&gt;
+## 1 a      1.15
+## 2 b      8.12
+## 3 c      6.13
+## 4 d      1.91</code></pre>
+<p>Effectively, a model with a categorical <code>x</code> will predict
+the mean value for each category. (Why? Because the mean minimises the
+root-mean-squared distance.) That’s easy to see if we overlay the
+predictions on top of the original data:</p>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim2, <span class="fu">aes</span>(x)) <span class="sc">+</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">y =</span> y)) <span class="sc">+</span></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(<span class="at">y =</span> pred), <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>, <span class="at">size =</span> <span class="dv">4</span>)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-31-1.png" /><!-- --></p>
+<p>You can’t make predictions about levels that you didn’t observe.
+Sometimes you’ll do this by accident so it’s good to recognise this
+error message:</p>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">tibble</span>(<span class="at">x =</span> <span class="st">&quot;e&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_predictions</span>(mod2)</span></code></pre></div>
+<pre><code>## Error in model.frame.default(Terms, newdata, na.action = na.action, xlev = object$xlevels): factor x has new level e</code></pre>
+<h3 id="interactions-continuous-and-categorical">Interactions
+(continuous and categorical)</h3>
+<p>What happens when you combine a continuous and a categorical
+variable? <code>sim3</code> contains a categorical predictor and a
+continuous predictor. We can visualise it with a simple plot:</p>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim3, <span class="fu">aes</span>(x1, y)) <span class="sc">+</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="fu">aes</span>(<span class="at">colour =</span> x2))</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-33-1.png" /><!-- --></p>
+<p>There are two possible models you could fit to this data:</p>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> sim3)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> sim3)</span></code></pre></div>
+<p>When you add variables with <code>+</code>, the model will estimate
+each effect independent of all the others. It’s possible to fit the
+so-called interaction by using <code>*</code>. For example,
+<code>y ~ x1 * x2</code> is translated to
+<code>y = a_0 + a_1 * x1 + a_2 * x2 + a_12 * x1 * x2</code>. Note that
+whenever you use <code>*</code>, both the interaction and the individual
+components are included in the model.</p>
+<p>To visualise these models we need two new tricks:</p>
+<ol type="1">
+<li><p>We have two predictors, so we need to give
+<code>data_grid()</code> both variables. It finds all the unique values
+of <code>x1</code> and <code>x2</code> and then generates all
+combinations.</p></li>
+<li><p>To generate predictions from both models simultaneously, we can
+use <code>gather_predictions()</code> which adds each prediction as a
+row. The complement of <code>gather_predictions()</code> is
+<code>spread_predictions()</code> which adds each prediction to a new
+column.</p></li>
+</ol>
+<p>Together this gives us:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim3 <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(x1, x2) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>(mod1, mod2)</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>grid</span></code></pre></div>
+<pre><code>## # A tibble: 80 × 4
+##    model    x1 x2     pred
+##    &lt;chr&gt; &lt;int&gt; &lt;fct&gt; &lt;dbl&gt;
+##  1 mod1      1 a      1.67
+##  2 mod1      1 b      4.56
+##  3 mod1      1 c      6.48
+##  4 mod1      1 d      4.03
+##  5 mod1      2 a      1.48
+##  6 mod1      2 b      4.37
+##  7 mod1      2 c      6.28
+##  8 mod1      2 d      3.84
+##  9 mod1      3 a      1.28
+## 10 mod1      3 b      4.17
+## # ℹ 70 more rows</code></pre>
+<p>We can visualise the results for both models on one plot using
+facetting:</p>
+<div class="sourceCode" id="cb50"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim3, <span class="fu">aes</span>(x1, y, <span class="at">colour =</span> x2)) <span class="sc">+</span> </span>
+<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="fu">aes</span>(<span class="at">y =</span> pred)) <span class="sc">+</span> </span>
+<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-36-1.png" /><!-- --></p>
+<p>Note that the model that uses <code>+</code> has the same slope for
+each line, but different intercepts. The model that uses <code>*</code>
+has a different slope and intercept for each line.</p>
+<p>Which model is better for this data? We can take look at the
+residuals. Here I’ve facetted by both model and <code>x2</code> because
+it makes it easier to see the pattern within each group.</p>
+<div class="sourceCode" id="cb51"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>sim3 <span class="ot">&lt;-</span> sim3 <span class="sc">%&gt;%</span> </span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_residuals</span>(mod1, mod2)</span>
+<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim3, <span class="fu">aes</span>(x1, resid, <span class="at">colour =</span> x2)) <span class="sc">+</span> </span>
+<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span> </span>
+<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_grid</span>(model <span class="sc">~</span> x2)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-37-1.png" /><!-- --></p>
+<p>There is little obvious pattern in the residuals for
+<code>mod2</code>. The residuals for <code>mod1</code> show that the
+model has clearly missed some pattern in <code>b</code>, and less so,
+but still present is pattern in <code>c</code>, and <code>d</code>. You
+might wonder if there’s a precise way to tell which of <code>mod1</code>
+or <code>mod2</code> is better. There is, but it requires a lot of
+mathematical background, and we don’t really care. Here, we’re
+interested in a qualitative assessment of whether or not the model has
+captured the pattern that we’re interested in.</p>
+<h3 id="interactions-two-continuous">Interactions (two continuous)</h3>
+<p>Let’s take a look at the equivalent model for two continuous
+variables. Initially things proceed almost identically to the previous
+example:</p>
+<div class="sourceCode" id="cb52"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> sim4)</span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> sim4)</span>
+<span id="cb52-3"><a href="#cb52-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb52-4"><a href="#cb52-4" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim4 <span class="sc">%&gt;%</span> </span>
+<span id="cb52-5"><a href="#cb52-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(</span>
+<span id="cb52-6"><a href="#cb52-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">x1 =</span> <span class="fu">seq_range</span>(x1, <span class="dv">5</span>), </span>
+<span id="cb52-7"><a href="#cb52-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x2 =</span> <span class="fu">seq_range</span>(x2, <span class="dv">5</span>) </span>
+<span id="cb52-8"><a href="#cb52-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
+<span id="cb52-9"><a href="#cb52-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>(mod1, mod2)</span>
+<span id="cb52-10"><a href="#cb52-10" aria-hidden="true" tabindex="-1"></a>grid</span></code></pre></div>
+<pre><code>## # A tibble: 50 × 4
+##    model    x1    x2   pred
+##    &lt;chr&gt; &lt;dbl&gt; &lt;dbl&gt;  &lt;dbl&gt;
+##  1 mod1   -1    -1    0.996
+##  2 mod1   -1    -0.5 -0.395
+##  3 mod1   -1     0   -1.79 
+##  4 mod1   -1     0.5 -3.18 
+##  5 mod1   -1     1   -4.57 
+##  6 mod1   -0.5  -1    1.91 
+##  7 mod1   -0.5  -0.5  0.516
+##  8 mod1   -0.5   0   -0.875
+##  9 mod1   -0.5   0.5 -2.27 
+## 10 mod1   -0.5   1   -3.66 
+## # ℹ 40 more rows</code></pre>
+<p>Note my use of <code>seq_range()</code> inside
+<code>data_grid()</code>. Instead of using every unique value of
+<code>x</code>, I’m going to use a regularly spaced grid of five values
+between the minimum and maximum numbers. It’s probably not super
+important here, but it’s a useful technique in general. There are two
+other useful arguments to <code>seq_range()</code>:</p>
+<ul>
+<li><p><code>pretty = TRUE</code> will generate a “pretty” sequence,
+i.e. something that looks nice to the human eye. This is useful if you
+want to produce tables of output:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(<span class="fu">c</span>(<span class="fl">0.0123</span>, <span class="fl">0.923423</span>), <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 0.0123000 0.2400808 0.4678615 0.6956423 0.9234230</code></pre>
+<div class="sourceCode" id="cb56"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(<span class="fu">c</span>(<span class="fl">0.0123</span>, <span class="fl">0.923423</span>), <span class="at">n =</span> <span class="dv">5</span>, <span class="at">pretty =</span> <span class="cn">TRUE</span>)</span></code></pre></div>
+<pre><code>## [1] 0.0 0.2 0.4 0.6 0.8 1.0</code></pre></li>
+<li><p><code>trim = 0.1</code> will trim off 10% of the tail values.
+This is useful if the variables have a long tailed distribution and you
+want to focus on generating values near the center:</p>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rcauchy</span>(<span class="dv">100</span>)</span>
+<span id="cb58-2"><a href="#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x1, <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] -188.68899 -137.80306  -86.91713  -36.03120   14.85472</code></pre>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="#cb60-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x1, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">trim =</span> <span class="fl">0.10</span>)</span></code></pre></div>
+<pre><code>## [1] -18.8912505 -12.8519316  -6.8126127  -0.7732938   5.2660250</code></pre>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="#cb62-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x1, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">trim =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<pre><code>## [1] -4.505561 -2.915958 -1.326355  0.263248  1.852851</code></pre>
+<div class="sourceCode" id="cb64"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x1, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">trim =</span> <span class="fl">0.50</span>)</span></code></pre></div>
+<pre><code>## [1] -1.0161953 -0.5842804 -0.1523656  0.2795493  0.7114642</code></pre></li>
+<li><p><code>expand = 0.1</code> is in some sense the opposite of
+<code>trim()</code> it expands the range by 10%.</p>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="#cb66-1" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">0</span>, <span class="dv">1</span>)</span>
+<span id="cb66-2"><a href="#cb66-2" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x2, <span class="at">n =</span> <span class="dv">5</span>)</span></code></pre></div>
+<pre><code>## [1] 0.00 0.25 0.50 0.75 1.00</code></pre>
+<div class="sourceCode" id="cb68"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb68-1"><a href="#cb68-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x2, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">expand =</span> <span class="fl">0.10</span>)</span></code></pre></div>
+<pre><code>## [1] -0.050  0.225  0.500  0.775  1.050</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x2, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">expand =</span> <span class="fl">0.25</span>)</span></code></pre></div>
+<pre><code>## [1] -0.1250  0.1875  0.5000  0.8125  1.1250</code></pre>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="fu">seq_range</span>(x2, <span class="at">n =</span> <span class="dv">5</span>, <span class="at">expand =</span> <span class="fl">0.50</span>)</span></code></pre></div>
+<pre><code>## [1] -0.250  0.125  0.500  0.875  1.250</code></pre></li>
+</ul>
+<p>Next let’s try and visualise that model. We have two continuous
+predictors, so you can imagine the model like a 3d surface. We could
+display that using <code>geom_tile()</code>:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(x1, x2)) <span class="sc">+</span> </span>
+<span id="cb74-2"><a href="#cb74-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_tile</span>(<span class="fu">aes</span>(<span class="at">fill =</span> pred)) <span class="sc">+</span> </span>
+<span id="cb74-3"><a href="#cb74-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-42-1.png" /><!-- --></p>
+<p>That doesn’t suggest that the models are very different! But that’s
+partly an illusion: our eyes and brains are not very good at accurately
+comparing shades of colour. Instead of looking at the surface from the
+top, we could look at it from either side, showing multiple slices:</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(x1, pred, <span class="at">colour =</span> x2, <span class="at">group =</span> x2)) <span class="sc">+</span> </span>
+<span id="cb75-2"><a href="#cb75-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb75-3"><a href="#cb75-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-43-1.png" /><!-- --></p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(grid, <span class="fu">aes</span>(x2, pred, <span class="at">colour =</span> x1, <span class="at">group =</span> x1)) <span class="sc">+</span> </span>
+<span id="cb76-2"><a href="#cb76-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>() <span class="sc">+</span></span>
+<span id="cb76-3"><a href="#cb76-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-43-2.png" /><!-- --></p>
+<p>This shows you that interaction between two continuous variables
+works basically the same way as for a categorical and continuous
+variable. An interaction says that there’s not a fixed offset: you need
+to consider both values of <code>x1</code> and <code>x2</code>
+simultaneously in order to predict <code>y</code>.</p>
+<p>You can see that even with just two continuous variables, coming up
+with good visualisations are hard. But that’s reasonable: you shouldn’t
+expect it will be easy to understand how three or more variables
+simultaneously interact! But again, we’re saved a little because we’re
+using models for exploration, and you can gradually build up your model
+over time. The model doesn’t have to be perfect, it just has to help you
+reveal a little more about your data.</p>
+<p>I spent some time looking at the residuals to see if I could figure
+if <code>mod2</code> did better than <code>mod1</code>. I think it does,
+but it’s pretty subtle. You’ll have a chance to work on it in the
+exercises.</p>
+<h3 id="transformations">Transformations</h3>
+<p>You can also perform transformations inside the model formula. For
+example, <code>log(y) ~ sqrt(x1) + x2</code> is transformed to
+<code>log(y) = a_1 + a_2 * sqrt(x1) + a_3 * x2</code>. If your
+transformation involves <code>+</code>, <code>*</code>, <code>^</code>,
+or <code>-</code>, you’ll need to wrap it in <code>I()</code> so R
+doesn’t treat it like part of the model specification. For example,
+<code>y ~ x + I(x ^ 2)</code> is translated to
+<code>y = a_1 + a_2 * x + a_3 * x^2</code>. If you forget the
+<code>I()</code> and specify <code>y ~ x ^ 2 + x</code>, R will compute
+<code>y ~ x * x + x</code>. <code>x * x</code> means the interaction of
+<code>x</code> with itself, which is the same as <code>x</code>. R
+automatically drops redundant variables so <code>x + x</code> become
+<code>x</code>, meaning that <code>y ~ x ^ 2 + x</code> specifies the
+function <code>y = a_1 + a_2 * x</code>. That’s probably not what you
+intended!</p>
+<p>Again, if you get confused about what your model is doing, you can
+always use <code>model_matrix()</code> to see exactly what equation
+<code>lm()</code> is fitting:</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb77-2"><a href="#cb77-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>y, <span class="sc">~</span>x,</span>
+<span id="cb77-3"><a href="#cb77-3" aria-hidden="true" tabindex="-1"></a>   <span class="dv">1</span>,  <span class="dv">1</span>,</span>
+<span id="cb77-4"><a href="#cb77-4" aria-hidden="true" tabindex="-1"></a>   <span class="dv">2</span>,  <span class="dv">2</span>, </span>
+<span id="cb77-5"><a href="#cb77-5" aria-hidden="true" tabindex="-1"></a>   <span class="dv">3</span>,  <span class="dv">3</span></span>
+<span id="cb77-6"><a href="#cb77-6" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb77-7"><a href="#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, y <span class="sc">~</span> x<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> x)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 2
+##   `(Intercept)`     x
+##           &lt;dbl&gt; &lt;dbl&gt;
+## 1             1     1
+## 2             1     2
+## 3             1     3</code></pre>
+<div class="sourceCode" id="cb79"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb79-1"><a href="#cb79-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, y <span class="sc">~</span> <span class="fu">I</span>(x<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> x)</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   `(Intercept)` `I(x^2)`     x
+##           &lt;dbl&gt;    &lt;dbl&gt; &lt;dbl&gt;
+## 1             1        1     1
+## 2             1        4     2
+## 3             1        9     3</code></pre>
+<p>Transformations are useful because you can use them to approximate
+non-linear functions. If you’ve taken a calculus class, you may have
+heard of Taylor’s theorem which says you can approximate any smooth
+function with an infinite sum of polynomials. That means you can use a
+polynomial function to get arbitrarily close to a smooth function by
+fitting an equation like
+<code>y = a_1 + a_2 * x + a_3 * x^2 + a_4 * x ^ 3</code>. Typing that
+sequence by hand is tedious, so R provides a helper function:
+<code>poly()</code>:</p>
+<div class="sourceCode" id="cb81"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb81-1"><a href="#cb81-1" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, y <span class="sc">~</span> <span class="fu">poly</span>(x, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   `(Intercept)` `poly(x, 2)1` `poly(x, 2)2`
+##           &lt;dbl&gt;         &lt;dbl&gt;         &lt;dbl&gt;
+## 1             1     -7.07e- 1         0.408
+## 2             1     -9.07e-17        -0.816
+## 3             1      7.07e- 1         0.408</code></pre>
+<p>However there’s one major problem with using <code>poly()</code>:
+outside the range of the data, polynomials rapidly shoot off to positive
+or negative infinity. One safer alternative is to use the natural
+spline, <code>splines::ns()</code>.</p>
+<div class="sourceCode" id="cb83"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb83-1"><a href="#cb83-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(splines)</span>
+<span id="cb83-2"><a href="#cb83-2" aria-hidden="true" tabindex="-1"></a><span class="fu">model_matrix</span>(df, y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">2</span>))</span></code></pre></div>
+<pre><code>## # A tibble: 3 × 3
+##   `(Intercept)` `ns(x, 2)1` `ns(x, 2)2`
+##           &lt;dbl&gt;       &lt;dbl&gt;       &lt;dbl&gt;
+## 1             1       0           0    
+## 2             1       0.566      -0.211
+## 3             1       0.344       0.771</code></pre>
+<p>Let’s see what that looks like when we try and approximate a
+non-linear function:</p>
+<div class="sourceCode" id="cb85"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb85-1"><a href="#cb85-1" aria-hidden="true" tabindex="-1"></a>sim5 <span class="ot">&lt;-</span> <span class="fu">tibble</span>(</span>
+<span id="cb85-2"><a href="#cb85-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> <span class="fu">seq</span>(<span class="dv">0</span>, <span class="fl">3.5</span> <span class="sc">*</span> pi, <span class="at">length =</span> <span class="dv">50</span>),</span>
+<span id="cb85-3"><a href="#cb85-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> <span class="dv">4</span> <span class="sc">*</span> <span class="fu">sin</span>(x) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="fu">length</span>(x))</span>
+<span id="cb85-4"><a href="#cb85-4" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb85-5"><a href="#cb85-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb85-6"><a href="#cb85-6" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim5, <span class="fu">aes</span>(x, y)) <span class="sc">+</span></span>
+<span id="cb85-7"><a href="#cb85-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-47-1.png" /><!-- --></p>
+<p>I’m going to fit five models to this data.</p>
+<div class="sourceCode" id="cb86"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">1</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">2</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>mod3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">3</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>mod4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">4</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>mod5 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> <span class="fu">ns</span>(x, <span class="dv">5</span>), <span class="at">data =</span> sim5)</span>
+<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a>grid <span class="ot">&lt;-</span> sim5 <span class="sc">%&gt;%</span> </span>
+<span id="cb86-8"><a href="#cb86-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">data_grid</span>(<span class="at">x =</span> <span class="fu">seq_range</span>(x, <span class="at">n =</span> <span class="dv">50</span>, <span class="at">expand =</span> <span class="fl">0.1</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb86-9"><a href="#cb86-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather_predictions</span>(mod1, mod2, mod3, mod4, mod5, <span class="at">.pred =</span> <span class="st">&quot;y&quot;</span>)</span>
+<span id="cb86-10"><a href="#cb86-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb86-11"><a href="#cb86-11" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(sim5, <span class="fu">aes</span>(x, y)) <span class="sc">+</span> </span>
+<span id="cb86-12"><a href="#cb86-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb86-13"><a href="#cb86-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>(<span class="at">data =</span> grid, <span class="at">colour =</span> <span class="st">&quot;red&quot;</span>) <span class="sc">+</span></span>
+<span id="cb86-14"><a href="#cb86-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> model)</span></code></pre></div>
+<p><img
+data-src="PS_13_files/figure-revealjs/unnamed-chunk-48-1.png" /><!-- --></p>
+<p>Notice that the extrapolation outside the range of the data is
+clearly bad. This is the downside to approximating a function with a
+polynomial. But this is a very real problem with every model: the model
+can never tell you if the behaviour is true when you start extrapolating
+outside the range of the data that you have seen. You must rely on
+theory and science.</p>
+<h3 id="exercises-2">Exercises</h3>
+<ol type="1">
+<li><p>What happens if you repeat the analysis of <code>sim2</code>
+using a model without an intercept. What happens to the model equation?
+What happens to the predictions?</p></li>
+<li><p>Use <code>model_matrix()</code> to explore the equations
+generated for the models I fit to <code>sim3</code> and
+<code>sim4</code>. Why is <code>*</code> a good shorthand for
+interaction?</p></li>
+<li><p>Using the basic principles, convert the formulas in the following
+two models into functions. (Hint: start by converting the categorical
+variable into 0-1 variables.)</p>
+<div class="sourceCode" id="cb87"><pre
+class="sourceCode r"><code class="sourceCode r"><span id="cb87-1"><a href="#cb87-1" aria-hidden="true" tabindex="-1"></a>mod1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">+</span> x2, <span class="at">data =</span> sim3)</span>
+<span id="cb87-2"><a href="#cb87-2" aria-hidden="true" tabindex="-1"></a>mod2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x1 <span class="sc">*</span> x2, <span class="at">data =</span> sim3)</span></code></pre></div></li>
+<li><p>For <code>sim4</code>, which of <code>mod1</code> and
+<code>mod2</code> is better? I think <code>mod2</code> does a slightly
+better job at removing patterns, but it’s pretty subtle. Can you come up
+with a plot to support my claim?</p></li>
+</ol>
+</section>
+<section id="missing-values" class="slide level2">
+<h2>Missing values</h2>
+<p>Missing values obviously can not convey any information about the
+relationship between the variables, so modelling functions will drop any
+rows that contain missing values. R’s default behaviour is to silently
+drop them, but <code>options(na.action = na.warn)</code> (run in the
+prerequisites), makes sure you get a warning.</p>
+<div class="sourceCode" id="cb88"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="fu">tribble</span>(</span>
+<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>  <span class="sc">~</span>x, <span class="sc">~</span>y,</span>
+<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>  <span class="dv">1</span>, <span class="fl">2.2</span>,</span>
+<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a>  <span class="dv">2</span>, <span class="cn">NA</span>,</span>
+<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>  <span class="dv">3</span>, <span class="fl">3.5</span>,</span>
+<span id="cb88-6"><a href="#cb88-6" aria-hidden="true" tabindex="-1"></a>  <span class="dv">4</span>, <span class="fl">8.3</span>,</span>
+<span id="cb88-7"><a href="#cb88-7" aria-hidden="true" tabindex="-1"></a>  <span class="cn">NA</span>, <span class="dv">10</span></span>
+<span id="cb88-8"><a href="#cb88-8" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb88-9"><a href="#cb88-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb88-10"><a href="#cb88-10" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> df)</span></code></pre></div>
+<pre><code>## Warning: Dropping 2 rows with missing values</code></pre>
+<p>To suppress the warning, set <code>na.action = na.exclude</code>:</p>
+<div class="sourceCode" id="cb90"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a>mod <span class="ot">&lt;-</span> <span class="fu">lm</span>(y <span class="sc">~</span> x, <span class="at">data =</span> df, <span class="at">na.action =</span> na.exclude)</span></code></pre></div>
+<p>You can always see exactly how many observations were used with
+<code>nobs()</code>:</p>
+<div class="sourceCode" id="cb91"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb91-1"><a href="#cb91-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nobs</span>(mod)</span></code></pre></div>
+<pre><code>## [1] 3</code></pre>
+</section>
+<section id="other-model-families" class="slide level2">
+<h2>Other model families</h2>
+<p>This chapter has focussed exclusively on the class of linear models,
+which assume a relationship of the form
+<code>y = a_1 * x1 + a_2 * x2 + ... + a_n * xn</code>. Linear models
+additionally assume that the residuals have a normal distribution, which
+we haven’t talked about. There are a large set of model classes that
+extend the linear model in various interesting ways. Some of them
+are:</p>
+<ul>
+<li><p><strong>Generalised linear models</strong>,
+e.g. <code>stats::glm()</code>. Linear models assume that the response
+is continuous and the error has a normal distribution. Generalised
+linear models extend linear models to include non-continuous responses
+(e.g. binary data or counts). They work by defining a distance metric
+based on the statistical idea of likelihood.</p></li>
+<li><p><strong>Generalised additive models</strong>,
+e.g. <code>mgcv::gam()</code>, extend generalised linear models to
+incorporate arbitrary smooth functions. That means you can write a
+formula like <code>y ~ s(x)</code> which becomes an equation like
+<code>y = f(x)</code> and let <code>gam()</code> estimate what that
+function is (subject to some smoothness constraints to make the problem
+tractable).</p></li>
+<li><p><strong>Penalised linear models</strong>,
+e.g. <code>glmnet::glmnet()</code>, add a penalty term to the distance
+that penalises complex models (as defined by the distance between the
+parameter vector and the origin). This tends to make models that
+generalise better to new datasets from the same population.</p></li>
+<li><p><strong>Robust linear models</strong>,
+e.g. <code>MASS::rlm()</code>, tweak the distance to downweight points
+that are very far away. This makes them less sensitive to the presence
+of outliers, at the cost of being not quite as good when there are no
+outliers.</p></li>
+<li><p><strong>Trees</strong>, e.g. <code>rpart::rpart()</code>, attack
+the problem in a completely different way than linear models. They fit a
+piece-wise constant model, splitting the data into progressively smaller
+and smaller pieces. Trees aren’t terribly effective by themselves, but
+they are very powerful when used in aggregate by models like
+<strong>random forests</strong>
+(e.g. <code>randomForest::randomForest()</code>) or <strong>gradient
+boosting machines</strong>
+(e.g. <code>xgboost::xgboost</code>.)</p></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="site_libs/reveal.js-3.3.0.1/lib/js/head.min.js"></script>
+  <script src="site_libs/reveal.js-3.3.0.1/js/reveal.js"></script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        // Display controls in the bottom right corner
+        controls: true,
+        // Display a presentation progress bar
+        progress: true,
+        // Display the page number of the current slide
+        slideNumber: true,
+        // Push each slide change to the browser history
+        history: true,
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+        // Enable the slide overview mode
+        overview: true,
+        // Vertical centering of slides
+        center: false,
+        // Enables touch navigation on devices with touch input
+        touch: true,
+        // Turns fragments on and off globally
+        fragments: true,
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+        // Opens links in an iframe preview overlay
+        previewLinks: true,
+        // Transition style
+        transition: 'zoom', // none/fade/slide/convex/concave/zoom
+        // Transition speed
+        transitionSpeed: 'default', // default/fast/slow
+        // Transition style for full page slide backgrounds
+        backgroundTransition: 'default', // none/fade/slide/convex/concave/zoom
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: '90%',
+        height: '90%',
+        // Factor of the display size that should remain empty around the content
+        margin: 0.1,
+        // Bounds for smallest/largest possible scale to apply to content
+        minScale: 1,
+        maxScale: 3,
+
+
+
+        chalkboard: {
+        },
+
+        keyboard: {
+          67: function() { RevealChalkboard.toggleNotesCanvas() },    // toggle notes canvas when 'c' is pressed
+          66: function() { RevealChalkboard.toggleChalkboard() }, // toggle chalkboard when 'b' is pressed
+          46: function() { RevealChalkboard.clear() },    // clear chalkboard when 'DEL' is pressed
+           8: function() { RevealChalkboard.reset() },    // reset chalkboard data on current slide when 'BACKSPACE' is pressed
+          68: function() { RevealChalkboard.download() }, // downlad recorded chalkboard drawing when 'd' is pressed
+        },
+
+        // Optional reveal.js plugins
+        dependencies: [
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/zoom-js/zoom.js', async: true },
+          { src: 'site_libs/reveal.js-3.3.0.1/plugin/chalkboard/chalkboard.js', async: true },
+        ]
+      });
+    </script>
+  <!-- dynamically load mathjax for compatibility with self-contained -->
+  <script>
+    (function () {
+      var script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+      document.getElementsByTagName("head")[0].appendChild(script);
+    })();
+  </script>
+
+<script>
+  (function() {
+    if (window.jQuery) {
+      Reveal.addEventListener( 'slidechanged', function(event) {  
+        window.jQuery(event.previousSlide).trigger('hidden');
+        window.jQuery(event.currentSlide).trigger('shown');
+      });
+    }
+  })();
+</script>
+
+
+  </body>
+</html>
